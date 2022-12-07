@@ -1,0 +1,105 @@
+// Externals
+
+// Setup
+@import 'setup/variables';
+// @import 'setup/functions';
+// @import 'setup/mixins';
+
+// Basics
+@import 'basics/typography';
+@import 'basics/base';
+@import 'basics/helpers';
+// @import 'basics/layout';
+// @import 'basics/modals';
+// @import 'basics/animations';
+
+// Pages
+@import 'pages/home';
+
+// Cmps
+@import 'cmps/landing-page';
+@import 'cmps/about';
+@import 'cmps/my-projects';
+@import 'cmps/footer';
+@import 'cmps/skills';
+@import 'cmps/project-preview';
+
+.nav {
+  position: fixed;
+  right: 30px;
+  bottom: 50%;
+  transform: translate(0, 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+    border-radius: 20px;
+    background-color: rgba(88, 102, 103, 0.531);
+    opacity: 20%;
+    transition: opacity 0.3s;
+    padding: 5px;
+    width: 70px;
+
+    &.curr-btn {
+      background-color: rgba(93, 93, 93, 0.575);
+      opacity: 1;
+      color: white;
+    }
+
+    &:hover {
+      opacity: 80%;
+      color: white;
+    }
+
+    a {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+
+      padding: 10px 15px;
+      color: rgb(255, 255, 255);
+
+      :hover {
+        color: white;
+      }
+
+      svg {
+        width: 50px;
+        height: 50px;
+        padding: 15px;
+        color: black;
+      }
+
+      .logo {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: none;
+      }
+    }
+  }
+
+  .scroll-down-btn {
+  }
+  .scroll-up-btn {
+  }
+  .scroll-up-about-btn {
+  }
+}
+
+@media (max-width: 700px) {
+  .nav {
+    visibility: hidden;
+  }
+}

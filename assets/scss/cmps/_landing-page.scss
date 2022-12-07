@@ -1,0 +1,54 @@
+.landing-page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+
+  background-image: url('https://res.cloudinary.com/duajg3ah1/image/upload/v1661082647/myPortfolio/g0ulikadrzmemfm4nh0w.jpg');
+  background-attachment: fixed;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .container {
+    text-align: center;
+    font-size: 2.3rem;
+
+    h1 {
+      font-size: 3.9rem;
+      filter: drop-shadow(2px 2px 9px #e4e1d8);
+    }
+
+    p {
+      filter: drop-shadow(2px 2px 9px#e4e1d8);
+    }
+
+    .divider {
+      content: '';
+      width: 100%;
+      display: block;
+      margin: 20px auto;
+      border-bottom: 1px solid #ffffff;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .landing-page {
+    .container {
+      padding: 0 10px;
+
+      h1 {
+      }
+
+      p {
+      }
+
+      .divider {
+      }
+    }
+  }
+}

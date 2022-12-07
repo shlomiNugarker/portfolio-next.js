@@ -1,0 +1,41 @@
+.footer {
+  background-color: #353535;
+  min-height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    text-align: center;
+    // font-size: 1.3rem;
+
+    .social-bar {
+      display: flex;
+      margin: 10px 0 10px 0;
+      margin: 0 5px;
+      .logo {
+        cursor: pointer;
+        margin: 5px 5px;
+
+        &.github {
+          left: 75px;
+        }
+        &.whatsapp {
+          left: 150px;
+        }
+
+        &.phone {
+          color: #717171;
+        }
+
+        svg {
+          width: 70px;
+          height: 70px;
+
+          &:hover {
+          }
+        }
+      }
+    }
+  }
+}
