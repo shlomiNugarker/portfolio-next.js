@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import { GitHubLogo } from '../assets/imgs/GitHubLogo'
 import { utilService } from '../services/utilService'
 
@@ -76,7 +76,6 @@ export const ProjectPreview = ({ project }: { project: any }) => {
           {project.linkDemo && (
             <div className="demo-link">
               <a href={project.linkDemo} target="_blank" rel="noreferrer">
-                <FontAwesomeIcon icon={'fa-solid fa-arrow-right' as IconProp} />
                 <p>Live site</p>
               </a>
             </div>
