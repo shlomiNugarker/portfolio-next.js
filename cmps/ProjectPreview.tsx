@@ -5,7 +5,6 @@ import { utilService } from '../services/utilService'
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
 import { Carousel } from 'react-responsive-carousel'
-import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 export const ProjectPreview = ({ project }: { project: any }) => {
   return (
