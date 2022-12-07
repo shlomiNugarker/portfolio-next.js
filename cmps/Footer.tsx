@@ -1,8 +1,8 @@
 import { GitHubLogo } from '../assets/imgs/GitHubLogo'
 import { LinkedinLogo } from '../assets/imgs/LinkedinLogo'
 import { WhatsAppLogo } from '../assets/imgs/WhatsAppLogo'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IconProp } from '@fortawesome/fontawesome-svg-core'
+
+import { Phone } from '../assets/imgs/Phone'
 
 export const Footer = () => {
   return (
@@ -39,7 +39,7 @@ export const Footer = () => {
           </span>
           <span className="phone logo">
             <a href="tel:052-952-6762" target="_blank" rel="noreferrer">
-              <FontAwesomeIcon icon={'fa-solid fa-phone' as IconProp} />
+              <Phone></Phone>
             </a>
           </span>
         </div>
