@@ -12,7 +12,7 @@ import css from '../assets/imgs/CSS3.svg.png'
 
 import Image from 'next/image'
 
-export const Skills = (props) => {
+export const Skills = () => {
   return (
     <section className="skills" id="skills-page">
       <div className="title">

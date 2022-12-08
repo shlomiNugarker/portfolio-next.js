@@ -37,7 +37,7 @@ export default function Home() {
         <meta
           name="description"
           content="Full-Stack / Frontend Web Developer with knowledge and experience writing single-page applications
- using the latest WEB technologies such as Node.js, Vue.js, Vuex, React.js, and  Redux."
+                   using the latest WEB technologies such as Node.js, Vue.js, Vuex, React.js, and  Redux."
         />
       </Head>
 
