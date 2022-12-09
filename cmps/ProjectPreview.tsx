@@ -28,11 +28,7 @@ export const ProjectPreview = ({ project }: { project: any }) => {
           showThumbs={false}
         >
           {project.imgs.map((img: string) => (
-            <div
-              className="imgs"
-              key={utilService.makeId()}
-              style={{ width: '100%', height: '100%', position: 'relative' }}
-            >
+            <div className="imgs" key={utilService.makeId()}>
               <a
                 href={project.linkDemo || project.linkGitHub}
                 target="_blank"
@@ -44,7 +40,7 @@ export const ProjectPreview = ({ project }: { project: any }) => {
                   alt=""
                   className="img"
                   style={{
-                    width: '100%',
+                    width: '60%',
                     height: '100%',
                     position: 'relative',
                   }}

@@ -81,7 +81,7 @@ export const MyProjects = () => {
 
     {
       title: 'Minesweeper',
-      tags: ['Vannila Javascript(ES6)', '2D Arrays'],
+      tags: ['Vanilla Javascript(ES6)', '2D Arrays', 'Recursive function'],
       imgs: [
         'https://res.cloudinary.com/duajg3ah1/image/upload/v1661026713/myPortfolio/jewprayumjkndv8m8mbg.png',
       ],
@@ -92,7 +92,7 @@ export const MyProjects = () => {
     },
     {
       title: 'Snake',
-      tags: ['Vannila Javascript(ES6)', '2D array', 'Recursion'],
+      tags: ['Vanilla Javascript(ES6)', '2D array', 'Recursion'],
       imgs: [
         'https://res.cloudinary.com/duajg3ah1/image/upload/v1662967686/myPortfolio/fxznj0uz82fykb6whhbi.png',
       ],
@@ -102,7 +102,7 @@ export const MyProjects = () => {
     },
     {
       title: 'Meme-Generator',
-      tags: ['Vannila Javascript(ES6)', 'Canvas'],
+      tags: ['Vanilla Javascript(ES6)', 'Canvas'],
       imgs: [
         'https://res.cloudinary.com/duajg3ah1/image/upload/v1660924455/myPortfolio/n9xkm3fgtpafoq5hejiu.png',
       ],
@@ -114,7 +114,7 @@ export const MyProjects = () => {
     },
     {
       title: 'Pacman',
-      tags: ['Vannila Javascript(ES6)', '2D array'],
+      tags: ['Vanilla Javascript(ES6)', '2D array'],
       imgs: [
         'https://res.cloudinary.com/duajg3ah1/image/upload/v1661097436/myPortfolio/xij76xyl0pe8xfdiugrs.png',
       ],
@@ -129,7 +129,7 @@ export const MyProjects = () => {
       imgs: [
         'https://res.cloudinary.com/duajg3ah1/image/upload/v1661112741/myPortfolio/up9mom63hxek86yuah1c.png',
       ],
-      description: 'My first Vue app in Coding academy bootcamp.',
+      description: 'My first Vue app in Coding academy boot-camp.',
       linkDemo: 'https://shlominugarker.github.io/appAsusProj/#/mailBox',
       linkGitHub: 'https://github.com/shlomiNugarker/appAsusProj',
     },

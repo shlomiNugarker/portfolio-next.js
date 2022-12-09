@@ -34,11 +34,7 @@
       .img {
         border-radius: 10px;
         width: 60%;
-        
-
-
-       
-        
+        object-fit: cover;
       }
     }
 
@@ -128,7 +124,7 @@
       .imgs {
         .img {
           // left: 11%;
-          width: 100%;
+          width: 100% !important;
         }
       }
 
