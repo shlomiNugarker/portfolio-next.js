@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <section className="home-page">
       <Head>
-        <title>Shlomi Mugarker - Portfolio</title>
+        <title>Shlomi Nugarker - Portfolio</title>
         <meta
           name="description"
           content="Full-Stack / Frontend Web Developer with knowledge and experience writing single-page applications
