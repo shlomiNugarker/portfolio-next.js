@@ -91,6 +91,25 @@ export const MyProjects = () => {
       linkGitHub: 'https://github.com/shlomiNugarker/minesweeper--sprint-1',
     },
     {
+      title: 'Remote-sessions',
+      tags: [
+        'React',
+        'TypeScript',
+        'React-ace',
+        'Express',
+        'socket.io',
+        'MongoDB',
+        'Node.js',
+      ],
+      imgs: [
+        'https://res.cloudinary.com/duajg3ah1/image/upload/v1673381405/myPortfolio/cztl69dtpc1xxt5j6sf0.png',
+      ],
+      description:
+        'Online coding web application. making remote sessions, sharing a piece of code with your mentor/ student, observe him while he is writing and changing the code in real time.',
+      linkDemo: 'https://remote-sessions.onrender.com/',
+      linkGitHub: 'https://github.com/shlomiNugarker/-remote-sessions-react',
+    },
+    {
       title: 'Snake',
       tags: ['Vanilla Javascript(ES6)', '2D array', 'Recursion'],
       imgs: [
