@@ -78,6 +78,24 @@ export const MyProjects = () => {
       linkDemo: 'https://shlominugarker.github.io/monopoly-demo/#/',
       linkGitHub: 'https://github.com/shlomiNugarker/Monoploly-Vue.js',
     },
+    {
+      title: 'AchcchApp',
+      tags: [
+        'Angular',
+        'Typescript',
+        'SCSS',
+        'Node.js',
+        'SQL',
+        'Rxjs',
+        'Express',
+      ],
+      imgs: [
+        'https://res.cloudinary.com/duajg3ah1/image/upload/v1676543241/ozyskbfzcp6djkoukdot.png',
+      ],
+      description: '',
+      linkDemo: 'https://achchhapp.onrender.com/main-page',
+      linkGitHub: 'https://github.com/shlomiNugarker/Whatsapp-clone-Angular',
+    },
 
     {
       title: 'Minesweeper',
