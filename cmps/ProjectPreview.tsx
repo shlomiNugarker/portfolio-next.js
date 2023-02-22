@@ -59,22 +59,24 @@ export const ProjectPreview = ({ project }: { project: any }) => {
         </div>
 
         <div className="details">
-          {project.linkGitHub && (
-            <div className="githun-link">
-              <a href={project.linkGitHub} target="_blank" rel="noreferrer">
-                <GitHubLogo />
-                <p>GitHub</p>
-              </a>
-            </div>
-          )}
+          <div className="container-links">
+            {project.linkGitHub && (
+              <div className="githun-link">
+                <a href={project.linkGitHub} target="_blank" rel="noreferrer">
+                  {/* <GitHubLogo /> */}
+                  <p>Code</p>
+                </a>
+              </div>
+            )}
 
-          {project.linkDemo && (
-            <div className="demo-link">
-              <a href={project.linkDemo} target="_blank" rel="noreferrer">
-                <p>Live site</p>
-              </a>
-            </div>
-          )}
+            {project.linkDemo && (
+              <div className="demo-link">
+                <a href={project.linkDemo} target="_blank" rel="noreferrer">
+                  <p>Demo</p>
+                </a>
+              </div>
+            )}
+          </div>
 
           <div className="description">
             <p>{project.description}</p>
