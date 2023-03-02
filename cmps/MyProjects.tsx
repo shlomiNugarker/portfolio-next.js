@@ -128,6 +128,23 @@ export const MyProjects = () => {
       linkGitHub: 'https://github.com/shlomiNugarker/-remote-sessions-react',
     },
     {
+      title: 'Video+',
+      tags: [
+        'Next.js',
+        'TypeScript',
+        'Server side rendering',
+        'SASS',
+        'TMDB api',
+        'Youtube api',
+      ],
+      imgs: [
+        'https://res.cloudinary.com/duajg3ah1/image/upload/v1677753084/v9zqwmvbztuh7mahocml.png',
+      ],
+      description: '',
+      linkDemo: 'https://videoplus.vercel.app/',
+      linkGitHub: 'https://github.com/shlomiNugarker/video-plus',
+    },
+    {
       title: 'Snake',
       tags: ['Vanilla Javascript(ES6)', '2D array', 'Recursion'],
       imgs: [
