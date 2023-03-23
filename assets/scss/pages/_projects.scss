@@ -21,6 +21,7 @@
       }
       img {
         object-fit: contain;
+        height: 285px;
 
         cursor: pointer;
         border-radius: 15px;
@@ -84,6 +85,7 @@
           font-size: 34px;
         }
         img {
+          height: 160px;
         }
 
         .tags {
