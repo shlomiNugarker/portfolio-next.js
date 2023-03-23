@@ -1,3 +1,166 @@
 .home-page {
-  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: #1a1a1a;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 100vw;
+  // min-height: calc(100vh - 80px);
+  width: 100%;
+
+  // ABOUT
+  .about {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    grid-gap: 50px;
+    gap: 50px;
+    justify-content: space-around;
+    padding: 40px;
+    align-items: center;
+
+    min-height: 100vh;
+    margin-top: 80px;
+
+    .about-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      max-width: 700px;
+      // width: 45vw;
+
+      h1 {
+        color: #e76161;
+        font-size: 48px;
+        margin: 10px 0;
+      }
+      h2 {
+        color: #d5d5d5;
+        font-size: 21px;
+        margin-bottom: 20px;
+      }
+      span {
+        // color: #e76161;
+        text-align: center;
+        border: 1px solid;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+          font-size: 30px;
+          margin-right: 5px;
+        }
+        a {
+          text-decoration: none;
+        }
+
+        &:hover {
+          color: #e76161;
+        }
+      }
+    }
+
+    .container {
+      // width: 90%;
+      height: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      img {
+        border-radius: 10%;
+        object-fit: cover;
+        width: 200px;
+        height: 200px;
+        margin-bottom: 20px;
+      }
+
+      .details {
+        font-size: 21px;
+        p {
+          margin: 5px 0;
+        }
+      }
+      .social-links {
+        margin-top: 10px;
+        span {
+          margin: 0 5px;
+          a {
+            svg {
+              font-size: 52px;
+              cursor: pointer;
+            }
+          }
+
+          &:hover {
+            color: #e76161;
+          }
+        }
+
+        .linkedin {
+        }
+        .whatsapp {
+        }
+        .github {
+        }
+      }
+    }
+    .arrow-down {
+      font-size: 42px;
+    }
+  }
+
+  // Technologies
+  .technologies {
+    width: 80%;
+    margin-bottom: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    h1 {
+      text-align: center;
+      color: #e76161;
+      font-size: 48px;
+      margin: 10px;
+    }
+    ul {
+      margin: 0;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      li {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 15px 20px;
+
+        svg {
+          width: 100px;
+          height: 100px;
+          transition: all, 0.3s;
+
+          &:hover {
+            color: #e76161;
+          }
+        }
+      }
+    }
+  }
+  .arrow-up {
+    font-size: 42px;
+  }
 }

@@ -1,48 +1,38 @@
-import { GitHubLogo } from '../assets/imgs/GitHubLogo'
-import { LinkedinLogo } from '../assets/imgs/LinkedinLogo'
-import { WhatsAppLogo } from '../assets/imgs/WhatsAppLogo'
+import { AiFillLinkedin } from 'react-icons/ai'
+import { SiGmail } from 'react-icons/si'
+import { AiFillGithub } from 'react-icons/ai'
 
-import { Phone } from '../assets/imgs/Phone'
-
-export const Footer = () => {
+export default function Footer() {
   return (
-    <section className="footer" id="footer-page">
-      <div className="container">
-        <div className="social-bar">
-          <span className="linkedin logo">
-            <a
-              href="https://www.linkedin.com/in/shlomi-nugarker-b89777155/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <LinkedinLogo />
-            </a>
-          </span>
-
-          <span className="github logo">
-            <a
-              href="https://github.com/shlomiNugarker"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <GitHubLogo />
-            </a>
-          </span>
-          <span className="whatsapp logo">
-            <a
-              href="https://wa.me/972529526762?text=Hey Shlomi, "
-              target="_blank"
-              rel="noreferrer"
-            >
-              <WhatsAppLogo />
-            </a>
-          </span>
-          <span className="phone logo">
-            <a href="tel:052-952-6762" target="_blank" rel="noreferrer">
-              <Phone></Phone>
-            </a>
-          </span>
-        </div>
+    <section className="footer">
+      <div className="squere"></div>
+      <h4>
+        {'©2023'} <br />
+        {'Build with '}
+        <span>Next.js/TypeSript</span>
+      </h4>
+      <div className="icons">
+        <a
+          href="https://www.linkedin.com/in/shlomi-nugarker-b89777155/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <AiFillLinkedin />
+        </a>
+        <a
+          href="mailto: shlomin1231@gmail.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <SiGmail />
+        </a>
+        <a
+          href="https://github.com/shlomiNugarker"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <AiFillGithub />
+        </a>
       </div>
     </section>
   )

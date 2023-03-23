@@ -1,52 +1,49 @@
 .footer {
-  background-color: #353535;
-  min-height: 10vh;
-  display: flex;
   align-items: center;
+  background-color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  margin: 50px 0;
+  max-width: 100vw;
+  min-height: 5vh;
 
-  .container {
+  .squere {
+    align-items: center;
+    border: 3px solid #e76161;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    min-height: 40px;
+    min-width: 40px;
+    width: 40px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  h4 {
+    border-bottom: 3px solid #e76161;
+    color: #d5d5d5;
+    padding: 20px;
     text-align: center;
-    // font-size: 1.3rem;
+    width: 200px;
+  }
+  .icons {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    grid-gap: 30px;
+    gap: 30px;
+    max-height: 100px;
 
-    .social-bar {
-      display: flex;
-      margin: 10px 0 10px 0;
-      margin: 0 5px;
-      .logo {
+    a {
+      svg {
+        font-size: 42px;
         cursor: pointer;
-        margin: 5px 5px;
-
-        &.github {
-          left: 75px;
-        }
-        &.whatsapp {
-          left: 150px;
-        }
-
-        &.phone {
-          a {
-            svg {
-              color: #717171;
-            }
-          }
-        }
-
-        svg {
-          width: 70px;
-          height: 70px;
-
-          &:hover {
-          }
+        &:hover {
+          color: #e76161;
         }
       }
-    }
-  }
-}
-.phone {
-  a {
-    svg {
-      color: #717171;
     }
   }
 }

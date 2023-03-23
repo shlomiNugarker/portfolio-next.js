@@ -4,18 +4,20 @@
 
 html {
   font-family: Montserrat, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   scroll-behavior: smooth;
+  font-family: 'Roboto Mono', monospace;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: #1a1a1a;
+  color: #d5d5d5;
 }
 
 img {
@@ -58,7 +60,7 @@ input {
 
 // MAC like scrollbar
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 15px;
   background-color: rgba(0, 0, 0, 0);
   -webkit-border-radius: 100px;
 }
