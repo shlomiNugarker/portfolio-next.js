@@ -35,7 +35,7 @@ export default function Projects() {
                 src={proj.imgs[0]}
                 alt={proj.title}
                 width={200}
-                height={200}
+                height={400}
               />
             </a>
 

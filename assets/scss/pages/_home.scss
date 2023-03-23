@@ -164,3 +164,87 @@
     font-size: 42px;
   }
 }
+
+///
+///
+///
+///
+@media (max-width: 480px) {
+  .home-page {
+    // ABOUT
+    .about {
+      .about-container {
+        h1 {
+          font-size: 28px;
+          text-align: center;
+        }
+        h2 {
+          text-align: center;
+          font-size: 18px;
+        }
+        span {
+          svg {
+          }
+          a {
+          }
+
+          &:hover {
+          }
+        }
+      }
+
+      .container {
+        img {
+          width: 50%;
+          height: 50%;
+        }
+
+        .details {
+          p {
+            text-align: center;
+            font-size: 18px;
+          }
+        }
+        .social-links {
+          span {
+            a {
+              svg {
+              }
+            }
+
+            &:hover {
+            }
+          }
+
+          .linkedin {
+          }
+          .whatsapp {
+          }
+          .github {
+          }
+        }
+      }
+      .arrow-down {
+      }
+    }
+
+    // Technologies
+    .technologies {
+      margin-top: 20px;
+      h1 {
+        font-size: 28px;
+      }
+      ul {
+        li {
+          svg {
+            width: 50px;
+            &:hover {
+            }
+          }
+        }
+      }
+    }
+    .arrow-up {
+    }
+  }
+}

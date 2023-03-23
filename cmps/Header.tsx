@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 export default function Header() {
   const router = useRouter()
   const [page, setPage] = useState(router.pathname)
+
   useEffect(() => {
     if (page !== router.pathname) setPage(router.pathname)
   }, [page, router.pathname])

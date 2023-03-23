@@ -2,6 +2,7 @@
   font-size: 24px;
   position: fixed;
   width: 100%;
+  border-bottom: 5px solid #e76161;
 
   nav {
     background-color: #181818;
@@ -51,6 +52,29 @@
       color: #d5d5d5;
       &.selected {
         color: rgb(231, 97, 97);
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    nav {
+      :nth-child(1) {
+        div {
+        }
+
+        h3 {
+          display: none;
+        }
+      }
+
+      & a {
+        h3 {
+          font-size: 20px;
+        }
+        &.selected {
+        }
       }
     }
   }
