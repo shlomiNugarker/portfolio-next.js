@@ -26,7 +26,7 @@ import { HiDocumentDownload } from 'react-icons/hi'
 
 export default function Home() {
   return (
-    <section className="home-page">
+    <section className="home-page animate__animated ">
       <Head>
         <title>Shlomi Nugarker - Portfolio</title>
         <meta
@@ -39,8 +39,10 @@ export default function Home() {
       {/* About: */}
       <div className="about" id="about">
         <div className="about-container">
-          <h1>Hello! , I&apos;m Shlomi </h1>
-          <h2>
+          <h1 className="animate__animated animate__fadeInRight">
+            Hello! , I&apos;m Shlomi{' '}
+          </h1>
+          <h2 className="animate__animated animate__fadeInLeft">
             I&apos;m a junior Full-Stack / Frontend Web Developer with knowledge
             and experience in writing single-page applications using the latest
             WEB technologies such as Node.js, Vue.js, Vuex, React.js, Redux, and
@@ -52,7 +54,7 @@ export default function Home() {
             <br /> Feel free to review my CV and contact me if you think
             I&apos;d be a good fit for your team.
           </h2>
-          <span>
+          <span className="animate__animated animate__fadeInLeft">
             <HiDocumentDownload />
             <a
               className="cv"
@@ -64,7 +66,7 @@ export default function Home() {
             </a>
           </span>
         </div>
-        <div className="container">
+        <div className="container animate__animated animate__jackInTheBox">
           <Image
             loader={() =>
               'https://res.cloudinary.com/duajg3ah1/image/upload/v1660763357/shlomiN_mewit4.jpg'
@@ -73,6 +75,20 @@ export default function Home() {
             alt="Picture of the author"
             width={200}
             height={200}
+            id="image-profile"
+            className="animate__animated "
+            onMouseEnter={(ev) =>
+              document
+                .querySelector('#image-profile')
+                ?.classList.add('animate__pulse')
+            }
+            onMouseLeave={() => {
+              setTimeout(() => {
+                document
+                  .querySelector('#image-profile')
+                  ?.classList.remove('animate__pulse')
+              }, 2000)
+            }}
           />
           <div className="details">
             <p>

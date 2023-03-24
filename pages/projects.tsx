@@ -5,10 +5,6 @@ import Image from 'next/image'
 import { AiFillGithub } from 'react-icons/ai'
 import { CgWebsite } from 'react-icons/cg'
 
-import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
-import { Carousel } from 'react-responsive-carousel'
-import { spawn } from 'child_process'
-
 export default function Projects() {
   return (
     <section className="projects-page">
@@ -23,7 +19,10 @@ export default function Projects() {
 
       <div className="list ">
         {myProjects.map((proj) => (
-          <section key={proj.id} className="proj">
+          <section
+            key={proj.id}
+            className="proj animate__animated animate__zoomIn"
+          >
             <h1 className="title">{proj.title}</h1>
             <a
               href={proj.linkDemo || proj.linkGitHub}

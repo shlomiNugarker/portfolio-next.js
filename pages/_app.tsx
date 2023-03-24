@@ -1,4 +1,5 @@
 import '../assets/scss/global.scss'
+import 'animate.css'
 import type { AppProps } from 'next/app'
 import Header from '../cmps/Header'
 import Footer from '../cmps/Footer'
