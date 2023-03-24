@@ -178,7 +178,6 @@
     "linkDemo": "https://shlominugarker.github.io/pacman/",
     "linkGitHub": "https://github.com/shlomiNugarker/pacman"
   },
-
   {
     "id": 12,
     "title": "Mail-app",
@@ -189,5 +188,23 @@
     "description": "My first Vue app in Coding academy boot-camp.",
     "linkDemo": "https://shlominugarker.github.io/appAsusProj/#/mailBox",
     "linkGitHub": "https://github.com/shlomiNugarker/appAsusProj"
+  },
+  {
+    "id": 13,
+    "title": "2D game",
+    "tags": [
+      "Html",
+      "Css",
+      "Vanilla-ts",
+      "Game-development",
+      "no frameworks",
+      "State management"
+    ],
+    "imgs": [
+      "https://res.cloudinary.com/duajg3ah1/image/upload/v1679609836/myPortfolio/hbrcth7c2kcayvtabt7g.png"
+    ],
+    "description": "JavaScript game development",
+    "linkDemo": "https://shlominugarker.github.io/Game-development-tutorial/",
+    "linkGitHub": "https://github.com/shlomiNugarker/Game-development-tutorial"
   }
 ]

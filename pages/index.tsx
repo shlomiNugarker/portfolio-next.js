@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { MouseEvent, useState } from 'react'
 import Image from 'next/image'
 
 // React icons:
@@ -18,7 +17,6 @@ import { SiCss3 } from 'react-icons/si'
 import { AiFillHtml5 } from 'react-icons/ai'
 import { AiFillGithub } from 'react-icons/ai'
 import { AiOutlineArrowUp } from 'react-icons/ai'
-import { AiOutlineArrowDown } from 'react-icons/ai'
 import { BsGit } from 'react-icons/bs'
 import { IoLogoJavascript } from 'react-icons/io'
 import { AiFillLinkedin } from 'react-icons/ai'
@@ -50,7 +48,7 @@ export default function Home() {
             <br /> A graduate of the Coding Academy - An intensive coding
             Bootcamp (640 hours) that qualifies Full Stack developers. <br />
             <br /> I am highly motivated, and currently seeking a Frontend/
-            Backend Developer position. <br />
+            Full-Stack Developer position. <br />
             <br /> Feel free to review my CV and contact me if you think
             I&apos;d be a good fit for your team.
           </h2>
@@ -121,11 +119,6 @@ export default function Home() {
             </span>
           </div>
         </div>
-        {/* <span className="arrow-down">
-          <a href="#technologies">
-            <AiOutlineArrowDown />
-          </a>
-        </span> */}
       </div>
 
       {/* Technologies: */}

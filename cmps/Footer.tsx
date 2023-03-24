@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="squere"></div>
       <h4>
         {'©2023'} <br />
-        {'Build with '}
+        {'Built with '}
         <span>Next.js/TypeSript</span>
       </h4>
       <div className="icons">
