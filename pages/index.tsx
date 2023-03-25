@@ -39,7 +39,7 @@ export default function Home() {
       {/* About: */}
       <div className="about" id="about">
         <div className="about-container">
-          <h1 className=" animate__fadeInRight">Hello! , I&apos;m Shlomi </h1>
+          <h1 className=" animate__fadeInRight">Hello! ,I&apos;m Shlomi </h1>
           <h2 className=" animate__fadeInLeft">
             I&apos;m a junior Full-Stack / Frontend Web Developer with knowledge
             and experience in writing single-page applications using the latest
