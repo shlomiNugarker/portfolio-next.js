@@ -39,10 +39,8 @@ export default function Home() {
       {/* About: */}
       <div className="about" id="about">
         <div className="about-container">
-          <h1 className="animate__animated animate__fadeInRight">
-            Hello! , I&apos;m Shlomi{' '}
-          </h1>
-          <h2 className="animate__animated animate__fadeInLeft">
+          <h1 className=" animate__fadeInRight">Hello! , I&apos;m Shlomi </h1>
+          <h2 className=" animate__fadeInLeft">
             I&apos;m a junior Full-Stack / Frontend Web Developer with knowledge
             and experience in writing single-page applications using the latest
             WEB technologies such as Node.js, Vue.js, Vuex, React.js, Redux, and
@@ -54,7 +52,7 @@ export default function Home() {
             <br /> Feel free to review my CV and contact me if you think
             I&apos;d be a good fit for your team.
           </h2>
-          <span className="animate__animated animate__fadeInLeft">
+          <span className=" animate__fadeInLeft">
             <HiDocumentDownload />
             <a
               className="cv"
@@ -66,7 +64,7 @@ export default function Home() {
             </a>
           </span>
         </div>
-        <div className="container animate__animated animate__jackInTheBox">
+        <div className="container">
           <Image
             loader={() =>
               'https://res.cloudinary.com/duajg3ah1/image/upload/v1660763357/shlomiN_mewit4.jpg'
@@ -76,7 +74,7 @@ export default function Home() {
             width={200}
             height={200}
             id="image-profile"
-            className="animate__animated "
+            className=""
             onMouseEnter={(ev) =>
               document
                 .querySelector('#image-profile')
