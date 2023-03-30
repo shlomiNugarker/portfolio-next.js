@@ -23,8 +23,8 @@
     "id": 2,
     "title": "Taskday",
     "tags": [
-      "mongoDb",
-      "javascript(ES6)",
+      "MongoDb",
+      "Javascript(ES6)",
       "Rest API",
       "Socket.io",
       "Vue.js",
@@ -36,8 +36,8 @@
       "Node.js"
     ],
     "imgs": [
-      "https://res.cloudinary.com/duajg3ah1/image/upload/v1661076854/myPortfolio/fzewgnsmyharf6r7la8m.png",
       "https://res.cloudinary.com/duajg3ah1/image/upload/v1660916126/myPortfolio/qdtzolm9ldd5qlquq2aj.png",
+      "https://res.cloudinary.com/duajg3ah1/image/upload/v1661076854/myPortfolio/fzewgnsmyharf6r7la8m.png",
       "https://res.cloudinary.com/duajg3ah1/image/upload/v1660916124/myPortfolio/z1stcuqxhfmapn4igopo.png",
       "https://res.cloudinary.com/duajg3ah1/image/upload/v1660916123/myPortfolio/ni1pvrzgoxeu71fr157e.png"
     ],
@@ -67,7 +67,7 @@
   {
     "id": 4,
     "title": "Monopoly",
-    "tags": ["javascript(ES6)", "Vue.js", "SCSS", "Vuex", "MVC"],
+    "tags": ["Javascript(ES6)", "Vue.js", "SCSS", "Vuex", "MVC"],
     "imgs": [
       "https://res.cloudinary.com/duajg3ah1/image/upload/v1660923765/myPortfolio/oxf2ncafrtmiwushbjg2.png",
       "https://res.cloudinary.com/duajg3ah1/image/upload/v1661077030/myPortfolio/ypvbcwolwot13zpj83m1.png",
@@ -116,7 +116,7 @@
       "TypeScript",
       "React-ace",
       "Express",
-      "socket.io",
+      "Socket.io",
       "MongoDB",
       "Node.js"
     ],
@@ -197,7 +197,7 @@
       "Css",
       "Vanilla-ts",
       "Game-development",
-      "no frameworks",
+      "No frameworks",
       "State management"
     ],
     "imgs": [
@@ -206,5 +206,23 @@
     "description": "JavaScript game development",
     "linkDemo": "https://shlominugarker.github.io/Game-development-tutorial/",
     "linkGitHub": "https://github.com/shlomiNugarker/Game-development-tutorial"
+  },
+  {
+    "id": 14,
+    "title": "Sudoku",
+    "tags": [
+      "Vanilla-ts",
+      "2d-game",
+      "Vanilla-ts",
+      "Backtracking algorithm",
+      "Sudoku-solver",
+      "Vite"
+    ],
+    "imgs": [
+      "https://res.cloudinary.com/duajg3ah1/image/upload/v1680208679/myPortfolio/ee0lwcsjknfrlqcgrhwc.png"
+    ],
+    "description": "Sudoku is one of the most popular puzzle games of all time.",
+    "linkDemo": "https://shlominugarker.github.io/Sudoku/",
+    "linkGitHub": "https://github.com/shlomiNugarker/Sudoku"
   }
 ]

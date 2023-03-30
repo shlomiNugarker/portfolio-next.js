@@ -4,8 +4,12 @@ import Image from 'next/image'
 
 import { AiFillGithub } from 'react-icons/ai'
 import { CgWebsite } from 'react-icons/cg'
+import { useState } from 'react'
+import { DiVim } from 'react-icons/di'
+import { AiOutlineClose } from 'react-icons/ai'
 
 export default function Projects() {
+  const [viewImg, setViewImg] = useState('')
   return (
     <section className="projects-page">
       <Head>
@@ -25,9 +29,10 @@ export default function Projects() {
           >
             <h1 className="title">{proj.title}</h1>
             <a
-              href={proj.linkDemo || proj.linkGitHub}
-              target="_blank"
-              rel="noreferrer"
+              // href={proj.linkDemo || proj.linkGitHub}
+              // target="_blank"
+              // rel="noreferrer"
+              onClick={() => setViewImg(proj.imgs[0])}
             >
               <Image
                 loader={() => proj.imgs[0]}
@@ -63,6 +68,21 @@ export default function Projects() {
           </section>
         ))}
       </div>
+      {viewImg && (
+        <div className="img-viewer-container" onClick={() => setViewImg('')}>
+          {/* <span className="close-logo">
+            <AiOutlineClose></AiOutlineClose>
+          </span> */}
+          <Image
+            className="img-viewer"
+            loader={() => viewImg}
+            src={viewImg}
+            alt={viewImg}
+            width={400}
+            height={400}
+          />
+        </div>
+      )}
     </section>
   )
 }

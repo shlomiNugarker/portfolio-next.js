@@ -73,6 +73,23 @@
     }
     margin-bottom: 65px;
   }
+
+  .img-viewer-container {
+    z-index: 1000;
+    position: fixed;
+    width: calc(100vw - 15px);
+    height: calc(100vh - 80px);
+    background-color: #000000c0;
+    cursor: pointer;
+
+    .close-logo {
+      position: absolute;
+    }
+    img {
+      height: 100%;
+      object-fit: contain;
+    }
+  }
 }
 //
 @media (max-width: 490px) {
