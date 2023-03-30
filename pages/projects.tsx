@@ -5,11 +5,16 @@ import Image from 'next/image'
 import { AiFillGithub } from 'react-icons/ai'
 import { CgWebsite } from 'react-icons/cg'
 import { useState } from 'react'
-import { DiVim } from 'react-icons/di'
-import { AiOutlineClose } from 'react-icons/ai'
 
 export default function Projects() {
   const [viewImg, setViewImg] = useState('')
+  const animationsList = [
+    'animate__rollIn',
+    'animate__jackInTheBox',
+    'animate__zoomInDown',
+    'animate__zoomInLeft',
+    'animate__zoomInRight',
+  ]
   return (
     <section className="projects-page">
       <Head>
@@ -28,12 +33,7 @@ export default function Projects() {
             className="proj animate__animated animate__zoomIn"
           >
             <h1 className="title">{proj.title}</h1>
-            <a
-              // href={proj.linkDemo || proj.linkGitHub}
-              // target="_blank"
-              // rel="noreferrer"
-              onClick={() => setViewImg(proj.imgs[0])}
-            >
+            <a onClick={() => setViewImg(proj.imgs[0])}>
               <Image
                 loader={() => proj.imgs[0]}
                 src={proj.imgs[0]}
@@ -69,12 +69,19 @@ export default function Projects() {
         ))}
       </div>
       {viewImg && (
-        <div className="img-viewer-container" onClick={() => setViewImg('')}>
-          {/* <span className="close-logo">
-            <AiOutlineClose></AiOutlineClose>
-          </span> */}
+        <div
+          className="img-viewer-container animate__animated animate__fadeIn"
+          onClick={() => setViewImg('')}
+        >
           <Image
-            className="img-viewer"
+            className={
+              'img-viewer animate__animated ' +
+              ` ${
+                animationsList[
+                  Math.floor(Math.random() * animationsList.length)
+                ]
+              }`
+            }
             loader={() => viewImg}
             src={viewImg}
             alt={viewImg}
