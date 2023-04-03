@@ -9,11 +9,11 @@ import { useState } from 'react'
 export default function Projects() {
   const [viewImg, setViewImg] = useState('')
   const animationsList = [
-    'animate__rollIn',
+    // 'animate__rollIn',
     'animate__jackInTheBox',
-    'animate__zoomInDown',
-    'animate__zoomInLeft',
-    'animate__zoomInRight',
+    // 'animate__zoomInDown',
+    // 'animate__zoomInLeft',
+    // 'animate__zoomInRight',
   ]
   return (
     <section className="projects-page">

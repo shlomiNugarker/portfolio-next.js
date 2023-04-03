@@ -40,7 +40,7 @@ export default function Home() {
         <div className="about-container">
           <h1>Hello! ,I&apos;m Shlomi</h1>
           <h2 className="">
-            I&apos;m a junior Full-Stack / Frontend Web Developer with knowledge
+            I&apos;m a Full-Stack / Frontend Web Developer with knowledge
             and experience in writing single-page applications using the latest
             WEB technologies such as Node.js, Vue.js, Vuex, React.js, Redux, and
             more. <br />
