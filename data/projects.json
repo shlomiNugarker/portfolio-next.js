@@ -211,7 +211,6 @@
     "id": 14,
     "title": "Sudoku",
     "tags": [
-      "Vanilla-ts",
       "2d-game",
       "Vanilla-ts",
       "Backtracking algorithm",
