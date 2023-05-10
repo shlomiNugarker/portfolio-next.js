@@ -38,11 +38,11 @@ export default function Home() {
       {/* About: */}
       <div className="about" id="about">
         <div className="about-container">
-          <h1>Hello! ,I&apos;m Shlomi</h1>
+          <h1>Hello!, I&apos;m Shlomi</h1>
           <h2 className="">
-            I&apos;m a Full-Stack / Frontend Web Developer with knowledge
-            and experience in writing single-page applications using the latest
-            WEB technologies such as Node.js, Vue.js, Vuex, React.js, Redux, and
+            I&apos;m a Full-Stack / Frontend Web Developer with knowledge and
+            experience in writing single-page applications using the latest WEB
+            technologies such as Node.js, Vue.js, Vuex, React.js, Redux, and
             more. <br />
             <br /> A graduate of the Coding Academy - An intensive coding
             Bootcamp (640 hours) that qualifies Full Stack developers. <br />
