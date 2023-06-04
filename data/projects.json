@@ -16,7 +16,7 @@
       "https://res.cloudinary.com/duajg3ah1/image/upload/v1662386727/ctivc99rxpjymdn0za1n.png"
     ],
     "description": "A social network project.",
-    "linkDemo": "https://travelsdin.onrender.com/#/",
+    "linkDemo": "https://travelsdin-express-production.up.railway.app/",
     "linkGitHub": "https://github.com/shlomiNugarker/Social-Network-Front-"
   },
   {
@@ -42,7 +42,7 @@
       "https://res.cloudinary.com/duajg3ah1/image/upload/v1660916123/myPortfolio/ni1pvrzgoxeu71fr157e.png"
     ],
     "description": "Taskday is a project management system for collaboration.",
-    "linkDemo": "https://taskday-sprint-4.onrender.com/",
+    "linkDemo": "https://taskday-monday-production.up.railway.app/",
     "linkGitHub": "https://github.com/shlomiNugarker/sprint-4"
   },
   {
@@ -60,7 +60,7 @@
       "https://res.cloudinary.com/duajg3ah1/image/upload/v1668701783/myPortfolio/dg6pkn0oxvpgrtjn998y.png"
     ],
     "description": "Play chess with other people.",
-    "linkDemo": "https://ichess.onrender.com/",
+    "linkDemo": "https://chess-v2-backend-production.up.railway.app/",
     "linkGitHub": "https://github.com/shlomiNugarker/Chess-V2-React"
   },
 
@@ -124,7 +124,7 @@
       "https://res.cloudinary.com/duajg3ah1/image/upload/v1673381405/myPortfolio/cztl69dtpc1xxt5j6sf0.png"
     ],
     "description": "Online coding web application. making remote sessions, sharing a piece of code with your mentor/ student, observe him while he is writing and changing the code in real time.",
-    "linkDemo": "https://remote-sessions.onrender.com/",
+    "linkDemo": "https://remote-sessions-production.up.railway.app/",
     "linkGitHub": "https://github.com/shlomiNugarker/-remote-sessions-react"
   },
   {
