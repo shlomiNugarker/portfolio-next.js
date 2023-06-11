@@ -19,13 +19,19 @@
         font-size: 44px;
         margin: 5px 0;
       }
-      img {
-        object-fit: contain;
-        height: 285px;
 
-        cursor: pointer;
-        border-radius: 15px;
-        overflow: hidden;
+      a {
+        width: 100%;
+
+        img {
+          object-fit: contain;
+          // height: 285px;
+          width: 100%;
+
+          cursor: pointer;
+          border-radius: 15px;
+          overflow: hidden;
+        }
       }
 
       .tags {
@@ -53,6 +59,7 @@
             justify-content: center;
             flex-direction: row;
             align-items: center;
+            cursor: pointer;
             svg {
               font-size: 52px;
             }
@@ -81,6 +88,26 @@
     height: calc(100vh - 80px);
     background-color: #000000c0;
     cursor: pointer;
+
+    .close-logo {
+      position: absolute;
+    }
+    img {
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  .video-viewer-container {
+    z-index: 1000;
+    position: fixed;
+    width: calc(100vw - 15px);
+    height: calc(100vh - 80px);
+    background-color: #000000c0;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .close-logo {
       position: absolute;

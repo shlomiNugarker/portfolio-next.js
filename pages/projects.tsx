@@ -4,10 +4,16 @@ import Image from 'next/image'
 
 import { AiFillGithub } from 'react-icons/ai'
 import { CgWebsite } from 'react-icons/cg'
+import { FaVideo } from 'react-icons/fa'
 import { useState } from 'react'
 
+import dynamic from 'next/dynamic'
+
+const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false })
+
 export default function Projects() {
-  const [viewImg, setViewImg] = useState('')
+  const [viewImgURL, setViewImgURL] = useState('')
+  const [viewVideoURL, setViewVideoURL] = useState('')
   const animationsList = [
     // 'animate__rollIn',
     'animate__jackInTheBox',
@@ -33,9 +39,13 @@ export default function Projects() {
             className="proj animate__animated animate__zoomIn"
           >
             <h1 className="title">{proj.title}</h1>
-            <a onClick={() => setViewImg(proj.imgs[0])}>
+            <a>
               <Image
                 loader={() => proj.imgs[0]}
+                onClick={() => {
+                  setViewVideoURL('')
+                  setViewImgURL(proj.imgs[0])
+                }}
                 src={proj.imgs[0]}
                 alt={proj.title}
                 width={200}
@@ -64,14 +74,28 @@ export default function Projects() {
                   <p>Demo</p>
                 </a>
               </span>
+              {proj.videoUrl && (
+                <span>
+                  <a
+                    onClick={() => {
+                      setViewImgURL('')
+                      setViewVideoURL(proj.videoUrl)
+                    }}
+                    rel="noreferrer"
+                  >
+                    <FaVideo></FaVideo>
+                    <p>Video</p>
+                  </a>
+                </span>
+              )}
             </div>
           </section>
         ))}
       </div>
-      {viewImg && (
+      {viewImgURL && (
         <div
           className="img-viewer-container animate__animated animate__fadeIn"
-          onClick={() => setViewImg('')}
+          onClick={() => setViewImgURL('')}
         >
           <Image
             className={
@@ -82,11 +106,29 @@ export default function Projects() {
                 ]
               }`
             }
-            loader={() => viewImg}
-            src={viewImg}
-            alt={viewImg}
+            loader={() => viewImgURL}
+            src={viewImgURL}
+            alt={viewImgURL}
             width={400}
             height={400}
+          />
+        </div>
+      )}
+      {viewVideoURL && (
+        <div
+          className="video-viewer-container animate__animated animate__fadeIn"
+          onClick={() => {
+            setViewImgURL('')
+            setViewVideoURL('')
+          }}
+        >
+          <ReactPlayer
+            // loop={true}
+            playing={true}
+            muted={true}
+            width="90%"
+            height={'90%'}
+            url={viewVideoURL}
           />
         </div>
       )}
