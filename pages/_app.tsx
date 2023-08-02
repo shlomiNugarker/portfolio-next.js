@@ -25,8 +25,6 @@ export default function App({ Component, pageProps }: AppProps) {
       a?: { appendChild: (v: any) => any },
       r?: { async?: number; src?: any }
     ) {
-      console.log('rrrrr')
-
       h.hj =
         h.hj ||
         function () {
