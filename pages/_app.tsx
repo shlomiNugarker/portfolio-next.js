@@ -35,7 +35,7 @@ export default function App({ Component, pageProps }: AppProps) {
       r = o.createElement('script')
       if (!!r) {
         r.async = 1
-        r.src = t + siteId + j + hotjarVersion
+        r.src = t + siteId.toString() + j + hotjarVersion.toString()
         a?.appendChild(r)
       }
     })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=')
