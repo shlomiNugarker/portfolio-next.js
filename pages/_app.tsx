@@ -7,38 +7,16 @@ import { Analytics } from '@vercel/analytics/react'
 
 import Hotjar from '@hotjar/browser'
 import { useEffect } from 'react'
+import Script from 'next/script'
 
 export default function App({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-    const siteId = Number(process.env.NEXT_PUBLIC_HOTJAR_ID)
-    const hotjarVersion = Number(process.env.NEXT_PUBLIC_HOTJAR_SNIPPET_VERSION)
+  const siteId = Number(process.env.NEXT_PUBLIC_HOTJAR_ID)
+  const hotjarVersion = Number(process.env.NEXT_PUBLIC_HOTJAR_SNIPPET_VERSION)
 
+  useEffect(() => {
     Hotjar.init(siteId, hotjarVersion, {
       debug: true,
     })
-    //
-    ;(function (
-      h: any,
-      o: any,
-      t: any,
-      j: any,
-      a?: { appendChild: (v: any) => any },
-      r?: { async?: number; src?: any }
-    ) {
-      h.hj =
-        h.hj ||
-        function () {
-          ;(h.hj.q = h.hj.q || []).push(arguments)
-        }
-      h._hjSettings = { hjid: 3598136, hjsv: 6 }
-      a = o.getElementsByTagName('head')[0]
-      r = o.createElement('script')
-      if (!!r) {
-        r.async = 1
-        r.src = t + siteId.toString() + j + hotjarVersion.toString()
-        a?.appendChild(r)
-      }
-    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=')
 
     const actionName = 'error'
     Hotjar.event(actionName)
@@ -51,13 +29,42 @@ export default function App({ Component, pageProps }: AppProps) {
       first_name: firstName,
       color: favoriteColor,
     })
-  }, [])
+  }, [hotjarVersion, siteId])
 
   return (
     <>
       <Header />
       <Component {...pageProps} />
       <Footer />
+      <Script
+        id="sdgf97asdf"
+        dangerouslySetInnerHTML={{
+          __html: `
+          (function (
+            h: any,
+            o: any,
+            t: any,
+            j: any,
+            a?: { appendChild: (v: any) => any },
+            r?: { async?: number; src?: any }
+          ) {
+            h.hj =
+              h.hj ||
+              function () {
+                ;(h.hj.q = h.hj.q || []).push(arguments)
+              }
+            h._hjSettings = { hjid: 3598136, hjsv: 6 }
+            a = o.getElementsByTagName('head')[0]
+            r = o.createElement('script')
+            if (!!r) {
+              r.async = 1
+              r.src = t + ${siteId.toString()} + j + ${hotjarVersion.toString()}
+              a?.appendChild(r)
+            }
+          })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=')
+          `,
+        }}
+      ></Script>
       <Analytics />
     </>
   )
