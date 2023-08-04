@@ -14,7 +14,7 @@ const hotjarVersion = Number(process.env.NEXT_PUBLIC_HOTJAR_SNIPPET_VERSION)
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     Hotjar.init(siteId, hotjarVersion, {
-      debug: true,
+      debug: false,
     })
 
     // const actionName = 'error'
