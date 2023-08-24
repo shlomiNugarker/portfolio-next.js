@@ -16,18 +16,6 @@ export default function App({ Component, pageProps }: AppProps) {
     Hotjar.init(siteId, hotjarVersion, {
       debug: false,
     })
-
-    // const actionName = 'error'
-    // Hotjar.event(actionName)
-
-    // const userId = 'abc_123'
-    // const firstName = 'John'
-    // const favoriteColor = 'blue'
-
-    // Hotjar.identify(userId, {
-    //   first_name: firstName,
-    //   color: favoriteColor,
-    // })
   }, [])
 
   return (
