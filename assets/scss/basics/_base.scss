@@ -58,9 +58,14 @@ input {
   text-align: inherit;
 }
 
+::selection {
+  // color: red;
+  background: #e76161;
+}
+
 // MAC like scrollbar
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 10px;
   background-color: rgba(0, 0, 0, 0);
   -webkit-border-radius: 100px;
 }
@@ -71,6 +76,7 @@ input {
 
 ::-webkit-scrollbar-thumb:vertical {
   background: rgba(0, 0, 0, 0.5);
+  background: #e76161;
   -webkit-border-radius: 100px;
 }
 
