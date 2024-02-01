@@ -241,7 +241,7 @@
   {
     "id": 15,
     "title": "Checkers",
-    "tags": ["2d-game", "Vue", "Vite", "Typescript"],
+    "tags": ["2d-game", "Vue", "Vite", "Typescript", "Canvas"],
     "imgs": [
       "https://res.cloudinary.com/duajg3ah1/image/upload/v1706823249/myPortfolio/pi9zxju7u2qkc1gl0clr.png"
     ],
