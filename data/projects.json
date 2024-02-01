@@ -237,5 +237,17 @@
     "description": "Sudoku is one of the most popular puzzle games of all time.",
     "linkDemo": "https://shlominugarker.github.io/sudoku/",
     "linkGitHub": "https://github.com/shlomiNugarker/Sudoku"
+  },
+  {
+    "id": 15,
+    "title": "Checkers",
+    "tags": ["2d-game", "Vue", "Vite", "Typescript"],
+    "imgs": [
+      "https://res.cloudinary.com/duajg3ah1/image/upload/v1680208679/myPortfolio/ee0lwcsjknfrlqcgrhwc.png"
+    ],
+    "videoUrl": "",
+    "description": "Checkers game",
+    "linkDemo": "https://shlominugarker.github.io/checkers-vue-js/",
+    "linkGitHub": "https://github.com/shlomiNugarker/checkers-vue-js"
   }
 ]
