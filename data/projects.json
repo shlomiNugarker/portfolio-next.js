@@ -249,5 +249,17 @@
     "description": "Checkers game",
     "linkDemo": "https://shlominugarker.github.io/checkers-vue-js/",
     "linkGitHub": "https://github.com/shlomiNugarker/checkers-vue-js"
+  },
+  {
+    "id": 16,
+    "title": "Tetris",
+    "tags": ["2d-game", "Vite", "Typescript", "Canvas"],
+    "imgs": [
+      "https://res.cloudinary.com/duajg3ah1/image/upload/v1707876390/myPortfolio/iyhj3ijbrdrsivwat39b.png"
+    ],
+    "videoUrl": "",
+    "description": "Tetris game",
+    "linkDemo": "https://shlominugarker.github.io/tetris/",
+    "linkGitHub": "https://github.com/shlomiNugarker/tetris"
   }
 ]
