@@ -235,7 +235,7 @@
     ],
     "videoUrl": "https://youtu.be/4FOKfBzdb-8",
     "description": "Sudoku is one of the most popular puzzle games of all time.",
-    "linkDemo": "https://shlominugarker.github.io/sudoku/",
+    "linkDemo": "https://shlominugarker.github.io/sudoku-vannila-ts/",
     "linkGitHub": "https://github.com/shlomiNugarker/Sudoku"
   },
   {
@@ -259,7 +259,7 @@
     ],
     "videoUrl": "",
     "description": "Tetris game",
-    "linkDemo": "https://shlominugarker.github.io/tetris/",
+    "linkDemo": "https://shlominugarker.github.io/tetris-vannila-ts/",
     "linkGitHub": "https://github.com/shlomiNugarker/tetris"
   }
 ]
