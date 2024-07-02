@@ -44,14 +44,14 @@ export default function Home() {
             experience in writing single-page applications using the latest WEB
             technologies such as Node.js, Vue.js, Vuex, React.js, Redux, and
             more. <br />
-            <br /> A graduate of the Coding Academy - An intensive coding
+            {/* <br /> A graduate of the Coding Academy - An intensive coding
             Bootcamp (640 hours) that qualifies Full Stack developers. <br />
             <br /> I am highly motivated, and currently seeking a Frontend/
             Full-Stack Developer position. <br />
             <br /> Feel free to review my CV and contact me if you think
-            I&apos;d be a good fit for your team.
+            I&apos;d be a good fit for your team. */}
           </h2>
-          <span className="">
+          {/* <span className="">
             <HiDocumentDownload />
             <a
               className="cv"
@@ -61,7 +61,7 @@ export default function Home() {
             >
               My CV
             </a>
-          </span>
+          </span> */}
         </div>
         <div className="container ">
           <Image
