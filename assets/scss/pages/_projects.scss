@@ -10,7 +10,7 @@
     justify-content: center;
     flex-wrap: wrap;
     .proj {
-      padding: 40px;
+      padding: 20px;
       width: 50%;
       min-width: 300px;
 
@@ -25,11 +25,10 @@
 
         img {
           object-fit: contain;
-          // height: 285px;
+          height: 235px;
           width: 100%;
 
           cursor: pointer;
-          border-radius: 15px;
           overflow: hidden;
         }
       }
@@ -51,6 +50,8 @@
       .links {
         display: flex;
         justify-content: center;
+        flex-wrap: wrap;
+
         margin-top: 15px;
         span {
           margin-right: 15px;
