@@ -94,11 +94,12 @@ const Portfolio = (): JSX.Element => {
                 <FeaturedWorks />
               </Box>
             </FadeInLayout>
+
             <FadeInLayout>
               <Box
                 id="contact"
                 className="contentRow"
-                paddingTop={{ base: 20, lg: 20, xl: 40 }}
+                paddingTop={{ base: 40, lg: 20, xl: 40 }}
                 paddingX={0}
                 flexDirection={'row'}
               >

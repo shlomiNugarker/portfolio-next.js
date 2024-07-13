@@ -63,7 +63,19 @@ const GetInTouch = () => {
         >
           email
         </Link>
-        .
+      </Text>
+      <Text variant="contact">
+        <Link
+          href="mailto:shlomin1231@gmail.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          shlomin1231@gmail.com
+        </Link>
+        <br />
+        <Link href="tel:+972529526762" target="_blank" rel="noreferrer">
+          0529526762
+        </Link>
       </Text>
     </Stack>
   )
