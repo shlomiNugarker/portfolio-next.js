@@ -6,7 +6,6 @@ import {
   SiReact,
   SiNextDotJs,
   SiRedux,
-  SiStyledComponents,
   SiVueDotJs,
   SiDocker,
   SiMongodb,
