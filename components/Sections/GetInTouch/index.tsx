@@ -65,29 +65,6 @@ const GetInTouch = () => {
         </Link>
         .
       </Text>
-
-      <Box
-        spacing={0.5}
-        textAlign="center"
-        fontFamily="monospace"
-        paddingTop={{ base: 10, lg: 20, xl: 20 }}
-        paddingBottom={{ base: 5, lg: 18 }}
-      >
-        <Link
-          variant="description"
-          textDecoration="none"
-          rel="noreferrer"
-          href="https://shlomi-nugarker-portfolio.vercel.app/"
-          target="_blank"
-          _focus={{ boxShadow: 'none' }}
-        >
-          {/* <Text as="span">
-            <Icon as={RiGithubFill} h={6} w={6} /> <br />
-            Designed and Made with <Icon as={RiHeartPulseFill} /> <br />
-            KL Lawingco <Icon as={RiCopyleftLine} /> 2021
-          </Text> */}
-        </Link>
-      </Box>
     </Stack>
   )
 }
