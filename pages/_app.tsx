@@ -1,29 +1,19 @@
-import '../assets/scss/global.scss'
-import 'animate.css'
+import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import Header from '../cmps/Header'
-import Footer from '../cmps/Footer'
-import { Analytics } from '@vercel/analytics/react'
+import { ChakraProvider } from '@chakra-ui/react'
+import { AnimatePresence } from 'framer-motion'
+import theme from 'config/theme'
+import FavIconProvider from 'components/Misc/FavIconProvider'
 
-import Hotjar from '@hotjar/browser'
-import { useEffect } from 'react'
-
-const siteId = Number(process.env.NEXT_PUBLIC_HOTJAR_ID)
-const hotjarVersion = Number(process.env.NEXT_PUBLIC_HOTJAR_SNIPPET_VERSION)
-
-export default function App({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-    Hotjar.init(siteId, hotjarVersion, {
-      debug: false,
-    })
-  }, [])
-
+function SNSite({ Component, pageProps }: AppProps): JSX.Element {
   return (
-    <>
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
-      <Analytics />
-    </>
+    <AnimatePresence exitBeforeEnter>
+      <ChakraProvider theme={theme}>
+        <FavIconProvider>
+          <Component {...pageProps} />
+        </FavIconProvider>
+      </ChakraProvider>
+    </AnimatePresence>
   )
 }
+export default SNSite

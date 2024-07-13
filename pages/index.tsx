@@ -1,214 +1,153 @@
-import Head from 'next/head'
-import Image from 'next/image'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import {
+  Grid,
+  GridItem,
+  Stack,
+  Box,
+  useBreakpointValue,
+} from '@chakra-ui/react'
+import dynamic from 'next/dynamic'
+import Script from 'next/script'
+import OpenGraphHead from 'components/Misc/OpenGraphHead'
+import FadeInLayout from 'components/Layout/FadeWhenVisible'
+import Menu from 'components/Menu'
+import Sidebar from 'components/Sidebar'
+import Avatar from 'components/Avatar'
+import About from 'components/Sections/About'
+import Experience from 'components/Sections/Experience'
+import FeaturedWorks from 'components/Sections/FeaturedWorks'
+import ScrollMore from 'components/Misc/ScrollMore'
+import { Article } from 'types/article'
+// These are on bottom sections so no need to render it instantly
+const DevToArticles = dynamic(() => import('components/Sections/DevToArticles'))
+const GetInTouch = dynamic(() => import('components/Sections/GetInTouch'))
 
-// React icons:
-import { TbBrandNextjs } from 'react-icons/tb'
-import { DiReact } from 'react-icons/di'
-import { DiNodejsSmall } from 'react-icons/di'
-import { FaVuejs } from 'react-icons/fa'
-import { DiMongodb } from 'react-icons/di'
-import { DiSass } from 'react-icons/di'
-import { DiVisualstudio } from 'react-icons/di'
-import { DiAngularSimple } from 'react-icons/di'
-import { DiNpm } from 'react-icons/di'
-import { SiRedux } from 'react-icons/si'
-import { SiTypescript } from 'react-icons/si'
-import { SiCss3 } from 'react-icons/si'
-import { BsGit } from 'react-icons/bs'
-import { IoLogoJavascript } from 'react-icons/io'
-import { AiFillHtml5 } from 'react-icons/ai'
-import { AiFillGithub } from 'react-icons/ai'
-import { AiOutlineArrowUp } from 'react-icons/ai'
-import { AiOutlineWhatsApp } from 'react-icons/ai'
-import { AiFillLinkedin } from 'react-icons/ai'
-import { HiDocumentDownload } from 'react-icons/hi'
-
-export default function Home() {
+const Portfolio = (): JSX.Element => {
+  const sideBarPadding = useBreakpointValue({ base: '5', md: '8', lg: '14' })
+  const mainContent = useBreakpointValue({
+    base: '5',
+    md: '14',
+    lg: '14',
+    xl: 0,
+  })
+  const paddTop = useBreakpointValue({ base: '20', sm: 20, md: 20 })
   return (
-    <section className="home-page animate__animated ">
-      <Head>
-        <title>Shlomi Nugarker - Portfolio</title>
-        <meta
-          name="description"
-          content="Full-Stack / Frontend Web Developer with knowledge and experience writing single-page applications
-                   using the latest WEB technologies such as Node.js, Vue.js, Vuex, React.js, and  Redux."
-        />
-      </Head>
-
-      {/* About: */}
-      <div className="about" id="about">
-        <div className="about-container">
-          <h1>Hello!, I&apos;m Shlomi</h1>
-          <h2 className="">
-            I&apos;m a Full-Stack / Frontend Web Developer with knowledge and
-            experience in writing single-page applications using the latest WEB
-            technologies such as Node.js, Vue.js, Vuex, React.js, Redux, and
-            more. <br />
-            {/* <br /> A graduate of the Coding Academy - An intensive coding
-            Bootcamp (640 hours) that qualifies Full Stack developers. <br />
-            <br /> I am highly motivated, and currently seeking a Frontend/
-            Full-Stack Developer position. <br />
-            <br /> Feel free to review my CV and contact me if you think
-            I&apos;d be a good fit for your team. */}
-          </h2>
-          {/* <span className="">
-            <HiDocumentDownload />
-            <a
-              className="cv"
-              href={'Shlomi_Nugarker_CV.pdf'}
-              download
-              rel="noreferrer"
-            >
-              My CV
-            </a>
-          </span> */}
-        </div>
-        <div className="container ">
-          <Image
-            loader={() =>
-              'https://res.cloudinary.com/duajg3ah1/image/upload/v1660763357/shlomiN_mewit4.jpg'
-            }
-            src="https://res.cloudinary.com/duajg3ah1/image/upload/v1660763357/shlomiN_mewit4.jpg"
-            alt="Picture of the author"
-            width={200}
-            height={200}
-            id="image-profile"
-            className=""
-            onMouseEnter={(ev) =>
-              document
-                .querySelector('#image-profile')
-                ?.classList.add('animate__pulse')
-            }
-            onMouseLeave={() => {
-              setTimeout(() => {
-                document
-                  .querySelector('#image-profile')
-                  ?.classList.remove('animate__pulse')
-              }, 2000)
-            }}
-          />
-          <div className="details">
-            <p>
-              <a
-                href="mailto: shlomin1231@gmail.com"
-                target="_blank"
-                rel="noreferrer"
+    <>
+      {/* <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_ANALYTICS_ID}`}
+      /> */}
+      {/* <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${process.env.NEXT_PUBLIC_ANALYTICS_ID}');
+        `}
+      </Script> */}
+      <OpenGraphHead />
+      <Menu />
+      <Grid
+        id="mainGrid"
+        templateColumns={{
+          base: 'repeat(1, 1fr)',
+          lg: 'repeat(3, 1fr)',
+          xl: 'repeat(5, 1fr)',
+        }}
+        templateRows={{
+          sm: 'repeat(1, 0)',
+          lg: 'repeat(2, 1fr)',
+        }}
+        gap={4}
+      >
+        <GridItem
+          padding={sideBarPadding}
+          marginTop={paddTop}
+          rowSpan={2}
+          colSpan={{ base: 1, sm: 1, md: 1, lg: 1, xl: 2 }}
+          display="flex"
+          alignContent="center"
+          as="div"
+          flexDirection={'row'}
+        >
+          <Sidebar />
+        </GridItem>
+        <GridItem
+          as="main"
+          padding={mainContent}
+          rowSpan={2}
+          colSpan={{ base: 1, sm: 2, md: 2, lg: 3, xl: 3 }}
+          overflow="hidden"
+        >
+          <Stack w="100" spacing={24}>
+            <FadeInLayout>
+              <Box
+                id="aboutMe"
+                className="contentRow"
+                minH={{ lg: '100vh' }}
+                display="flex"
+                alignItems="center"
+                paddingTop={{ base: 0, lg: 20, xl: 0 }}
+                paddingBottom={{ base: 12, lg: 0 }}
+                flexDirection={{
+                  base: 'column-reverse',
+                  lg: 'row',
+                }}
               >
-                E-mail: shlomin1231@gmail.com
-              </a>
-            </p>
-            <p>
-              <a href="tel:052-952-6762">Phone: 0529526762</a>
-            </p>
-          </div>
-
-          <div className="social-links">
-            <span className="linkedin">
-              <a
-                href="https://www.linkedin.com/in/shlomi-nugarker-b89777155/"
-                target="_blank"
-                rel="noreferrer"
+                <About />
+                <Avatar />
+              </Box>
+            </FadeInLayout>
+            <FadeInLayout>
+              <Box
+                id="jobs"
+                className="contentRow"
+                paddingTop={{ base: 0, lg: 20, xl: 0 }}
+                paddingBottom={{ base: 12, lg: 10 }}
+                paddingX={0}
+                flexDirection={'row'}
               >
-                <AiFillLinkedin />
-              </a>
-            </span>
-            <span className="whatsapp">
-              <a
-                href="https://wa.me/972529526762?text=Hey Shlomi, "
-                target="_blank"
-                rel="noreferrer"
+                <Experience />
+              </Box>
+            </FadeInLayout>
+            <FadeInLayout>
+              <Box
+                id="works"
+                className="contentRow"
+                paddingTop={{ base: 0, lg: 20, xl: 20 }}
+                paddingBottom={{ base: 12, lg: 10 }}
+                paddingX={0}
+                flexDirection={'row'}
               >
-                <AiOutlineWhatsApp />
-              </a>
-            </span>
-            <span className="github">
-              <a
-                href="https://github.com/shlomiNugarker"
-                target="_blank"
-                rel="noreferrer"
+                <FeaturedWorks />
+              </Box>
+            </FadeInLayout>
+            <FadeInLayout>
+              <Box
+                id="contact"
+                className="contentRow"
+                paddingTop={{ base: 20, lg: 20, xl: 40 }}
+                paddingX={0}
+                flexDirection={'row'}
               >
-                <AiFillGithub />
-              </a>
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Technologies: */}
-      <div className="technologies" id="technologies">
-        <h1>Technologies & Tools I work with</h1>
-        <ul>
-          <li title="Next.js">
-            <TbBrandNextjs />
-            <p>Next.js</p>
-          </li>
-          <li title="React.js">
-            <DiReact />
-            <p>React.js</p>
-          </li>
-          <li title="Angular">
-            <DiAngularSimple />
-            <p>Angular</p>
-          </li>
-          <li title="Node.js">
-            <DiNodejsSmall />
-            <p>Node.js</p>
-          </li>
-          <li title="Vue.js">
-            <FaVuejs />
-            <p>Vue.js</p>
-          </li>
-          <li title="Mongodb">
-            <DiMongodb />
-            <p>Mongodb</p>
-          </li>
-          <li title="Redux">
-            <SiRedux />
-            <p>Redux</p>
-          </li>
-          <li title="Html">
-            <AiFillHtml5 />
-            <p>Html</p>
-          </li>
-          <li title="typescript">
-            <SiTypescript />
-            <p>typescript</p>
-          </li>
-          <li title="Javascript">
-            <IoLogoJavascript />
-            <p>Javascript</p>
-          </li>
-          <li title="Scss">
-            <DiSass />
-            <p>Scss</p>
-          </li>
-          <li title="Css">
-            <SiCss3 />
-            <p>Css</p>
-          </li>
-          <li title="Visual Studio Code">
-            <DiVisualstudio />
-            <p>Visual Studio Code</p>
-          </li>
-          <li title="Node Package Manager">
-            <DiNpm />
-            <p>Node Package Manager</p>
-          </li>
-          <li title="Github">
-            <AiFillGithub />
-            <p>Github</p>
-          </li>
-          <li title="Git">
-            <BsGit />
-            <p>Git</p>
-          </li>
-        </ul>
-      </div>
-      <span>
-        <a href="#about" className="arrow-up">
-          <AiOutlineArrowUp />
-        </a>
-      </span>
-    </section>
+                <GetInTouch />
+              </Box>
+            </FadeInLayout>
+          </Stack>
+        </GridItem>
+      </Grid>
+      <ScrollMore />
+    </>
   )
 }
+
+// export async function getStaticProps() {
+//   const res = await fetch('')
+//   const articles = await res.json()
+//   return {
+//     props: {
+//       articles,
+//     },
+//   }
+// }
+
+export default Portfolio
