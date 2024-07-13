@@ -7,19 +7,15 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react'
 import dynamic from 'next/dynamic'
-import Script from 'next/script'
 import OpenGraphHead from 'components/Misc/OpenGraphHead'
 import FadeInLayout from 'components/Layout/FadeWhenVisible'
 import Menu from 'components/Menu'
 import Sidebar from 'components/Sidebar'
 import Avatar from 'components/Avatar'
 import About from 'components/Sections/About'
-import Experience from 'components/Sections/Experience'
 import FeaturedWorks from 'components/Sections/FeaturedWorks'
 import ScrollMore from 'components/Misc/ScrollMore'
-import { Article } from 'types/article'
 // These are on bottom sections so no need to render it instantly
-const DevToArticles = dynamic(() => import('components/Sections/DevToArticles'))
 const GetInTouch = dynamic(() => import('components/Sections/GetInTouch'))
 
 const Portfolio = (): JSX.Element => {
@@ -33,17 +29,6 @@ const Portfolio = (): JSX.Element => {
   const paddTop = useBreakpointValue({ base: '20', sm: 20, md: 20 })
   return (
     <>
-      {/* <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_ANALYTICS_ID}`}
-      /> */}
-      {/* <Script id="google-analytics">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${process.env.NEXT_PUBLIC_ANALYTICS_ID}');
-        `}
-      </Script> */}
       <OpenGraphHead />
       <Menu />
       <Grid
@@ -95,18 +80,6 @@ const Portfolio = (): JSX.Element => {
               >
                 <About />
                 <Avatar />
-              </Box>
-            </FadeInLayout>
-            <FadeInLayout>
-              <Box
-                id="jobs"
-                className="contentRow"
-                paddingTop={{ base: 0, lg: 20, xl: 0 }}
-                paddingBottom={{ base: 12, lg: 10 }}
-                paddingX={0}
-                flexDirection={'row'}
-              >
-                <Experience />
               </Box>
             </FadeInLayout>
             <FadeInLayout>
