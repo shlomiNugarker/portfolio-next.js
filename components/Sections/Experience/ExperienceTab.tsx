@@ -57,7 +57,7 @@ const ExperienceTab = () => {
       >
         {ExperiencesList.map((company) => (
           <Tab
-            key={`Tab-${company.name}`}
+            key={`Tab-${company?.name}`}
             fontSize="smaller"
             h="120px"
             minWidth={tabMinWidth}

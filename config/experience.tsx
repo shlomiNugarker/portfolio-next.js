@@ -158,7 +158,7 @@ export const Experiences: {
   },
 }
 
-export const ExperiencesList = [
+export const ExperiencesList: any = [
   // Experiences.Deloitte,
   // Experiences.SCG,
   // Experiences.Blotocol,
