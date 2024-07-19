@@ -278,4 +278,16 @@ export default [
     linkDemo: 'https://shlominugarker.github.io/tetris-vannila-ts/',
     linkGitHub: 'https://github.com/shlomiNugarker/tetris',
   },
+  {
+    id: 18,
+    title: 'Image to pdf',
+    tags: ['pdf', 'node'],
+    imgs: [
+      'https://res.cloudinary.com/duajg3ah1/image/upload/v1721382899/myPortfolio/lwuvxmyiikhxpzk5mdn4.png',
+    ],
+    videoUrl: '',
+    description: ' convert doc image to a pdf file',
+    linkDemo: 'https://image-to-pdf-free.vercel.app/',
+    linkGitHub: 'https://github.com/shlomiNugarker/image-to-pdf-nodejs',
+  },
 ]
