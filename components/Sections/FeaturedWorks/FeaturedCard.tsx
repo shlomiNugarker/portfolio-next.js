@@ -128,7 +128,13 @@ const ProjectDescription = ({
     >
       {description}
     </Text>
-    <div>
+    <div
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+      }}
+    >
       <Button
         variant="outlineAlternative"
         fontWeight="light"
@@ -138,7 +144,8 @@ const ProjectDescription = ({
         href={ctaUrl}
         rel="noreferrer"
         target="_blank"
-        marginY={{ base: 3, md: 0 }}
+        marginY={{ base: 3, md: 1 }}
+        marginX={{ base: 1, md: 1 }}
       >
         View Project
       </Button>
@@ -151,10 +158,27 @@ const ProjectDescription = ({
         href={project.linkGitHub}
         rel="noreferrer"
         target="_blank"
-        marginY={{ base: 3, md: 0 }}
+        marginY={{ base: 3, md: 1 }}
+        marginX={{ base: 1, md: 1 }}
       >
         View code
       </Button>
+      {project.videoUrl && (
+        <Button
+          variant="outlineAlternative"
+          fontWeight="light"
+          fontSize={{ base: 'sm', '2xl': 'md' }}
+          size="sm"
+          as="a"
+          href={project.videoUrl}
+          rel="noreferrer"
+          target="_blank"
+          marginY={{ base: 3, md: 1 }}
+          marginX={{ base: 1, md: 1 }}
+        >
+          View video
+        </Button>
+      )}
     </div>
   </Container>
 )
