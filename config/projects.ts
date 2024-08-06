@@ -47,18 +47,18 @@ export default [
     linkDemo: 'https://taskday-monday-production.up.railway.app/',
     linkGitHub: 'https://github.com/shlomiNugarker/sprint-4',
   },
-  {
-    id: 17,
-    title: 'Law Firm',
-    tags: ['tailwind', 'nextjs'],
-    imgs: [
-      'https://res.cloudinary.com/duajg3ah1/image/upload/v1720848290/myPortfolio/nqgrvbznekyxr3rq3erq.png',
-    ],
-    videoUrl: '',
-    description: 'Law Firm ',
-    linkDemo: 'https://your-law-firm.vercel.app/heb',
-    linkGitHub: 'https://github.com/shlomiNugarker/law-firm',
-  },
+  // {
+  //   id: 17,
+  //   title: 'Law Firm',
+  //   tags: ['tailwind', 'nextjs'],
+  //   imgs: [
+  //     'https://res.cloudinary.com/duajg3ah1/image/upload/v1720848290/myPortfolio/nqgrvbznekyxr3rq3erq.png',
+  //   ],
+  //   videoUrl: '',
+  //   description: 'Law Firm ',
+  //   linkDemo: 'https://your-law-firm.vercel.app/heb',
+  //   linkGitHub: 'https://github.com/shlomiNugarker/law-firm',
+  // },
   {
     id: 3,
     title: 'Chess',
