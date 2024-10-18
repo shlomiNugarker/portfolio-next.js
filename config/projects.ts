@@ -1,6 +1,5 @@
-export default [
+const projects = [
   {
-    id: 1,
     title: 'Travelsdin',
     tags: [
       'Javascript(ES6)',
@@ -21,7 +20,6 @@ export default [
     linkGitHub: 'https://github.com/shlomiNugarker/Social-Network-Front-',
   },
   {
-    id: 2,
     title: 'Taskday',
     tags: [
       'MongoDb',
@@ -47,20 +45,8 @@ export default [
     linkDemo: 'https://taskday-monday-production.up.railway.app/',
     linkGitHub: 'https://github.com/shlomiNugarker/sprint-4',
   },
-  // {
-  //   id: 17,
-  //   title: 'Law Firm',
-  //   tags: ['tailwind', 'nextjs'],
-  //   imgs: [
-  //     'https://res.cloudinary.com/duajg3ah1/image/upload/v1720848290/myPortfolio/nqgrvbznekyxr3rq3erq.png',
-  //   ],
-  //   videoUrl: '',
-  //   description: 'Law Firm ',
-  //   linkDemo: 'https://your-law-firm.vercel.app/heb',
-  //   linkGitHub: 'https://github.com/shlomiNugarker/law-firm',
-  // },
+
   {
-    id: 3,
     title: 'Chess',
     tags: [
       'Typescript',
@@ -80,7 +66,6 @@ export default [
   },
 
   {
-    id: 4,
     title: 'Monopoly',
     tags: ['Javascript(ES6)', 'Vue.js', 'SCSS', 'Vuex', 'MVC'],
     imgs: [
@@ -94,7 +79,6 @@ export default [
     linkGitHub: 'https://github.com/shlomiNugarker/Monoploly-Vue.js',
   },
   {
-    id: 5,
     title: 'AchcchApp',
     tags: [
       'Angular',
@@ -115,7 +99,6 @@ export default [
   },
 
   {
-    id: 6,
     title: 'Minesweeper',
     tags: ['Vanilla Javascript(ES6)', '2D Arrays', 'Recursive function'],
     imgs: [
@@ -128,7 +111,6 @@ export default [
     linkGitHub: 'https://github.com/shlomiNugarker/minesweeper--sprint-1',
   },
   {
-    id: 7,
     title: 'Remote-sessions',
     tags: [
       'React',
@@ -149,7 +131,6 @@ export default [
     linkGitHub: 'https://github.com/shlomiNugarker/-remote-sessions-react',
   },
   {
-    id: 8,
     title: 'Video+',
     tags: [
       'Next.js',
@@ -168,7 +149,6 @@ export default [
     linkGitHub: 'https://github.com/shlomiNugarker/video-plus',
   },
   {
-    id: 9,
     title: 'Snake',
     tags: ['Vanilla Javascript(ES6)', '2D array'],
     imgs: [
@@ -180,7 +160,6 @@ export default [
     linkGitHub: 'https://github.com/shlomiNugarker/Snake-Vannila-JS',
   },
   {
-    id: 10,
     title: 'Meme-Generator',
     tags: ['Vanilla Javascript(ES6)', 'Canvas'],
     imgs: [
@@ -194,7 +173,6 @@ export default [
       'https://github.com/shlomiNugarker/Ultimate-Meme-Generator-sprint-2',
   },
   {
-    id: 11,
     title: 'Pacman',
     tags: ['Vanilla Javascript(ES6)', '2D array'],
     imgs: [
@@ -206,7 +184,6 @@ export default [
     linkGitHub: 'https://github.com/shlomiNugarker/pacman',
   },
   {
-    id: 12,
     title: 'Mail-app',
     tags: ['Vue.js', 'Css', 'CRUDL'],
     imgs: [
@@ -218,7 +195,6 @@ export default [
     linkGitHub: 'https://github.com/shlomiNugarker/appAsusProj',
   },
   {
-    id: 13,
     title: '2D game',
     tags: [
       'Html',
@@ -237,7 +213,6 @@ export default [
     linkGitHub: 'https://github.com/shlomiNugarker/Game-development-tutorial',
   },
   {
-    id: 14,
     title: 'Sudoku',
     tags: [
       '2d-game',
@@ -255,7 +230,6 @@ export default [
     linkGitHub: 'https://github.com/shlomiNugarker/Sudoku',
   },
   {
-    id: 15,
     title: 'Checkers',
     tags: ['2d-game', 'Vue', 'Vite', 'Typescript', 'Canvas'],
     imgs: [
@@ -267,7 +241,6 @@ export default [
     linkGitHub: 'https://github.com/shlomiNugarker/checkers-vue-js',
   },
   {
-    id: 16,
     title: 'Tetris',
     tags: ['2d-game', 'Vite', 'Typescript', 'Canvas'],
     imgs: [
@@ -279,7 +252,6 @@ export default [
     linkGitHub: 'https://github.com/shlomiNugarker/tetris',
   },
   {
-    id: 18,
     title: 'Image to pdf',
     tags: ['pdf', 'node'],
     imgs: [
@@ -290,4 +262,31 @@ export default [
     linkDemo: 'https://image-to-pdf-free.vercel.app/',
     linkGitHub: 'https://github.com/shlomiNugarker/image-to-pdf-nodejs',
   },
+  {
+    title: 'Todo List',
+    tags: [
+      'React.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'Vite',
+      'tanstack/react-table',
+      'Local Storage',
+      'CRUD',
+    ],
+    imgs: [
+      'https://res.cloudinary.com/duajg3ah1/image/upload/v1729086991/mseqqqehwbxqya7zxc8x.png',
+    ],
+    videoUrl: '',
+    description:
+      'A task management app allowing users to add, edit, delete, and filter tasks with different priorities.',
+    linkDemo: 'https://shlomiNugarker.github.io/todo-list-react-application',
+    linkGitHub: 'https://github.com/shlomiNugarker/todo-list-react-application',
+  },
 ]
+
+const projectsWithDynamicIds = projects.map((project, index) => ({
+  id: index + 1,
+  ...project,
+}))
+
+export default projectsWithDynamicIds
