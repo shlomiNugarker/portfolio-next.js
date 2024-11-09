@@ -97,7 +97,6 @@ const projects = [
     linkDemo: 'https://achchhapp.onrender.com/main-page',
     linkGitHub: 'https://github.com/shlomiNugarker/Whatsapp-clone-Angular',
   },
-
   {
     title: 'Video+',
     tags: [
