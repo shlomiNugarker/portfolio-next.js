@@ -51,8 +51,7 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
         What i do.
       </Heading>
       <Text variant="description">
-        I`ve been coding for {professionalYears} years now and currently working
-        as a <b>fullstack developer</b> that focuses on <b>web tecnologies</b>,{' '}
+        I'm a full-stack developer specializing in web technologies,{' '}
         {/* <Tooltip
           label="Ha!. Or more accurately TECH DEBT"
           aria-label="Tech Debt?"

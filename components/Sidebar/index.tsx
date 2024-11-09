@@ -108,10 +108,12 @@ const Sidebar = () => {
               Thank you!
             </Text>
             <br />
-            I'm a Full-Stack / Frontend Web Developer with knowledge and
-            experience in writing single-page applications using the latest WEB
-            technologies such as Node.js, Vue.js, Vuex, React.js, Redux, and
-            more.
+            I’m a Full-Stack / Frontend Web Developer with strong expertise in
+            creating single-page applications using the latest web technologies
+            like Node.js, Vue.js, Vuex, React.js, and Redux. I’m passionate
+            about helping businesses and individuals build modern, efficient
+            websites and applications. If you’re looking for a developer to
+            bring your vision to life, let’s connect!
           </MotionText>
           <MotionButton
             size="lg"

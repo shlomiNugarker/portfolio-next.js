@@ -99,38 +99,6 @@ const projects = [
   },
 
   {
-    title: 'Minesweeper',
-    tags: ['Vanilla Javascript(ES6)', '2D Arrays', 'Recursive function'],
-    imgs: [
-      'https://res.cloudinary.com/duajg3ah1/image/upload/v1661026713/myPortfolio/jewprayumjkndv8m8mbg.png',
-    ],
-    videoUrl: 'https://youtu.be/r3ZYniDPhOo',
-    description:
-      'Select a difficulty level to challenge yourself, and enjoy the game!',
-    linkDemo: 'https://shlominugarker.github.io/minesweeper-sprint-1/',
-    linkGitHub: 'https://github.com/shlomiNugarker/minesweeper--sprint-1',
-  },
-  {
-    title: 'Remote-sessions',
-    tags: [
-      'React',
-      'TypeScript',
-      'React-ace',
-      'Express',
-      'Socket.io',
-      'MongoDB',
-      'Node.js',
-    ],
-    imgs: [
-      'https://res.cloudinary.com/duajg3ah1/image/upload/v1673381405/myPortfolio/cztl69dtpc1xxt5j6sf0.png',
-    ],
-    videoUrl: '',
-    description:
-      'Online coding web application. making remote sessions, sharing a piece of code with your mentor/ student, observe him while he is writing and changing the code in real time.',
-    linkDemo: 'https://remote-sessions-production.up.railway.app/',
-    linkGitHub: 'https://github.com/shlomiNugarker/-remote-sessions-react',
-  },
-  {
     title: 'Video+',
     tags: [
       'Next.js',
@@ -147,70 +115,6 @@ const projects = [
     description: '',
     linkDemo: 'https://videoplus.vercel.app/',
     linkGitHub: 'https://github.com/shlomiNugarker/video-plus',
-  },
-  {
-    title: 'Snake',
-    tags: ['Vanilla Javascript(ES6)', '2D array'],
-    imgs: [
-      'https://res.cloudinary.com/duajg3ah1/image/upload/v1662967686/myPortfolio/fxznj0uz82fykb6whhbi.png',
-    ],
-    videoUrl: 'https://youtu.be/YMa8UPXUrRk',
-    description: 'Try not to get disqualified.',
-    linkDemo: 'https://shlominugarker.github.io/snake-vannila-js/',
-    linkGitHub: 'https://github.com/shlomiNugarker/Snake-Vannila-JS',
-  },
-  {
-    title: 'Meme-Generator',
-    tags: ['Vanilla Javascript(ES6)', 'Canvas'],
-    imgs: [
-      'https://res.cloudinary.com/duajg3ah1/image/upload/v1660924455/myPortfolio/n9xkm3fgtpafoq5hejiu.png',
-    ],
-    videoUrl: 'https://youtu.be/XyRF3vuFIP4',
-    description: ' Easily add text to images or memes.',
-    linkDemo:
-      'https://shlominugarker.github.io/ultimate-meme-generator-sprint-2/',
-    linkGitHub:
-      'https://github.com/shlomiNugarker/Ultimate-Meme-Generator-sprint-2',
-  },
-  {
-    title: 'Pacman',
-    tags: ['Vanilla Javascript(ES6)', '2D array'],
-    imgs: [
-      'https://res.cloudinary.com/duajg3ah1/image/upload/v1661097436/myPortfolio/xij76xyl0pe8xfdiugrs.png',
-    ],
-    videoUrl: 'https://youtu.be/1LGDbO3rmqc',
-    description: 'Try not to get disqualified.',
-    linkDemo: 'https://shlominugarker.github.io/pacman/',
-    linkGitHub: 'https://github.com/shlomiNugarker/pacman',
-  },
-  {
-    title: 'Mail-app',
-    tags: ['Vue.js', 'Css', 'CRUDL'],
-    imgs: [
-      'https://res.cloudinary.com/duajg3ah1/image/upload/v1661112741/myPortfolio/up9mom63hxek86yuah1c.png',
-    ],
-    videoUrl: '',
-    description: 'My first Vue app in Coding academy boot-camp.',
-    linkDemo: 'https://shlominugarker.github.io/appAsusProj/#/mailBox',
-    linkGitHub: 'https://github.com/shlomiNugarker/appAsusProj',
-  },
-  {
-    title: '2D game',
-    tags: [
-      'Html',
-      'Css',
-      'Vanilla-ts',
-      'Game-development',
-      'No frameworks',
-      'State management',
-    ],
-    imgs: [
-      'https://res.cloudinary.com/duajg3ah1/image/upload/v1679609836/myPortfolio/hbrcth7c2kcayvtabt7g.png',
-    ],
-    videoUrl: 'https://youtu.be/QdaaC4LNSpM',
-    description: 'JavaScript game development',
-    linkDemo: 'https://shlominugarker.github.io/game-development-tutorial/',
-    linkGitHub: 'https://github.com/shlomiNugarker/Game-development-tutorial',
   },
   {
     title: 'Sudoku',
@@ -250,37 +154,6 @@ const projects = [
     description: 'Tetris game',
     linkDemo: 'https://shlominugarker.github.io/tetris-vannila-ts/',
     linkGitHub: 'https://github.com/shlomiNugarker/tetris',
-  },
-  {
-    title: 'Image to pdf',
-    tags: ['pdf', 'node'],
-    imgs: [
-      'https://res.cloudinary.com/duajg3ah1/image/upload/v1721382899/myPortfolio/lwuvxmyiikhxpzk5mdn4.png',
-    ],
-    videoUrl: '',
-    description: ' convert doc image to a pdf file',
-    linkDemo: 'https://image-to-pdf-free.vercel.app/',
-    linkGitHub: 'https://github.com/shlomiNugarker/image-to-pdf-nodejs',
-  },
-  {
-    title: 'Todo List',
-    tags: [
-      'React.js',
-      'TypeScript',
-      'Tailwind CSS',
-      'Vite',
-      'tanstack/react-table',
-      'Local Storage',
-      'CRUD',
-    ],
-    imgs: [
-      'https://res.cloudinary.com/duajg3ah1/image/upload/v1729086991/mseqqqehwbxqya7zxc8x.png',
-    ],
-    videoUrl: '',
-    description:
-      'A task management app allowing users to add, edit, delete, and filter tasks with different priorities.',
-    linkDemo: 'https://shlomiNugarker.github.io/todo-list-react-application',
-    linkGitHub: 'https://github.com/shlomiNugarker/todo-list-react-application',
   },
 ]
 
