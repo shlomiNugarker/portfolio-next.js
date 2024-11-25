@@ -8,7 +8,6 @@ import {
   Icon,
   SimpleGrid,
   Box,
-  Tooltip,
   Stack,
   useColorModeValue,
 } from '@chakra-ui/react'
@@ -22,7 +21,6 @@ import {
   SiNodeDotJs,
   SiDocker,
 } from 'react-icons/si'
-import { GiCoffeePot } from 'react-icons/gi'
 import { IoMdOpen } from 'react-icons/io'
 
 type ISkillSetModal = {

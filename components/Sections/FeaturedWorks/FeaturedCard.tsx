@@ -196,23 +196,24 @@ const FeaturedCard = ({
 }: FeaturedCardProps) => {
   const isLeftImage = isMobile ? false : idx % 2 === 0
   const bg = useColorModeValue('blackAlpha.50', 'whiteAlpha.200')
-  const CoverImage = () => (
-    <div>
-      <MotionImage
-        height={height}
-        width="100%"
-        src={src}
-        alt={title}
-        objectFit="contain"
-        objectPosition={objectPosition}
-        loading="lazy"
-        opacity={0.75}
-        whileHover={variants.hover}
-        whileTap={variants.tap}
-        fallback={<Skeleton height={height} width="100%" />}
-      />
-    </div>
-  )
+  const CoverImage = () =>
+    src ? (
+      <div>
+        <MotionImage
+          height={height}
+          width="100%"
+          src={src}
+          alt={title}
+          objectFit="contain"
+          objectPosition={objectPosition}
+          loading="lazy"
+          opacity={0.75}
+          whileHover={variants.hover}
+          whileTap={variants.tap}
+          fallback={<Skeleton height={height} width="100%" />}
+        />
+      </div>
+    ) : null
 
   return (
     <Box
