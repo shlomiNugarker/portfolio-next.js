@@ -20,15 +20,6 @@ const projects = [
     linkGitHub: 'https://github.com/shlomiNugarker/Social-Network-Front-',
   },
   {
-    title: 'Content Management System with Next.js',
-    tags: ['Javascript(ES6),Nextjs'],
-    imgs: [],
-    videoUrl: '',
-    description: '',
-    linkDemo: 'https://haginabapardes.vercel.app/login',
-    linkGitHub: 'https://github.com/shlomiNugarker/Haginabapardes',
-  },
-  {
     title: 'Taskday',
     tags: [
       'MongoDb',
