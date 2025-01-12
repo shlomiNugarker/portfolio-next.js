@@ -58,7 +58,7 @@ const GetInTouch = () => {
           target="_blank"
           rel="noreferrer"
         >
-          email
+         {' '} email
         </Link>
       </Text>
       <Text variant="contact">
