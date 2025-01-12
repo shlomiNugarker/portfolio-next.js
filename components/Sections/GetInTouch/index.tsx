@@ -52,10 +52,7 @@ const GetInTouch = () => {
         </Text>
       </Heading>
       <Text variant="description">
-        Though, I am fairly introverted myself. I do reply to messages as long
-        as my human interaction battery lasts. Coding, work, movies or even weeb
-        stuff, anything is cool. So feel free to message me on any of my social
-        media or shoot me an{' '}
+         While I tend to be more on the introverted side, I'm always open to meaningful discussions—especially about web development, technology, or complex application architecture. If you're looking to collaborate, have a project idea, or just want to chat about coding, feel free to reach out via social media or
         <Link
           href="mailto:shlomin1231@gmail.com"
           target="_blank"

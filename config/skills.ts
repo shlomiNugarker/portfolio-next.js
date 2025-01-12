@@ -35,7 +35,7 @@ export const Skills: {
 } = {
   backend: [
     {
-      name: 'Node',
+      name: 'Node.js',
       icon: SiNodeDotJs,
     },
     {
@@ -45,6 +45,10 @@ export const Skills: {
     {
       name: 'Typescript',
       icon: SiTypescript,
+    }, 
+    {
+      name: 'SocketIO',
+      icon: SiSocketDotIo,
     },
   ],
   frontend: [
@@ -71,10 +75,7 @@ export const Skills: {
       name: 'MongoDb',
       icon: SiMongodb,
     },
-    {
-      name: 'SocketIO',
-      icon: SiSocketDotIo,
-    },
+  
   ],
   cicd: [
     {

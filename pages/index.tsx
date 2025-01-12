@@ -114,14 +114,4 @@ const Portfolio = (): JSX.Element => {
   )
 }
 
-// export async function getStaticProps() {
-//   const res = await fetch('')
-//   const articles = await res.json()
-//   return {
-//     props: {
-//       articles,
-//     },
-//   }
-// }
-
 export default Portfolio

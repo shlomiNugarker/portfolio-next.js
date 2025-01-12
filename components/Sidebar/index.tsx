@@ -103,17 +103,12 @@ const Sidebar = () => {
             maxWidth={{ base: '100%', lg: '80%' }}
           >
             Hey! How nice of you to look at my personal site,
-            <Text variant="emphasis" as="span">
-              {' '}
-              Thank you!
-            </Text>
-            <br />
-            I’m a Full-Stack / Frontend Web Developer with strong expertise in
-            creating single-page applications using the latest web technologies
-            like Node.js, Vue.js, Vuex, React.js, and Redux. I’m passionate
-            about helping businesses and individuals build modern, efficient
-            websites and applications. If you’re looking for a developer to
-            bring your vision to life, let’s connect!
+           
+            Hey there! Thanks for visiting my portfolio, I truly appreciate it.
+
+            I'm a Full-Stack Web Developer with expertise in building scalable, high-performance web applications using modern technologies like Node.js, React.js, Next.js, TypeScript, and PostgreSQL. My focus is on creating efficient, well-architected single-page applications tailored to meet business needs.
+
+            I thrive on solving complex development challenges, optimizing application performance, and delivering clean, maintainable code. If you're looking for a developer who can turn your vision into a powerful, fully functional web application—let’s connect!
           </MotionText>
           <MotionButton
             size="lg"

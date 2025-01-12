@@ -33,8 +33,7 @@ const FeaturedWorksSection = () => {
         Some of my works.
       </Heading>
       <Text variant="description">
-        Check out some of the works I made at freelancing, company projects and
-        even case studies.
+      Explore a selection of projects I've worked on—ranging from freelance work and company collaborations to in-depth case studies showcasing my problem-solving and technical expertise.
       </Text>
 
       <MotionGrid
