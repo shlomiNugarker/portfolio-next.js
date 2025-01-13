@@ -102,13 +102,12 @@ const Sidebar = () => {
             variants={fadeInUp}
             maxWidth={{ base: '100%', lg: '80%' }}
           >
-            Hey! How nice of you to look at my personal site,
-           
-            Hey there! Thanks for visiting my portfolio, I truly appreciate it.
+      Hey there!
+Thanks for stopping by my portfolio—I truly appreciate it.
 
-            I'm a Full-Stack Web Developer with expertise in building scalable, high-performance web applications using modern technologies like Node.js, React.js, Next.js, TypeScript, and PostgreSQL. My focus is on creating efficient, well-architected single-page applications tailored to meet business needs.
+I'm a Full-Stack Web Developer with a passion for building scalable, high-performance web applications. Using modern technologies like Node.js, React.js, Next.js, TypeScript, and PostgreSQL, I craft efficient, well-architected solutions tailored to business needs.
 
-            I thrive on solving complex development challenges, optimizing application performance, and delivering clean, maintainable code. If you're looking for a developer who can turn your vision into a powerful, fully functional web application—let’s connect!
+I thrive on solving complex development challenges, optimizing performance, and writing clean, maintainable code. If you're looking for a developer who can bring your vision to life with a powerful, fully functional web application—let’s connect!
           </MotionText>
           <MotionButton
             size="lg"
