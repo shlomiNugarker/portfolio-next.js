@@ -77,7 +77,7 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
             NextJS
           </ListItem>
         </List>
-        <Box>
+        {/* <Box>
           <Text
             as="button"
             variant="emphasis"
@@ -87,7 +87,7 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
           >
             See my full arsenal <Icon as={IoMdOpen} />
           </Text>
-        </Box>
+        </Box> */}
       </SimpleGrid>
     </Stack>
   )
