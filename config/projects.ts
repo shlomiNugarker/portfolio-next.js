@@ -88,20 +88,6 @@ const projects = [
     linkGitHub: 'https://github.com/shlomiNugarker/AstroMind-AI',
   },
   {
-    title: 'Monopoly Royale - A Modern Twist on a Classic Game',
-    tags: ['Javascript(ES6)', 'Vue.js', 'SCSS', 'Vuex', 'MVC'],
-    imgs: [
-      'https://res.cloudinary.com/duajg3ah1/image/upload/v1660923765/myPortfolio/oxf2ncafrtmiwushbjg2.png',
-      'https://res.cloudinary.com/duajg3ah1/image/upload/v1661077030/myPortfolio/ypvbcwolwot13zpj83m1.png',
-      'https://res.cloudinary.com/duajg3ah1/image/upload/v1661077094/myPortfolio/lxbklxfub6ar4b1gpuin.png',
-    ],
-    videoUrl: '',
-    description:
-      'Monopoly Royale brings the beloved board game to the digital era! Trade, build, and compete with players in a beautifully designed and dynamic online version.',
-    linkDemo: 'https://shlominugarker.github.io/monopoly-demo/#/',
-    linkGitHub: 'https://github.com/shlomiNugarker/Monoploly-Vue.js',
-  },
-  {
     title: 'AchcchApp - The Ultimate WhatsApp Clone',
     tags: [
       'Angular',
@@ -139,36 +125,6 @@ const projects = [
       'Video+ is the ultimate streaming platform, seamlessly integrating TMDB and YouTube APIs to bring you a world of entertainment.',
     linkDemo: 'https://videoplus.vercel.app/',
     linkGitHub: 'https://github.com/shlomiNugarker/video-plus',
-  },
-  {
-    title: 'Sudoku Pro - The Ultimate Puzzle Challenge',
-    tags: [
-      '2d-game',
-      'Vanilla-ts',
-      'Backtracking algorithm',
-      'Sudoku-solver',
-      'Vite',
-    ],
-    imgs: [
-      'https://res.cloudinary.com/duajg3ah1/image/upload/v1680208679/myPortfolio/ee0lwcsjknfrlqcgrhwc.png',
-    ],
-    videoUrl: 'https://youtu.be/4FOKfBzdb-8',
-    description:
-      'Sudoku Pro offers a sleek and interactive experience for puzzle lovers. Solve challenging grids with AI-powered hints and an intuitive interface!',
-    linkDemo: 'https://shlominugarker.github.io/sudoku-vannila-ts/',
-    linkGitHub: 'https://github.com/shlomiNugarker/Sudoku',
-  },
-  {
-    title: 'Checkers Ultimate - Classic Board Game Redefined',
-    tags: ['2d-game', 'Vue', 'Vite', 'Typescript', 'Canvas'],
-    imgs: [
-      'https://res.cloudinary.com/duajg3ah1/image/upload/v1706823249/myPortfolio/pi9zxju7u2qkc1gl0clr.png',
-    ],
-    videoUrl: '',
-    description:
-      'A modern take on the classic checkers game, featuring a beautiful interface, smooth gameplay, and smart AI opponents.',
-    linkDemo: 'https://shlominugarker.github.io/checkers-vue-js/',
-    linkGitHub: 'https://github.com/shlomiNugarker/checkers-vue-js',
   },
 ]
 
