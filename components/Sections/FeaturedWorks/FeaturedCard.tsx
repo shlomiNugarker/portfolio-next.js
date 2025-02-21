@@ -128,6 +128,7 @@ const ProjectDescription = ({
     >
       {description}
     </Text>
+
     <div
       style={{
         display: 'flex',

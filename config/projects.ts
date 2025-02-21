@@ -66,6 +66,28 @@ const projects = [
   },
 
   {
+    title: 'AstroMind-AI',
+    tags: [
+      'AI',
+      'Machine Learning',
+      'React',
+      'Vite',
+      'TypeScript',
+      'Node.js',
+      'Express',
+      'MongoDB',
+    ],
+    imgs: [
+      'https://res.cloudinary.com/duajg3ah1/image/upload/v1740161650/dkkezgesahgihwmgzmcp.png',
+    ],
+    videoUrl: '',
+    description:
+      'AstroMind-AI is an AI-powered web application designed for seamless integration with modern ML models. Built with Next.js, React, and Vite, the platform provides an interactive AI assistant with real-time capabilities.',
+    linkDemo: 'https://astromind-ai-production.up.railway.app/#/',
+    linkGitHub: 'https://github.com/shlomiNugarker/AstroMind-AI',
+  },
+
+  {
     title: 'Monopoly',
     tags: ['Javascript(ES6)', 'Vue.js', 'SCSS', 'Vuex', 'MVC'],
     imgs: [
