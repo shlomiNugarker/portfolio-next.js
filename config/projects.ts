@@ -85,7 +85,7 @@ const projects = [
     videoUrl: '',
     description:
       'AstroMind-AI is a next-generation AI-powered web application designed for seamless integration with cutting-edge machine learning models. Engage with an interactive AI assistant in real time for enhanced productivity and automation.',
-    linkDemo: 'https://astromind-ai-production.up.railway.app/#/',
+    linkDemo: 'astromind-ai.up.railway.app/#/',
     linkGitHub: 'https://github.com/shlomiNugarker/AstroMind-AI',
   },
   {
