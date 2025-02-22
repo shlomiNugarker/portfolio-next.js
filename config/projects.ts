@@ -79,6 +79,7 @@ const projects = [
       'MongoDB',
     ],
     imgs: [
+      'https://res.cloudinary.com/duajg3ah1/image/upload/v1740232455/ax7kjnkrg75ptdatwvrf.png',
       'https://res.cloudinary.com/duajg3ah1/image/upload/v1740161650/dkkezgesahgihwmgzmcp.png',
     ],
     videoUrl: '',
