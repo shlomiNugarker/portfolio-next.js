@@ -12,6 +12,7 @@ import {
   useColorModeValue,
   Wrap,
   WrapItem,
+  Heading,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { easing, DURATIONS } from 'config/animations'
@@ -88,72 +89,73 @@ const CoverImage = ({
     />
   ) : null
 
-const ProjectDescription: React.FC<{
-  idx: number
-  title: string
-  description: string
-  ctaUrl: string
-  isLeft: boolean
-  project: Project
-}> = ({ idx, title, description, ctaUrl, isLeft, project }) => {
+const ProjectDescription: React.FC<any> = ({
+  idx,
+  title,
+  description,
+  ctaUrl,
+  isLeft,
+  project,
+}) => {
+  const buttons = [
+    { label: 'View Project', url: ctaUrl },
+    { label: 'View Code', url: project.linkGitHub },
+    ...(project.videoUrl
+      ? [{ label: 'View Video', url: project.videoUrl }]
+      : []),
+  ]
+
+  // שימוש בערכי צבעים בהתאם למצב הצבע (בהיר/כהה)
+  const titleColor = useColorModeValue('gray.800', 'whiteAlpha.900')
+  const descriptionColor = useColorModeValue('gray.600', 'gray.300')
+
   return (
     <Container p={5} display="flex" flexDirection="column" alignItems="center">
       <Stack spacing={2} w="full" textAlign={isLeft ? 'right' : 'left'}>
-        <Text
-          fontSize={{ base: 'md', md: 'lg', '2xl': '2xl' }}
+        <Heading
+          as="h3"
+          fontSize={{ base: 'xl', md: '2xl', '2xl': '3xl' }}
           fontWeight="bold"
-          letterSpacing="wide"
+          letterSpacing="wider"
           textTransform="uppercase"
+          color={titleColor}
         >
-          <Text as="span" color="teal.500" fontSize="md">
-            #{idx < 10 ? `0${idx}` : idx}{' '}
+          <Text
+            as="span"
+            color="teal.500"
+            fontSize={{ base: 'lg', md: 'xl' }}
+            mr={2}
+          >
+            #{idx < 10 ? `0${idx}` : idx}
           </Text>
           {title}
-        </Text>
+        </Heading>
         <Divider borderColor="gray.400" />
       </Stack>
-      <Text fontSize="sm" mt={3} wordBreak="break-word">
+      <Text
+        fontSize={{ base: 'sm', md: 'md' }}
+        mt={3}
+        lineHeight="tall"
+        color={descriptionColor}
+        wordBreak="break-word"
+      >
         {description}
       </Text>
       <Wrap justify="center" mt={4}>
-        <WrapItem>
-          <Button
-            variant="outline"
-            size="sm"
-            as="a"
-            href={ctaUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            View Project
-          </Button>
-        </WrapItem>
-        <WrapItem>
-          <Button
-            variant="outline"
-            size="sm"
-            as="a"
-            href={project.linkGitHub}
-            target="_blank"
-            rel="noreferrer"
-          >
-            View Code
-          </Button>
-        </WrapItem>
-        {project.videoUrl && (
-          <WrapItem>
+        {buttons.map((btn, index) => (
+          <WrapItem key={index}>
             <Button
               variant="outline"
               size="sm"
               as="a"
-              href={project.videoUrl}
+              href={btn.url}
               target="_blank"
               rel="noreferrer"
             >
-              View Video
+              {btn.label}
             </Button>
           </WrapItem>
-        )}
+        ))}
       </Wrap>
     </Container>
   )
