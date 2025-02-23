@@ -82,7 +82,7 @@ const projects = [
       'https://res.cloudinary.com/duajg3ah1/image/upload/v1740232455/ax7kjnkrg75ptdatwvrf.png',
       'https://res.cloudinary.com/duajg3ah1/image/upload/v1740161650/dkkezgesahgihwmgzmcp.png',
     ],
-    videoUrl: '',
+    videoUrl: 'https://www.youtube.com/watch?v=Ypg4isxvXpk',
     description:
       'AstroMind-AI is a next-generation AI-powered web application designed for seamless integration with cutting-edge machine learning models. Engage with an interactive AI assistant in real time for enhanced productivity and automation.',
     linkDemo: 'https://astromind-ai.up.railway.app/#/',
