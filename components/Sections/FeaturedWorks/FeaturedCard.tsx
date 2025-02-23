@@ -5,7 +5,6 @@ import {
   Divider,
   Skeleton,
   Text,
-  SimpleGrid,
   Button,
   Container,
   Stack,
@@ -79,24 +78,23 @@ const CoverImage = ({
       width="100%"
       src={src}
       alt={title}
-      objectFit="contain"
+      objectFit="cover"
       objectPosition={objectPosition}
       loading="lazy"
-      opacity={0.75}
+      opacity={0.85}
       whileHover={variants.hover}
       whileTap={variants.tap}
       fallback={<Skeleton height={height} width="100%" />}
     />
   ) : null
 
-const ProjectDescription: React.FC<any> = ({
-  idx,
-  title,
-  description,
-  ctaUrl,
-  isLeft,
-  project,
-}) => {
+const ProjectDescription: React.FC<{
+  idx: number
+  title: string
+  description: string
+  ctaUrl: string
+  project: Project
+}> = ({ idx, title, description, ctaUrl, project }) => {
   const buttons = [
     { label: 'View Project', url: ctaUrl },
     { label: 'View Code', url: project.linkGitHub },
@@ -105,25 +103,31 @@ const ProjectDescription: React.FC<any> = ({
       : []),
   ]
 
-  // שימוש בערכי צבעים בהתאם למצב הצבע (בהיר/כהה)
+  // בחירת צבעים בהתאם למצב הצבע
   const titleColor = useColorModeValue('gray.800', 'whiteAlpha.900')
   const descriptionColor = useColorModeValue('gray.600', 'gray.300')
 
   return (
-    <Container p={5} display="flex" flexDirection="column" alignItems="center">
-      <Stack spacing={2} w="full" textAlign={isLeft ? 'right' : 'left'}>
+    <Container
+      p={3}
+      display="flex"
+      flexDirection="column"
+      alignItems="flex-start"
+    >
+      <Stack spacing={1} w="full">
         <Heading
           as="h3"
-          fontSize={{ base: 'xl', md: '2xl', '2xl': '3xl' }}
+          fontSize={{ base: 'lg', md: 'xl', '2xl': '2xl' }}
           fontWeight="bold"
           letterSpacing="wider"
           textTransform="uppercase"
           color={titleColor}
+          mb={1}
         >
           <Text
             as="span"
             color="teal.500"
-            fontSize={{ base: 'lg', md: 'xl' }}
+            fontSize={{ base: 'md', md: 'lg' }}
             mr={2}
           >
             #{idx < 10 ? `0${idx}` : idx}
@@ -133,20 +137,20 @@ const ProjectDescription: React.FC<any> = ({
         <Divider borderColor="gray.400" />
       </Stack>
       <Text
-        fontSize={{ base: 'sm', md: 'md' }}
-        mt={3}
-        lineHeight="tall"
+        fontSize={{ base: 'xs', md: 'sm' }}
+        mt={2}
+        lineHeight="short"
         color={descriptionColor}
         wordBreak="break-word"
       >
         {description}
       </Text>
-      <Wrap justify="center" mt={4}>
+      <Wrap justify="flex-start" mt={2} spacing={2}>
         {buttons.map((btn, index) => (
           <WrapItem key={index}>
             <Button
               variant="outline"
-              size="sm"
+              size="xs"
               as="a"
               href={btn.url}
               target="_blank"
@@ -169,50 +173,35 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({
   description,
   objectPosition,
   ctaUrl,
-  isMobile,
   project,
 }) => {
-  const isLeftImage = isMobile ? false : idx % 2 === 0
   const bg = useColorModeValue('blackAlpha.50', 'whiteAlpha.200')
 
   return (
     <Box
       bg={bg}
-      borderRadius="md"
+      borderRadius="sm"
       borderWidth="1px"
       overflow="hidden"
-      boxShadow="md"
+      boxShadow="sm"
+      m={1}
     >
-      <SimpleGrid
-        columns={{ base: 1, md: 2 }}
-        spacing={0}
-        flexDirection={{ base: 'column-reverse', md: 'row' }}
-      >
-        {isLeftImage && (
-          <CoverImage
-            height={height}
-            src={src}
-            title={title}
-            objectPosition={objectPosition}
-          />
-        )}
-        <ProjectDescription
-          idx={idx}
+      {src && (
+        <CoverImage
+          height={height}
+          src={src}
           title={title}
-          description={description}
-          ctaUrl={ctaUrl}
-          project={project}
-          isLeft={isLeftImage}
+          objectPosition={objectPosition}
         />
-        {!isLeftImage && (
-          <CoverImage
-            height={height}
-            src={src}
-            title={title}
-            objectPosition={objectPosition}
-          />
-        )}
-      </SimpleGrid>
+      )}
+      {/* החלק של הפירוט עכשיו תופס את כל רוחב הכרטיס */}
+      <ProjectDescription
+        idx={idx}
+        title={title}
+        description={description}
+        ctaUrl={ctaUrl}
+        project={project}
+      />
     </Box>
   )
 }
