@@ -1,8 +1,8 @@
 import { memo } from 'react'
-import { Heading, Text, Stack, Link, Icon, Box } from '@chakra-ui/react'
+import { Heading, Text, Stack, Link, Box, Container } from '@chakra-ui/react'
 import { motion, Variants } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { RiHeartPulseFill, RiCopyleftLine, RiGithubFill } from 'react-icons/ri'
+
 const rimuruVariant: Variants = {
   shake: {
     rotate: [0, 15, 0, -15, 0],
@@ -14,11 +14,11 @@ const rimuruVariant: Variants = {
     },
   },
   jump: {
-    y: [0, -35, 0],
+    y: [0, -25, 0],
     transition: {
       delay: 1.8,
       duration: 0.5,
-      repeat: 3,
+      repeat: 2,
       ease: 'easeInOut',
     },
   },
@@ -27,54 +27,86 @@ const rimuruVariant: Variants = {
 const GetInTouch = () => {
   const [ref, inView] = useInView()
   return (
-    <Stack
-      width={{ base: '99%', lg: '60%', xl: '75%' }}
-      height="100%"
-      spacing={{ base: 6, xl: 8 }}
+    <Box
       as="footer"
+      maxW={{ base: '99%', lg: '60%', xl: '75%' }}
+      width="100%"
+      py={16}
+      bg="customPeach"
+      textAlign="center"
     >
-      <Heading
-        size="2xl"
-        style={{
-          fontVariantCaps: 'small-caps',
-        }}
-      >
-        Say hi!{' '}
-        <Text as="span" fontSize="2xl" variant="emphasis">
-          <motion.div
-            style={{ display: 'inline-block' }}
-            variants={rimuruVariant}
-            ref={ref}
-            animate={inView ? ['shake', 'jump'] : false}
+      <Container maxW={{ base: '99%', lg: '60%', xl: '75%' }}>
+        <Stack spacing={8} alignItems="center">
+          <Heading
+            size="2xl"
+            fontWeight="bold"
+            letterSpacing="wide"
+            color="customNavy"
           >
-            (⁀ᗢ⁀)
-          </motion.div>
-        </Text>
-      </Heading>
-      <Text variant="description">
-         While I tend to be more on the introverted side, I'm always open to meaningful discussions—especially about web development, technology, or complex application architecture. If you're looking to collaborate, have a project idea, or just want to chat about coding, feel free to reach out via social media or
-        <Link
-          href="mailto:shlomin1231@gmail.com"
-          target="_blank"
-          rel="noreferrer"
-        >
-         {' '} email
-        </Link>
-      </Text>
-      <Text variant="contact">
-        <Link
-          href="mailto:shlomin1231@gmail.com"
-          target="_blank"
-          rel="noreferrer"
-        >
-          shlomin1231@gmail.com
-        </Link>
-        <br />
-        <Link href="tel:+972529526762" target="_blank" rel="noreferrer">
-          0529526762
-        </Link>
-      </Text>
-    </Stack>
+            Say hi!{' '}
+            <Text
+              as="span"
+              fontSize="2xl"
+              fontWeight="normal"
+              color="customGreen"
+            >
+              <motion.div
+                style={{ display: 'inline-block' }}
+                variants={rimuruVariant}
+                ref={ref}
+                animate={inView ? ['shake', 'jump'] : false}
+              >
+                (⁀ᗢ⁀)
+              </motion.div>
+            </Text>
+          </Heading>
+          <Text
+            fontSize={{ base: 'md', md: 'lg' }}
+            color="customNavy"
+            px={6}
+            maxW="3xl"
+          >
+            I'm always open to meaningful discussions—especially about web
+            development, technology, or complex application architecture. If
+            you're looking to collaborate, have a project idea, or just want to
+            chat about coding, feel free to reach out via social media or
+            <Link
+              href="mailto:shlomin1231@gmail.com"
+              target="_blank"
+              rel="noreferrer"
+              color="customGreen"
+              fontWeight="bold"
+            >
+              {' '}
+              email
+            </Link>
+            .
+          </Text>
+          <Box mt={4}>
+            <Text fontSize={{ base: 'lg', md: 'xl' }} fontWeight="bold">
+              <Link
+                href="mailto:shlomin1231@gmail.com"
+                target="_blank"
+                rel="noreferrer"
+                color="customGreen"
+              >
+                shlomin1231@gmail.com
+              </Link>
+            </Text>
+            <Text fontSize={{ base: 'lg', md: 'xl' }} fontWeight="bold" mt={2}>
+              <Link
+                href="tel:+972529526762"
+                target="_blank"
+                rel="noreferrer"
+                color="customGreen"
+              >
+                +972 52-952-6762
+              </Link>
+            </Text>
+          </Box>
+        </Stack>
+      </Container>
+    </Box>
   )
 }
 
