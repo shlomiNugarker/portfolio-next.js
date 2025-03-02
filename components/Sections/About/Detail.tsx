@@ -18,7 +18,7 @@ import {
 } from 'react-icons/si'
 
 const Detail = () => {
-  const emphasis = useColorModeValue('teal.500', 'cyan.200')
+  const emphasis: string = useColorModeValue('teal.500', 'cyan.200')
 
   return (
     <Stack

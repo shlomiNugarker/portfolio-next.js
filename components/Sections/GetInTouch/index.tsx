@@ -111,10 +111,10 @@ const GetInTouch = () => {
             href="mailto:shlomin1231@gmail.com"
             size="lg"
             bg="customGreen"
-            color="white"
             _hover={{ bg: 'customNavy' }}
             px={8}
             py={6}
+            color="customGreen"
             fontSize="lg"
             fontWeight="bold"
             borderRadius="8px"
