@@ -4,6 +4,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { AnimatePresence } from 'framer-motion'
 import theme from 'config/theme'
 import FavIconProvider from 'components/Misc/FavIconProvider'
+import { appWithTranslation } from 'next-i18next'
 
 function SNSite({ Component, pageProps }: AppProps): JSX.Element {
   return (
@@ -16,4 +17,4 @@ function SNSite({ Component, pageProps }: AppProps): JSX.Element {
     </AnimatePresence>
   )
 }
-export default SNSite
+export default appWithTranslation(SNSite)
