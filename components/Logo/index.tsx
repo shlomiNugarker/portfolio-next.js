@@ -1,14 +1,11 @@
-import { memo, useState } from 'react'
-import { useColorMode, Image, useBreakpointValue } from '@chakra-ui/react'
+import { memo } from 'react'
 import Link from 'next/link'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 
-const Logo = () => {
-  return (
-    <AnimatePresence>
-      <Link href="/" passHref></Link>
-    </AnimatePresence>
-  )
-}
+const Logo = () => (
+  <AnimatePresence>
+    <Link href="/" passHref></Link>
+  </AnimatePresence>
+)
 
 export default memo(Logo)

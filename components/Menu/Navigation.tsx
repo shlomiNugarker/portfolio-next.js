@@ -27,7 +27,7 @@ const NAV_LINKS = [
 ]
 
 const Navigation = () => {
-  const { t } = useTranslation('common') 
+  const { t } = useTranslation('common')
   const { toggleColorMode, colorMode } = useColorMode()
   const [isOpen, toggleOpen] = useCycle(false, true)
   const isMobile = useBreakpointValue(mobileBreakpointsMap)
@@ -46,7 +46,9 @@ const Navigation = () => {
   const onMenuItemClick = useCallback(
     (e) => {
       e.stopPropagation()
-      if (isMobile) toggleOpen()
+      if (isMobile) {
+        toggleOpen()
+      }
     },
     [isMobile, toggleOpen]
   )

@@ -71,8 +71,8 @@ const MobileMenu = ({
     initial={false}
     animate={isOpen ? 'open' : 'closed'}
     style={{
-      display: 'flex',
       alignItems: 'center',
+      display: 'flex',
     }}
   >
     <MenuToggle toggle={() => toggle()} isDarkMode={isDarkMode} />

@@ -1,3 +1,4 @@
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import {
   Grid,
   GridItem,
@@ -14,20 +15,17 @@ import Avatar from 'components/Avatar'
 import About from 'components/Sections/About'
 import FeaturedWorks from 'components/Sections/FeaturedWorks'
 import ScrollMore from 'components/Misc/ScrollMore'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { useRouter } from 'next/router'
 
-export const getDirection = (locale: string) => {
-  return locale === 'he' ? 'rtl' : 'ltr'
-}
+import { GetStaticPaths } from 'next'
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [{ params: { locale: 'en' } }, { params: { locale: 'he' } }],
     fallback: false,
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function getStaticProps({ params }: any) {
   const { locale } = params
   return {
@@ -40,15 +38,23 @@ export async function getStaticProps({ params }: any) {
 const GetInTouch = dynamic(() => import('components/Sections/GetInTouch'))
 
 const Portfolio = (): JSX.Element => {
-  const sideBarPadding = useBreakpointValue({ base: '5', md: '8', lg: '14' })
-  const mainContent = useBreakpointValue({
+  const sideBarPadding: string | number | undefined = useBreakpointValue({
+    base: '5',
+    md: '8',
+    lg: '14',
+  })
+  const mainContent: string | number | undefined = useBreakpointValue({
     base: '5',
     md: '14',
     lg: '14',
     xl: 0,
   })
 
-  const paddTop = useBreakpointValue({ base: '20', sm: 20, md: 20 })
+  const paddTop: string | number | undefined = useBreakpointValue({
+    base: '20',
+    sm: 20,
+    md: 20,
+  })
 
   return (
     <Box>

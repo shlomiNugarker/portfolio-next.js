@@ -13,24 +13,22 @@ import {
   SiJavascript,
   SiTypescript,
   SiReact,
-  SiNextDotJs,
-  SiNodeDotJs,
+  SiNodedotjs,
 } from 'react-icons/si'
 import { useTranslation } from 'next-i18next'
 
 const Detail = () => {
-  const { t } = useTranslation('common') // 🔹 תמיכה בתרגום
+  const { t } = useTranslation('common')
   const emphasis = useColorModeValue('teal.500', 'cyan.200')
 
-  // 🔹 רשימה של טכנולוגיות כדי למנוע חזרות בקוד
   const technologies = [
     { icon: SiJavascript, label: t('tech.js') },
     { icon: SiTypescript, label: t('tech.ts') },
-    { icon: SiNodeDotJs, label: t('tech.node') },
+    { icon: SiNodedotjs, label: t('tech.node') },
   ]
   const technologies2 = [
     { icon: SiReact, label: t('tech.react') },
-    { icon: SiNextDotJs, label: t('tech.next') },
+    { icon: SiNodedotjs, label: t('tech.next') },
   ]
 
   return (
@@ -51,7 +49,6 @@ const Detail = () => {
       <Text variant="description">{t('description')}</Text>
 
       <SimpleGrid columns={2} spacing={4}>
-        {/* 🔹 חיסכון בחזרות ע"י שימוש במפת טכנולוגיות */}
         <List spacing={3}>
           {technologies.map(({ icon, label }) => (
             <ListItem

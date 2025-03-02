@@ -2,14 +2,14 @@ import { IconType } from 'react-icons'
 import {
   SiJavascript,
   SiTypescript,
-  SiNodeDotJs,
+  SiNodedotjs,
   SiReact,
-  SiNextDotJs,
+  SiNextdotjs,
   SiRedux,
-  SiVueDotJs,
+  SiVuedotjs,
   SiDocker,
   SiMongodb,
-  SiSocketDotIo,
+  SiSocketdotio,
   SiGit,
   SiVisualstudiocode,
 } from 'react-icons/si'
@@ -36,7 +36,7 @@ export const Skills: {
   backend: [
     {
       name: 'Node.js',
-      icon: SiNodeDotJs,
+      icon: SiNodedotjs,
     },
     {
       name: 'Javascript (ES6+)',
@@ -45,10 +45,10 @@ export const Skills: {
     {
       name: 'Typescript',
       icon: SiTypescript,
-    }, 
+    },
     {
       name: 'SocketIO',
-      icon: SiSocketDotIo,
+      icon: SiSocketdotio,
     },
   ],
   frontend: [
@@ -58,7 +58,7 @@ export const Skills: {
     },
     {
       name: 'NextJS',
-      icon: SiNextDotJs,
+      icon: SiNextdotjs,
     },
 
     {
@@ -67,7 +67,7 @@ export const Skills: {
     },
     {
       name: 'VueJS',
-      icon: SiVueDotJs,
+      icon: SiVuedotjs,
     },
   ],
   database: [
@@ -75,7 +75,6 @@ export const Skills: {
       name: 'MongoDb',
       icon: SiMongodb,
     },
-  
   ],
   cicd: [
     {
