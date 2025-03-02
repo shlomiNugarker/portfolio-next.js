@@ -1,16 +1,8 @@
 import { memo } from 'react'
-import {
-  Heading,
-  Text,
-  Stack,
-  Grid,
-  GridItem,
-  useBreakpointValue,
-} from '@chakra-ui/react'
+import { Heading, Text, Stack, Grid, GridItem } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import FeaturedCard from './FeaturedCard'
 import { fadeInUpSlower, galleryStagger } from 'config/animations'
-import { mobileBreakpointsMap } from 'config/theme'
 const MotionGrid = motion(Grid)
 const MotionGridItem = motion(GridItem)
 
@@ -54,8 +46,7 @@ const FeaturedWorksSection = () => {
               title={project.title}
               description={project.description}
               src={project.imgs[0]}
-              height={'100%'}
-              // height={{ base: '130px', md: '225px', '2xl': '300px' }}
+              height={{ base: '130px', md: '225px', '2xl': '300px' }}
               ctaUrl={project.linkDemo}
               objectPosition="right 20%"
               project={project}

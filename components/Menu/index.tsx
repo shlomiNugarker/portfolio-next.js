@@ -5,7 +5,6 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react'
 import { motion, Variants, useAnimation } from 'framer-motion'
-import Logo from '../Logo'
 import styles from './styles.module.css'
 import Navigation from './Navigation'
 import { mobileBreakpointsMap } from 'config/theme'
@@ -33,7 +32,7 @@ const mobileMenuVariants: Variants = {
 const Menu = () => {
   const bg = useColorModeValue('gray.100', 'black')
   const controls = useAnimation()
-  const isMobile = useBreakpointValue(mobileBreakpointsMap) || false
+  const isMobile = Boolean(useBreakpointValue(mobileBreakpointsMap)) || false
   const scrollDirection = useScrollDirection(true, isMobile)
 
   useEffect(() => {
@@ -55,13 +54,12 @@ const Menu = () => {
         alignItems="center"
         justifyContent="space-between"
         padding={{ base: 5, lg: 0 }}
-        paddingY={{ base: 5, lg: 0 }}
+        py={{ base: 5, lg: 0 }}
         backgroundColor={isMobile ? bg : 'transparent'}
         width="100vw"
         maxWidth="100vw"
         margin={0}
       >
-        <Logo />
         <Navigation />
       </Container>
     </motion.div>

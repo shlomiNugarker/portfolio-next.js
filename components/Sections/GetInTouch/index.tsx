@@ -54,7 +54,7 @@ const GetInTouch = () => {
             letterSpacing="wide"
             color="customNavy"
           >
-            Say hi!{' '}
+            Let's Build Something Amazing{' '}
             <Text
               as="span"
               fontSize="2xl"
@@ -79,21 +79,10 @@ const GetInTouch = () => {
             maxW="3xl"
             textAlign="center"
           >
-            I'm always open to meaningful discussions—especially about web
-            development, technology, or complex application architecture. If
-            you're looking to collaborate, have a project idea, or just want to
-            chat about coding, feel free to reach out via social media or
-            <Link
-              href="mailto:shlomin1231@gmail.com"
-              target="_blank"
-              rel="noreferrer"
-              color="customGreen"
-              fontWeight="bold"
-            >
-              {' '}
-              email
-            </Link>
-            .
+            I specialize in crafting high-performance, scalable applications
+            that drive business success. Whether you need a custom web solution,
+            want to optimize an existing project, or seek collaboration on
+            cutting-edge technology—I'm here to help. Let's connect!
           </Text>
           <Box mt={4}>
             <Text fontSize={{ base: 'lg', md: 'xl' }} fontWeight="bold">
@@ -121,6 +110,8 @@ const GetInTouch = () => {
             as="a"
             href="mailto:shlomin1231@gmail.com"
             size="lg"
+            bg="customGreen"
+            color="white"
             _hover={{ bg: 'customNavy' }}
             px={8}
             py={6}
@@ -128,7 +119,7 @@ const GetInTouch = () => {
             fontWeight="bold"
             borderRadius="8px"
           >
-            Contact Me
+            Let's Talk Business
           </Button>
         </Stack>
       </Container>

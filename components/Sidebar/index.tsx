@@ -12,19 +12,12 @@ import {
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import styles from './styles.module.css'
-import {
-  fadeInUp,
-  letterSpace,
-  simpleOpacity,
-  stagger,
-  scaleUp,
-} from 'config/animations'
+import { fadeInUp, simpleOpacity, stagger, scaleUp } from 'config/animations'
 import { SocialMedias } from 'config/sidebar'
 
 const Sidebar = () => {
   const { colorMode } = useColorMode()
   const display = useBreakpointValue({ base: 'none', lg: 'block' })
-  const surNameSize = useBreakpointValue({ base: '3xl', md: '4xl' })
   const MotionHeading = motion(Heading)
   const MotionText = motion(Text)
   const MotionStack = motion(Stack)
@@ -57,7 +50,7 @@ const Sidebar = () => {
       >
         <MotionStack variants={stagger} spacing={6} w="100">
           <MotionText variants={fadeInUp} variant="accent" fontWeight="light">
-            Ohh you found me?. Howdy! I am
+            Welcome! I'm
           </MotionText>
           <MotionHeading
             as="h1"
@@ -69,17 +62,6 @@ const Sidebar = () => {
             Shlomi Nugarker
           </MotionHeading>
           <MotionHeading
-            as="h2"
-            size={surNameSize}
-            variant="emphasis"
-            className={styles.marginTopForce}
-            textTransform="uppercase"
-            variants={letterSpace}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          ></MotionHeading>
-
-          <MotionHeading
             as="h3"
             size="xl"
             variant="emphasis"
@@ -88,7 +70,6 @@ const Sidebar = () => {
           >
             Fullstack Developer
           </MotionHeading>
-
           <MotionText
             variant="description"
             fontSize="md"
@@ -96,16 +77,12 @@ const Sidebar = () => {
             variants={fadeInUp}
             maxWidth={{ base: '100%', lg: '80%' }}
           >
-            Hey there! Thanks for stopping by my portfolio—I truly appreciate
-            it. I'm a Full-Stack Web Developer with a passion for building
-            scalable, high-performance web applications. Using modern
-            technologies like Node.js, React.js, Next.js, TypeScript, and
-            PostgreSQL, I craft efficient, well-architected solutions tailored
-            to business needs. I thrive on solving complex development
-            challenges, optimizing performance, and writing clean, maintainable
-            code. If you're looking for a developer who can bring your vision to
-            life with a powerful, fully functional web application—let’s
-            connect!
+            Passionate about building innovative, high-performance web
+            applications tailored to business needs. With expertise in Node.js,
+            React, Next.js, and PostgreSQL, I create powerful, scalable
+            solutions that drive success. Whether you're launching a new project
+            or optimizing an existing one, I'm here to turn your ideas into
+            reality.
           </MotionText>
           <MotionButton
             size="lg"
@@ -114,7 +91,7 @@ const Sidebar = () => {
             color="white"
             fontWeight="bold"
             fontSize="sm"
-            width="150px"
+            width="180px"
             variants={simpleOpacity}
             as={'a'}
             href="mailto:shlomin1231@gmail.com"
@@ -123,9 +100,8 @@ const Sidebar = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
-            Get in touch!
+            Let's Collaborate!
           </MotionButton>
-
           <MotionBox d="flex" variants={simpleOpacity}>
             {SocialMedias.map((socMedia) => (
               <Link

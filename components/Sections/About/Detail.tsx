@@ -5,32 +5,20 @@ import {
   List,
   ListItem,
   ListIcon,
-  Icon,
   SimpleGrid,
-  Box,
   Stack,
   useColorModeValue,
 } from '@chakra-ui/react'
 import {
-  SiDotNet,
   SiJavascript,
   SiTypescript,
-  SiGraphql,
   SiReact,
   SiNextDotJs,
   SiNodeDotJs,
-  SiDocker,
 } from 'react-icons/si'
-import { IoMdOpen } from 'react-icons/io'
 
-type ISkillSetModal = {
-  onOpen(): void
-}
-
-const Detail = ({ onOpen }: ISkillSetModal) => {
+const Detail = () => {
   const emphasis = useColorModeValue('teal.500', 'cyan.200')
-  const currentYear = new Date().getFullYear()
-  const professionalYears = currentYear - 2022
 
   return (
     <Stack
@@ -42,53 +30,47 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
         as="h4"
         size="2xl"
         letterSpacing={1.8}
-        style={{
-          fontVariantCaps: 'small-caps',
-        }}
+        style={{ fontVariantCaps: 'small-caps' }}
       >
-        What i do.
+        Unlock Your Digital Potential
       </Heading>
       <Text variant="description">
-        I'm a full-stack developer specializing in web technologies,{' '}
+        I craft high-performance, scalable, and visually stunning web
+        applications that drive business growth. Whether you're a startup or an
+        established company, I create tailored digital solutions that elevate
+        your brand and engage your customers.
       </Text>
 
       <SimpleGrid columns={2} spacing={4}>
         <List spacing={3}>
           <ListItem fontSize="small" display="flex" alignItems="center">
             <ListIcon as={SiJavascript} color={emphasis} fontSize="2em" />
-            Javascript (ES6+)
+            Modern JavaScript (ES6+)
           </ListItem>
           <ListItem fontSize="small" display="flex" alignItems="center">
             <ListIcon as={SiTypescript} color={emphasis} fontSize="2em" />
-            Typescript
+            TypeScript for Scalable Applications
           </ListItem>
           <ListItem fontSize="small" display="flex" alignItems="center">
             <ListIcon as={SiNodeDotJs} color={emphasis} fontSize="2em" />
-            Node
+            Robust Backend with Node.js
           </ListItem>
         </List>
         <List spacing={3}>
           <ListItem fontSize="small" display="flex" alignItems="center">
             <ListIcon as={SiReact} color={emphasis} fontSize="2em" />
-            React
+            Dynamic UI with React
           </ListItem>
           <ListItem fontSize="small" display="flex" alignItems="center">
             <ListIcon as={SiNextDotJs} color={emphasis} fontSize="2em" />
-            NextJS
+            SEO-Optimized Web Apps with Next.js
           </ListItem>
         </List>
-        {/* <Box>
-          <Text
-            as="button"
-            variant="emphasis"
-            fontSize="smaller"
-            textAlign="left"
-            onClick={onOpen}
-          >
-            See my full arsenal <Icon as={IoMdOpen} />
-          </Text>
-        </Box> */}
       </SimpleGrid>
+      <Text variant="description" fontWeight="bold" fontSize="lg">
+        Let's build something exceptional together. Contact me today to discuss
+        your project.
+      </Text>
     </Stack>
   )
 }
