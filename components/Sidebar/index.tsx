@@ -44,7 +44,7 @@ const Sidebar = () => {
         id="sidebarCircle"
         className={`
           ${styles.sidebar} 
-          ${colorMode === 'light' ? styles.dark : ''} 
+          ${colorMode === 'light' ? styles.dark : styles.light} 
           ${isRtl ? styles.rtl : ''}
         `}
         variants={scaleUp}
@@ -67,7 +67,8 @@ const Sidebar = () => {
           <MotionHeading
             as="h1"
             size="2xl"
-            paddingRight={{ lg: '20' }}
+            paddingRight={{ lg: isRtl ? '0' : '20' }}
+            paddingLeft={{ lg: isRtl ? '20' : '0' }}
             textTransform="uppercase"
             variants={fadeInUp}
           >
@@ -87,7 +88,8 @@ const Sidebar = () => {
           <MotionText
             variant="description"
             fontSize="md"
-            paddingRight={{ lg: '12' }}
+            paddingRight={{ lg: isRtl ? '0' : '12' }}
+            paddingLeft={{ lg: isRtl ? '12' : '0' }}
             variants={fadeInUp}
             maxWidth={{ base: '100%', lg: '80%' }}
           >
@@ -100,12 +102,18 @@ const Sidebar = () => {
                 key={label}
                 aria-label={label}
                 rel="noreferrer"
-                width={8}
+                width={14}
                 href={href}
                 target="_blank"
                 _focus={{ boxShadow: 'none' }}
               >
-                <Icon w={6} h={6} as={icon} color="currentColor" />
+                <Icon
+                  w={9}
+                  h={9}
+                  as={icon}
+                  color="currentColor"
+                  margin={{ base: '0 2', lg: '0 4' }}
+                />
               </Link>
             ))}
           </MotionBox>

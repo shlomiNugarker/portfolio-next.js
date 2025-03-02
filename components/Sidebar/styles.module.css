@@ -36,6 +36,12 @@
   border-top-color: transparent;
   border-bottom-color: transparent;
 }
+.light {
+  border: 3px solid white;
+  border-left-color: transparent;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
 
 /* כאשר השפה היא RTL, נוסיף class .rtl – מחליפים left ב-right */
 .sidebar.rtl {
@@ -52,6 +58,12 @@
 /* אם גם .dark וגם .rtl => החלפת border כך שיראה “הפוך” */
 .sidebar.rtl.dark {
   border-left-color: black;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+.sidebar.rtl.light {
+  border-left-color: white;
   border-right-color: transparent;
   border-top-color: transparent;
   border-bottom-color: transparent;
