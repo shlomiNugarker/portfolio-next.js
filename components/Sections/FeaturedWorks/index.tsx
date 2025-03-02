@@ -17,7 +17,6 @@ const MotionGridItem = motion(GridItem)
 import projects from '../../../config/projects'
 
 const FeaturedWorksSection = () => {
-  const isMobile = useBreakpointValue(mobileBreakpointsMap)
   return (
     <Stack
       width={{ base: '99%', lg: '60%', xl: '75%' }}
@@ -59,7 +58,6 @@ const FeaturedWorksSection = () => {
               // height={{ base: '130px', md: '225px', '2xl': '300px' }}
               ctaUrl={project.linkDemo}
               objectPosition="right 20%"
-              isMobile={isMobile}
               project={project}
             />
           </MotionGridItem>
