@@ -1,5 +1,14 @@
 import { memo } from 'react'
-import { Heading, Text, Stack, Link, Box, Container } from '@chakra-ui/react'
+import {
+  Heading,
+  Text,
+  Stack,
+  Link,
+  Box,
+  Container,
+  Divider,
+  Button,
+} from '@chakra-ui/react'
 import { motion, Variants } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
@@ -29,14 +38,16 @@ const GetInTouch = () => {
   return (
     <Box
       as="footer"
-      maxW={{ base: '99%', lg: '60%', xl: '75%' }}
       width="100%"
+      maxW={{ base: '99%', lg: '60%', xl: '75%' }}
       py={16}
       bg="customPeach"
       textAlign="center"
+      borderTopWidth={2}
+      borderColor="customNavy"
     >
       <Container maxW={{ base: '99%', lg: '60%', xl: '75%' }}>
-        <Stack spacing={8} alignItems="center">
+        <Stack spacing={10} alignItems="center">
           <Heading
             size="2xl"
             fontWeight="bold"
@@ -60,11 +71,13 @@ const GetInTouch = () => {
               </motion.div>
             </Text>
           </Heading>
+          <Divider borderColor="customGreen" w="50%" />
           <Text
             fontSize={{ base: 'md', md: 'lg' }}
             color="customNavy"
             px={6}
             maxW="3xl"
+            textAlign="center"
           >
             I'm always open to meaningful discussions—especially about web
             development, technology, or complex application architecture. If
@@ -104,6 +117,19 @@ const GetInTouch = () => {
               </Link>
             </Text>
           </Box>
+          <Button
+            as="a"
+            href="mailto:shlomin1231@gmail.com"
+            size="lg"
+            _hover={{ bg: 'customNavy' }}
+            px={8}
+            py={6}
+            fontSize="lg"
+            fontWeight="bold"
+            borderRadius="8px"
+          >
+            Contact Me
+          </Button>
         </Stack>
       </Container>
     </Box>

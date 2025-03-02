@@ -32,29 +32,31 @@ const config = {
 
 const colors = {
   black: '#121212',
+  primary: '#12946c', // Custom Green
+  secondary: '#313760', // Custom Navy
+  accent: '#ffdbb6', // Custom Peach
 }
 
 const styles = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   global: (props: any) => ({
     body: {
       color: mode('gray.800', 'whiteAlpha.900')(props),
-      bg: mode('gray.100', '#121212')(props),
+      bg: mode('gray.100', colors.black)(props),
     },
   }),
 }
 
 const textVariants = {
   emphasis: (props: ThemeComponentProps<ChakraTheme>) => ({
-    color: mode('teal.500', 'cyan.200')(props),
+    color: mode(colors.primary, 'cyan.200')(props),
   }),
   description: (props: ThemeComponentProps<ChakraTheme>) => ({
-    color: mode('gray.800', 'gray.400')(props),
+    color: mode('gray.700', 'gray.300')(props),
   }),
   accent: (props: ThemeComponentProps<ChakraTheme>) => ({
-    color: mode('black.400', 'cyan.200')(props),
+    color: mode(colors.secondary, 'cyan.300')(props),
   }),
-  accentAlternative: (props: ThemeComponentProps<ChakraTheme>) => ({
+  muted: (props: ThemeComponentProps<ChakraTheme>) => ({
     color: mode('#595959', '#A6A6A6')(props),
   }),
 }
@@ -62,21 +64,25 @@ const textVariants = {
 const theme = extendTheme({
   config,
   fonts: {
-    body: 'Poppins',
+    body: 'Poppins, sans-serif',
+    heading: 'Poppins, sans-serif',
   },
   colors,
   styles,
   components: {
     Link: {
       baseStyle: (props: Dict | StyleFunctionProps) => ({
-        color: mode('teal.500', 'cyan.200')(props),
+        color: mode(colors.primary, 'cyan.200')(props),
+        _hover: {
+          textDecoration: 'underline',
+        },
       }),
       variants: {
         ...textVariants,
         description: (props: ThemeComponentProps<ChakraTheme>) => ({
-          color: mode('gray.800', 'gray.400')(props),
+          color: mode('gray.700', 'gray.300')(props),
           _hover: {
-            color: mode('teal.500', 'cyan.200')(props),
+            color: mode(colors.primary, 'cyan.200')(props),
             textDecoration: 'none',
           },
         }),
@@ -89,16 +95,23 @@ const theme = extendTheme({
       variants: textVariants,
     },
     Button: {
+      baseStyle: {
+        borderRadius: '8px',
+        fontWeight: 'bold',
+      },
       variants: {
-        outline: (props: Dict | StyleFunctionProps) => ({
-          borderColor: mode('black.400', 'cyan.200')(props),
-        }),
-        outlineAlternative: (props: Dict) => ({
-          borderWidth: '1px',
-          borderRadius: 0,
-          borderColor: mode('#595959', 'whiteAlpha.500')(props),
+        solid: (props: Dict | StyleFunctionProps) => ({
+          bg: mode(colors.primary, colors.secondary)(props),
+          color: 'white',
           _hover: {
-            backgroundColor: mode(
+            bg: mode('#0f7d5a', '#272d4a')(props),
+          },
+        }),
+        outline: (props: Dict | StyleFunctionProps) => ({
+          borderColor: mode(colors.primary, 'cyan.200')(props),
+          color: mode(colors.primary, 'cyan.200')(props),
+          _hover: {
+            bg: mode(
               'rgba(49, 151, 149, 0.06)',
               'rgba(157, 236, 249, 0.06)'
             )(props),
@@ -106,22 +119,13 @@ const theme = extendTheme({
         }),
       },
     },
-    Icon: {
-      variants: {
-        accent: (props: Dict | StyleFunctionProps) => ({
-          borderColor: mode('gray.800', 'gray.400')(props),
-        }),
-      },
-    },
     Divider: {
-      variants: {
-        solid: (props: Dict | StyleFunctionProps) => ({
-          borderColor: mode('gray.800', 'gray.400')(props),
-          marginLeft: 'auto',
-          marginRight: 'auto',
-        }),
+      baseStyle: {
+        borderColor: 'gray.400',
+        opacity: 0.7,
       },
     },
   },
 })
+
 export default theme
