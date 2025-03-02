@@ -5,10 +5,13 @@ import FeaturedCard from './FeaturedCard'
 import { fadeInUpSlower, galleryStagger } from 'config/animations'
 const MotionGrid = motion(Grid)
 const MotionGridItem = motion(GridItem)
+import { useTranslation } from 'next-i18next'
 
 import projects from '../../../config/projects'
 
 const FeaturedWorksSection = () => {
+  const { t } = useTranslation('common')
+
   return (
     <Stack
       width={{ base: '99%', lg: '60%', xl: '75%' }}
@@ -21,13 +24,9 @@ const FeaturedWorksSection = () => {
           fontVariantCaps: 'small-caps',
         }}
       >
-        Some of my works.
+        {t('projects.title')}{' '}
       </Heading>
-      <Text variant="description">
-        Explore a selection of projects I've worked on—ranging from freelance
-        work and company collaborations to in-depth case studies showcasing my
-        problem-solving and technical expertise.
-      </Text>
+      <Text variant="description">{t('projects.description')}</Text>
 
       <MotionGrid
         templateRows="repeat(1, 1fr)"

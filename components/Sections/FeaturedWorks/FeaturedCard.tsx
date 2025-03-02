@@ -14,15 +14,15 @@ import {
   Heading,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import { easing, DURATIONS } from 'config/animations'
-import { memo } from 'react'
+import { memo, useMemo } from 'react'
+import { useTranslation } from 'next-i18next'
 
 export type Project = {
   id: number
   title: string
   tags: string[]
   imgs: string[]
-  videoUrl: string
+  videoUrl?: string
   description: string
   linkDemo: string
   linkGitHub: string
@@ -79,20 +79,19 @@ const ProjectDescription = memo(
     description,
     ctaUrl,
     project,
-  }: {
-    idx: number
-    title: string
-    description: string
-    ctaUrl: string
-    project: Project
-  }) => {
-    const buttons = [
-      { label: 'View Project', url: ctaUrl },
-      { label: 'View Code', url: project.linkGitHub },
-      ...(project.videoUrl
-        ? [{ label: 'View Video', url: project.videoUrl }]
-        : []),
-    ]
+  }: Omit<FeaturedCardProps, 'height' | 'src' | 'objectPosition'>) => {
+    const { t } = useTranslation('common') // 🔹 תמיכה בתרגום
+
+    const buttons = useMemo(
+      () => [
+        { label: t('projects.view_project'), url: ctaUrl },
+        { label: t('projects.view_code'), url: project.linkGitHub },
+        ...(project.videoUrl
+          ? [{ label: t('projects.view_video'), url: project.videoUrl }]
+          : []),
+      ],
+      [ctaUrl, project, t]
+    )
 
     const titleColor = useColorModeValue('gray.800', 'whiteAlpha.900')
     const descriptionColor = useColorModeValue('gray.600', 'gray.300')
@@ -133,20 +132,20 @@ const ProjectDescription = memo(
           {description}
         </Text>
         <Wrap justify="flex-start" mt={4} spacing={3}>
-          {buttons.map((btn, index) => (
+          {buttons.map(({ label, url }, index) => (
             <WrapItem key={index}>
               <Button
                 variant="solid"
                 size="sm"
                 as="a"
-                href={btn.url}
+                href={url}
                 target="_blank"
                 rel="noreferrer"
                 bg="teal.500"
                 color="white"
                 _hover={{ bg: 'teal.600' }}
               >
-                {btn.label}
+                {label}
               </Button>
             </WrapItem>
           ))}

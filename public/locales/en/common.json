@@ -18,5 +18,17 @@
     "title": "Let's Build Something Amazing",
     "description": "I specialize in crafting high-performance, scalable applications that drive business success. Whether you need a custom web solution, want to optimize an existing project, or seek collaboration on cutting-edge technology—I'm here to help. Let's connect!",
     "button": "Let's Talk Business"
+  },
+  "projects": {
+    "title": "Some of my works.",
+    "description": "Explore a selection of projects I've worked on—ranging from freelance work and company collaborations to in-depth case studies showcasing my problem-solving and technical expertise.",
+    "view_project": "View Project",
+    "view_code": "View Code",
+    "view_video": "View Video"
+  },
+  "nav": {
+    "about": "About",
+    "works": "Works",
+    "contact": "Contact"
   }
 }

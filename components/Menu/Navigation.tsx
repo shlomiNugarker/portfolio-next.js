@@ -18,10 +18,17 @@ import { ThemeMode, mobileBreakpointsMap } from 'config/theme'
 import { easing, menuAnim } from 'config/animations'
 import useScrollDirection, { ScrollDirection } from 'hooks/useScrollDirection'
 
+const MotionContainer = motion(Container)
+
+const NAV_LINKS = [
+  { key: 'about', baseHref: '#aboutMe', defaultHref: '#' },
+  { key: 'works', baseHref: '#works', defaultHref: '#works' },
+  { key: 'contact', baseHref: '#contact', defaultHref: '#contact' },
+]
+
 const Navigation = () => {
-  const { t } = useTranslation('common')
+  const { t } = useTranslation('common') // 🔹 תמיכה בתרגום
   const { toggleColorMode, colorMode } = useColorMode()
-  const MotionContainer = motion(Container)
   const [isOpen, toggleOpen] = useCycle(false, true)
   const isMobile = useBreakpointValue(mobileBreakpointsMap)
   const scrollDirection = useScrollDirection()
@@ -46,6 +53,7 @@ const Navigation = () => {
 
   return (
     <>
+      {/* 🔹 כפתור תפריט למובייל */}
       <Box
         display={{ base: 'flex', xl: 'none' }}
         alignItems="center"
@@ -68,6 +76,7 @@ const Navigation = () => {
         />
       </Box>
 
+      {/* 🔹 תפריט ראשי */}
       <MotionContainer
         width="100%"
         backgroundColor={bg}
@@ -82,9 +91,9 @@ const Navigation = () => {
           opacity: !isOpen && isMobile ? '0' : undefined,
           left: isOpen && isMobile ? 0 : undefined,
         }}
-        borderColor={isOpen && isMobile && borderColor}
-        borderBottomWidth={isOpen && isMobile && '1px'}
-        paddingBottom={isOpen && isMobile && '1px'}
+        borderColor={isOpen && isMobile ? borderColor : undefined}
+        borderBottomWidth={isOpen && isMobile ? '1px' : undefined}
+        paddingBottom={isOpen && isMobile ? '1px' : undefined}
         ease={easing}
         variants={menuAnim}
         marginTop={0}
@@ -106,13 +115,10 @@ const Navigation = () => {
           paddingBottom={isMobile ? 10 : '0'}
           onClick={() => isMobile && toggleOpen()}
         >
-          {[
-            { label: t('about'), href: isMobile ? '#aboutMe' : '#' },
-            { label: t('works'), href: '#works' },
-            { label: t('contact'), href: '#contact' },
-          ].map(({ label, href }) => (
+          {/* 🔹 כפתורי ניווט דינאמיים */}
+          {NAV_LINKS.map(({ key, baseHref, defaultHref }) => (
             <Box
-              key={href}
+              key={key}
               width={{ base: '100%', lg: 'auto' }}
               textAlign={{ base: 'center', lg: 'left' }}
             >
@@ -125,15 +131,16 @@ const Navigation = () => {
                 padding={2}
                 marginX={2}
                 as="a"
-                href={href}
+                href={isMobile ? baseHref : defaultHref}
                 rel="noreferrer"
                 onClick={onMenuItemClick}
               >
-                {label}
+                {t(`nav.${key}`)}
               </Button>
             </Box>
           ))}
 
+          {/* 🔹 כפתור מעבר למצב כהה/בהיר */}
           {!isMobile && (
             <Box>
               <IconButton
