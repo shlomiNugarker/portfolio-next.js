@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 import { motion, useCycle } from 'framer-motion'
+import { useTranslation } from 'next-i18next'
 import styles from './styles.module.css'
 import MobileMenu from './toggle'
 import { ThemeMode, mobileBreakpointsMap } from 'config/theme'
@@ -18,35 +19,30 @@ import { easing, menuAnim } from 'config/animations'
 import useScrollDirection, { ScrollDirection } from 'hooks/useScrollDirection'
 
 const Navigation = () => {
+  const { t } = useTranslation('common')
   const { toggleColorMode, colorMode } = useColorMode()
   const MotionContainer = motion(Container)
   const [isOpen, toggleOpen] = useCycle(false, true)
   const isMobile = useBreakpointValue(mobileBreakpointsMap)
-  const menuButtonSize = useBreakpointValue({
-    base: 'xl',
-    md: 'sm',
-  })
+  const scrollDirection = useScrollDirection()
 
+  const menuButtonSize = useBreakpointValue({ base: 'xl', md: 'sm' })
   const bg = useColorModeValue(
     'rgba(237, 242, 247, 0.95)',
     'rgba(18, 18, 18, 0.9)'
   )
-
   const borderColor = useColorModeValue('teal.500', 'cyan.200')
+  const isDarkMode = colorMode === ThemeMode.Dark
+  const btnClassName = `${styles.blogBtn} ${!isDarkMode && styles.dark}`
+  const ThemeIcon = isDarkMode ? SunIcon : MoonIcon
 
-  const IsDark = colorMode === ThemeMode.Dark
-  const btnClassName = `${styles.blogBtn} ${!IsDark && styles.dark}`
-  const Icon = IsDark ? SunIcon : MoonIcon
   const onMenuItemClick = useCallback(
     (e) => {
       e.stopPropagation()
-      if (isMobile) {
-        toggleOpen()
-      }
+      if (isMobile) toggleOpen()
     },
     [isMobile, toggleOpen]
   )
-  const scrollDirection = useScrollDirection()
 
   return (
     <>
@@ -61,12 +57,15 @@ const Navigation = () => {
         <IconButton
           aria-label="Color Mode"
           variant="ghost"
-          icon={<Icon />}
-          boxShadow="none"
+          icon={<ThemeIcon />}
           onClick={toggleColorMode}
           padding={0}
         />
-        <MobileMenu isDarkMode={IsDark} toggle={toggleOpen} isOpen={isOpen} />
+        <MobileMenu
+          isDarkMode={isDarkMode}
+          toggle={toggleOpen}
+          isOpen={isOpen}
+        />
       </Box>
 
       <MotionContainer
@@ -74,22 +73,14 @@ const Navigation = () => {
         backgroundColor={bg}
         maxWidth={{ base: '100%', sm: '100%', lg: '50%', xl: '60%' }}
         className={styles.menu}
-        right={{
-          lg:
-            !isMobile && scrollDirection === ScrollDirection.Down
-              ? '2%'
-              : '3.5%',
-        }}
+        right={scrollDirection === ScrollDirection.Down ? '2%' : '3.5%'}
         initial="hide"
         animate={(!isMobile || isOpen) && 'show'}
         style={{
-          width:
-            !isMobile && scrollDirection === ScrollDirection.Down
-              ? '12%'
-              : '100%',
-          top: !isOpen && isMobile && '-100vh',
-          opacity: !isOpen && isMobile && '0',
-          left: isOpen && isMobile && 0,
+          width: scrollDirection === ScrollDirection.Down ? '12%' : '100%',
+          top: !isOpen && isMobile ? '-100vh' : undefined,
+          opacity: !isOpen && isMobile ? '0' : undefined,
+          left: isOpen && isMobile ? 0 : undefined,
         }}
         borderColor={isOpen && isMobile && borderColor}
         borderBottomWidth={isOpen && isMobile && '1px'}
@@ -106,87 +97,50 @@ const Navigation = () => {
             base: 'column',
             lg: scrollDirection === ScrollDirection.Down ? 'column' : 'row',
           }}
-          paddingX={{ base: '', sm: '10', lg: '0' }}
+          paddingX={{ sm: '10', lg: '0' }}
           paddingY={{
             base: '10',
             lg: scrollDirection === ScrollDirection.Down ? '10' : '3',
           }}
           height={{ base: '100vh', lg: 'auto' }}
-          paddingRight="0"
           paddingBottom={isMobile ? 10 : '0'}
           onClick={() => isMobile && toggleOpen()}
         >
-          <Box
-            width={{ base: '100%', lg: 'auto' }}
-            textAlign={{ base: 'center', lg: 'left' }}
-          >
-            <Button
-              fontWeight="light"
-              variant="ghost"
-              fontSize={menuButtonSize}
-              letterSpacing={2}
-              className={btnClassName}
-              padding={2}
-              marginX={2}
-              as="a"
-              href={isMobile ? '#aboutMe' : '#'}
-              rel="noreferrer"
-              onClick={onMenuItemClick}
+          {[
+            { label: t('about'), href: isMobile ? '#aboutMe' : '#' },
+            { label: t('works'), href: '#works' },
+            { label: t('contact'), href: '#contact' },
+          ].map(({ label, href }) => (
+            <Box
+              key={href}
+              width={{ base: '100%', lg: 'auto' }}
+              textAlign={{ base: 'center', lg: 'left' }}
             >
-              About
-            </Button>
-          </Box>
+              <Button
+                fontWeight="light"
+                variant="ghost"
+                fontSize={menuButtonSize}
+                letterSpacing={2}
+                className={btnClassName}
+                padding={2}
+                marginX={2}
+                as="a"
+                href={href}
+                rel="noreferrer"
+                onClick={onMenuItemClick}
+              >
+                {label}
+              </Button>
+            </Box>
+          ))}
 
-          <Box
-            width={{ base: '100%', lg: 'auto' }}
-            textAlign={{ base: 'center', lg: 'left' }}
-            marginY={{ base: 2, lg: 0 }}
-          >
-            <Button
-              fontWeight="light"
-              variant="ghost"
-              fontSize={menuButtonSize}
-              letterSpacing={2}
-              className={btnClassName}
-              padding={2}
-              marginX={2}
-              as="a"
-              href="#works"
-              rel="noreferrer"
-              onClick={onMenuItemClick}
-            >
-              Works
-            </Button>
-          </Box>
-          <Box
-            width={{ base: '100%', lg: 'auto' }}
-            textAlign={{ base: 'center', lg: 'left' }}
-            marginY={{ base: 2, lg: 0 }}
-          >
-            <Button
-              fontWeight="light"
-              variant="ghost"
-              fontSize={menuButtonSize}
-              letterSpacing={2}
-              className={btnClassName}
-              padding={2}
-              marginX={2}
-              as="a"
-              href="#contact"
-              rel="noreferrer"
-              onClick={onMenuItemClick}
-            >
-              Contact
-            </Button>
-          </Box>
           {!isMobile && (
             <Box>
               <IconButton
                 marginX={1}
                 aria-label="Color Mode"
                 variant="ghost"
-                icon={<Icon />}
-                boxShadow="none"
+                icon={<ThemeIcon />}
                 onClick={toggleColorMode}
               />
             </Box>

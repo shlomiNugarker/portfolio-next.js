@@ -1,4 +1,22 @@
 {
-  "welcome": "Welcome to my website",
-  "description": "This is my portfolio"
+  "heading": "Unlock Your Digital Potential",
+  "description": "I craft high-performance, scalable, and visually stunning web applications...",
+  "tech.js": "Modern JavaScript (ES6+)",
+  "tech.ts": "TypeScript for Scalable Applications",
+  "tech.node": "Robust Backend with Node.js",
+  "tech.react": "Dynamic UI with React",
+  "tech.next": "SEO-Optimized Web Apps with Next.js",
+  "call_to_action": "Let's build something exceptional together. Contact me today.",
+  "sidebar": {
+    "welcome": "Welcome! I'm",
+    "name": "Shlomi Nugarker",
+    "role": "Fullstack Developer",
+    "description": "Passionate about building innovative, high-performance web applications tailored to business needs. With expertise in Node.js, React, Next.js, and PostgreSQL, I create powerful, scalable solutions that drive success.",
+    "contact_button": "Let's Collaborate!"
+  },
+  "contact": {
+    "title": "Let's Build Something Amazing",
+    "description": "I specialize in crafting high-performance, scalable applications that drive business success. Whether you need a custom web solution, want to optimize an existing project, or seek collaboration on cutting-edge technology—I'm here to help. Let's connect!",
+    "button": "Let's Talk Business"
+  }
 }

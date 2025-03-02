@@ -14,7 +14,7 @@ import Avatar from 'components/Avatar'
 import About from 'components/Sections/About'
 import FeaturedWorks from 'components/Sections/FeaturedWorks'
 import ScrollMore from 'components/Misc/ScrollMore'
-// import { useTranslation } from 'next-i18next'
+import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 export async function getStaticPaths() {
@@ -36,7 +36,7 @@ export async function getStaticProps({ params }: any) {
 const GetInTouch = dynamic(() => import('components/Sections/GetInTouch'))
 
 const Portfolio = (): JSX.Element => {
-  // const { t } = useTranslation('common')
+  const { t } = useTranslation('common')
   const sideBarPadding = useBreakpointValue({ base: '5', md: '8', lg: '14' })
   const mainContent = useBreakpointValue({
     base: '5',
@@ -44,6 +44,8 @@ const Portfolio = (): JSX.Element => {
     lg: '14',
     xl: 0,
   })
+
+  console.log(t('welcome'))
 
   const paddTop = useBreakpointValue({ base: '20', sm: 20, md: 20 })
   return (

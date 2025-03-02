@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import {
   Stack,
   Heading,
@@ -14,15 +15,18 @@ import { motion } from 'framer-motion'
 import styles from './styles.module.css'
 import { fadeInUp, simpleOpacity, stagger, scaleUp } from 'config/animations'
 import { SocialMedias } from 'config/sidebar'
+import { useTranslation } from 'next-i18next'
 
 const Sidebar = () => {
+  const { t } = useTranslation('common') // 🔹 תמיכה בתרגום
   const { colorMode } = useColorMode()
   const display = useBreakpointValue({ base: 'none', lg: 'block' })
+
+  const MotionBox = motion(Box)
+  const MotionStack = motion(Stack)
   const MotionHeading = motion(Heading)
   const MotionText = motion(Text)
-  const MotionStack = motion(Stack)
   const MotionButton = motion(Button)
-  const MotionBox = motion(Box)
 
   return (
     <MotionBox
@@ -32,15 +36,18 @@ const Sidebar = () => {
       maxWidth={{ xl: '34%' }}
       top={{ lg: 0 }}
     >
+      {/* 🔹 מעגל עיצובי */}
       <motion.div
         id="sidebarCircle"
         className={`${styles.sidebar} ${
           colorMode === 'light' ? styles.dark : ''
         }`}
         variants={scaleUp}
-        style={{ display: display }}
+        style={{ display }}
         animate={colorMode === 'dark' ? 'animate' : 'lightMode'}
-      ></motion.div>
+      />
+
+      {/* 🔹 מידע אישי */}
       <Container
         padding={0}
         margin={0}
@@ -48,10 +55,11 @@ const Sidebar = () => {
         display={{ xl: 'flex' }}
         alignItems={{ xl: 'center' }}
       >
-        <MotionStack variants={stagger} spacing={6} w="100">
+        <MotionStack variants={stagger} spacing={6} w="100%">
           <MotionText variants={fadeInUp} variant="accent" fontWeight="light">
-            Welcome! I'm
+            {t('sidebar.welcome')}
           </MotionText>
+
           <MotionHeading
             as="h1"
             size="2xl"
@@ -59,8 +67,9 @@ const Sidebar = () => {
             textTransform="uppercase"
             variants={fadeInUp}
           >
-            Shlomi Nugarker
+            {t('sidebar.name')}
           </MotionHeading>
+
           <MotionHeading
             as="h3"
             size="xl"
@@ -68,8 +77,9 @@ const Sidebar = () => {
             className={styles.marginTopSmall}
             variants={fadeInUp}
           >
-            Fullstack Developer
+            {t('sidebar.role')}
           </MotionHeading>
+
           <MotionText
             variant="description"
             fontSize="md"
@@ -77,13 +87,10 @@ const Sidebar = () => {
             variants={fadeInUp}
             maxWidth={{ base: '100%', lg: '80%' }}
           >
-            Passionate about building innovative, high-performance web
-            applications tailored to business needs. With expertise in Node.js,
-            React, Next.js, and PostgreSQL, I create powerful, scalable
-            solutions that drive success. Whether you're launching a new project
-            or optimizing an existing one, I'm here to turn your ideas into
-            reality.
+            {t('sidebar.description')}
           </MotionText>
+
+          {/* 🔹 כפתור יצירת קשר */}
           <MotionButton
             size="lg"
             variant="solid"
@@ -100,21 +107,22 @@ const Sidebar = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
-            Let's Collaborate!
+            {t('sidebar.contact_button')}
           </MotionButton>
-          <MotionBox d="flex" variants={simpleOpacity}>
-            {SocialMedias.map((socMedia) => (
+
+          {/* 🔹 קישורים לרשתות חברתיות */}
+          <MotionBox display="flex" variants={simpleOpacity}>
+            {SocialMedias.map(({ label, href, icon }) => (
               <Link
-                variant="description"
-                key={socMedia.label}
-                aria-label={socMedia.label}
+                key={label}
+                aria-label={label}
                 rel="noreferrer"
                 width={8}
-                href={socMedia.href}
+                href={href}
                 target="_blank"
                 _focus={{ boxShadow: 'none' }}
               >
-                <Icon w={6} h={6} as={socMedia.icon} color="currentColor" />
+                <Icon w={6} h={6} as={icon} color="currentColor" />
               </Link>
             ))}
           </MotionBox>
@@ -124,4 +132,4 @@ const Sidebar = () => {
   )
 }
 
-export default Sidebar
+export default memo(Sidebar)

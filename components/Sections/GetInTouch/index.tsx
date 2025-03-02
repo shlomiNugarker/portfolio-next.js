@@ -11,30 +11,23 @@ import {
 } from '@chakra-ui/react'
 import { motion, Variants } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import { useTranslation } from 'next-i18next'
 
 const rimuruVariant: Variants = {
   shake: {
     rotate: [0, 15, 0, -15, 0],
-    transition: {
-      delay: 1.2,
-      duration: 0.5,
-      repeat: 2,
-      ease: 'easeInOut',
-    },
+    transition: { delay: 1.2, duration: 0.5, repeat: 2, ease: 'easeInOut' },
   },
   jump: {
     y: [0, -25, 0],
-    transition: {
-      delay: 1.8,
-      duration: 0.5,
-      repeat: 2,
-      ease: 'easeInOut',
-    },
+    transition: { delay: 1.8, duration: 0.5, repeat: 2, ease: 'easeInOut' },
   },
 }
 
 const GetInTouch = () => {
+  const { t } = useTranslation('common') // 🔹 תמיכה ב-i18n
   const [ref, inView] = useInView()
+
   return (
     <Box
       as="footer"
@@ -48,13 +41,14 @@ const GetInTouch = () => {
     >
       <Container maxW={{ base: '99%', lg: '60%', xl: '75%' }}>
         <Stack spacing={10} alignItems="center">
+          {/* 🔹 כותרת דינאמית עם אפקט */}
           <Heading
             size="2xl"
             fontWeight="bold"
             letterSpacing="wide"
             color="customNavy"
           >
-            Let's Build Something Amazing{' '}
+            {t('contact.title')}{' '}
             <Text
               as="span"
               fontSize="2xl"
@@ -71,7 +65,10 @@ const GetInTouch = () => {
               </motion.div>
             </Text>
           </Heading>
+
           <Divider borderColor="customGreen" w="50%" />
+
+          {/* 🔹 תיאור דינאמי */}
           <Text
             fontSize={{ base: 'md', md: 'lg' }}
             color="customNavy"
@@ -79,11 +76,10 @@ const GetInTouch = () => {
             maxW="3xl"
             textAlign="center"
           >
-            I specialize in crafting high-performance, scalable applications
-            that drive business success. Whether you need a custom web solution,
-            want to optimize an existing project, or seek collaboration on
-            cutting-edge technology—I'm here to help. Let's connect!
+            {t('contact.description')}
           </Text>
+
+          {/* 🔹 פרטי יצירת קשר */}
           <Box mt={4}>
             <Text fontSize={{ base: 'lg', md: 'xl' }} fontWeight="bold">
               <Link
@@ -106,6 +102,8 @@ const GetInTouch = () => {
               </Link>
             </Text>
           </Box>
+
+          {/* 🔹 כפתור יצירת קשר */}
           <Button
             as="a"
             href="mailto:shlomin1231@gmail.com"
@@ -114,12 +112,12 @@ const GetInTouch = () => {
             _hover={{ bg: 'customNavy' }}
             px={8}
             py={6}
-            color="customGreen"
+            color="white"
             fontSize="lg"
             fontWeight="bold"
             borderRadius="8px"
           >
-            Let's Talk Business
+            {t('contact.button')}
           </Button>
         </Stack>
       </Container>
