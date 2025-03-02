@@ -1,4 +1,4 @@
-.sidebar{
+.sidebar {
   border: 3px solid #97DFFC;
   border-left-color: transparent;
   border-top-color: transparent;
@@ -13,26 +13,55 @@
   z-index: -1;
   opacity: 0;
 }
+
+/* התאמה למסכים קטנים */
 @media (max-width: 480px) {
-  .sidebar{
+  .sidebar {
     display: none;
     min-width: auto;
   }
 }
+
+/* התאמה למסכי ביניים */
 @media (max-width: 1280px) {
-  .sidebar{
+  .sidebar {
     left: -66%;
   }
 }
-.dark{
+
+/* מצב כהה (Light Mode = 'dark' כאן – מבלבל, אבל כך הוגדר בפרויקט) */
+.dark {
   border: 3px solid black;
   border-left-color: transparent;
   border-top-color: transparent;
   border-bottom-color: transparent;
 }
-.marginTopForce{
+
+/* כאשר השפה היא RTL, נוסיף class .rtl – מחליפים left ב-right */
+.sidebar.rtl {
+  left: auto;
+  right: -55%;
+}
+
+@media (max-width: 1280px) {
+  .sidebar.rtl {
+    right: -66%;
+  }
+}
+
+/* אם גם .dark וגם .rtl => החלפת border כך שיראה “הפוך” */
+.sidebar.rtl.dark {
+  border-left-color: black;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+
+/* מרווחים לפי צורך */
+.marginTopForce {
   margin-top: 0 !important;
 }
-.marginTopSmall{
+
+.marginTopSmall {
   margin-top: 12px !important;
 }

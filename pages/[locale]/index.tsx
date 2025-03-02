@@ -1,4 +1,6 @@
+import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useEffect } from 'react'
 import {
   Grid,
   GridItem,
@@ -15,7 +17,6 @@ import Avatar from 'components/Avatar'
 import About from 'components/Sections/About'
 import FeaturedWorks from 'components/Sections/FeaturedWorks'
 import ScrollMore from 'components/Misc/ScrollMore'
-
 import { GetStaticPaths } from 'next'
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -25,8 +26,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function getStaticProps({ params }: any) {
+export async function getStaticProps({
+  params,
+}: {
+  params: { locale: string }
+}) {
   const { locale } = params
   return {
     props: {
@@ -38,26 +42,27 @@ export async function getStaticProps({ params }: any) {
 const GetInTouch = dynamic(() => import('components/Sections/GetInTouch'))
 
 const Portfolio = (): JSX.Element => {
-  const sideBarPadding: string | number | undefined = useBreakpointValue({
-    base: '5',
-    md: '8',
-    lg: '14',
-  })
-  const mainContent: string | number | undefined = useBreakpointValue({
+  const { i18n } = useTranslation()
+  const direction = i18n.dir()
+
+  useEffect(() => {
+    document.documentElement.dir = direction
+  }, [direction])
+
+  const sideBarPadding = useBreakpointValue({ base: '5', md: '8', lg: '14' })
+  const mainContent = useBreakpointValue({
     base: '5',
     md: '14',
     lg: '14',
     xl: 0,
   })
-
-  const paddTop: string | number | undefined = useBreakpointValue({
-    base: '20',
-    sm: 20,
-    md: 20,
-  })
+  const paddTop = useBreakpointValue({ base: '20', sm: 20, md: 20 })
 
   return (
-    <Box>
+    <Box
+      overflowX="hidden"
+      // dir={direction}
+    >
       <OpenGraphHead />
       <Menu />
       <Grid
@@ -81,7 +86,7 @@ const Portfolio = (): JSX.Element => {
           display="flex"
           alignContent="center"
           as="div"
-          flexDirection={'row'}
+          flexDirection="row"
         >
           <Sidebar />
         </GridItem>
@@ -120,7 +125,7 @@ const Portfolio = (): JSX.Element => {
                 paddingTop={{ base: 0, lg: 20, xl: 20 }}
                 paddingBottom={{ base: 12, lg: 10 }}
                 paddingX={0}
-                flexDirection={'row'}
+                flexDirection="row"
               >
                 <FeaturedWorks />
               </Box>
@@ -132,7 +137,7 @@ const Portfolio = (): JSX.Element => {
                 className="contentRow"
                 paddingTop={{ base: 40, lg: 20, xl: 40 }}
                 paddingX={0}
-                flexDirection={'row'}
+                flexDirection="row"
               >
                 <GetInTouch />
               </Box>

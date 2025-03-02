@@ -18,7 +18,7 @@ import { SocialMedias } from 'config/sidebar'
 import { useTranslation } from 'next-i18next'
 
 const Sidebar = () => {
-  const { t } = useTranslation('common') // 🔹 תמיכה בתרגום
+  const { t, i18n } = useTranslation('common')
   const { colorMode } = useColorMode()
   const display = useBreakpointValue({ base: 'none', lg: 'block' })
 
@@ -28,6 +28,10 @@ const Sidebar = () => {
   const MotionText = motion(Text)
   const MotionButton = motion(Button)
 
+  // בדיקה אם RTL
+  const direction = i18n.dir() // "rtl" או "ltr"
+  const isRtl = direction === 'rtl' // true/false
+
   return (
     <MotionBox
       initial="initial"
@@ -36,18 +40,18 @@ const Sidebar = () => {
       maxWidth={{ xl: '34%' }}
       top={{ lg: 0 }}
     >
-      {/* 🔹 מעגל עיצובי */}
       <motion.div
         id="sidebarCircle"
-        className={`${styles.sidebar} ${
-          colorMode === 'light' ? styles.dark : ''
-        }`}
+        className={`
+          ${styles.sidebar} 
+          ${colorMode === 'light' ? styles.dark : ''} 
+          ${isRtl ? styles.rtl : ''}
+        `}
         variants={scaleUp}
         style={{ display }}
         animate={colorMode === 'dark' ? 'animate' : 'lightMode'}
       />
 
-      {/* 🔹 מידע אישי */}
       <Container
         padding={0}
         margin={0}
@@ -90,27 +94,6 @@ const Sidebar = () => {
             {t('sidebar.description')}
           </MotionText>
 
-          {/* 🔹 כפתור יצירת קשר */}
-          <MotionButton
-            size="lg"
-            variant="solid"
-            bg="teal.500"
-            color="white"
-            fontWeight="bold"
-            fontSize="sm"
-            width="180px"
-            variants={simpleOpacity}
-            as={'a'}
-            href="mailto:shlomin1231@gmail.com"
-            target="_blank"
-            _hover={{ bg: 'teal.600' }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            {t('sidebar.contact_button')}
-          </MotionButton>
-
-          {/* 🔹 קישורים לרשתות חברתיות */}
           <MotionBox display="flex" variants={simpleOpacity}>
             {SocialMedias.map(({ label, href, icon }) => (
               <Link

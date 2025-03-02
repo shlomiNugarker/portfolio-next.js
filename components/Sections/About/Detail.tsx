@@ -16,10 +16,14 @@ import {
   SiNodedotjs,
 } from 'react-icons/si'
 import { useTranslation } from 'next-i18next'
+import styles from './styles.module.css'
 
 const Detail = () => {
-  const { t } = useTranslation('common')
+  const { t, i18n } = useTranslation('common')
   const emphasis = useColorModeValue('teal.500', 'cyan.200')
+
+  const direction = i18n.dir()
+  const isRtl = direction === 'rtl'
 
   const technologies = [
     { icon: SiJavascript, label: t('tech.js') },
@@ -33,9 +37,12 @@ const Detail = () => {
 
   return (
     <Stack
+      dir={direction}
+      textAlign={isRtl ? 'right' : 'left'}
       width={{ base: '100%', lg: '70%' }}
       spacing={{ base: 6, xl: 8 }}
       as="section"
+      className={styles.skillModal}
     >
       <Heading
         as="h4"

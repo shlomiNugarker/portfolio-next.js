@@ -27,11 +27,13 @@ const NAV_LINKS = [
 ]
 
 const Navigation = () => {
-  const { t } = useTranslation('common')
+  const { t, i18n } = useTranslation('common')
   const { toggleColorMode, colorMode } = useColorMode()
   const [isOpen, toggleOpen] = useCycle(false, true)
   const isMobile = useBreakpointValue(mobileBreakpointsMap)
   const scrollDirection = useScrollDirection()
+  const direction = i18n.dir() // ⬅️ קובע האם RTL או LTR
+  const isRtl = direction === 'rtl' // ⬅️ בודק אם יש צורך להצמיד את התפריט שמאלה
 
   const menuButtonSize = useBreakpointValue({ base: 'xl', md: 'sm' })
   const bg = useColorModeValue(
@@ -59,7 +61,7 @@ const Navigation = () => {
         display={{ base: 'flex', xl: 'none' }}
         alignItems="center"
         paddingTop={1}
-        className={styles.menuBar}
+        className={`${styles.menuBar} ${isRtl ? styles.rtl : ''}`}
         zIndex={100}
         top="3%"
       >
@@ -81,7 +83,7 @@ const Navigation = () => {
         width="100%"
         backgroundColor={bg}
         maxWidth={{ base: '100%', sm: '100%', lg: '50%', xl: '60%' }}
-        className={styles.menu}
+        className={`${styles.menu} ${isRtl ? styles.rtl : ''}`}
         right={scrollDirection === ScrollDirection.Down ? '2%' : '3.5%'}
         initial="hide"
         animate={(!isMobile || isOpen) && 'show'}
@@ -119,7 +121,7 @@ const Navigation = () => {
             <Box
               key={key}
               width={{ base: '100%', lg: 'auto' }}
-              textAlign={{ base: 'center', lg: 'left' }}
+              textAlign={{ base: 'center' }}
             >
               <Button
                 fontWeight="light"
@@ -140,7 +142,7 @@ const Navigation = () => {
           ))}
 
           {!isMobile && (
-            <Box>
+            <Box alignItems="center" display="flex" justifyContent="center">
               <IconButton
                 marginX={1}
                 aria-label="Color Mode"

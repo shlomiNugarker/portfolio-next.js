@@ -6,6 +6,12 @@
   right: 3.5%;
   z-index: 1;
 }
+
+.menu.rtl {
+  right: auto;
+  left: 3%;
+}
+
 .mobileMenuContainer{
   position: fixed;
   z-index: 1;
@@ -14,6 +20,11 @@
   display: flex;
   justify-content: space-between;
   justify-items: flex-end;
+}
+
+.mobileMenuContainer.rtl {
+  right: auto;
+  left: 0;
 }
 
 .blogBtn{
