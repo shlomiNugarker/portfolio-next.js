@@ -1,8 +1,6 @@
 import {
   Box,
   Image as ChkImage,
-  Text,
-  Link,
   SkeletonCircle,
   useColorModeValue,
 } from '@chakra-ui/react'
@@ -29,16 +27,19 @@ const Avatar = () => {
     AvatarImages.LightMode,
     AvatarImages.DarkMode
   )
+
   useEffect(() => {
-    // Some nice preloading and caching
-    const images = [AvatarImages.DarkMode, AvatarImages.LightMode]
-    const preloadedImages = images.map((imageSrc) => {
+    // Preloading images for smooth rendering
+    window.preloadedPictures = [
+      AvatarImages.DarkMode,
+      AvatarImages.LightMode,
+    ].map((src) => {
       const img = new Image()
-      img.src = imageSrc
+      img.src = src
       return img
     })
-    window.preloadedPictures = preloadedImages
   }, [])
+
   return (
     <AnimatePresence>
       <MotionBox
@@ -47,14 +48,14 @@ const Avatar = () => {
         padding={{ base: 8 }}
         marginBottom={{ base: 10, md: 0, lg: 0 }}
         initial="initial"
-        animate={'animate'}
+        animate="animate"
         variants={avatarAnimation}
         exit={{ opacity: 0 }}
       >
         <ChkImage
           src={imgAvatar}
-          alt="Shlomi's image"
-          borderRadius="50%"
+          alt="Shlomi's Avatar"
+          borderRadius="full"
           htmlWidth="250"
           htmlHeight="250"
           margin="auto"

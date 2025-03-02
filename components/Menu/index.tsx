@@ -13,7 +13,7 @@ import useScrollDirection, { ScrollDirection } from 'hooks/useScrollDirection'
 
 const mobileMenuVariants: Variants = {
   hidden: {
-    opacity: [1, 0.85, 0],
+    opacity: 0,
     y: -80,
     transition: {
       ease: 'easeInOut',
@@ -21,7 +21,7 @@ const mobileMenuVariants: Variants = {
     },
   },
   show: {
-    opacity: [0, 0.85, 1],
+    opacity: 1,
     y: 0,
     transition: {
       ease: 'easeInOut',
@@ -33,21 +33,22 @@ const mobileMenuVariants: Variants = {
 const Menu = () => {
   const bg = useColorModeValue('gray.100', 'black')
   const controls = useAnimation()
-  const isMobile = useBreakpointValue(mobileBreakpointsMap)
+  const isMobile = useBreakpointValue(mobileBreakpointsMap) || false
   const scrollDirection = useScrollDirection(true, isMobile)
+
   useEffect(() => {
-    if (scrollDirection === ScrollDirection.Down && isMobile) {
-      controls.start('hidden')
-    } else {
-      controls.start('show')
-    }
+    controls.start(
+      scrollDirection === ScrollDirection.Down && isMobile ? 'hidden' : 'show'
+    )
   }, [isMobile, controls, scrollDirection])
+
   return (
     <motion.div
       initial={isMobile ? 'hidden' : false}
       variants={mobileMenuVariants}
       animate={controls}
       className={isMobile ? styles.mobileMenuContainer : ''}
+      style={{ backgroundColor: isMobile ? bg : 'transparent' }}
     >
       <Container
         display="flex"

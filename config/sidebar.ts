@@ -18,7 +18,7 @@ type SocialMedia = {
 export const SocialMedias: SocialMedia[] = [
   {
     label: 'WhatsApp',
-    href: 'https://wa.me/972529526762?text=Hey%20Shlomi,',
+    href: 'https://wa.me/972529526762,',
     icon: FaWhatsapp,
   },
   {

@@ -20,6 +20,7 @@ import {
   scaleUp,
 } from 'config/animations'
 import { SocialMedias } from 'config/sidebar'
+
 const Sidebar = () => {
   const { colorMode } = useColorMode()
   const display = useBreakpointValue({ base: 'none', lg: 'block' })
@@ -55,12 +56,7 @@ const Sidebar = () => {
         alignItems={{ xl: 'center' }}
       >
         <MotionStack variants={stagger} spacing={6} w="100">
-          <MotionText
-            variants={fadeInUp}
-            delay={1}
-            variant="accent"
-            fontWeight="light"
-          >
+          <MotionText variants={fadeInUp} variant="accent" fontWeight="light">
             Ohh you found me?. Howdy! I am
           </MotionText>
           <MotionHeading
@@ -81,13 +77,11 @@ const Sidebar = () => {
             variants={letterSpace}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-          >
-            {/* Lawingco. */}
-          </MotionHeading>
+          ></MotionHeading>
 
           <MotionHeading
             as="h3"
-            size="md"
+            size="xl"
             variant="emphasis"
             className={styles.marginTopSmall}
             variants={fadeInUp}
@@ -97,30 +91,35 @@ const Sidebar = () => {
 
           <MotionText
             variant="description"
-            fontSize="small"
+            fontSize="md"
             paddingRight={{ lg: '12' }}
             variants={fadeInUp}
             maxWidth={{ base: '100%', lg: '80%' }}
           >
-      Hey there!
-Thanks for stopping by my portfolio—I truly appreciate it.
-
-I'm a Full-Stack Web Developer with a passion for building scalable, high-performance web applications. Using modern technologies like Node.js, React.js, Next.js, TypeScript, and PostgreSQL, I craft efficient, well-architected solutions tailored to business needs.
-
-I thrive on solving complex development challenges, optimizing performance, and writing clean, maintainable code. If you're looking for a developer who can bring your vision to life with a powerful, fully functional web application—let’s connect!
+            Hey there! Thanks for stopping by my portfolio—I truly appreciate
+            it. I'm a Full-Stack Web Developer with a passion for building
+            scalable, high-performance web applications. Using modern
+            technologies like Node.js, React.js, Next.js, TypeScript, and
+            PostgreSQL, I craft efficient, well-architected solutions tailored
+            to business needs. I thrive on solving complex development
+            challenges, optimizing performance, and writing clean, maintainable
+            code. If you're looking for a developer who can bring your vision to
+            life with a powerful, fully functional web application—let’s
+            connect!
           </MotionText>
           <MotionButton
             size="lg"
-            variant="outline"
-            borderWidth="1px"
-            borderRadius="0"
-            fontWeight="normal"
+            variant="solid"
+            bg="teal.500"
+            color="white"
+            fontWeight="bold"
             fontSize="sm"
-            width="120px"
+            width="150px"
             variants={simpleOpacity}
             as={'a'}
             href="mailto:shlomin1231@gmail.com"
             target="_blank"
+            _hover={{ bg: 'teal.600' }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >

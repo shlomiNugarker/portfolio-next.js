@@ -15,6 +15,7 @@ import {
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { easing, DURATIONS } from 'config/animations'
+import { memo } from 'react'
 
 export type Project = {
   id: number
@@ -35,44 +36,24 @@ export type FeaturedCardProps = {
   description: string
   objectPosition?: string
   ctaUrl: string
-  isMobile?: boolean
   project: Project
 }
 
-const variants = {
-  normal: { opacity: 0.85 },
-  hover: {
-    scale: 1.1,
-    opacity: 1,
-    transition: {
-      duration: DURATIONS.Fast,
-      ease: 'backOut',
-    },
-  },
-  tap: {
-    scale: 0.85,
-    opacity: 1,
-    transition: {
-      duration: DURATIONS.Fast,
-      ease: easing,
-    },
-  },
-}
-
 const MotionImage = motion(Image)
+const MotionBox = motion(Box)
 
-const CoverImage = ({
-  height,
-  src,
-  title,
-  objectPosition,
-}: {
-  height: string | ResponsiveValue<any>
-  src: string
-  title: string
-  objectPosition?: string
-}) =>
-  src ? (
+const CoverImage = memo(
+  ({
+    height,
+    src,
+    title,
+    objectPosition,
+  }: {
+    height: string | ResponsiveValue<any>
+    src: string
+    title: string
+    objectPosition?: string
+  }) => (
     <MotionImage
       height={height}
       width="100%"
@@ -81,129 +62,139 @@ const CoverImage = ({
       objectFit="cover"
       objectPosition={objectPosition}
       loading="lazy"
-      opacity={0.85}
-      whileHover={variants.hover}
-      whileTap={variants.tap}
+      opacity={0.9}
+      whileHover={{
+        scale: 1.05,
+        transition: { duration: 0.3, ease: 'easeOut' },
+      }}
       fallback={<Skeleton height={height} width="100%" />}
     />
-  ) : null
-
-const ProjectDescription: React.FC<{
-  idx: number
-  title: string
-  description: string
-  ctaUrl: string
-  project: Project
-}> = ({ idx, title, description, ctaUrl, project }) => {
-  const buttons = [
-    { label: 'View Project', url: ctaUrl },
-    { label: 'View Code', url: project.linkGitHub },
-    ...(project.videoUrl
-      ? [{ label: 'View Video', url: project.videoUrl }]
-      : []),
-  ]
-
-  // בחירת צבעים בהתאם למצב הצבע
-  const titleColor = useColorModeValue('gray.800', 'whiteAlpha.900')
-  const descriptionColor = useColorModeValue('gray.600', 'gray.300')
-
-  return (
-    <Container
-      p={3}
-      display="flex"
-      flexDirection="column"
-      alignItems="flex-start"
-    >
-      <Stack spacing={1} w="full">
-        <Heading
-          as="h3"
-          fontSize={{ base: 'lg', md: 'xl', '2xl': '2xl' }}
-          fontWeight="bold"
-          letterSpacing="wider"
-          textTransform="uppercase"
-          color={titleColor}
-          mb={1}
-        >
-          <Text
-            as="span"
-            color="teal.500"
-            fontSize={{ base: 'md', md: 'lg' }}
-            mr={2}
-          >
-            #{idx < 10 ? `0${idx}` : idx}
-          </Text>
-          {title}
-        </Heading>
-        <Divider borderColor="gray.400" />
-      </Stack>
-      <Text
-        fontSize={{ base: 'xs', md: 'sm' }}
-        mt={2}
-        lineHeight="short"
-        color={descriptionColor}
-        wordBreak="break-word"
-      >
-        {description}
-      </Text>
-      <Wrap justify="flex-start" mt={2} spacing={2}>
-        {buttons.map((btn, index) => (
-          <WrapItem key={index}>
-            <Button
-              variant="outline"
-              size="xs"
-              as="a"
-              href={btn.url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {btn.label}
-            </Button>
-          </WrapItem>
-        ))}
-      </Wrap>
-    </Container>
   )
-}
+)
 
-const FeaturedCard: React.FC<FeaturedCardProps> = ({
-  idx,
-  height,
-  src,
-  title,
-  description,
-  objectPosition,
-  ctaUrl,
-  project,
-}) => {
-  const bg = useColorModeValue('blackAlpha.50', 'whiteAlpha.200')
+const ProjectDescription = memo(
+  ({
+    idx,
+    title,
+    description,
+    ctaUrl,
+    project,
+  }: {
+    idx: number
+    title: string
+    description: string
+    ctaUrl: string
+    project: Project
+  }) => {
+    const buttons = [
+      { label: 'View Project', url: ctaUrl },
+      { label: 'View Code', url: project.linkGitHub },
+      ...(project.videoUrl
+        ? [{ label: 'View Video', url: project.videoUrl }]
+        : []),
+    ]
 
-  return (
-    <Box
-      bg={bg}
-      borderRadius="sm"
-      borderWidth="1px"
-      overflow="hidden"
-      boxShadow="sm"
-      m={1}
-    >
-      {src && (
+    const titleColor = useColorModeValue('gray.800', 'whiteAlpha.900')
+    const descriptionColor = useColorModeValue('gray.600', 'gray.300')
+
+    return (
+      <Container
+        p={6}
+        display="flex"
+        flexDirection="column"
+        alignItems="flex-start"
+      >
+        <Stack spacing={2} w="full">
+          <Heading
+            as="h3"
+            fontSize={{ base: 'lg', md: '2xl' }}
+            fontWeight="bold"
+            letterSpacing="wider"
+            color={titleColor}
+          >
+            <Text
+              as="span"
+              color="teal.500"
+              fontSize={{ base: 'md', md: 'xl' }}
+              mr={2}
+            >
+              #{idx < 10 ? `0${idx}` : idx}
+            </Text>
+            {title}
+          </Heading>
+          <Divider borderColor="gray.400" />
+        </Stack>
+        <Text
+          fontSize={{ base: 'md', md: 'lg' }}
+          mt={4}
+          color={descriptionColor}
+          wordBreak="break-word"
+        >
+          {description}
+        </Text>
+        <Wrap justify="flex-start" mt={4} spacing={3}>
+          {buttons.map((btn, index) => (
+            <WrapItem key={index}>
+              <Button
+                variant="solid"
+                size="sm"
+                as="a"
+                href={btn.url}
+                target="_blank"
+                rel="noreferrer"
+                bg="teal.500"
+                color="white"
+                _hover={{ bg: 'teal.600' }}
+              >
+                {btn.label}
+              </Button>
+            </WrapItem>
+          ))}
+        </Wrap>
+      </Container>
+    )
+  }
+)
+
+const FeaturedCard = memo(
+  ({
+    idx,
+    height,
+    src,
+    title,
+    description,
+    objectPosition,
+    ctaUrl,
+    project,
+  }: FeaturedCardProps) => {
+    const bg = useColorModeValue('white', 'gray.800')
+
+    return (
+      <MotionBox
+        bg={bg}
+        borderRadius="lg"
+        borderWidth="1px"
+        overflow="hidden"
+        boxShadow="lg"
+        whileHover={{ boxShadow: 'xl', transform: 'translateY(-3px)' }}
+        transition="all 0.3s ease"
+      >
         <CoverImage
           height={height}
           src={src}
           title={title}
           objectPosition={objectPosition}
         />
-      )}
-      {/* החלק של הפירוט עכשיו תופס את כל רוחב הכרטיס */}
-      <ProjectDescription
-        idx={idx}
-        title={title}
-        description={description}
-        ctaUrl={ctaUrl}
-        project={project}
-      />
-    </Box>
-  )
-}
+        <ProjectDescription
+          idx={idx}
+          title={title}
+          description={description}
+          ctaUrl={ctaUrl}
+          project={project}
+        />
+      </MotionBox>
+    )
+  }
+)
 
 export default FeaturedCard
