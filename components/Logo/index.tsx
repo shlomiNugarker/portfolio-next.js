@@ -6,9 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 const Logo = () => {
   return (
     <AnimatePresence>
-      <Link href="/" passHref>
-        <span>logo</span>
-      </Link>
+      <Link href="/" passHref></Link>
     </AnimatePresence>
   )
 }
