@@ -59,10 +59,7 @@ const Portfolio = (): JSX.Element => {
   const paddTop = useBreakpointValue({ base: '20', sm: 20, md: 20 })
 
   return (
-    <Box
-      overflowX="hidden"
-      // dir={direction}
-    >
+    <Box overflowX="hidden">
       <OpenGraphHead />
       <Menu />
       <Grid

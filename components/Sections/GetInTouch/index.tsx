@@ -68,7 +68,6 @@ const GetInTouch = () => {
 
           <Divider borderColor="customGreen" w="50%" />
 
-          {/* 🔹 תיאור דינאמי */}
           <Text
             fontSize={{ base: 'md', md: 'lg' }}
             color="customNavy"
@@ -79,7 +78,6 @@ const GetInTouch = () => {
             {t('contact.description')}
           </Text>
 
-          {/* 🔹 פרטי יצירת קשר */}
           <Box mt={4}>
             <Text fontSize={{ base: 'lg', md: 'xl' }} fontWeight="bold">
               <Link
@@ -103,16 +101,14 @@ const GetInTouch = () => {
             </Text>
           </Box>
 
-          {/* 🔹 כפתור יצירת קשר */}
           <Button
             as="a"
             href="mailto:shlomin1231@gmail.com"
             size="lg"
-            bg="customGreen"
+            color="customGreen"
             _hover={{ bg: 'customNavy' }}
             px={8}
             py={6}
-            color="white"
             fontSize="lg"
             fontWeight="bold"
             borderRadius="8px"

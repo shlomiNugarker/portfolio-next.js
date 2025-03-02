@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import {
   Box,
   Icon,
@@ -7,6 +8,7 @@ import {
 } from '@chakra-ui/react'
 import { RiMouseLine } from 'react-icons/ri'
 import { motion, Variants, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'next-i18next'
 import useScrollDirection, { ScrollDirection } from 'hooks/useScrollDirection'
 import { mobileBreakpointsMap } from 'config/theme'
 
@@ -28,7 +30,6 @@ const scrollMoreVariants: Variants = {
     transition: {
       duration: 1.6,
       ease: 'easeInOut',
-      // loop: Infinity,
       repeatType: 'loop',
     },
   },
@@ -54,6 +55,9 @@ const emailVariants: Variants = {
 }
 
 const ScrollMore = () => {
+  const { i18n } = useTranslation()
+  const direction = i18n.dir() // "rtl" או "ltr"
+  const isRtl = direction === 'rtl' // משתנה לבדיקת RTL
   const isMobile = useBreakpointValue(mobileBreakpointsMap)
   const scrollDirection = useScrollDirection(false, isMobile)
   const emailColor = useColorModeValue('gray.800', 'gray.400')
@@ -63,7 +67,9 @@ const ScrollMore = () => {
     <Box
       position="fixed"
       bottom="1em"
-      right="3%"
+      // מצמיד את האלמנט לימין ב-LTR ולשמאל ב-RTL
+      right={isRtl ? undefined : '3%'}
+      left={isRtl ? '3%' : undefined}
       display={isMobile ? 'none' : 'block'}
     >
       <AnimatePresence>
@@ -85,6 +91,7 @@ const ScrollMore = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
       <AnimatePresence>
         {scrollDirection === ScrollDirection.Down && (
           <motion.div
@@ -96,8 +103,8 @@ const ScrollMore = () => {
             style={{
               writingMode: 'vertical-rl',
               position: 'fixed',
-              right: '8%',
-              bottom: '-8%',
+              [isRtl ? 'left' : 'right']: '8%',
+              bottom: '0',
             }}
           >
             <Text
@@ -131,7 +138,7 @@ const ScrollMore = () => {
                 marginTop: '10px',
               }}
             >
-              shlomin1231@gmail.com{' '}
+              shlomin1231@gmail.com
             </Text>
           </motion.div>
         )}
