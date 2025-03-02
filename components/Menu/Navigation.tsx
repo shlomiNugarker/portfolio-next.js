@@ -27,7 +27,7 @@ const NAV_LINKS = [
 ]
 
 const Navigation = () => {
-  const { t } = useTranslation('common') // 🔹 תמיכה בתרגום
+  const { t } = useTranslation('common') 
   const { toggleColorMode, colorMode } = useColorMode()
   const [isOpen, toggleOpen] = useCycle(false, true)
   const isMobile = useBreakpointValue(mobileBreakpointsMap)
@@ -53,7 +53,6 @@ const Navigation = () => {
 
   return (
     <>
-      {/* 🔹 כפתור תפריט למובייל */}
       <Box
         display={{ base: 'flex', xl: 'none' }}
         alignItems="center"
@@ -76,7 +75,6 @@ const Navigation = () => {
         />
       </Box>
 
-      {/* 🔹 תפריט ראשי */}
       <MotionContainer
         width="100%"
         backgroundColor={bg}
@@ -115,7 +113,6 @@ const Navigation = () => {
           paddingBottom={isMobile ? 10 : '0'}
           onClick={() => isMobile && toggleOpen()}
         >
-          {/* 🔹 כפתורי ניווט דינאמיים */}
           {NAV_LINKS.map(({ key, baseHref, defaultHref }) => (
             <Box
               key={key}
@@ -140,7 +137,6 @@ const Navigation = () => {
             </Box>
           ))}
 
-          {/* 🔹 כפתור מעבר למצב כהה/בהיר */}
           {!isMobile && (
             <Box>
               <IconButton

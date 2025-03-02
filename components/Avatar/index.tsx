@@ -29,7 +29,6 @@ const Avatar = () => {
   )
 
   useEffect(() => {
-    // Preloading images for smooth rendering
     window.preloadedPictures = [
       AvatarImages.DarkMode,
       AvatarImages.LightMode,

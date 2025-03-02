@@ -5,9 +5,9 @@ import { fadeInUpSlower } from 'config/animations'
 
 interface FadeInWhenVisibleProps {
   children: React.ReactNode
-  delay?: number // מאפשר עיכוב באנימציה
-  triggerOnce?: boolean // קובע אם להפעיל את האנימציה רק פעם אחת
-  threshold?: number // כמה אחוז מהאלמנט צריך להופיע לפני ההפעלה
+  delay?: number
+  triggerOnce?: boolean
+  threshold?: number
 }
 
 const FadeInWhenVisible: React.FC<FadeInWhenVisibleProps> = ({
@@ -35,7 +35,7 @@ const FadeInWhenVisible: React.FC<FadeInWhenVisibleProps> = ({
       animate={controls}
       initial="initial"
       variants={fadeInUpSlower}
-      transition={{ delay }} // מאפשר עיכוב דינמי
+      transition={{ delay }}
     >
       {children}
     </motion.div>
