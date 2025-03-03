@@ -7,12 +7,12 @@
 }
 
 .featureCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .featureCard img {
-    transition: all 0.1s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .featureCard:hover img {
