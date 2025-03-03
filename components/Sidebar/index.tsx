@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo, useEffect } from 'react'
 import {
   Stack,
   Heading,
@@ -28,6 +28,13 @@ const Sidebar = () => {
 
   const direction = i18n.dir()
   const isRtl = direction === 'rtl'
+
+  useEffect(() => {
+    const sidebarCircle = document.getElementById('sidebarCircle')
+    if (sidebarCircle) {
+      sidebarCircle.classList.add('show')
+    }
+  }, [])
 
   return (
     <MotionBox
@@ -105,6 +112,7 @@ const Sidebar = () => {
                 target="_blank"
                 _focus={{ boxShadow: 'none' }}
                 color="teal.500"
+                className={styles.socialIcon}
               >
                 <Icon
                   w={9}

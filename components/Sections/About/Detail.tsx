@@ -39,20 +39,26 @@ const Detail = () => {
       spacing={{ base: 6, xl: 8 }}
       as="section"
       className={styles.skillModal}
+      padding={8}
+      marginY={10}
+      borderRadius="md"
     >
       <Heading
         as="h4"
         size="2xl"
         letterSpacing={1.8}
         style={{ fontVariantCaps: 'small-caps' }}
+        marginBottom={4}
       >
         {t('heading')}
       </Heading>
 
-      <Text variant="description">{t('description')}</Text>
+      <Text variant="description" marginBottom={6}>
+        {t('description')}
+      </Text>
 
       <SimpleGrid
-        columns={2}
+        columns={{ base: 1, md: 2 }}
         spacing={4}
         display={'flex'}
         flexDirection={'column'}
@@ -75,6 +81,8 @@ const Detail = () => {
               maxWidth="30%"
               marginX={2}
               marginY={1}
+              padding={2}
+              borderRadius="md"
             >
               <ListIcon as={icon} color={emphasis} fontSize="2em" />
               {label}
@@ -83,7 +91,7 @@ const Detail = () => {
         </List>
       </SimpleGrid>
 
-      <Text variant="description" fontWeight="bold" fontSize="lg">
+      <Text variant="description" fontWeight="bold" fontSize="lg" marginTop={6}>
         {t('call_to_action')}
       </Text>
     </Stack>
