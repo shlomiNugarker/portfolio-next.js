@@ -65,7 +65,6 @@ const Detail = () => {
         alignItems={'center'}
       >
         <List
-          spacing={5}
           width={'100%'}
           display={'flex'}
           flexDirection={'row'}
@@ -78,10 +77,8 @@ const Detail = () => {
               fontSize="small"
               display="flex"
               alignItems="center"
-              marginX={2}
-              marginY={1}
-              padding={2}
               borderRadius="md"
+              margin={'3'}
             >
               <ListIcon as={icon} color={emphasis} fontSize="2em" />
               {label}

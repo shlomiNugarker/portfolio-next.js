@@ -1,11 +1,11 @@
 {
   "heading": "Renforcez votre présence numérique",
   "description": "Je conçois des applications web hautement performantes, évolutives et visuellement captivantes, générant des résultats concrets pour votre entreprise.",
-  "tech.js": "JavaScript de pointe (ES6+)",
-  "tech.ts": "TypeScript pour des applications évolutives",
-  "tech.node": "Backend robuste avec Node.js",
-  "tech.react": "Interface utilisateur dynamique avec React",
-  "tech.next": "Applications web optimisées pour le SEO avec Next.js",
+  "tech.js": "JavaScript",
+  "tech.ts": "TypeScript",
+  "tech.node": "Node.js",
+  "tech.react": "React.js",
+  "tech.next": "Next.js",
   "call_to_action": "Prêt à créer quelque chose d’exceptionnel ? Contactez-moi dès aujourd’hui et commençons ensemble.",
   "sidebar": {
     "welcome": "Bonjour ! Je suis",

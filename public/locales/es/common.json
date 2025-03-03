@@ -1,11 +1,11 @@
 {
   "heading": "Fortaleça sua Presença Digital",
   "description": "Desenvolvo aplicações web de alto desempenho, escaláveis e visualmente atraentes, que geram resultados reais para o seu negócio.",
-  "tech.js": "JavaScript de ponta (ES6+)",
-  "tech.ts": "TypeScript para Aplicações Escaláveis",
-  "tech.node": "Backend Robusto com Node.js",
-  "tech.react": "UI Dinâmico com React",
-  "tech.next": "Aplicações Web Otimizadas para SEO com Next.js",
+  "tech.js": "JavaScript",
+  "tech.ts": "TypeScript",
+  "tech.node": "Node.js",
+  "tech.react": "React.js",
+  "tech.next": "Next.js",
   "call_to_action": "Pronto para criar algo extraordinário? Entre em contato hoje mesmo e vamos começar.",
   "sidebar": {
     "welcome": "Olá! Sou",

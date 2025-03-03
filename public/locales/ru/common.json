@@ -1,11 +1,11 @@
 {
   "heading": "Поднимите ваш цифровой потенциал",
   "description": "Я разрабатываю высокопроизводительные, масштабируемые и визуально впечатляющие веб-приложения, которые приносят реальные результаты вашему бизнесу.",
-  "tech.js": "Современный JavaScript (ES6+)",
-  "tech.ts": "TypeScript для масштабируемых приложений",
-  "tech.node": "Надёжный Backend на Node.js",
-  "tech.react": "Динамичный UI на React",
-  "tech.next": "SEO-оптимизированные веб-приложения на Next.js",
+  "tech.js": "JavaScript",
+  "tech.ts": "TypeScript",
+  "tech.node": "Node.js",
+  "tech.react": "React.js",
+  "tech.next": "Next.js",
   "call_to_action": "Готовы создать что-то по-настоящему особенное? Свяжитесь со мной сегодня, и начнём!",
   "sidebar": {
     "welcome": "Здравствуйте! Я",

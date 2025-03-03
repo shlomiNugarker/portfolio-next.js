@@ -2,11 +2,11 @@
   "heading": "Let's Connect – I'm Shlomi, a Full-Stack Developer with a Passion for Technology",
   "description": "I specialize in developing cutting-edge web applications with a strong focus on performance, scalability, and seamless user experience. With deep expertise in modern technologies, I craft intelligent solutions tailored precisely to your needs.",
 
-  "tech.js": "Modern JavaScript (ES6+) for dynamic and rich development",
-  "tech.ts": "TypeScript for clean, secure, and scalable code",
-  "tech.node": "High-performance backend solutions with Node.js",
-  "tech.react": "Building advanced and interactive user interfaces with React",
-  "tech.next": "Fast, SEO-optimized applications with Next.js",
+  "tech.js": "JavaScript",
+  "tech.ts": "TypeScript",
+  "tech.node": "Node.js",
+  "tech.react": "React.js",
+  "tech.next": "Next.js",
 
   "call_to_action": "Let’s build something exceptional together. Get in touch, and let’s discuss your next project!",
 

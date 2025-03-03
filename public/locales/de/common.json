@@ -1,11 +1,11 @@
 {
   "heading": "Steigere deine digitale Präsenz",
   "description": "Ich entwickle hochleistungsfähige, skalierbare und visuell ansprechende Webanwendungen, die für dein Unternehmen messbare Ergebnisse erzielen.",
-  "tech.js": "Modernes JavaScript (ES6+)",
-  "tech.ts": "TypeScript für skalierbare Anwendungen",
-  "tech.node": "Robustes Backend mit Node.js",
-  "tech.react": "Dynamische UI mit React",
-  "tech.next": "SEO-optimierte Web-Apps mit Next.js",
+  "tech.js": "JavaScript",
+  "tech.ts": "TypeScript",
+  "tech.node": "Node.js",
+  "tech.react": "React.js",
+  "tech.next": "Next.js",
   "call_to_action": "Bereit, etwas Außergewöhnliches zu schaffen? Kontaktiere mich noch heute und lass uns loslegen.",
   "sidebar": {
     "welcome": "Hallo! Ich bin",

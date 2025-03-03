@@ -1,11 +1,11 @@
 {
   "heading": "ارتقِ بحضورك الرقمي",
   "description": "أطوّر تطبيقات ويب عالية الأداء وقابلة للتوسع، تتميز بتصاميم بصرية جذابة وتحقق نتائج ملموسة لأعمالك.",
-  "tech.js": "JavaScript (ES6+) متطورة",
-  "tech.ts": "TypeScript لتطبيقات قابلة للتوسع",
-  "tech.node": "Backend قوي باستخدام Node.js",
-  "tech.react": "واجهة مستخدم ديناميكية باستخدام React",
-  "tech.next": "تطبيقات ويب محسّنة لمحركات البحث باستخدام Next.js",
+  "tech.js": "JavaScript",
+  "tech.ts": "TypeScript",
+  "tech.node": "Node.js",
+  "tech.react": "React.js",
+  "tech.next": "Next.js",
   "call_to_action": "هل أنت جاهز لإنشاء شيء استثنائي؟ تواصل معي اليوم ولنبدأ!",
   "sidebar": {
     "welcome": "مرحبًا! أنا",
