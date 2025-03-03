@@ -175,6 +175,7 @@ const FeaturedCard = memo(
 
     return (
       <MotionBox
+        className="featureCard"
         bg={bg}
         borderRadius="lg"
         borderWidth="1px"

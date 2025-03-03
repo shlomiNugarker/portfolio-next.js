@@ -1,14 +1,14 @@
-
-.featureCard{
+.featureCard {
     position: relative;
     margin: auto;
     overflow: hidden;
     border-radius: 0.80em;
-
 }
-/* .featureCard img{
+
+.featureCard img {
     transition: all 0.1s ease-in-out;
 }
-.featureCard:hover img{
+
+.featureCard:hover img {
     transform: scale(1.1);
-} */
+}
