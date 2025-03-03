@@ -56,8 +56,8 @@ const emailVariants: Variants = {
 
 const ScrollMore = () => {
   const { i18n } = useTranslation()
-  const direction = i18n.dir() // "rtl" או "ltr"
-  const isRtl = direction === 'rtl' // משתנה לבדיקת RTL
+  const direction = i18n.dir()
+  const isRtl = direction === 'rtl'
   const isMobile = useBreakpointValue(mobileBreakpointsMap)
   const scrollDirection = useScrollDirection(false, isMobile)
   const emailColor = useColorModeValue('gray.800', 'gray.400')
