@@ -1,79 +1,201 @@
 .sidebar {
-  border: 3px solid #97DFFC;
-  border-left-color: transparent;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-  border-radius: 100%;
-  height: 120vh;
-  width: 50vw;
-  min-width: 720px;
-  position: absolute;
-  left: -55%;
-  top: -10%;
-  z-index: -1;
+  position: fixed;
+  z-index: 0;
   opacity: 0;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  overflow: hidden;
 }
 
-/* התאמה למסכים קטנים */
+/* Modern Circle Design */
+.sidebar::before {
+  content: '';
+  position: absolute;
+  width: 150vh;
+  height: 150vh;
+  top: 50%;
+  left: 0;
+  transform: translate(-75%, -50%);
+  background: conic-gradient(
+    from 90deg at 50% 50%,
+    rgba(151, 223, 252, 0.08),
+    rgba(79, 209, 197, 0.08),
+    rgba(99, 179, 237, 0.08),
+    rgba(151, 223, 252, 0.08)
+  );
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.6;
+  animation: rotateConic 20s linear infinite;
+}
+
+.sidebar::after {
+  content: '';
+  position: absolute;
+  width: 120vh;
+  height: 120vh;
+  top: 50%;
+  left: 0;
+  transform: translate(-75%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(151, 223, 252, 0.1) 0%,
+    rgba(79, 209, 197, 0.1) 25%,
+    rgba(99, 179, 237, 0.05) 50%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.8;
+  animation: pulse 8s ease-in-out infinite alternate;
+}
+
+/* Dark Mode Styles */
+.dark::before {
+  background: conic-gradient(
+    from 90deg at 50% 50%,
+    rgba(0, 0, 0, 0.2),
+    rgba(26, 32, 44, 0.2),
+    rgba(45, 55, 72, 0.2),
+    rgba(0, 0, 0, 0.2)
+  );
+}
+
+.dark::after {
+  background: radial-gradient(
+    circle,
+    rgba(26, 32, 44, 0.2) 0%,
+    rgba(45, 55, 72, 0.15) 25%,
+    rgba(74, 85, 104, 0.1) 50%,
+    transparent 70%
+  );
+}
+
+/* RTL Support */
+.sidebar.rtl::before,
+.sidebar.rtl::after {
+  left: auto;
+  right: 0;
+  transform: translate(75%, -50%);
+}
+
+/* Animations */
+@keyframes rotateConic {
+  from {
+    transform: translate(-75%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-75%, -50%) rotate(360deg);
+  }
+}
+
+.sidebar.rtl::before {
+  animation-name: rotateConicRTL;
+}
+
+@keyframes rotateConicRTL {
+  from {
+    transform: translate(75%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(75%, -50%) rotate(-360deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.8;
+    filter: blur(40px);
+    transform: translate(-75%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    filter: blur(50px);
+    transform: translate(-75%, -50%) scale(1.1);
+  }
+  100% {
+    opacity: 0.8;
+    filter: blur(40px);
+    transform: translate(-75%, -50%) scale(1);
+  }
+}
+
+.sidebar.rtl::after {
+  animation-name: pulseRTL;
+}
+
+@keyframes pulseRTL {
+  0% {
+    opacity: 0.8;
+    filter: blur(40px);
+    transform: translate(75%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    filter: blur(50px);
+    transform: translate(75%, -50%) scale(1.1);
+  }
+  100% {
+    opacity: 0.8;
+    filter: blur(40px);
+    transform: translate(75%, -50%) scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1280px) {
+  .sidebar::before {
+    width: 120vh;
+    height: 120vh;
+    transform: translate(-70%, -50%);
+  }
+  
+  .sidebar::after {
+    width: 100vh;
+    height: 100vh;
+    transform: translate(-70%, -50%);
+  }
+  
+  .sidebar.rtl::before {
+    transform: translate(70%, -50%);
+  }
+  
+  .sidebar.rtl::after {
+    transform: translate(70%, -50%);
+  }
+}
+
 @media (max-width: 480px) {
   .sidebar {
     display: none;
-    min-width: auto;
   }
 }
 
-/* התאמה למסכי ביניים */
-@media (max-width: 1280px) {
-  .sidebar {
-    left: -66%;
-  }
-}
-
-/* מצב כהה (Light Mode = 'dark' כאן – מבלבל, אבל כך הוגדר בפרויקט) */
-.dark {
-  border: 3px solid black;
-  border-left-color: transparent;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-}
-.light {
-  border: 3px solid white;
-  border-left-color: transparent;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-}
-
-/* כאשר השפה היא RTL, נוסיף class .rtl – מחליפים left ב-right */
-.sidebar.rtl {
-  left: auto;
-  right: -55%;
-}
-
-@media (max-width: 1280px) {
-  .sidebar.rtl {
-    right: -66%;
-  }
-}
-
-/* אם גם .dark וגם .rtl => החלפת border כך שיראה “הפוך” */
-.sidebar.rtl.dark {
-  border-left-color: black;
-  border-right-color: transparent;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-}
-.sidebar.rtl.light {
-  border-left-color: white;
-  border-right-color: transparent;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-}
-
-/* מרווחים לפי צורך */
+/* Utility Classes */
 .marginTopForce {
   margin-top: 0 !important;
 }
 
 .marginTopSmall {
   margin-top: 12px !important;
+}
+
+/* Enhanced Visual Effects */
+.glowEffect {
+  position: relative;
+}
+
+.glowEffect::after {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  background: radial-gradient(circle at center, rgba(79, 209, 197, 0.2), transparent 70%);
+  filter: blur(15px);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glowEffect:hover::after {
+  opacity: 1;
 }
