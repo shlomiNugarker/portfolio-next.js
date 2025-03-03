@@ -112,7 +112,13 @@ const Sidebar = () => {
             {t('sidebar.description')}
           </MotionText>
 
-          <MotionBox display="flex" variants={simpleOpacity}>
+          <MotionBox
+            display="flex"
+            justifyContent={{ base: 'center' }}
+            variants={simpleOpacity}
+            textAlign={{ base: 'center' }}
+            width={'100%'}
+          >
             {SocialMedias.map(({ label, href, icon }) => (
               <Link
                 key={label}
