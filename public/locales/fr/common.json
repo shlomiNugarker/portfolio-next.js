@@ -1,0 +1,38 @@
+{
+  "heading": "Renforcez votre présence numérique",
+  "description": "Je conçois des applications web hautement performantes, évolutives et visuellement captivantes, générant des résultats concrets pour votre entreprise.",
+  "tech.js": "JavaScript de pointe (ES6+)",
+  "tech.ts": "TypeScript pour des applications évolutives",
+  "tech.node": "Backend robuste avec Node.js",
+  "tech.react": "Interface utilisateur dynamique avec React",
+  "tech.next": "Applications web optimisées pour le SEO avec Next.js",
+  "call_to_action": "Prêt à créer quelque chose d’exceptionnel ? Contactez-moi dès aujourd’hui et commençons ensemble.",
+  "sidebar": {
+    "welcome": "Bonjour ! Je suis",
+    "name": "Shlomi",
+    "role": "Développeur Full-Stack",
+    "description": "Je suis passionné par la création de solutions web innovantes et hautement performantes, en parfaite adéquation avec vos objectifs commerciaux. Grâce à mon expertise en Node.js, React, Next.js et PostgreSQL, je fournis des résultats puissants et évolutifs qui stimulent la croissance.",
+    "contact_button": "Collaborons ensemble !"
+  },
+  "contact": {
+    "title": "Créons quelque chose de remarquable",
+    "description": "Je me spécialise dans la conception d’applications performantes et évolutives, propulsant ainsi les entreprises vers l’avant. Que vous ayez besoin d’une solution web sur mesure, de l’optimisation d’un projet existant ou d’un partenaire pour des technologies de pointe, je suis là pour vous aider. Entrons en contact et concrétisons votre vision !",
+    "button": "Discutons business"
+  },
+  "projects": {
+    "title": "Quelques-unes de mes réalisations",
+    "description": "Découvrez une sélection de projets auxquels j’ai participé—de collaborations en freelance à des études de cas approfondies, mettant en avant mes compétences en résolution de problèmes et mon expertise technique.",
+    "view_project": "Voir le projet",
+    "view_code": "Voir le code",
+    "view_video": "Voir la vidéo"
+  },
+  "nav": {
+    "about": "À propos",
+    "works": "Projets",
+    "contact": "Contact"
+  },
+  "opengraph": {
+    "title": "Shlomi Nugarker | Fullstack Developer",
+    "description": "Découvrez mon portfolio mettant en avant des applications web performantes..."
+  }
+}

@@ -26,6 +26,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       { params: { locale: 'he' } },
       { params: { locale: 'ar' } },
       { params: { locale: 'ru' } },
+      { params: { locale: 'fr' } },
     ],
     fallback: false,
   }
