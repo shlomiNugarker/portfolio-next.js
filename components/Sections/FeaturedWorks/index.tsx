@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import { Heading, Text, Stack, Grid, GridItem } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import FeaturedCard from './FeaturedCard'
@@ -9,11 +8,17 @@ import { useTranslation } from 'next-i18next'
 
 import projectsEn from '../../../config/projectsEn'
 import projectsHe from '../../../config/projectsHe'
+import projectsAr from '../../../config/projectsAr'
 
 const FeaturedWorksSection = () => {
   const { t, i18n } = useTranslation('common')
 
-  const projects = i18n.language === 'he' ? projectsHe : projectsEn
+  const projects =
+    i18n.language === 'he'
+      ? projectsHe
+      : i18n.language === 'ar'
+      ? projectsAr
+      : projectsEn
 
   return (
     <Stack

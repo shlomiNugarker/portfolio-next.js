@@ -21,7 +21,11 @@ import { GetStaticPaths } from 'next'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: [{ params: { locale: 'en' } }, { params: { locale: 'he' } }],
+    paths: [
+      { params: { locale: 'en' } },
+      { params: { locale: 'he' } },
+      { params: { locale: 'ar' } },
+    ],
     fallback: false,
   }
 }
