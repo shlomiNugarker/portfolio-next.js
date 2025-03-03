@@ -11,7 +11,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
 
   return {
     redirect: {
-      destination: `/${locale}`,
+      destination: `/${locale}/`,
       permanent: false,
     },
   }
