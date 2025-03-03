@@ -1,27 +1,27 @@
 {
-  "heading": "Unlock Your Digital Potential",
-  "description": "I craft high-performance, scalable, and visually stunning web applications...",
-  "tech.js": "Modern JavaScript (ES6+)",
+  "heading": "Elevate Your Digital Presence",
+  "description": "I develop high-performance, scalable, and visually captivating web applications that drive meaningful results for your business.",
+  "tech.js": "Cutting-Edge JavaScript (ES6+)",
   "tech.ts": "TypeScript for Scalable Applications",
   "tech.node": "Robust Backend with Node.js",
   "tech.react": "Dynamic UI with React",
   "tech.next": "SEO-Optimized Web Apps with Next.js",
-  "call_to_action": "Let's build something exceptional together. Contact me today.",
+  "call_to_action": "Ready to build something extraordinary? Contact me today and let's get started.",
   "sidebar": {
-    "welcome": "Welcome! I'm",
-    "name": "Shlomi Nugarker",
-    "role": "Fullstack Developer",
-    "description": "Passionate about building innovative, high-performance web applications tailored to business needs. With expertise in Node.js, React, Next.js, and PostgreSQL, I create powerful, scalable solutions that drive success.",
+    "welcome": "Hello! I'm",
+    "name": "Shlomi",
+    "role": "Full-Stack Developer",
+    "description": "I'm passionate about crafting innovative, high-performance web solutions that align with your unique business objectives. With expertise in Node.js, React, Next.js, and PostgreSQL, I deliver powerful, scalable results that fuel growth.",
     "contact_button": "Let's Collaborate!"
   },
   "contact": {
-    "title": "Let's Build Something Amazing",
-    "description": "I specialize in crafting high-performance, scalable applications that drive business success. Whether you need a custom web solution, want to optimize an existing project, or seek collaboration on cutting-edge technology—I'm here to help. Let's connect!",
+    "title": "Let's Build Something Remarkable",
+    "description": "I specialize in creating high-performance, scalable applications that propel businesses forward. Whether you need a custom web solution, want to optimize an existing project, or seek a partner in cutting-edge tech—I'm here to help. Let's connect and bring your vision to life!",
     "button": "Let's Talk Business"
   },
   "projects": {
-    "title": "Some of my works.",
-    "description": "Explore a selection of projects I've worked on—ranging from freelance work and company collaborations to in-depth case studies showcasing my problem-solving and technical expertise.",
+    "title": "Some of My Work",
+    "description": "Take a look at a selection of projects I've been involved in—from freelance collaborations to in-depth case studies that highlight my problem-solving and technical expertise.",
     "view_project": "View Project",
     "view_code": "View Code",
     "view_video": "View Video"

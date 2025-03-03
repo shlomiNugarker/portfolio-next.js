@@ -10,9 +10,9 @@ import { avatarAnimation } from 'config/animations'
 
 const AvatarImages = {
   DarkMode:
-    'https://res.cloudinary.com/duajg3ah1/image/upload/v1660763357/shlomiN_mewit4.jpg',
+    'https://res.cloudinary.com/duajg3ah1/image/upload/v1740965833/hqebkt3feaumbj5nma7o.png',
   LightMode:
-    'https://res.cloudinary.com/duajg3ah1/image/upload/v1660763357/shlomiN_mewit4.jpg',
+    'https://res.cloudinary.com/duajg3ah1/image/upload/v1740965833/hqebkt3feaumbj5nma7o.png',
 }
 
 declare global {
@@ -58,7 +58,12 @@ const Avatar = () => {
           htmlWidth="250"
           htmlHeight="250"
           margin="auto"
-          fallback={<SkeletonCircle height="100%" width="100%" />}
+          fallback={
+            (
+              <SkeletonCircle height="100%" width="100%" />
+            ) as React.ReactElement
+          }
+          backgroundColor={useColorModeValue('gray.200', 'gray.700')}
         />
       </MotionBox>
     </AnimatePresence>
