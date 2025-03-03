@@ -12,6 +12,7 @@ import {
 import { motion, Variants } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { useTranslation } from 'next-i18next'
+import Avatar from 'components/Avatar'
 
 const rimuruVariant: Variants = {
   shake: {
@@ -100,6 +101,10 @@ const GetInTouch = () => {
                 +972 52-952-6762
               </Link>
             </Text>
+          </Box>
+
+          <Box mt={4}>
+            <Avatar />
           </Box>
 
           <Button

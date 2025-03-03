@@ -43,7 +43,7 @@ const Avatar = () => {
     <AnimatePresence>
       <MotionBox
         id="klAvatar"
-        boxSize={{ base: 64, lg: 'sm' }}
+        boxSize={{ base: 'sm' }}
         padding={{ base: 8 }}
         marginBottom={{ base: 10, md: 0, lg: 0 }}
         initial="initial"
@@ -55,8 +55,8 @@ const Avatar = () => {
           src={imgAvatar}
           alt="Shlomi's Avatar"
           borderRadius="full"
-          htmlWidth="250"
-          htmlHeight="250"
+          htmlWidth="150"
+          htmlHeight="150"
           margin="auto"
           fallback={
             (

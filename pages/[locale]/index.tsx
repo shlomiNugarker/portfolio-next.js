@@ -13,7 +13,6 @@ import OpenGraphHead from 'components/Misc/OpenGraphHead'
 import FadeInLayout from 'components/Layout/FadeWhenVisible'
 import Menu from 'components/Menu'
 import Sidebar from 'components/Sidebar'
-import Avatar from 'components/Avatar'
 import About from 'components/Sections/About'
 import FeaturedWorks from 'components/Sections/FeaturedWorks'
 import ScrollMore from 'components/Misc/ScrollMore'
@@ -28,6 +27,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       { params: { locale: 'ru' } },
       { params: { locale: 'fr' } },
       { params: { locale: 'es' } },
+      { params: { locale: 'de' } },
     ],
     fallback: false,
   }
@@ -118,7 +118,6 @@ const Portfolio = (): JSX.Element => {
                 }}
               >
                 <About />
-                <Avatar />
               </Box>
             </FadeInLayout>
 
