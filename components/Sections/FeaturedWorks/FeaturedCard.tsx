@@ -103,7 +103,8 @@ const ProjectDescription = memo(
         p={6}
         display="flex"
         flexDirection="column"
-        alignItems="flex-start"
+        alignItems={{ base: 'center', md: 'flex-start' }}
+        textAlign={{ base: 'center', md: 'left' }}
       >
         <Stack spacing={2} w="full">
           <Text
@@ -120,6 +121,8 @@ const ProjectDescription = memo(
             fontWeight="bold"
             letterSpacing="wider"
             color={titleColor}
+            // אפשרי גם להגדיר כאן textAlign אם רוצים שליטה נפרדת
+            // textAlign={{ base: 'center', md: 'left' }}
           >
             {title}
           </Heading>
@@ -133,7 +136,12 @@ const ProjectDescription = memo(
         >
           {description}
         </Text>
-        <Wrap justify="flex-start" mt={4} spacing={3}>
+        <Wrap
+          // במובייל, הכפתורים יהיו ממורכזים; בדסקטופ - משמאל
+          justify={{ base: 'center', md: 'flex-start' }}
+          mt={4}
+          spacing={3}
+        >
           {buttons.map(({ label, url }, index) => (
             <WrapItem key={index}>
               <Button

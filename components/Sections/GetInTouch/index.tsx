@@ -26,7 +26,7 @@ const rimuruVariant: Variants = {
 }
 
 const GetInTouch = () => {
-  const { t } = useTranslation('common') // 🔹 תמיכה ב-i18n
+  const { t } = useTranslation('common')
   const [ref, inView] = useInView()
 
   return (
@@ -42,7 +42,6 @@ const GetInTouch = () => {
     >
       <Container maxW={{ base: '99%', lg: '60%', xl: '75%' }}>
         <Stack spacing={10} alignItems="center">
-          {/* 🔹 כותרת דינאמית עם אפקט */}
           <Heading
             size="2xl"
             fontWeight="bold"
