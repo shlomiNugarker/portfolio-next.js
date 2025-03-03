@@ -67,10 +67,10 @@ const ScrollMore = () => {
     <Box
       position="fixed"
       bottom="1em"
-      // מצמיד את האלמנט לימין ב-LTR ולשמאל ב-RTL
       right={isRtl ? undefined : '3%'}
       left={isRtl ? '3%' : undefined}
       display={isMobile ? 'none' : 'block'}
+      dir="ltr"
     >
       <AnimatePresence>
         {[ScrollDirection.Initial, ScrollDirection.Up].includes(

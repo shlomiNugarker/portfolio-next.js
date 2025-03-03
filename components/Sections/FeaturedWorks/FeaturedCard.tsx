@@ -106,6 +106,14 @@ const ProjectDescription = memo(
         alignItems="flex-start"
       >
         <Stack spacing={2} w="full">
+          <Text
+            as="span"
+            color="teal.500"
+            fontSize={{ base: 'xl', md: '2xl' }}
+            mr={2}
+          >
+            #{idx < 10 ? `0${idx}` : idx}
+          </Text>
           <Heading
             as="h3"
             fontSize={{ base: 'lg', md: '2xl' }}
@@ -113,14 +121,6 @@ const ProjectDescription = memo(
             letterSpacing="wider"
             color={titleColor}
           >
-            <Text
-              as="span"
-              color="teal.500"
-              fontSize={{ base: 'md', md: 'xl' }}
-              mr={2}
-            >
-              #{idx < 10 ? `0${idx}` : idx}
-            </Text>
             {title}
           </Heading>
           <Divider borderColor="gray.400" />

@@ -95,6 +95,7 @@ const GetInTouch = () => {
                 target="_blank"
                 rel="noreferrer"
                 color="customGreen"
+                dir="ltr"
               >
                 +972 52-952-6762
               </Link>
