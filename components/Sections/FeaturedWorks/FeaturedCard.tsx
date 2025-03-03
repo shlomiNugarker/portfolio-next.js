@@ -16,6 +16,7 @@ import {
 import { motion } from 'framer-motion'
 import { memo, useMemo } from 'react'
 import { useTranslation } from 'next-i18next'
+import styles from './styles.module.css' // Import the CSS module
 
 export type Project = {
   id: number
@@ -175,14 +176,12 @@ const FeaturedCard = memo(
 
     return (
       <MotionBox
-        className="featureCard"
+        className={styles.featureCard} // Use the CSS class
         bg={bg}
         borderRadius="lg"
         borderWidth="1px"
         overflow="hidden"
         boxShadow="lg"
-        whileHover={{ boxShadow: 'xl', transform: 'translateY(-3px)' }}
-        transition="all 0.3s ease"
       >
         <CoverImage
           height={height}
