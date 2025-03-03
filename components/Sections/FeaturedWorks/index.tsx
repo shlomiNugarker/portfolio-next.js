@@ -3,27 +3,17 @@ import { motion } from 'framer-motion'
 import FeaturedCard from './FeaturedCard'
 import { fadeInUpSlower, galleryStagger } from 'config/animations'
 import { useTranslation } from 'next-i18next'
-
-import projectsEn from '../../../config/projectsEn'
-import projectsHe from '../../../config/projectsHe'
-import projectsAr from '../../../config/projectsAr'
-import projectsRu from '../../../config/projectsRu'
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const languageProjectsMap: Record<string, any[]> = {
-  en: projectsEn,
-  he: projectsHe,
-  ar: projectsAr,
-  ru: projectsRu,
-}
+import { projects } from 'config/projects.ts'
 
 const MotionGrid = motion(Grid)
 const MotionGridItem = motion(GridItem)
 
 const FeaturedWorksSection = () => {
   const { t, i18n } = useTranslation('common')
+  const language = i18n.language
 
-  const projects = languageProjectsMap[i18n.language] || projectsEn
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const projectsLang = (projects as any)[language] || projects.en
 
   return (
     <Stack
@@ -50,7 +40,7 @@ const FeaturedWorksSection = () => {
         initial="initial"
         animate="animate"
       >
-        {projects.map((project, idx) => (
+        {projectsLang.map((project, idx) => (
           <MotionGridItem
             key={project.id}
             colSpan={6}
