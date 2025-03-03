@@ -5,6 +5,7 @@ import projectsRu from './projectsRu'
 import projectsFr from './projectsFr'
 import projectsEs from './projectsEs'
 import projectsDe from './projectsDe'
+import projectsHi from './projectsHi'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const projects = {
@@ -15,4 +16,5 @@ export const projects = {
   fr: projectsFr,
   es: projectsEs,
   de: projectsDe,
+  hi: projectsHi,
 }
