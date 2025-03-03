@@ -1,0 +1,38 @@
+{
+  "heading": "Fortaleça sua Presença Digital",
+  "description": "Desenvolvo aplicações web de alto desempenho, escaláveis e visualmente atraentes, que geram resultados reais para o seu negócio.",
+  "tech.js": "JavaScript de ponta (ES6+)",
+  "tech.ts": "TypeScript para Aplicações Escaláveis",
+  "tech.node": "Backend Robusto com Node.js",
+  "tech.react": "UI Dinâmico com React",
+  "tech.next": "Aplicações Web Otimizadas para SEO com Next.js",
+  "call_to_action": "Pronto para criar algo extraordinário? Entre em contato hoje mesmo e vamos começar.",
+  "sidebar": {
+    "welcome": "Olá! Sou",
+    "name": "Shlomi",
+    "role": "Desenvolvedor Full-Stack",
+    "description": "Sou apaixonado por criar soluções web inovadoras e de alto desempenho, alinhadas aos objetivos únicos do seu negócio. Com experiência em Node.js, React, Next.js e PostgreSQL, entrego resultados poderosos e escaláveis que impulsionam o crescimento.",
+    "contact_button": "Vamos Colaborar!"
+  },
+  "contact": {
+    "title": "Vamos Criar Algo Notável",
+    "description": "Sou especializado em desenvolver aplicações de alto desempenho e escaláveis que impulsionam empresas para frente. Se você precisa de uma solução web personalizada, quer otimizar um projeto existente ou busca um parceiro em tecnologias de ponta — estou aqui para ajudar. Vamos nos conectar e transformar sua visão em realidade!",
+    "button": "Vamos Falar de Negócios"
+  },
+  "projects": {
+    "title": "Alguns dos Meus Trabalhos",
+    "description": "Confira uma seleção de projetos nos quais estive envolvido — desde colaborações como freelancer até estudos de caso aprofundados, destacando minhas habilidades de resolução de problemas e minha expertise técnica.",
+    "view_project": "Ver Projeto",
+    "view_code": "Ver Código",
+    "view_video": "Ver Vídeo"
+  },
+  "nav": {
+    "about": "Sobre",
+    "works": "Trabalhos",
+    "contact": "Contato"
+  },
+  "opengraph": {
+    "title": "Shlomi Nugarker | Desenvolvedor Fullstack",
+    "description": "Explore meu portfólio com aplicações web de alto desempenho..."
+  }
+}

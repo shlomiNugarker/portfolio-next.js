@@ -1,8 +1,9 @@
-import projectsAr from './projectsAr'
 import projectsEn from './projectsEn'
 import projectsHe from './projectsEn'
-import projectsFr from './projectsFr'
+import projectsAr from './projectsAr'
 import projectsRu from './projectsFr'
+import projectsFr from './projectsFr'
+import projectsEs from './projectsEs'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const projects = {
@@ -11,4 +12,5 @@ export const projects = {
   ar: projectsAr,
   ru: projectsRu,
   fr: projectsFr,
+  es: projectsEs,
 }
