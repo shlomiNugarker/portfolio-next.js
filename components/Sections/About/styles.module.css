@@ -8,3 +8,202 @@
   background: var(--chakra-colors-gray-600);
   border-radius: 1em;
 }
+
+.skillModal {
+  position: relative;
+  isolation: isolate;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  contain: layout;
+}
+
+/* Improved Background Circles */
+.skillModal::before,
+.skillModal::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  opacity: 0.4;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+.skillModal::before {
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(151, 223, 252, 0.12) 0%,
+    rgba(151, 223, 252, 0.04) 45%,
+    transparent 70%
+  );
+  width: 80vh;
+  height: 80vh;
+  top: 10%;
+  right: -20%;
+  filter: blur(40px);
+  animation: floatCircle 15s ease-in-out infinite alternate;
+  z-index: -2;
+}
+
+.skillModal::after {
+  background: radial-gradient(
+    circle at 70% 70%,
+    rgba(99, 179, 237, 0.12) 0%,
+    rgba(99, 179, 237, 0.04) 45%,
+    transparent 70%
+  );
+  width: 90vh;
+  height: 90vh;
+  bottom: 5%;
+  right: -30%;
+  filter: blur(45px);
+  animation: floatCircle 20s ease-in-out infinite alternate-reverse;
+  z-index: -2;
+}
+
+@keyframes floatCircle {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-5%, 2%) scale(1.05);
+  }
+  100% {
+    transform: translate(5%, -2%) scale(0.95);
+  }
+}
+
+/* Glass Card with improved layering */
+.glassCard {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px 0 rgba(31, 38, 135, 0.05),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.glassCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    125deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 40%,
+    transparent 100%
+  );
+  z-index: -1;
+}
+
+[data-theme="dark"] .glassCard {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Enhanced Tech Item Effects */
+.techItem {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.03);
+  z-index: 3;
+}
+
+.techItem::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(151, 223, 252, 0.1),
+    rgba(99, 179, 237, 0.1)
+  );
+  transform: translateY(100%);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.techItem:hover::before {
+  transform: translateY(0);
+}
+
+.techItem:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 12px 24px -8px rgba(0, 0, 0, 0.15),
+    0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Improved Floating Animation */
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+.techIcon {
+  animation: float 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .skillModal::before {
+    width: 150%;
+    height: 150%;
+    top: -25%;
+    left: -25%;
+  }
+  
+  .skillModal::after {
+    width: 140%;
+    height: 140%;
+    bottom: -20%;
+    right: -20%;
+  }
+  
+  .techItem:hover {
+    transform: translateY(-2px) scale(1.01);
+  }
+}
+
+/* Improved Text Effects */
+.gradientText {
+  background: linear-gradient(135deg, #4FD1C5 0%, #63B3ED 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+/* Enhanced Loading States */
+.loading {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth Scroll with improved performance */
+.smoothScroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
