@@ -7,10 +7,13 @@ const MotionGrid = motion(Grid)
 const MotionGridItem = motion(GridItem)
 import { useTranslation } from 'next-i18next'
 
-import projects from '../../../config/projects'
+import projectsEn from '../../../config/projectsEn'
+import projectsHe from '../../../config/projectsHe'
 
 const FeaturedWorksSection = () => {
-  const { t } = useTranslation('common')
+  const { t, i18n } = useTranslation('common')
+
+  const projects = i18n.language === 'he' ? projectsHe : projectsEn
 
   return (
     <Stack

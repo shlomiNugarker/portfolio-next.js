@@ -29,6 +29,7 @@ export type Project = {
 }
 
 export type FeaturedCardProps = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   height: string | ResponsiveValue<any>
   src: string
   idx: number
@@ -49,6 +50,7 @@ const CoverImage = memo(
     title,
     objectPosition,
   }: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     height: string | ResponsiveValue<any>
     src: string
     title: string
@@ -80,7 +82,7 @@ const ProjectDescription = memo(
     ctaUrl,
     project,
   }: Omit<FeaturedCardProps, 'height' | 'src' | 'objectPosition'>) => {
-    const { t } = useTranslation('common') // 🔹 תמיכה בתרגום
+    const { t } = useTranslation('common')
 
     const buttons = useMemo(
       () => [
