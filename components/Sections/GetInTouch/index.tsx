@@ -34,14 +34,16 @@ const GetInTouch = () => {
       as="footer"
       width="100%"
       maxW={{ base: '99%', lg: '60%', xl: '75%' }}
-      py={16}
+      py={20}
       bg="customPeach"
       textAlign="center"
       borderTopWidth={2}
       borderColor="customNavy"
+      backgroundSize="cover"
+      backgroundPosition="center"
     >
       <Container maxW={{ base: '99%', lg: '60%', xl: '75%' }}>
-        <Stack spacing={10} alignItems="center">
+        <Stack spacing={5} alignItems="center">
           <Heading
             size="2xl"
             fontWeight="bold"
@@ -111,11 +113,12 @@ const GetInTouch = () => {
             href="mailto:shlomin1231@gmail.com"
             size="lg"
             bg="teal.500"
-            px={8}
-            py={6}
+            px={10}
+            py={2}
             fontSize="lg"
             fontWeight="bold"
-            borderRadius="8px"
+            borderRadius="12px"
+            _hover={{ bg: 'teal.600' }}
           >
             {t('contact.button')}
           </Button>
