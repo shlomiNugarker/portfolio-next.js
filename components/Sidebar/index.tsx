@@ -26,11 +26,9 @@ const Sidebar = () => {
   const MotionStack = motion(Stack)
   const MotionHeading = motion(Heading)
   const MotionText = motion(Text)
-  const MotionButton = motion(Button)
 
-  // בדיקה אם RTL
-  const direction = i18n.dir() // "rtl" או "ltr"
-  const isRtl = direction === 'rtl' // true/false
+  const direction = i18n.dir()
+  const isRtl = direction === 'rtl'
 
   return (
     <MotionBox
@@ -82,7 +80,6 @@ const Sidebar = () => {
             className={styles.marginTopSmall}
             variants={fadeInUp}
             color="teal.500"
-            _hover={{ bg: 'teal.600' }}
           >
             {t('sidebar.role')}
           </MotionHeading>
@@ -109,7 +106,6 @@ const Sidebar = () => {
                 target="_blank"
                 _focus={{ boxShadow: 'none' }}
                 color="teal.500"
-                _hover={{ bg: 'teal.600' }}
               >
                 <Icon
                   w={9}
