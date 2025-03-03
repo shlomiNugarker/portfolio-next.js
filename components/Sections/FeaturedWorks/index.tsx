@@ -2,23 +2,26 @@ import { Heading, Text, Stack, Grid, GridItem } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import FeaturedCard from './FeaturedCard'
 import { fadeInUpSlower, galleryStagger } from 'config/animations'
-const MotionGrid = motion(Grid)
-const MotionGridItem = motion(GridItem)
 import { useTranslation } from 'next-i18next'
 
 import projectsEn from '../../../config/projectsEn'
 import projectsHe from '../../../config/projectsHe'
 import projectsAr from '../../../config/projectsAr'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const languageProjectsMap: Record<string, any[]> = {
+  en: projectsEn,
+  he: projectsHe,
+  ar: projectsAr,
+}
+
+const MotionGrid = motion(Grid)
+const MotionGridItem = motion(GridItem)
+
 const FeaturedWorksSection = () => {
   const { t, i18n } = useTranslation('common')
 
-  const projects =
-    i18n.language === 'he'
-      ? projectsHe
-      : i18n.language === 'ar'
-      ? projectsAr
-      : projectsEn
+  const projects = languageProjectsMap[i18n.language] || projectsEn
 
   return (
     <Stack
@@ -32,8 +35,9 @@ const FeaturedWorksSection = () => {
           fontVariantCaps: 'small-caps',
         }}
       >
-        {t('projects.title')}{' '}
+        {t('projects.title')}
       </Heading>
+
       <Text variant="description">{t('projects.description')}</Text>
 
       <MotionGrid
@@ -41,6 +45,8 @@ const FeaturedWorksSection = () => {
         templateColumns="repeat(6, 1fr)"
         gap={{ base: 5, md: 6 }}
         variants={galleryStagger}
+        initial="initial"
+        animate="animate"
       >
         {projects.map((project, idx) => (
           <MotionGridItem
