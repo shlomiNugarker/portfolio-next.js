@@ -1,38 +1,45 @@
 {
-  "heading": "Fortaleça sua Presença Digital",
-  "description": "Desenvolvo aplicações web de alto desempenho, escaláveis e visualmente atraentes, que geram resultados reais para o seu negócio.",
+  "heading": "Conectemos – Soy Shlomi, un Desarrollador Full-Stack apasionado por la tecnología",
+  "description": "Me especializo en desarrollar aplicaciones web de vanguardia con un fuerte enfoque en el rendimiento (Performance), la escalabilidad (Scalability) y una experiencia de usuario fluida (Seamless User Experience). Con una profunda experiencia en tecnologías modernas, creo soluciones inteligentes adaptadas exactamente a tus necesidades.",
+
   "tech.js": "JavaScript",
   "tech.ts": "TypeScript",
   "tech.node": "Node.js",
   "tech.react": "React.js",
   "tech.next": "Next.js",
-  "call_to_action": "Pronto para criar algo extraordinário? Entre em contato hoje mesmo e vamos começar.",
+
+  "call_to_action": "Construyamos algo excepcional juntos. ¡Ponte en contacto y hablemos sobre tu próximo proyecto!",
+
   "sidebar": {
-    "welcome": "Olá! Sou",
+    "welcome": "¡Hola! Soy",
     "name": "Shlomi",
-    "role": "Desenvolvedor Full-Stack",
-    "description": "Sou apaixonado por criar soluções web inovadoras e de alto desempenho, alinhadas aos objetivos únicos do seu negócio. Com experiência em Node.js, React, Next.js e PostgreSQL, entrego resultados poderosos e escaláveis que impulsionam o crescimento.",
-    "contact_button": "Vamos Colaborar!"
+    "role": "Desarrollador Full-Stack",
+    "description": "Me especializo en diseñar y desarrollar sistemas sólidos utilizando JavaScript, TypeScript, Node.js, React y Next.js. Con amplia experiencia y una mentalidad creativa, construyo soluciones innovadoras que generan resultados.",
+    "contact_button": "¡Hablemos sobre tu proyecto!"
   },
+
   "contact": {
-    "title": "Vamos Criar Algo Notável",
-    "description": "Sou especializado em desenvolver aplicações de alto desempenho e escaláveis que impulsionam empresas para frente. Se você precisa de uma solução web personalizada, quer otimizar um projeto existente ou busca um parceiro em tecnologias de ponta — estou aqui para ajudar. Vamos nos conectar e transformar sua visão em realidade!",
-    "button": "Vamos Falar de Negócios"
+    "title": "Conectemos y creemos algo significativo",
+    "description": "Si buscas un desarrollador con experiencia para hacer realidad tu visión con soluciones creativas e innovadoras, aquí estoy. ¡Hablemos sobre cómo podemos trabajar juntos para lograrlo!",
+    "button": "Contáctame ahora"
   },
+
   "projects": {
-    "title": "Alguns dos Meus Trabalhos",
-    "description": "Confira uma seleção de projetos nos quais estive envolvido — desde colaborações como freelancer até estudos de caso aprofundados, destacando minhas habilidades de resolução de problemas e minha expertise técnica.",
-    "view_project": "Ver Projeto",
+    "title": "Proyectos Destacados",
+    "description": "Echa un vistazo a algunos de los proyectos que he desarrollado: aplicaciones inteligentes, sistemas avanzados y experiencias de usuario excepcionales. Cada proyecto refleja mi experiencia, precisión y creatividad en la resolución de problemas y el desarrollo.",
+    "view_project": "Ver Proyecto",
     "view_code": "Ver Código",
-    "view_video": "Ver Vídeo"
+    "view_video": "Ver Video"
   },
+
   "nav": {
-    "about": "Sobre",
-    "works": "Trabalhos",
-    "contact": "Contato"
+    "about": "Acerca de",
+    "works": "Proyectos",
+    "contact": "Contacto"
   },
+
   "opengraph": {
-    "title": "Shlomi Nugarker | Desenvolvedor Fullstack",
-    "description": "Explore meu portfólio com aplicações web de alto desempenho..."
+    "title": "Shlomi | Desarrollador Full-Stack",
+    "description": "Un desarrollador Full-Stack con amplia experiencia en la creación de aplicaciones web de alto rendimiento y escalabilidad. ¡Explora mi portafolio!"
   }
 }

@@ -1,38 +1,45 @@
 {
-  "heading": "Renforcez votre présence numérique",
-  "description": "Je conçois des applications web hautement performantes, évolutives et visuellement captivantes, générant des résultats concrets pour votre entreprise.",
+  "heading": "Давайте свяжемся – Я Шломи, Full-Stack разработчик, увлеченный технологиями",
+  "description": "Я специализируюсь на разработке современных веб-приложений с акцентом на производительность (Performance), масштабируемость (Scalability) и удобство использования (Seamless User Experience). Благодаря глубокой экспертизе в современных технологиях я создаю интеллектуальные решения, точно соответствующие вашим требованиям.",
+
   "tech.js": "JavaScript",
   "tech.ts": "TypeScript",
   "tech.node": "Node.js",
   "tech.react": "React.js",
   "tech.next": "Next.js",
-  "call_to_action": "Prêt à créer quelque chose d’exceptionnel ? Contactez-moi dès aujourd’hui et commençons ensemble.",
+
+  "call_to_action": "Давайте создадим что-то уникальное вместе. Свяжитесь со мной, и давайте обсудим ваш следующий проект!",
+
   "sidebar": {
-    "welcome": "Bonjour ! Je suis",
-    "name": "Shlomi",
-    "role": "Développeur Full-Stack",
-    "description": "Je suis passionné par la création de solutions web innovantes et hautement performantes, en parfaite adéquation avec vos objectifs commerciaux. Grâce à mon expertise en Node.js, React, Next.js et PostgreSQL, je fournis des résultats puissants et évolutifs qui stimulent la croissance.",
-    "contact_button": "Collaborons ensemble !"
+    "welcome": "Привет! Я",
+    "name": "Шломи",
+    "role": "Full-Stack разработчик",
+    "description": "Я специализируюсь на проектировании и разработке надежных систем с использованием JavaScript, TypeScript, Node.js, React и Next.js. Обладая обширным опытом и креативным мышлением, я создаю инновационные решения, приносящие реальный результат.",
+    "contact_button": "Давайте обсудим ваш проект!"
   },
+
   "contact": {
-    "title": "Créons quelque chose de remarquable",
-    "description": "Je me spécialise dans la conception d’applications performantes et évolutives, propulsant ainsi les entreprises vers l’avant. Que vous ayez besoin d’une solution web sur mesure, de l’optimisation d’un projet existant ou d’un partenaire pour des technologies de pointe, je suis là pour vous aider. Entrons en contact et concrétisons votre vision !",
-    "button": "Discutons business"
+    "title": "Давайте свяжемся и создадим что-то значимое",
+    "description": "Если вам нужен опытный разработчик, который поможет воплотить вашу идею в жизнь с помощью креативных и инновационных решений, я готов помочь. Давайте обсудим, как мы можем сотрудничать!",
+    "button": "Связаться со мной"
   },
+
   "projects": {
-    "title": "Quelques-unes de mes réalisations",
-    "description": "Découvrez une sélection de projets auxquels j’ai participé—de collaborations en freelance à des études de cas approfondies, mettant en avant mes compétences en résolution de problèmes et mon expertise technique.",
-    "view_project": "Voir le projet",
-    "view_code": "Voir le code",
-    "view_video": "Voir la vidéo"
+    "title": "Избранные проекты",
+    "description": "Ознакомьтесь с некоторыми из моих проектов – интеллектуальные приложения, передовые системы и выдающийся пользовательский опыт. Каждый проект демонстрирует мою экспертизу, точность и креативность в решении задач и разработке.",
+    "view_project": "Посмотреть проект",
+    "view_code": "Посмотреть код",
+    "view_video": "Посмотреть видео"
   },
+
   "nav": {
-    "about": "À propos",
-    "works": "Projets",
-    "contact": "Contact"
+    "about": "Обо мне",
+    "works": "Проекты",
+    "contact": "Контакты"
   },
+
   "opengraph": {
-    "title": "Shlomi Nugarker | Fullstack Developer",
-    "description": "Découvrez mon portfolio mettant en avant des applications web performantes..."
+    "title": "Шломи | Full-Stack разработчик",
+    "description": "Full-Stack разработчик с обширным опытом в создании высокопроизводительных и масштабируемых веб-приложений. Изучите мое портфолио!"
   }
 }
