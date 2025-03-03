@@ -146,8 +146,8 @@ const ProjectDescription = memo(
                 href={url}
                 target="_blank"
                 rel="noreferrer"
-                bg="teal.500"
                 color="white"
+                bg="teal.500"
                 _hover={{ bg: 'teal.600' }}
               >
                 {label}

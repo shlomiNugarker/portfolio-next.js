@@ -81,6 +81,8 @@ const Sidebar = () => {
             variant="emphasis"
             className={styles.marginTopSmall}
             variants={fadeInUp}
+            color="teal.500"
+            _hover={{ bg: 'teal.600' }}
           >
             {t('sidebar.role')}
           </MotionHeading>
@@ -106,6 +108,8 @@ const Sidebar = () => {
                 href={href}
                 target="_blank"
                 _focus={{ boxShadow: 'none' }}
+                color="teal.500"
+                _hover={{ bg: 'teal.600' }}
               >
                 <Icon
                   w={9}

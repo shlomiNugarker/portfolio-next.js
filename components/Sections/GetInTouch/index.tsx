@@ -96,6 +96,8 @@ const GetInTouch = () => {
                 rel="noreferrer"
                 color="customGreen"
                 dir="ltr"
+                color="teal.500"
+                _hover={{ bg: 'teal.600' }}
               >
                 +972 52-952-6762
               </Link>
@@ -110,8 +112,8 @@ const GetInTouch = () => {
             as="a"
             href="mailto:shlomin1231@gmail.com"
             size="lg"
-            color="customGreen"
-            _hover={{ bg: 'customNavy' }}
+            bg="teal.500"
+            _hover={{ bg: 'teal.600' }}
             px={8}
             py={6}
             fontSize="lg"

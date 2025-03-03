@@ -19,11 +19,8 @@ import { useTranslation } from 'next-i18next'
 import styles from './styles.module.css'
 
 const Detail = () => {
-  const { t, i18n } = useTranslation('common')
+  const { t } = useTranslation('common')
   const emphasis = useColorModeValue('teal.500', 'cyan.200')
-
-  const direction = i18n.dir()
-  const isRtl = direction === 'rtl'
 
   const technologies = [
     { icon: SiJavascript, label: t('tech.js') },
@@ -60,18 +57,24 @@ const Detail = () => {
         display={'flex'}
         flexDirection={'column'}
         alignItems={'center'}
-        justifyContent={'center'}
-        flexWrap={'wrap'}
-        width={'100%'}
       >
-        <List spacing={5}>
+        <List
+          spacing={5}
+          width={'100%'}
+          display={'flex'}
+          flexDirection={'row'}
+          justifyContent={'center'}
+          flexWrap={'wrap'}
+        >
           {[...technologies, ...technologies2].map(({ icon, label }) => (
             <ListItem
               key={label}
               fontSize="small"
               display="flex"
               alignItems="center"
-              maxWidth="fit-content"
+              maxWidth="30%"
+              marginX={2}
+              marginY={1}
             >
               <ListIcon as={icon} color={emphasis} fontSize="2em" />
               {label}
