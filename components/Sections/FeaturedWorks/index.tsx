@@ -7,12 +7,14 @@ import { useTranslation } from 'next-i18next'
 import projectsEn from '../../../config/projectsEn'
 import projectsHe from '../../../config/projectsHe'
 import projectsAr from '../../../config/projectsAr'
+import projectsRu from '../../../config/projectsRu'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const languageProjectsMap: Record<string, any[]> = {
   en: projectsEn,
   he: projectsHe,
   ar: projectsAr,
+  ru: projectsRu,
 }
 
 const MotionGrid = motion(Grid)
