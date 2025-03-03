@@ -3,7 +3,8 @@ import projectsEn from './projectsEn'
 import projectsHe from './projectsEn'
 import projectsRu from './projectsRu'
 
-export const projects = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const projects: any = {
   en: projectsEn,
   he: projectsHe,
   ar: projectsAr,

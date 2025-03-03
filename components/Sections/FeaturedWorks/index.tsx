@@ -12,8 +12,7 @@ const FeaturedWorksSection = () => {
   const { t, i18n } = useTranslation('common')
   const language = i18n.language
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const projectsLang = (projects as any)[language] || projects.en
+  const projectsLang = projects[language] || projects.en
 
   return (
     <Stack
