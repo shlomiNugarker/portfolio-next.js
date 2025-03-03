@@ -78,7 +78,6 @@ const Detail = () => {
               fontSize="small"
               display="flex"
               alignItems="center"
-              maxWidth="30%"
               marginX={2}
               marginY={1}
               padding={2}
