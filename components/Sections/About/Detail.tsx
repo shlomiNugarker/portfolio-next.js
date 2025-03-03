@@ -82,7 +82,6 @@ const Detail = () => {
             >
               <ListIcon as={icon} color={emphasis} fontSize="2em" />
               {label}
-              
             </ListItem>
           ))}
         </List>
