@@ -10,7 +10,7 @@ const MotionGridItem = motion(GridItem)
 
 const FeaturedWorksSection = () => {
   const { t, i18n } = useTranslation('common')
-  const language = i18n.language
+  const language = i18n.language as 'en' | 'he' | 'ar' | 'ru'
 
   const projectsLang = projects[language] || projects.en
 
