@@ -21,7 +21,7 @@ const OpenGraphHead = () => {
       {/* Open Graph / Facebook */}
       <meta property="og:title" content={ogTitle} />
       <meta property="og:site_name" content={ogTitle} />
-      <meta property="og:url" content="https://shlomi-nugarker.vercel.app/" />
+      <meta property="og:url" content="https://www.shlomi.dev/" />
       <meta property="og:description" content={ogDescription} />
       <meta property="og:type" content="website" />
       <meta

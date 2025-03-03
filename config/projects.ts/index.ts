@@ -7,7 +7,6 @@ import projectsEs from './projectsEs'
 import projectsDe from './projectsDe'
 import projectsHi from './projectsHi'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const projects = {
   en: projectsEn,
   he: projectsHe,

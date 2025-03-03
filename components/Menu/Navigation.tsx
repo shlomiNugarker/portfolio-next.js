@@ -32,8 +32,8 @@ const Navigation = () => {
   const [isOpen, toggleOpen] = useCycle(false, true)
   const isMobile = useBreakpointValue(mobileBreakpointsMap)
   const scrollDirection = useScrollDirection()
-  const direction = i18n.dir() // ⬅️ קובע האם RTL או LTR
-  const isRtl = direction === 'rtl' // ⬅️ בודק אם יש צורך להצמיד את התפריט שמאלה
+  const direction = i18n.dir()
+  const isRtl = direction === 'rtl'
 
   const menuButtonSize = useBreakpointValue({ base: 'xl', md: 'sm' })
   const bg = useColorModeValue(

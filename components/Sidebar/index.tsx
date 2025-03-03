@@ -3,7 +3,6 @@ import {
   Stack,
   Heading,
   Text,
-  Button,
   useColorMode,
   Container,
   Link,
