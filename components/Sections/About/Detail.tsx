@@ -37,8 +37,7 @@ const Detail = () => {
 
   return (
     <Stack
-      dir={direction}
-      textAlign={isRtl ? 'right' : 'left'}
+      textAlign={'center'}
       width={{ base: '100%', lg: '70%' }}
       spacing={{ base: 6, xl: 8 }}
       as="section"
@@ -55,28 +54,24 @@ const Detail = () => {
 
       <Text variant="description">{t('description')}</Text>
 
-      <SimpleGrid columns={2} spacing={4}>
-        <List spacing={3}>
-          {technologies.map(({ icon, label }) => (
+      <SimpleGrid
+        columns={2}
+        spacing={4}
+        display={'flex'}
+        flexDirection={'column'}
+        alignItems={'center'}
+        justifyContent={'center'}
+        flexWrap={'wrap'}
+        width={'100%'}
+      >
+        <List spacing={5}>
+          {[...technologies, ...technologies2].map(({ icon, label }) => (
             <ListItem
               key={label}
               fontSize="small"
               display="flex"
               alignItems="center"
-            >
-              <ListIcon as={icon} color={emphasis} fontSize="2em" />
-              {label}
-            </ListItem>
-          ))}
-        </List>
-
-        <List spacing={3}>
-          {technologies2.map(({ icon, label }) => (
-            <ListItem
-              key={label}
-              fontSize="small"
-              display="flex"
-              alignItems="center"
+              maxWidth="fit-content"
             >
               <ListIcon as={icon} color={emphasis} fontSize="2em" />
               {label}

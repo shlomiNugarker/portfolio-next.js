@@ -10,7 +10,14 @@ const MotionGridItem = motion(GridItem)
 
 const FeaturedWorksSection = () => {
   const { t, i18n } = useTranslation('common')
-  const language = i18n.language as 'en' | 'he' | 'ar' | 'ru' | 'fr'
+  const language = i18n.language as
+    | 'en'
+    | 'he'
+    | 'ar'
+    | 'ru'
+    | 'fr'
+    | 'es'
+    | 'de'
 
   const projectsLang = projects[language] || projects.en
 
@@ -20,13 +27,15 @@ const FeaturedWorksSection = () => {
       height="100%"
       spacing={{ base: 6, xl: 8 }}
       alignItems={{ base: 'center', md: 'flex-start' }}
-      textAlign={{ base: 'center', md: 'left' }}
+      textAlign={{ base: 'center' }}
     >
       <Heading
         size="2xl"
+        width={'100%'}
         style={{
           fontVariantCaps: 'small-caps',
         }}
+        textAlign={{ base: 'center' }}
       >
         {t('projects.title')}
       </Heading>
@@ -40,12 +49,14 @@ const FeaturedWorksSection = () => {
         variants={galleryStagger}
         initial="initial"
         animate="animate"
+        width="100%"
       >
         {projectsLang.map((project, idx) => (
           <MotionGridItem
             key={project.id}
             colSpan={6}
             variants={fadeInUpSlower}
+            width="100%"
           >
             <FeaturedCard
               idx={idx + 1}
