@@ -1,6 +1,6 @@
 const projects = [
   {
-    title: 'Travelsdin - The Ultimate Social Network for Travelers',
+    title: 'Travelsdin - הרשת החברתית האולטימטיבית למטיילים',
     tags: [
       'JavaScript (ES6)',
       'MongoDB',
@@ -16,12 +16,12 @@ const projects = [
     ],
     videoUrl: 'https://youtu.be/HUv5xN5qTS4',
     description:
-      'Travelsdin is a modern social platform designed for travelers to connect, share experiences, and plan adventures together. With real-time messaging and an intuitive interface, it transforms the way travelers interact online.',
+      'Travelsdin היא פלטפורמה חברתית מודרנית, המיועדת למטיילים להתחבר, לשתף חוויות ולתכנן הרפתקאות יחד. עם מסרים בזמן-אמת וממשק אינטואיטיבי, היא משנה את האופן שבו מטיילים מתקשרים אונליין.',
     linkDemo: 'https://travelsdin-express-production.up.railway.app/',
     linkGitHub: 'https://github.com/shlomiNugarker/Social-Network-Front-',
   },
   {
-    title: 'Taskday - Smart Project Management & Collaboration',
+    title: 'Taskday - ניהול פרויקטים חכם ושיתוף פעולה',
     tags: [
       'MongoDB',
       'JavaScript (ES6)',
@@ -40,12 +40,12 @@ const projects = [
     ],
     videoUrl: 'https://www.youtube.com/watch?v=49DkbR-cJis',
     description:
-      'Taskday is an intelligent project management system that streamlines team collaboration with real-time updates, task tracking, and a user-friendly drag-and-drop interface. Designed for high efficiency and productivity.',
+      'Taskday היא מערכת ניהול פרויקטים חכמה, המייעלת את שיתוף הפעולה הצוותי באמצעות עדכונים בזמן-אמת, מעקב משימות וממשק Drag-and-Drop ידידותי למשתמש. מיועדת ליעילות ותפוקה מרבית.',
     linkDemo: 'https://taskday-monday-production.up.railway.app/',
     linkGitHub: 'https://github.com/shlomiNugarker/sprint-4',
   },
   {
-    title: 'Chess Masters - Multiplayer Chess with Live Chat',
+    title: "Chess Masters - שחמט מרובה משתתפים עם צ'אט חי",
     tags: [
       'TypeScript',
       'React',
@@ -59,12 +59,12 @@ const projects = [
     ],
     videoUrl: 'https://youtu.be/I90vJUsZzFU',
     description:
-      'An interactive multiplayer chess game with real-time chat and smooth gameplay. Designed for chess enthusiasts, it offers an engaging, competitive environment with a sleek and responsive UI.',
+      "משחק שחמט אינטראקטיבי מרובה משתתפים עם צ'אט בזמן-אמת וחוויית משחק חלקה. מיועד לחובבי שחמט, ומציע סביבה תחרותית ומרתקת עם ממשק רספונסיבי ואלגנטי.",
     linkDemo: 'https://chess-v2-backend-production.up.railway.app/',
     linkGitHub: 'https://github.com/shlomiNugarker/Chess-V2-React',
   },
   {
-    title: 'AstroMind-AI - AI-Powered Smart Assistance',
+    title: 'AstroMind-AI - עוזר חכם מבוסס AI',
     tags: [
       'AI',
       'Machine Learning',
@@ -80,7 +80,7 @@ const projects = [
     ],
     videoUrl: 'https://www.youtube.com/watch?v=Ypg4isxvXpk',
     description:
-      'AstroMind-AI is a next-gen AI-powered assistant that integrates seamlessly with machine learning models to boost productivity, automate tasks, and provide insightful recommendations in real time.',
+      'AstroMind-AI הוא עוזר חכם מהדור הבא המבוסס AI, שמשתלב בצורה חלקה עם מודלי Machine Learning כדי להגביר פרודוקטיביות, לאוטומט תהליכים ולהציע המלצות מעמיקות בזמן-אמת.',
     linkDemo: 'https://astromind-ai.up.railway.app/#/',
     linkGitHub: 'https://github.com/shlomiNugarker/AstroMind-AI',
   },
