@@ -94,7 +94,6 @@ const GetInTouch = () => {
                 href="tel:+972529526762"
                 target="_blank"
                 rel="noreferrer"
-                color="customGreen"
                 dir="ltr"
                 color="teal.500"
               >
