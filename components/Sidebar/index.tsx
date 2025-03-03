@@ -60,11 +60,22 @@ const Sidebar = () => {
         padding={0}
         margin={0}
         height={{ xl: '100vh' }}
-        display={{ xl: 'flex' }}
-        alignItems={{ xl: 'center' }}
+        display={{ base: 'flex' }}
+        alignItems={{ base: 'center' }}
+        justifyContent={{ base: 'center' }}
       >
-        <MotionStack variants={stagger} spacing={6} w="100%">
-          <MotionText variants={fadeInUp} variant="accent" fontWeight="light">
+        <MotionStack
+          variants={stagger}
+          spacing={6}
+          w="100%"
+          textAlign={{ base: 'center', lg: 'start' }}
+        >
+          <MotionText
+            variants={fadeInUp}
+            variant="accent"
+            fontWeight="light"
+            width="100%"
+          >
             {t('sidebar.welcome')}
           </MotionText>
 

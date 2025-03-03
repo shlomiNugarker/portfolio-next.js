@@ -5,7 +5,7 @@
   width: 10px;
 }
 .skillModal::-webkit-scrollbar-thumb{
-  background: var(--chakra-colors-gray-600);
+  /* background: var(--chakra-colors-gray-600); */
   border-radius: 1em;
 }
 
@@ -30,28 +30,28 @@
   transform-origin: center;
 }
 
-/* .skillModal::before {
-  background: radial-gradient(
+.skillModal::before {
+  /* background: radial-gradient(
     circle at 30% 30%,
     rgba(151, 223, 252, 0.12) 0%,
     rgba(151, 223, 252, 0.04) 45%,
     transparent 70%
-  );
+  ); */
   width: 80vh;
   height: 80vh;
   top: 10%;
   filter: blur(40px);
   animation: floatCircle 15s ease-in-out infinite alternate;
   z-index: -2;
-} */
+}
 
 .skillModal::after {
-  background: radial-gradient(
+  /* background: radial-gradient(
     circle at 70% 70%,
     rgba(99, 179, 237, 0.12) 0%,
     rgba(99, 179, 237, 0.04) 45%,
     transparent 70%
-  );
+  ); */
   width: 90vh;
   height: 90vh;
   bottom: 5%;
