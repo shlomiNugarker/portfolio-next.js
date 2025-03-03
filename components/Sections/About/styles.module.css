@@ -40,7 +40,6 @@
   width: 80vh;
   height: 80vh;
   top: 10%;
-  right: -20%;
   filter: blur(40px);
   animation: floatCircle 15s ease-in-out infinite alternate;
   z-index: -2;
@@ -56,11 +55,11 @@
   width: 90vh;
   height: 90vh;
   bottom: 5%;
-  right: -30%;
   filter: blur(45px);
   animation: floatCircle 20s ease-in-out infinite alternate-reverse;
   z-index: -2;
 }
+
 
 @keyframes floatCircle {
   0% {
