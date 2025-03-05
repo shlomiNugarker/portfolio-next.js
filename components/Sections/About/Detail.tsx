@@ -47,7 +47,6 @@ const Detail = () => {
       justifyContent={'center'}
       alignItems={'center'}
       flexWrap={'wrap'}
-
     >
       <Heading
         as="h4"
@@ -87,7 +86,6 @@ const Detail = () => {
               flexWrap={'wrap'}
               borderRadius="md"
               margin={'3'}
-
             >
               <ListIcon as={icon} color={emphasis} fontSize="2em" />
               {label}
