@@ -32,7 +32,7 @@ This is a **Next.js** portfolio website built using **TypeScript**, **Tailwind C
 ## ⚡ Installation & Setup
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/portfolio-next.js-main.git
+   git clone https://github.com/shlomiNugarker/portfolio-next.js-main.git
    ```
 2. Navigate into the project directory:
    ```sh
