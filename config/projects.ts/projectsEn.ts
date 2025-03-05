@@ -16,7 +16,7 @@ const projects = [
     ],
     videoUrl: 'https://youtu.be/HUv5xN5qTS4',
     description:
-      'Travelsdin is a modern social platform designed for travelers to connect, share experiences, and plan adventures together. With real-time messaging and an intuitive interface, it transforms the way travelers interact online.',
+      'Travelsdin is a modern social platform designed for travelers to connect, share experiences, and plan adventures together. With real-time messaging and an intuitive interface, it revolutionizes how travelers interact online.',
     linkDemo: 'https://travelsdin-express-production.up.railway.app/',
     linkGitHub: 'https://github.com/shlomiNugarker/Social-Network-Front-',
   },
@@ -40,7 +40,7 @@ const projects = [
     ],
     videoUrl: 'https://www.youtube.com/watch?v=49DkbR-cJis',
     description:
-      'Taskday is an intelligent project management system that streamlines team collaboration with real-time updates, task tracking, and a user-friendly drag-and-drop interface. Designed for high efficiency and productivity.',
+      'Taskday is an intelligent project management system that enhances teamwork with real-time updates, task tracking, and a user-friendly drag-and-drop interface. Designed for maximum efficiency and productivity.',
     linkDemo: 'https://taskday-monday-production.up.railway.app/',
     linkGitHub: 'https://github.com/shlomiNugarker/sprint-4',
   },
@@ -59,12 +59,12 @@ const projects = [
     ],
     videoUrl: 'https://youtu.be/I90vJUsZzFU',
     description:
-      'An interactive multiplayer chess game with real-time chat and smooth gameplay. Designed for chess enthusiasts, it offers an engaging, competitive environment with a sleek and responsive UI.',
+      'An interactive multiplayer chess game with real-time chat and smooth gameplay. Designed for chess enthusiasts, offering a competitive and engaging environment with a sleek, responsive interface.',
     linkDemo: 'https://chess-v2-backend-production.up.railway.app/',
     linkGitHub: 'https://github.com/shlomiNugarker/Chess-V2-React',
   },
   {
-    title: 'AstroMind-AI - AI-Powered Smart Assistance',
+    title: 'AstroMind-AI - Smart AI-Powered Assistant',
     tags: [
       'AI',
       'Machine Learning',
@@ -80,7 +80,7 @@ const projects = [
     ],
     videoUrl: 'https://www.youtube.com/watch?v=Ypg4isxvXpk',
     description:
-      'AstroMind-AI is a next-gen AI-powered assistant that integrates seamlessly with machine learning models to boost productivity, automate tasks, and provide insightful recommendations in real time.',
+      'AstroMind-AI is a next-generation AI-powered assistant that seamlessly integrates with machine learning models to boost productivity, automate workflows, and provide deep insights in real time.',
     linkDemo: 'https://astromind-ai.up.railway.app/#/',
     linkGitHub: 'https://github.com/shlomiNugarker/AstroMind-AI',
   },

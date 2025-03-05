@@ -1,6 +1,6 @@
 const projects = [
   {
-    title: 'Travelsdin - הרשת החברתית האולטימטיבית למטיילים',
+    title: 'Travelsdin - הרשת החברתית המושלמת למטיילים',
     tags: [
       'JavaScript (ES6)',
       'MongoDB',
@@ -16,12 +16,12 @@ const projects = [
     ],
     videoUrl: 'https://youtu.be/HUv5xN5qTS4',
     description:
-      'Travelsdin היא פלטפורמה חברתית מודרנית, המיועדת למטיילים להתחבר, לשתף חוויות ולתכנן הרפתקאות יחד. עם מסרים בזמן-אמת וממשק אינטואיטיבי, היא משנה את האופן שבו מטיילים מתקשרים אונליין.',
+      'Travelsdin היא פלטפורמה חברתית חדשנית שמחברת מטיילים מכל העולם. שתפו חוויות, תכננו מסלולים יחד וצרו קשרים חדשים – הכל במקום אחד, עם צ’אט בזמן אמת וממשק חכם ונוח.',
     linkDemo: 'https://travelsdin-express-production.up.railway.app/',
     linkGitHub: 'https://github.com/shlomiNugarker/Social-Network-Front-',
   },
   {
-    title: 'Taskday - ניהול פרויקטים חכם ושיתוף פעולה',
+    title: 'Taskday - ניהול פרויקטים חכם ושיתוף פעולה יעיל',
     tags: [
       'MongoDB',
       'JavaScript (ES6)',
@@ -40,12 +40,12 @@ const projects = [
     ],
     videoUrl: 'https://www.youtube.com/watch?v=49DkbR-cJis',
     description:
-      'Taskday היא מערכת ניהול פרויקטים חכמה, המייעלת את שיתוף הפעולה הצוותי באמצעות עדכונים בזמן-אמת, מעקב משימות וממשק Drag-and-Drop ידידותי למשתמש. מיועדת ליעילות ותפוקה מרבית.',
+      'Taskday היא מערכת לניהול משימות ופרויקטים שמייעלת שיתוף פעולה בין צוותים עם עדכונים בזמן אמת, מעקב חכם אחר משימות וממשק Drag-and-Drop אינטואיטיבי. מושלמת לניהול יעיל ותפוקה גבוהה.',
     linkDemo: 'https://taskday-monday-production.up.railway.app/',
     linkGitHub: 'https://github.com/shlomiNugarker/sprint-4',
   },
   {
-    title: "Chess Masters - שחמט מרובה משתתפים עם צ'אט חי",
+    title: "Chess Masters - משחק שחמט אונליין עם צ'אט בזמן אמת",
     tags: [
       'TypeScript',
       'React',
@@ -59,12 +59,12 @@ const projects = [
     ],
     videoUrl: 'https://youtu.be/I90vJUsZzFU',
     description:
-      "משחק שחמט אינטראקטיבי מרובה משתתפים עם צ'אט בזמן-אמת וחוויית משחק חלקה. מיועד לחובבי שחמט, ומציע סביבה תחרותית ומרתקת עם ממשק רספונסיבי ואלגנטי.",
+      "משחק שחמט אינטראקטיבי מרובה משתתפים עם צ’אט חי, חוויית משחק חלקה וממשק מתקדם. מיועד לחובבי שחמט שמחפשים אתגר בסביבה תחרותית ומהנה.",
     linkDemo: 'https://chess-v2-backend-production.up.railway.app/',
     linkGitHub: 'https://github.com/shlomiNugarker/Chess-V2-React',
   },
   {
-    title: 'AstroMind-AI - עוזר חכם מבוסס AI',
+    title: 'AstroMind-AI - עוזר חכם מבוסס בינה מלאכותית',
     tags: [
       'AI',
       'Machine Learning',
@@ -80,7 +80,7 @@ const projects = [
     ],
     videoUrl: 'https://www.youtube.com/watch?v=Ypg4isxvXpk',
     description:
-      'AstroMind-AI הוא עוזר חכם מהדור הבא המבוסס AI, שמשתלב בצורה חלקה עם מודלי Machine Learning כדי להגביר פרודוקטיביות, לאוטומט תהליכים ולהציע המלצות מעמיקות בזמן-אמת.',
+      'AstroMind-AI הוא עוזר דיגיטלי חכם שמשתמש בבינה מלאכותית ולמידת מכונה כדי לשפר פרודוקטיביות, לאוטומט תהליכים ולהציע תובנות מדויקות בזמן אמת.',
     linkDemo: 'https://astromind-ai.up.railway.app/#/',
     linkGitHub: 'https://github.com/shlomiNugarker/AstroMind-AI',
   },
