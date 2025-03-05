@@ -1,45 +1,45 @@
 {
-  "heading": "Conectemos – Soy Shlomi, un Desarrollador Full-Stack apasionado por la tecnología",
-  "description": "Me especializo en desarrollar aplicaciones web de vanguardia con un fuerte enfoque en el rendimiento (Performance), la escalabilidad (Scalability) y una experiencia de usuario fluida (Seamless User Experience). Con una profunda experiencia en tecnologías modernas, creo soluciones inteligentes adaptadas exactamente a tus necesidades.",
-
+  "heading": "¡Conozcámonos! Soy Shlomi, un desarrollador Full-Stack que crea soluciones digitales inteligentes.",
+  "description": "Desarrollo aplicaciones web innovadoras con un enfoque en alto rendimiento, escalabilidad y una experiencia de usuario fluida. Utilizando tecnologías avanzadas, creo soluciones inteligentes adaptadas exactamente a sus necesidades.",
+  
   "tech.js": "JavaScript",
   "tech.ts": "TypeScript",
   "tech.node": "Node.js",
   "tech.react": "React.js",
   "tech.next": "Next.js",
 
-  "call_to_action": "Construyamos algo excepcional juntos. ¡Ponte en contacto y hablemos sobre tu próximo proyecto!",
+  "call_to_action": "Convirtamos su idea en realidad. ¡Contácteme y encontremos juntos la solución perfecta!",
 
   "sidebar": {
     "welcome": "¡Hola! Soy",
     "name": "Shlomi",
     "role": "Desarrollador Full-Stack",
-    "description": "Me especializo en diseñar y desarrollar sistemas sólidos utilizando JavaScript, TypeScript, Node.js, React y Next.js. Con amplia experiencia y una mentalidad creativa, construyo soluciones innovadoras que generan resultados.",
-    "contact_button": "¡Hablemos sobre tu proyecto!"
+    "description": "Me especializo en el desarrollo de sistemas avanzados con JavaScript, TypeScript, Node.js, React y Next.js. Con un pensamiento creativo y una amplia experiencia, desarrollo soluciones innovadoras que generan resultados.",
+    "contact_button": "¡Hablemos sobre su proyecto!"
   },
 
   "contact": {
-    "title": "Conectemos y creemos algo significativo",
-    "description": "Si buscas un desarrollador con experiencia para hacer realidad tu visión con soluciones creativas e innovadoras, aquí estoy. ¡Hablemos sobre cómo podemos trabajar juntos para lograrlo!",
-    "button": "Contáctame ahora"
+    "title": "¡Creemos algo increíble juntos!",
+    "description": "¿Está buscando un desarrollador experimentado para hacer realidad su visión con soluciones inteligentes e innovadoras? ¡Hablemos y encontremos la mejor solución para usted!",
+    "button": "Contácteme ahora"
   },
 
   "projects": {
-    "title": "Proyectos Destacados",
-    "description": "Echa un vistazo a algunos de los proyectos que he desarrollado: aplicaciones inteligentes, sistemas avanzados y experiencias de usuario excepcionales. Cada proyecto refleja mi experiencia, precisión y creatividad en la resolución de problemas y el desarrollo.",
-    "view_project": "Ver Proyecto",
-    "view_code": "Ver Código",
-    "view_video": "Ver Video"
+    "title": "Mis proyectos",
+    "description": "Un vistazo a algunos de los proyectos que he desarrollado: aplicaciones inteligentes, sistemas avanzados y experiencias de usuario excepcionales. Cada proyecto combina precisión, creatividad y tecnologías de vanguardia.",
+    "view_project": "Ver proyecto",
+    "view_code": "Ver código",
+    "view_video": "Ver video"
   },
 
   "nav": {
-    "about": "Acerca de",
+    "about": "Sobre mí",
     "works": "Proyectos",
     "contact": "Contacto"
   },
 
   "opengraph": {
     "title": "Shlomi | Desarrollador Full-Stack",
-    "description": "Un desarrollador Full-Stack con amplia experiencia en la creación de aplicaciones web de alto rendimiento y escalabilidad. ¡Explora mi portafolio!"
+    "description": "Desarrollo aplicaciones inteligentes con alto rendimiento y una experiencia de usuario excepcional. ¡Descubra mi portafolio!"
   }
 }

@@ -1,45 +1,45 @@
 {
-  "heading": "Давайте свяжемся – Я Шломи, Full-Stack разработчик, увлеченный технологиями",
-  "description": "Я специализируюсь на разработке современных веб-приложений с акцентом на производительность (Performance), масштабируемость (Scalability) и удобство использования (Seamless User Experience). Благодаря глубокой экспертизе в современных технологиях я создаю интеллектуальные решения, точно соответствующие вашим требованиям.",
+  "heading": "Faisons connaissance ! Je suis Shlomi, un développeur Full-Stack créant des solutions numériques intelligentes.",
+  "description": "Je développe des applications web innovantes axées sur des performances élevées, l'évolutivité et une expérience utilisateur fluide et intuitive. Grâce aux technologies avancées, je crée des solutions intelligentes parfaitement adaptées à vos besoins.",
 
   "tech.js": "JavaScript",
   "tech.ts": "TypeScript",
   "tech.node": "Node.js",
   "tech.react": "React.js",
   "tech.next": "Next.js",
-
-  "call_to_action": "Давайте создадим что-то уникальное вместе. Свяжитесь со мной, и давайте обсудим ваш следующий проект!",
+  
+  "call_to_action": "Transformons votre idée en réalité. Contactez-moi et trouvons ensemble la meilleure solution !",
 
   "sidebar": {
-    "welcome": "Привет! Я",
-    "name": "Шломи",
-    "role": "Full-Stack разработчик",
-    "description": "Я специализируюсь на проектировании и разработке надежных систем с использованием JavaScript, TypeScript, Node.js, React и Next.js. Обладая обширным опытом и креативным мышлением, я создаю инновационные решения, приносящие реальный результат.",
-    "contact_button": "Давайте обсудим ваш проект!"
+    "welcome": "Salut ! Je suis",
+    "name": "Shlomi",
+    "role": "Développeur Full-Stack",
+    "description": "Je suis spécialisé dans le développement de systèmes avancés basés sur JavaScript, TypeScript, Node.js, React et Next.js. Avec une pensée créative et une solide expérience, je développe des solutions innovantes qui génèrent des résultats.",
+    "contact_button": "Discutons de votre projet !"
   },
 
   "contact": {
-    "title": "Давайте свяжемся и создадим что-то значимое",
-    "description": "Если вам нужен опытный разработчик, который поможет воплотить вашу идею в жизнь с помощью креативных и инновационных решений, я готов помочь. Давайте обсудим, как мы можем сотрудничать!",
-    "button": "Связаться со мной"
+    "title": "Créons quelque chose d'exceptionnel ensemble !",
+    "description": "Vous cherchez un développeur expérimenté pour concrétiser votre vision avec des solutions intelligentes et innovantes ? Parlons-en et trouvons la solution parfaite pour vous !",
+    "button": "Contactez-moi maintenant"
   },
 
   "projects": {
-    "title": "Избранные проекты",
-    "description": "Ознакомьтесь с некоторыми из моих проектов – интеллектуальные приложения, передовые системы и выдающийся пользовательский опыт. Каждый проект демонстрирует мою экспертизу, точность и креативность в решении задач и разработке.",
-    "view_project": "Посмотреть проект",
-    "view_code": "Посмотреть код",
-    "view_video": "Посмотреть видео"
+    "title": "Mes réalisations",
+    "description": "Un aperçu des projets que j'ai développés – applications intelligentes, systèmes avancés et expériences utilisateur exceptionnelles. Chaque projet allie précision, créativité et technologies de pointe.",
+    "view_project": "Voir le projet",
+    "view_code": "Voir le code",
+    "view_video": "Voir la vidéo"
   },
 
   "nav": {
-    "about": "Обо мне",
-    "works": "Проекты",
-    "contact": "Контакты"
+    "about": "À propos",
+    "works": "Projets",
+    "contact": "Contact"
   },
 
   "opengraph": {
-    "title": "Шломи | Full-Stack разработчик",
-    "description": "Full-Stack разработчик с обширным опытом в создании высокопроизводительных и масштабируемых веб-приложений. Изучите мое портфолио!"
+    "title": "Shlomi | Développeur Full-Stack",
+    "description": "Je conçois des applications intelligentes avec des performances élevées et une expérience utilisateur exceptionnelle. Découvrez mon portfolio !"
   }
 }
