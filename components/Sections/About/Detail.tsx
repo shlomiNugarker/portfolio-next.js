@@ -42,6 +42,12 @@ const Detail = () => {
       padding={8}
       marginY={10}
       borderRadius="md"
+      display={'flex'}
+      flexDirection={'row'}
+      justifyContent={'center'}
+      alignItems={'center'}
+      flexWrap={'wrap'}
+
     >
       <Heading
         as="h4"
@@ -74,11 +80,14 @@ const Detail = () => {
           {[...technologies, ...technologies2].map(({ icon, label }) => (
             <ListItem
               key={label}
-              fontSize="small"
-              display="flex"
-              alignItems="center"
+              display={'flex'}
+              flexDirection={'row'}
+              justifyContent={'center'}
+              alignItems={'center'}
+              flexWrap={'wrap'}
               borderRadius="md"
               margin={'3'}
+
             >
               <ListIcon as={icon} color={emphasis} fontSize="2em" />
               {label}
