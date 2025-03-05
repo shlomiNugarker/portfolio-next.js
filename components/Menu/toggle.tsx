@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { motion } from 'framer-motion'
 
+// @typescript-eslint/no-explicit-any
 const Path = (props: any) => (
   <motion.path
     fill="transparent"
