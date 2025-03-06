@@ -1,32 +1,31 @@
 {
-  "heading": "Let's Connect – I'm Shlomi, a Full-Stack Developer with a Passion for Technology",
-  "description": "I specialize in developing cutting-edge web applications with a strong focus on performance, scalability, and seamless user experience. With deep expertise in modern technologies, I craft intelligent solutions tailored precisely to your needs.",
-
+  "heading": "Hi, I'm Shlomi – a Full-Stack Developer with a Passion for Technology and Problem-Solving 🚀",
+  "description": "I'm a full-stack developer with experience in both independent and team projects. I focus on building modern web solutions using up-to-date technologies and efficient development practices.",
   "tech.js": "JavaScript",
   "tech.ts": "TypeScript",
   "tech.node": "Node.js",
   "tech.react": "React.js",
   "tech.next": "Next.js",
 
-  "call_to_action": "Let’s build something exceptional together. Get in touch, and let’s discuss your next project!",
+  "call_to_action": "Looking for a full-stack developer for your project or team? Let's talk! I'm open to collaborations and exciting challenges.",
 
   "sidebar": {
-    "welcome": "Hi! I'm",
+    "welcome": "Hey! I'm",
     "name": "Shlomi",
     "role": "Full-Stack Developer",
-    "description": "I specialize in designing and developing robust systems using JavaScript, TypeScript, Node.js, React, and Next.js. With extensive experience and a creative mindset, I build innovative solutions that drive results.",
+    "description": "I specialize in web development using JavaScript, TypeScript, React, Next.js, and Node.js. I love learning, experimenting, and building solutions that truly work.",
     "contact_button": "Let's talk about your project!"
   },
 
   "contact": {
-    "title": "Let’s Connect and Create Something Meaningful",
-    "description": "If you're looking for an experienced developer to bring your vision to life with creative and innovative solutions, I'm here. Let's discuss how we can work together to make it happen!",
-    "button": "Contact Me Now"
+    "title": "Let's Build Something Great Together!",
+    "description": "If you're looking for a full-stack developer with a hands-on approach and a quick learning curve, I'm here. I'd love to be part of your next project!",
+    "button": "Get in Touch"
   },
 
   "projects": {
-    "title": "Featured Projects",
-    "description": "Take a look at some of the projects I’ve built—smart applications, advanced systems, and outstanding user experiences. Each project showcases my expertise, precision, and creativity in problem-solving and development.",
+    "title": "My Projects",
+    "description": "A look at some of the projects I've worked on – interactive applications, management systems, and dashboards. Every project is an opportunity to learn and improve.",
     "view_project": "View Project",
     "view_code": "View Code",
     "view_video": "Watch Video"
@@ -40,6 +39,6 @@
 
   "opengraph": {
     "title": "Shlomi | Full-Stack Developer",
-    "description": "A full-stack developer with extensive experience in building high-performance, scalable web applications. Explore my portfolio!"
+    "description": "A full-stack developer with experience in diverse projects, always eager to learn and build effective solutions. Check out my portfolio!"
   }
 }
