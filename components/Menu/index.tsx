@@ -14,18 +14,12 @@ const mobileMenuVariants: Variants = {
   hidden: {
     opacity: 0,
     y: -80,
-    transition: {
-      ease: 'easeInOut',
-      duration: 0.35,
-    },
+    transition: { ease: 'easeInOut', duration: 0.35 },
   },
   show: {
     opacity: 1,
     y: 0,
-    transition: {
-      ease: 'easeInOut',
-      duration: 0.28,
-    },
+    transition: { ease: 'easeInOut', duration: 0.28 },
   },
 }
 

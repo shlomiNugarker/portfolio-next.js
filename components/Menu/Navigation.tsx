@@ -55,8 +55,23 @@ const Navigation = () => {
     [isMobile, toggleOpen]
   )
 
+  // מחשבים ערכי עיצוב דינמיים
+  const navWidth = !isMobile
+    ? scrollDirection === ScrollDirection.Down
+      ? '12%'
+      : '100%'
+    : '100%'
+  const navRight = !isMobile
+    ? scrollDirection === ScrollDirection.Down
+      ? '2%'
+      : '3.5%'
+    : undefined
+  const navTop = isMobile ? (isOpen ? undefined : '-100vh') : undefined
+  const navOpacity = isMobile ? (isOpen ? 1 : 0) : 1
+
   return (
     <>
+      {/* תפריט מובייל – רק מוצג ב־base */}
       <Box
         display={{ base: 'flex', xl: 'none' }}
         alignItems="center"
@@ -79,19 +94,20 @@ const Navigation = () => {
         />
       </Box>
 
+      {/* תפריט ניווט – משמש בעיקר בדסקטופ (וגם במובייל כאשר פתוח) */}
       <MotionContainer
-        width="100%"
+        width={navWidth}
         backgroundColor={bg}
         maxWidth={{ base: '100%', sm: '100%', lg: '50%', xl: '60%' }}
         className={`${styles.menu} ${isRtl ? styles.rtl : ''}`}
-        right={scrollDirection === ScrollDirection.Down ? '2%' : '3.5%'}
+        right={navRight}
         initial="hide"
-        animate={(!isMobile || isOpen) && 'show'}
+        animate={!isMobile || isOpen ? 'show' : 'hide'}
         style={{
-          width: scrollDirection === ScrollDirection.Down ? '12%' : '100%',
-          top: !isOpen && isMobile ? '-100vh' : undefined,
-          opacity: !isOpen && isMobile ? '0' : undefined,
-          left: isOpen && isMobile ? 0 : undefined,
+          width: navWidth,
+          top: navTop,
+          opacity: navOpacity,
+          // אין שינוי ב-left – ה-RTL מנוהל ב־CSS
         }}
         borderColor={isOpen && isMobile ? borderColor : undefined}
         borderBottomWidth={isOpen && isMobile ? '1px' : undefined}
