@@ -1,6 +1,4 @@
-import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { useEffect } from 'react'
 import {
   Grid,
   GridItem,
@@ -50,13 +48,6 @@ export async function getStaticProps({
 const GetInTouch = dynamic(() => import('components/Sections/GetInTouch'))
 
 const Portfolio = (): JSX.Element => {
-  const { i18n } = useTranslation()
-  const direction = i18n.dir()
-
-  useEffect(() => {
-    document.documentElement.dir = direction
-  }, [direction])
-
   const sideBarPadding = useBreakpointValue({ base: '5', md: '8', lg: '14' })
   const mainContent = useBreakpointValue({
     base: '5',
