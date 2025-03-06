@@ -1,7 +1,18 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+  DocumentInitialProps,
+} from 'next/document'
 import { i18n } from 'next-i18next'
-
 import { ReactNode } from 'react'
+
+interface MyDocumentProps extends DocumentInitialProps {
+  locale: string
+  dir: 'ltr' | 'rtl'
+}
 
 const HtmlWrapper = ({
   locale,
@@ -9,7 +20,7 @@ const HtmlWrapper = ({
   children,
 }: {
   locale: string
-  dir: string
+  dir: 'ltr' | 'rtl'
   children: ReactNode
 }) => {
   return (
@@ -19,31 +30,29 @@ const HtmlWrapper = ({
   )
 }
 
-class MyDocument extends Document {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  static async getInitialProps(ctx: any) {
+class MyDocument extends Document<MyDocumentProps> {
+  static async getInitialProps(ctx: DocumentContext): Promise<MyDocumentProps> {
     const initialProps = await Document.getInitialProps(ctx)
-    const locale = i18n?.language || 'en'
-    const dir = i18n?.dir(locale) || 'ltr'
+
+    const locale = ctx.locale || i18n?.language || 'en'
+    const dir: 'ltr' | 'rtl' =
+      locale === 'he' || locale === 'ar' ? 'rtl' : 'ltr'
+
     return { ...initialProps, locale, dir }
   }
 
   render() {
     return (
-      <HtmlWrapper
-        locale={this.props.locale || 'en'}
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        dir={(this.props as any).dir}
-      >
+      <HtmlWrapper locale={this.props.locale} dir={this.props.dir}>
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
-            crossOrigin="true"
+            crossOrigin="anonymous"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;1,100;1,300;1,400;1,500;1,600&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap"
             rel="stylesheet"
           />
         </Head>
