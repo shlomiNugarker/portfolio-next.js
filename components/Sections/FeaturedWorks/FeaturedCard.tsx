@@ -165,6 +165,7 @@ const ProjectDescription = memo(
             display={'flex'}
             flexDirection={'column'}
             alignItems="center"
+            width="100%"
           >
             <Heading as="h4" size="sm" mb={2} color={titleColor}>
               {t('projects.features', 'Features')}
@@ -172,12 +173,20 @@ const ProjectDescription = memo(
             <List
               spacing={2}
               display={'flex'}
-              flexDirection={'column'}
+              flexDirection={'row'}
+              justifyContent={'center'}
               width="100%"
               alignItems="center"
+              flexWrap={'wrap'}
+              textAlign={'center'}
             >
               {project.features.map((feature, idx) => (
-                <ListItem key={idx} fontSize="sm" color={descriptionColor}>
+                <ListItem
+                  key={idx}
+                  fontSize="sm"
+                  color={descriptionColor}
+                  width={'50%'}
+                >
                   {feature}
                 </ListItem>
               ))}
