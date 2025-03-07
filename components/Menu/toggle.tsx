@@ -74,6 +74,7 @@ const MobileMenu = ({
     style={{
       alignItems: 'center',
       display: 'flex',
+      zIndex: 100,
     }}
   >
     <MenuToggle toggle={() => toggle()} isDarkMode={isDarkMode} />

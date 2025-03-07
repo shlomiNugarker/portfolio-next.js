@@ -55,7 +55,6 @@ const Navigation = () => {
     [isMobile, toggleOpen]
   )
 
-  // מחשבים ערכי עיצוב דינמיים
   const navWidth = !isMobile
     ? scrollDirection === ScrollDirection.Down
       ? '12%'
@@ -71,13 +70,12 @@ const Navigation = () => {
 
   return (
     <>
-      {/* תפריט מובייל – רק מוצג ב־base */}
       <Box
         display={{ base: 'flex', xl: 'none' }}
         alignItems="center"
         paddingTop={1}
         className={`${styles.menuBar} ${isRtl ? styles.rtl : ''}`}
-        zIndex={100}
+        zIndex={10005}
         top="3%"
       >
         <IconButton
@@ -94,7 +92,6 @@ const Navigation = () => {
         />
       </Box>
 
-      {/* תפריט ניווט – משמש בעיקר בדסקטופ (וגם במובייל כאשר פתוח) */}
       <MotionContainer
         width={navWidth}
         backgroundColor={bg}
@@ -107,7 +104,6 @@ const Navigation = () => {
           width: navWidth,
           top: navTop,
           opacity: navOpacity,
-          // אין שינוי ב-left – ה-RTL מנוהל ב־CSS
         }}
         borderColor={isOpen && isMobile ? borderColor : undefined}
         borderBottomWidth={isOpen && isMobile ? '1px' : undefined}

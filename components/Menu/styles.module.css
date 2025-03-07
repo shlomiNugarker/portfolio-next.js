@@ -3,7 +3,6 @@
   top: 0;
   right: 3.5%;
   z-index: 1000;
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .menu.rtl {
@@ -23,7 +22,6 @@
   background-color: rgba(237, 242, 247, 0.95);
   backdrop-filter: blur(10px);
   z-index: 1000;
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .mobileMenuContainer.rtl {
@@ -42,7 +40,6 @@
   text-decoration: underline 0.15em rgba(255, 255, 255, 0);
   border-bottom: 1px solid transparent;
   border-right: 1px solid transparent;
-  transition: text-decoration-color 300ms, background-color 300ms !important;
   background-color: transparent !important;
   box-shadow: none !important;
 }
