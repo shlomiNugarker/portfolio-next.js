@@ -28,7 +28,8 @@
     "description": "Here are some of the projects I’ve worked on",
     "view_project": "View Project",
     "view_code": "View Code",
-    "view_video": "Watch Demo"
+    "view_video": "Watch Demo",
+    "features": "Features"
   },
 
   "nav": {

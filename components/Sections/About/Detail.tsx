@@ -48,17 +48,12 @@ const Detail = () => {
       alignItems={'center'}
       flexWrap={'wrap'}
     >
-      {/* <Heading
-        as="h4"
-        size="2xl"
-        letterSpacing={1.8}
-        style={{ fontVariantCaps: 'small-caps' }}
-        marginBottom={4}
+      <Text
+        variant="description"
+        marginBottom={6}
+        fontSize="lg"
+        fontWeight="bold"
       >
-        {t('heading')}
-      </Heading> */}
-
-      <Text variant="description" marginBottom={6}>
         {t('description')}
       </Text>
 

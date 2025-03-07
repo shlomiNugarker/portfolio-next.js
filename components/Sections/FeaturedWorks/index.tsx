@@ -40,8 +40,6 @@ const FeaturedWorksSection = () => {
         {t('projects.title')}
       </Heading>
 
-      <Text variant="description">{t('projects.description')}</Text>
-
       <MotionGrid
         templateRows="repeat(1, 1fr)"
         templateColumns="repeat(6, 1fr)"
