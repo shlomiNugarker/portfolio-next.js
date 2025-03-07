@@ -1,6 +1,6 @@
 {
-  "heading": "Hi, I'm Shlomi – A Passionate Full-Stack Developer 🚀",
-  "description": "I'm a full-stack developer with extensive experience in building modern, scalable, and high-performance web applications. I combine cutting-edge technologies with best practices to create efficient, secure, and user-friendly solutions.",
+  "heading": "Hi, I'm Shlomi ",
+  "description": "I'm a full-stack developer. I combine cutting-edge technologies with best practices to create efficient, secure, and user-friendly solutions.",
 
   "tech.js": "JavaScript",
   "tech.ts": "TypeScript",
@@ -19,14 +19,13 @@
   },
 
   "contact": {
-    "title": "Let’s Talk Tech!",
-    "description": "I’m always excited to discuss web development, scalable architectures, and innovative technologies. Feel free to reach out!",
-    "button": "Contact Me"
+    "title": "Looking for a Developer?",
+    "description": "With extensive development experience and a strategic mindset, I'm looking for my next challenge. If you're seeking someone who can turn ideas into reality – I'd love to hear from you!",
+    "button": "Get in Touch"
   },
-
   "projects": {
     "title": "Selected Projects",
-    "description": "Here are some of the projects I’ve worked on – interactive applications, complex systems, and intelligent dashboards. I strive to improve, optimize, and enhance the user experience in every project.",
+    "description": "Here are some of the projects I’ve worked on",
     "view_project": "View Project",
     "view_code": "View Code",
     "view_video": "Watch Demo"
@@ -40,6 +39,6 @@
 
   "opengraph": {
     "title": "Shlomi | Full-Stack Developer",
-    "description": "A full-stack developer with experience in building high-performance, scalable systems and turning complex ideas into reality. Check out my work!"
+    "description": "Full-stack developer with experience in building large and complex systems. Here you can see my work!"
   }
 }
