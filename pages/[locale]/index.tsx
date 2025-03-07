@@ -14,8 +14,7 @@ import Sidebar from 'components/Sidebar'
 import About from 'components/Sections/About'
 import FeaturedWorks from 'components/Sections/FeaturedWorks'
 import ScrollMore from 'components/Misc/ScrollMore'
-import { useEffect } from 'react'
-import { useTranslation } from 'next-i18next'
+
 import { GetStaticPaths, GetStaticProps } from 'next'
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -47,7 +46,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 const GetInTouch = dynamic(() => import('components/Sections/GetInTouch'))
 
 const Portfolio = (): JSX.Element => {
-  const { i18n } = useTranslation('common')
   const sideBarPadding = useBreakpointValue({ base: '5', md: '8', lg: '14' })
   const mainContent = useBreakpointValue({
     base: '5',
@@ -56,10 +54,6 @@ const Portfolio = (): JSX.Element => {
     xl: 0,
   })
   const paddTop = useBreakpointValue({ base: '20', sm: 20, md: 20 })
-
-  useEffect(() => {
-    document.documentElement.dir = i18n?.dir()
-  }, [i18n])
 
   return (
     <Box overflowX="hidden">

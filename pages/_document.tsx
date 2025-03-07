@@ -1,32 +1,42 @@
 import Document, {
+  DocumentContext,
+  DocumentInitialProps,
   Html,
   Head,
   Main,
   NextScript,
-  DocumentInitialProps,
 } from 'next/document'
 import { ReactNode } from 'react'
 
-const HtmlWrapper = ({
-  locale,
-  dir,
-  children,
-}: {
+type MyDocumentProps = DocumentInitialProps & {
   locale: string
-  dir: 'ltr' | 'rtl'
-  children: ReactNode
-}) => {
-  return (
-    <Html lang={locale} dir={dir}>
-      {children}
-    </Html>
-  )
 }
 
-class MyDocument extends Document<DocumentInitialProps> {
-  render() {
+class MyDocument extends Document<MyDocumentProps> {
+  static async getInitialProps(ctx: DocumentContext): Promise<MyDocumentProps> {
+    const initialProps = await Document.getInitialProps(ctx)
+    let locale = 'en'
+
+    if (ctx.query && ctx.query.asPath) {
+      locale = Array.isArray(ctx.query.asPath)
+        ? ctx.query.asPath[0].split('/')[1]
+        : ctx.query.asPath.split('/')[1]
+    } else if (ctx.req && ctx.req.url) {
+      const segments = ctx.req.url.split('/')
+      if (segments[1]) {
+        locale = segments[1]
+      }
+    }
+
+    return { ...initialProps, locale }
+  }
+
+  render(): ReactNode {
+    const { locale } = this.props
+    const dir = ['he', 'ar'].includes(locale) ? 'rtl' : 'ltr'
+
     return (
-      <HtmlWrapper locale={'en'} dir={'ltr'}>
+      <Html lang={locale} dir={dir}>
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
@@ -43,7 +53,7 @@ class MyDocument extends Document<DocumentInitialProps> {
           <Main />
           <NextScript />
         </body>
-      </HtmlWrapper>
+      </Html>
     )
   }
 }
