@@ -12,6 +12,7 @@ import {
   Wrap,
   WrapItem,
   Heading,
+  Badge,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { memo, useMemo } from 'react'
@@ -137,7 +138,16 @@ const ProjectDescription = memo(
         >
           {description}
         </Text>
-        <Wrap justify={{ base: 'center' }} mt={4} spacing={3} width={'100%'}>
+        <Wrap justify={{ base: 'center' }} mt={4} spacing={2}>
+          {project.tags.map((tag, i) => (
+            <WrapItem key={i}>
+              <Badge colorScheme="teal" variant="subtle" fontSize="sm">
+                {tag}
+              </Badge>
+            </WrapItem>
+          ))}
+        </Wrap>
+        <Wrap justify={{ base: 'center' }} mt={4} spacing={3} width="100%">
           {buttons.map(({ label, url }, index) => (
             <WrapItem key={index}>
               <Button
@@ -176,7 +186,7 @@ const FeaturedCard = memo(
 
     return (
       <MotionBox
-        className={styles.featureCard} // Use the CSS class
+        className={styles.featureCard}
         bg={bg}
         borderRadius="lg"
         borderWidth="1px"
