@@ -66,21 +66,32 @@ const projects = [
   {
     title: 'AstroMind-AI - Asistente inteligente impulsado por AI',
     tags: [
-      'AI',
-      'Machine Learning',
       'React',
       'Vite',
-      'TypeScript',
       'Node.js',
-      'Express',
+      'TypeScript',
+      'JWT',
+      'OpenAI API',
       'MongoDB',
+      'Tailwind CSS',
     ],
+
     imgs: [
       'https://res.cloudinary.com/duajg3ah1/image/upload/v1740232455/ax7kjnkrg75ptdatwvrf.png',
     ],
     videoUrl: 'https://www.youtube.com/watch?v=Ypg4isxvXpk',
     description:
       'AstroMind-AI es un asistente de nueva generación potenciado por inteligencia artificial que se integra a la perfección con modelos de machine learning para aumentar la productividad, automatizar flujos de trabajo y proporcionar análisis profundos en tiempo real.',
+    features: [
+      '🔹 Integration with OpenAI API for AI-generated astrological insights',
+      '🔹 Advanced user authentication system with JWT',
+      '🔹 Multilingual support (Hebrew & English) using i18n',
+      '🔹 Smart chatbot with real-time interaction and responsive UI',
+      '🔹 Secure connection to MongoDB database',
+      '🔹 Modern user interface built with React and Tailwind CSS',
+      '🔹 Data security with advanced role-based access control',
+      '🔹 User management with different access levels (Admin / User)',
+    ],
     linkDemo: 'https://astromind-ai.up.railway.app/#/',
     linkGitHub: 'https://github.com/shlomiNugarker/AstroMind-AI',
   },

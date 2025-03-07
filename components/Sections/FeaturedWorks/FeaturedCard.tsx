@@ -13,6 +13,8 @@ import {
   WrapItem,
   Heading,
   Badge,
+  List,
+  ListItem,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { memo, useMemo } from 'react'
@@ -28,6 +30,7 @@ export type Project = {
   description: string
   linkDemo: string
   linkGitHub: string
+  features?: string[] // מאפיין אופציונלי לתכונות
 }
 
 export type FeaturedCardProps = {
@@ -66,10 +69,10 @@ const CoverImage = memo(
       objectFit="cover"
       objectPosition={objectPosition}
       loading="lazy"
-      opacity={0.9}
+      opacity={0.95}
       whileHover={{
-        scale: 1.05,
-        transition: { duration: 0.3, ease: 'easeOut' },
+        scale: 1.02,
+        transition: { duration: 0.25, ease: 'easeOut' },
       }}
       fallback={<Skeleton height={height} width="100%" />}
     />
@@ -97,38 +100,38 @@ const ProjectDescription = memo(
       [ctaUrl, project, t]
     )
 
-    const titleColor = useColorModeValue('gray.800', 'whiteAlpha.900')
+    const titleColor = useColorModeValue('gray.700', 'whiteAlpha.900')
     const descriptionColor = useColorModeValue('gray.600', 'gray.300')
+    const bgBadge = useColorModeValue('gray.100', 'gray.700')
 
     return (
       <Container
         p={6}
         display="flex"
         flexDirection="column"
-        alignItems={{ base: 'center', md: 'flex-start' }}
-        textAlign={{ base: 'center' }}
-        width={{ base: '100%' }}
+        alignItems="center"
+        textAlign="center"
+        width="100%"
       >
         <Stack spacing={2} w="full">
           <Text
             as="span"
             color="teal.500"
-            fontSize={{ base: 'xl', md: '2xl' }}
+            fontSize={{ base: 'lg', md: 'xl' }}
             mr={2}
           >
             #{idx < 10 ? `0${idx}` : idx}
           </Text>
           <Heading
             as="h3"
-            fontSize={{ base: 'lg', md: '2xl' }}
-            fontWeight="bold"
+            fontSize={{ base: 'xl', md: '2xl' }}
+            fontWeight="semibold"
             letterSpacing="wider"
             color={titleColor}
-            textAlign={{ base: 'center' }}
           >
             {title}
           </Heading>
-          <Divider borderColor="gray.400" />
+          <Divider borderColor={useColorModeValue('gray.200', 'gray.600')} />
         </Stack>
         <Text
           fontSize={{ base: 'md', md: 'lg' }}
@@ -138,20 +141,54 @@ const ProjectDescription = memo(
         >
           {description}
         </Text>
-        <Wrap justify={{ base: 'center' }} mt={4} spacing={2}>
+        <Wrap justify="center" mt={4} spacing={2}>
           {project.tags.map((tag, i) => (
             <WrapItem key={i}>
-              <Badge colorScheme="teal" variant="subtle" fontSize="sm">
+              <Badge
+                variant="outline"
+                fontSize="xs"
+                color="teal.500"
+                borderColor="teal.500"
+                bg={bgBadge}
+                px={2}
+                py={1}
+                borderRadius="md"
+              >
                 {tag}
               </Badge>
             </WrapItem>
           ))}
         </Wrap>
-        <Wrap justify={{ base: 'center' }} mt={4} spacing={3} width="100%">
+        {project.features && project.features.length > 0 && (
+          <Box
+            mt={4}
+            display={'flex'}
+            flexDirection={'column'}
+            alignItems="center"
+          >
+            <Heading as="h4" size="sm" mb={2} color={titleColor}>
+              {t('projects.features', 'Features')}
+            </Heading>
+            <List
+              spacing={2}
+              display={'flex'}
+              flexDirection={'column'}
+              width="100%"
+              alignItems="center"
+            >
+              {project.features.map((feature, idx) => (
+                <ListItem key={idx} fontSize="sm" color={descriptionColor}>
+                  {feature}
+                </ListItem>
+              ))}
+            </List>
+          </Box>
+        )}
+        <Wrap justify="center" mt={4} spacing={3} width="100%">
           {buttons.map(({ label, url }, index) => (
             <WrapItem key={index}>
               <Button
-                variant="solid"
+                variant="outline"
                 size="sm"
                 as="a"
                 href={url}
@@ -182,16 +219,18 @@ const FeaturedCard = memo(
     ctaUrl,
     project,
   }: FeaturedCardProps) => {
-    const bg = useColorModeValue('white', 'gray.800')
+    const bg = useColorModeValue('gray.50', 'gray.800')
+    const borderColor = useColorModeValue('gray.200', 'gray.700')
 
     return (
       <MotionBox
         className={styles.featureCard}
         bg={bg}
-        borderRadius="lg"
+        borderRadius="md"
         borderWidth="1px"
+        borderColor={borderColor}
         overflow="hidden"
-        boxShadow="lg"
+        boxShadow="sm"
       >
         <CoverImage
           height={height}
