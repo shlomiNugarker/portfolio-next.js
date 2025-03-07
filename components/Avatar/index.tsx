@@ -10,9 +10,9 @@ import { avatarAnimation } from 'config/animations'
 
 const AvatarImages = {
   DarkMode:
-    'https://res.cloudinary.com/duajg3ah1/image/upload/v1740965833/hqebkt3feaumbj5nma7o.png',
+    'https://res.cloudinary.com/duajg3ah1/image/upload/v1741377242/ycef63gicq3mywfsavvm.png',
   LightMode:
-    'https://res.cloudinary.com/duajg3ah1/image/upload/v1740965833/hqebkt3feaumbj5nma7o.png',
+    'https://res.cloudinary.com/duajg3ah1/image/upload/v1741377242/ycef63gicq3mywfsavvm.png',
 }
 
 declare global {

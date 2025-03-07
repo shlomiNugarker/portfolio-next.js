@@ -13,13 +13,11 @@ import {
   WrapItem,
   Heading,
   Badge,
-  List,
-  ListItem,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { memo, useMemo } from 'react'
 import { useTranslation } from 'next-i18next'
-import styles from './styles.module.css' // Import the CSS module
+import styles from './styles.module.css'
 
 export type Project = {
   id: number
@@ -30,7 +28,7 @@ export type Project = {
   description: string
   linkDemo: string
   linkGitHub: string
-  features?: string[] // מאפיין אופציונלי לתכונות
+  features?: string[]
 }
 
 export type FeaturedCardProps = {
@@ -159,50 +157,6 @@ const ProjectDescription = memo(
             </WrapItem>
           ))}
         </Wrap>
-        {project.features && project.features.length > 0 && (
-          <Box
-            mt={4}
-            display={'flex'}
-            flexDirection={'column'}
-            alignItems="center"
-            width="100%"
-          >
-            <Heading as="h4" size="sm" mb={2} color={titleColor}>
-              {t('projects.features', 'Features')}
-            </Heading>
-            <List
-              spacing={1}
-              display={'flex'}
-              flexDirection={'row'}
-              justifyContent={'center'}
-              width="100%"
-              alignItems="center"
-              flexWrap={'wrap'}
-              textAlign={'center'}
-            >
-              {project.features.map((feature, idx) => (
-                <ListItem
-                  key={idx}
-                  fontSize="sm"
-                  color={descriptionColor}
-                  width={'33%'}
-                  borderRadius="md"
-                  margin={'3'}
-                  bg={bgBadge}
-                  p={2}
-                  _hover={{
-                    bg: 'teal.500',
-                    color: 'white',
-                    transition: 'all 0.3s ease',
-                  }}
-                  height={'100%'}
-                >
-                  {feature}
-                </ListItem>
-              ))}
-            </List>
-          </Box>
-        )}
         <Wrap justify="center" mt={4} spacing={3} width="100%">
           {buttons.map(({ label, url }, index) => (
             <WrapItem key={index}>
