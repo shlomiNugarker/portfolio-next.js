@@ -1,11 +1,9 @@
 import { IconType } from 'react-icons'
 import {
-  FaInstagram,
   FaLinkedin,
-  FaYoutube,
   FaGithub,
   FaMailBulk,
-  FaWhatsapp,
+  // FaWhatsapp,
   FaPhone,
 } from 'react-icons/fa'
 
@@ -16,11 +14,11 @@ type SocialMedia = {
 }
 
 export const SocialMedias: SocialMedia[] = [
-  {
-    label: 'WhatsApp',
-    href: 'https://wa.me/972529526762,',
-    icon: FaWhatsapp,
-  },
+  // {
+  //   label: 'WhatsApp',
+  //   href: 'https://wa.me/972529526762,',
+  //   icon: FaWhatsapp,
+  // },
   {
     label: 'Phone',
     href: 'tel:0529526762',
