@@ -416,8 +416,8 @@ const projects = [
       '🎨 עיצוב מודרני ורספונסיבי',
       '🔄 עדכונים חיים לתנועות שחקנים ואירועים במשחק',
     ],
-    linkDemo: 'https://github.com/shlomiNugarker/monoploly-vue.js',
-    linkGitHub: 'https://shlominugarker.github.io/monopoly-demo/#/',
+    linkGitHub: 'https://github.com/shlomiNugarker/monoploly-vue.js',
+    linkDemo: 'https://shlominugarker.github.io/monopoly-demo/#/',
   },
   {
     title: "Ultimate Meme Generator - מחולל ממים מתקדם בג'אווהסקריפט",
