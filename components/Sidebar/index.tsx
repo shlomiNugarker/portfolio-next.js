@@ -62,7 +62,6 @@ const Sidebar = () => {
         height={{ xl: '100vh' }}
         display={{ base: 'flex' }}
         alignItems={{ base: 'center' }}
-        justifyContent={{ base: 'center' }}
       >
         <MotionStack
           variants={stagger}

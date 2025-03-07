@@ -3,16 +3,9 @@ import Document, {
   Head,
   Main,
   NextScript,
-  DocumentContext,
   DocumentInitialProps,
 } from 'next/document'
-import { i18n } from 'next-i18next'
 import { ReactNode } from 'react'
-
-interface MyDocumentProps extends DocumentInitialProps {
-  locale: string
-  dir: 'ltr' | 'rtl'
-}
 
 const HtmlWrapper = ({
   locale,
@@ -30,20 +23,10 @@ const HtmlWrapper = ({
   )
 }
 
-class MyDocument extends Document<MyDocumentProps> {
-  static async getInitialProps(ctx: DocumentContext): Promise<MyDocumentProps> {
-    const initialProps = await Document.getInitialProps(ctx)
-
-    const locale = ctx.locale || i18n?.language || 'en'
-    const dir: 'ltr' | 'rtl' =
-      locale === 'he' || locale === 'ar' ? 'rtl' : 'ltr'
-
-    return { ...initialProps, locale, dir }
-  }
-
+class MyDocument extends Document<DocumentInitialProps> {
   render() {
     return (
-      <HtmlWrapper locale={this.props.locale} dir={this.props.dir}>
+      <HtmlWrapper locale={'en'} dir={'ltr'}>
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link

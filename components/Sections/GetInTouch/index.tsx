@@ -34,7 +34,7 @@ const GetInTouch = () => {
       as="footer"
       width="100%"
       maxW={{ base: '99%', lg: '60%', xl: '75%' }}
-      py={20}
+      py={10}
       bg="customPeach"
       textAlign="center"
       borderTopWidth={2}
@@ -104,7 +104,7 @@ const GetInTouch = () => {
             </Text>
           </Box>
 
-          <Box mt={4}>
+          <Box mt={2}>
             <Avatar />
           </Box>
 

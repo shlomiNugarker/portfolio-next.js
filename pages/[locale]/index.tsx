@@ -14,35 +14,32 @@ import Sidebar from 'components/Sidebar'
 import About from 'components/Sections/About'
 import FeaturedWorks from 'components/Sections/FeaturedWorks'
 import ScrollMore from 'components/Misc/ScrollMore'
-import { GetStaticPaths } from 'next'
 import { useEffect } from 'react'
 import { useTranslation } from 'next-i18next'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const locales = ['en', 'he', 'ar', 'ru', 'fr', 'es', 'de', 'hi']
+
+  const paths = locales.map((locale) => ({
+    params: { locale },
+  }))
+
   return {
-    paths: [
-      { params: { locale: 'en' } },
-      { params: { locale: 'he' } },
-      { params: { locale: 'ar' } },
-      { params: { locale: 'ru' } },
-      { params: { locale: 'fr' } },
-      { params: { locale: 'es' } },
-      { params: { locale: 'de' } },
-      { params: { locale: 'hi' } },
-    ],
+    paths,
     fallback: false,
   }
 }
 
-export async function getStaticProps({
-  params,
-}: {
-  params: { locale: string }
-}) {
-  const { locale } = params
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const locale = (params?.locale as string) || 'en'
+
+  console.log(`🔹 Building page for locale: ${locale}`)
+
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'en', ['common'])),
+      ...(await serverSideTranslations(locale, ['common'])),
+      locale,
     },
   }
 }
@@ -79,7 +76,7 @@ const Portfolio = (): JSX.Element => {
           sm: 'repeat(1, 0)',
           lg: 'repeat(2, 1fr)',
         }}
-        gap={4}
+        gap={2}
       >
         <GridItem
           padding={sideBarPadding}
@@ -90,6 +87,7 @@ const Portfolio = (): JSX.Element => {
           alignContent="center"
           as="div"
           flexDirection="row"
+          justifyContent={{ base: 'center', lg: 'flex-start' }}
         >
           <Sidebar />
         </GridItem>
@@ -101,7 +99,7 @@ const Portfolio = (): JSX.Element => {
           colSpan={{ base: 1, sm: 2, md: 2, lg: 3, xl: 3 }}
           overflow="hidden"
         >
-          <Stack w="100" spacing={24}>
+          <Stack w="100" spacing={4}>
             <FadeInLayout>
               <Box
                 id="aboutMe"
@@ -137,7 +135,6 @@ const Portfolio = (): JSX.Element => {
               <Box
                 id="contact"
                 className="contentRow"
-                paddingTop={{ base: 40, lg: 20, xl: 40 }}
                 paddingX={0}
                 flexDirection="row"
               >
