@@ -171,7 +171,7 @@ const ProjectDescription = memo(
               {t('projects.features', 'Features')}
             </Heading>
             <List
-              spacing={2}
+              spacing={1}
               display={'flex'}
               flexDirection={'row'}
               justifyContent={'center'}
@@ -185,7 +185,17 @@ const ProjectDescription = memo(
                   key={idx}
                   fontSize="sm"
                   color={descriptionColor}
-                  width={'50%'}
+                  width={'33%'}
+                  borderRadius="md"
+                  margin={'3'}
+                  bg={bgBadge}
+                  p={2}
+                  _hover={{
+                    bg: 'teal.500',
+                    color: 'white',
+                    transition: 'all 0.3s ease',
+                  }}
+                  height={'100%'}
                 >
                   {feature}
                 </ListItem>
