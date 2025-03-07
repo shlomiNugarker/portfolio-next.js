@@ -128,7 +128,6 @@ const Sidebar = () => {
                 target="_blank"
                 _focus={{ boxShadow: 'none' }}
                 color="teal.500"
-                className={styles.socialIcon}
               >
                 <Icon
                   w={9}
