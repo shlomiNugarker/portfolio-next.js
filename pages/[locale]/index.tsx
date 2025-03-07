@@ -101,8 +101,8 @@ const Portfolio = (): JSX.Element => {
                 minH={{ lg: '100vh' }}
                 display="flex"
                 alignItems="center"
-                paddingTop={{ base: 0, lg: 20, xl: 0 }}
-                paddingBottom={{ base: 12, lg: 0 }}
+                paddingTop={{ base: 0, lg: 10, xl: 0 }}
+                paddingBottom={{ base: 2, lg: 0 }}
                 flexDirection={{
                   base: 'column-reverse',
                   lg: 'row',

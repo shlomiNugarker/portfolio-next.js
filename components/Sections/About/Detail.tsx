@@ -39,8 +39,8 @@ const Detail = () => {
       spacing={{ base: 6, xl: 8 }}
       as="section"
       className={styles.skillModal}
-      padding={8}
-      marginY={10}
+      padding={4}
+      marginY={5}
       borderRadius="md"
       display={'flex'}
       flexDirection={'row'}
