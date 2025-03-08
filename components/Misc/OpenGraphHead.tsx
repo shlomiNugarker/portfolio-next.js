@@ -26,7 +26,7 @@ const OpenGraphHead = () => {
       <meta property="og:type" content="website" />
       <meta
         property="og:image"
-        content="https://res.cloudinary.com/duajg3ah1/image/upload/v1741462702/myPortfolio/htarwkqklz2c9czg82e9.png"
+        content="https://res.cloudinary.com/duajg3ah1/image/upload/v1741463143/khdlhgdxyme2h1fqduap.png"
       />
       <meta property="og:image:alt" content={ogTitle} />
 
@@ -36,7 +36,7 @@ const OpenGraphHead = () => {
       <meta name="twitter:description" content={ogDescription} />
       <meta
         name="twitter:image"
-        content="https://res.cloudinary.com/duajg3ah1/image/upload/v1741462702/myPortfolio/htarwkqklz2c9czg82e9.png"
+        content="https://res.cloudinary.com/duajg3ah1/image/upload/v1741463143/khdlhgdxyme2h1fqduap.png"
       />
       <meta name="twitter:creator" content="@shlomi_nugarker" />
 
