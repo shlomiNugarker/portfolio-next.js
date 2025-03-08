@@ -1,4 +1,4 @@
-import { Heading, Text, Stack, Grid, GridItem } from '@chakra-ui/react'
+import { Heading, Stack, Grid, GridItem } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import FeaturedCard from './FeaturedCard'
 import { fadeInUpSlower, galleryStagger } from 'config/animations'

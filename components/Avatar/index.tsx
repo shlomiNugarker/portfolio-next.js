@@ -10,9 +10,9 @@ import { avatarAnimation } from 'config/animations'
 
 const AvatarImages = {
   DarkMode:
-    'https://res.cloudinary.com/duajg3ah1/image/upload/v1741377242/ycef63gicq3mywfsavvm.png',
+    'https://res.cloudinary.com/duajg3ah1/image/upload/v1741456422/zztjzpgylc2oimgpj1oh.png',
   LightMode:
-    'https://res.cloudinary.com/duajg3ah1/image/upload/v1741377242/ycef63gicq3mywfsavvm.png',
+    'https://res.cloudinary.com/duajg3ah1/image/upload/v1741456422/zztjzpgylc2oimgpj1oh.png',
 }
 
 declare global {
@@ -43,7 +43,7 @@ const Avatar = () => {
     <AnimatePresence>
       <MotionBox
         id="klAvatar"
-        boxSize={{ base: '300px', md: '300px' }}
+        boxSize={{ base: '400px', md: '400px' }}
         padding={{ base: 8 }}
         marginBottom={{ base: 10, md: 0, lg: 0 }}
         initial="initial"
@@ -55,8 +55,8 @@ const Avatar = () => {
           src={imgAvatar}
           alt="Shlomi's Avatar"
           borderRadius="full"
-          htmlWidth="300"
-          htmlHeight="300"
+          htmlWidth="400"
+          htmlHeight="400"
           margin="auto"
           fallback={
             (
