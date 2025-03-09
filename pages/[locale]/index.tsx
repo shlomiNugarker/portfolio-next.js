@@ -16,6 +16,7 @@ import FeaturedWorks from 'components/Sections/FeaturedWorks'
 import ScrollMore from 'components/Misc/ScrollMore'
 
 import { GetStaticPaths, GetStaticProps } from 'next'
+import ButterflyButton from 'components/Misc/ButterflyButton'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const locales = ['en', 'he', 'ar', 'ru', 'fr', 'es', 'de', 'hi']
@@ -139,6 +140,8 @@ const Portfolio = (): JSX.Element => {
         </GridItem>
       </Grid>
       <ScrollMore />
+
+      <ButterflyButton />
     </Box>
   )
 }
