@@ -434,6 +434,35 @@ const projects = [
     linkGitHub:
       'https://github.com/shlomiNugarker/ultimate-meme-generator-sprint-2',
   },
+  {
+    title: 'نظام إدارة المحتوى المخصص باستخدام Next.js',
+    tags: [
+      'Next.js',
+      'TypeScript',
+      'PostgreSQL',
+      'Drizzle ORM',
+      'Tailwind CSS',
+      'NextAuth.js',
+      'Cloudinary',
+      'Docker',
+    ],
+    imgs: [
+      'https://res.cloudinary.com/duajg3ah1/image/upload/v1741512665/myPortfolio/40f5fc4f-5a40-49d1-b070-9652e9e73d75.png',
+    ],
+    videoUrl: '',
+    description:
+      'نظام إدارة محتوى ديناميكي مبني باستخدام Next.js و Drizzle ORM. يدعم إدارة الصفحات، تحرير المحتوى عبر واجهة إدارة مرنة، وتخزين الوسائط في Cloudinary.',
+    linkDemo: 'https://my-site-data-api.vercel.app/',
+    linkGitHub: 'https://github.com/shlomiNugarker/nextjs-with-costum-cms',
+    features: [
+      'إدارة محتوى ديناميكي يعتمد على الجداول',
+      'دعم توثيق المستخدمين باستخدام NextAuth',
+      'لوحة إدارة تفاعلية باستخدام Tailwind CSS',
+      'إدارة ملفات الوسائط عبر Cloudinary',
+      'دعم النشر باستخدام Docker',
+      'إدارة البيانات عبر REST API',
+    ],
+  },
 ]
 
 const projectsWithDynamicIds = projects.map((project, index) => ({

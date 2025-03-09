@@ -436,6 +436,35 @@ const projects = [
     linkGitHub:
       'https://github.com/shlomiNugarker/ultimate-meme-generator-sprint-2',
   },
+  {
+    title: 'Кастомная CMS система на Next.js',
+    tags: [
+      'Next.js',
+      'TypeScript',
+      'PostgreSQL',
+      'Drizzle ORM',
+      'Tailwind CSS',
+      'NextAuth.js',
+      'Cloudinary',
+      'Docker',
+    ],
+    imgs: [
+      'https://res.cloudinary.com/duajg3ah1/image/upload/v1741512665/myPortfolio/40f5fc4f-5a40-49d1-b070-9652e9e73d75.png',
+    ],
+    videoUrl: '',
+    description:
+      'Динамическая CMS-система, созданная на Next.js и Drizzle ORM. Поддерживает управление страницами, редактирование контента через гибкий интерфейс администратора и хранение мультимедиа в Cloudinary.',
+    linkDemo: 'https://my-site-data-api.vercel.app/',
+    linkGitHub: 'https://github.com/shlomiNugarker/nextjs-with-costum-cms',
+    features: [
+      'Динамическое управление контентом на основе таблиц',
+      'Поддержка аутентификации пользователей с NextAuth',
+      'Интерактивная панель администратора с Tailwind CSS',
+      'Управление мультимедийными файлами с Cloudinary',
+      'Поддержка развертывания с Docker',
+      'Управление данными через REST API',
+    ],
+  },
 ]
 
 const projectsWithDynamicIds = projects.map((project, index) => ({

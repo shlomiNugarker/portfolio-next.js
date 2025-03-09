@@ -157,6 +157,32 @@ const ProjectDescription = memo(
             </WrapItem>
           ))}
         </Wrap>
+        {project.features && project.features.length > 0 && (
+          <Stack spacing={2} mt={4} w="full" alignItems="center">
+            <Heading
+              as="h4"
+              fontSize={{ base: 'md', md: 'lg' }}
+              color={titleColor}
+            >
+              {t('projects.features')}
+            </Heading>
+            <Wrap justify="center" spacing={2}>
+              {project.features.map((feature, i) => (
+                <WrapItem key={i}>
+                  <Badge
+                    fontSize="sm"
+                    colorScheme="purple"
+                    px={3}
+                    py={1}
+                    borderRadius="full"
+                  >
+                    {feature}
+                  </Badge>
+                </WrapItem>
+              ))}
+            </Wrap>
+          </Stack>
+        )}
         <Wrap justify="center" mt={4} spacing={3} width="100%">
           {buttons.map(({ label, url }, index) => (
             <WrapItem key={index}>
