@@ -38,8 +38,8 @@ const ButterflyButton = () => {
       style={{
         cursor: 'pointer',
         position: 'fixed',
-        bottom: 20,
-        right: 20,
+        bottom: 80,
+        right: 30,
         zIndex: 1000,
       }}
       alt="The Butterfly Button"
