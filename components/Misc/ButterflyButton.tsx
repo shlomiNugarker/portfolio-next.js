@@ -1,5 +1,7 @@
-import Image from 'next/image'
 import { useEffect } from 'react'
+import { Image } from '@chakra-ui/react'
+import { keyframes } from '@emotion/react'
+import { motion } from 'framer-motion'
 
 declare global {
   interface Window {
@@ -8,6 +10,12 @@ declare global {
     }
   }
 }
+
+const breatheAnimation = keyframes`
+  0% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.9; }
+`
 
 const ButterflyButton = () => {
   useEffect(() => {
@@ -30,20 +38,26 @@ const ButterflyButton = () => {
   }
 
   return (
-    <Image
-      onClick={handleClick}
-      src="https://butterfly-button.web.app/img/butterfly-logo-200.png"
-      width={50}
-      height={50}
+    <motion.div
+      whileHover={{ scale: 1.15 }}
+      whileTap={{ scale: 0.95 }}
       style={{
-        cursor: 'pointer',
         position: 'fixed',
-        bottom: 80,
+        bottom: 30,
         right: 30,
         zIndex: 1000,
+        cursor: 'pointer',
       }}
-      alt="The Butterfly Button"
-    />
+    >
+      <Image
+        onClick={handleClick}
+        src="https://butterfly-button.web.app/img/butterfly-logo-200.png"
+        width={30}
+        height={30}
+        alt="The Butterfly Button"
+        animation={`${breatheAnimation} 2.5s infinite ease-in-out`}
+      />
+    </motion.div>
   )
 }
 
