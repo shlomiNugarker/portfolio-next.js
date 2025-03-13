@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { Image } from '@chakra-ui/react'
+import { Box, Image } from '@chakra-ui/react'
 import { keyframes } from '@emotion/react'
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion'
 
 declare global {
   interface Window {
@@ -38,13 +38,9 @@ const ButterflyButton = () => {
   }
 
   return (
-    <motion.div
-      whileHover={{ scale: 1.15 }}
-      whileTap={{ scale: 0.95 }}
+    <Box
       style={{
-        position: 'fixed',
-        bottom: 30,
-        right: 30,
+        margin: '10px',
         zIndex: 1000,
         cursor: 'pointer',
       }}
@@ -55,9 +51,8 @@ const ButterflyButton = () => {
         width={30}
         height={30}
         alt="The Butterfly Button"
-        animation={`${breatheAnimation} 2.5s infinite ease-in-out`}
       />
-    </motion.div>
+    </Box>
   )
 }
 
