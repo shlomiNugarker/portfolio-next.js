@@ -61,7 +61,7 @@ const FeaturedWorksSection = () => {
               title={project.title}
               description={project.description}
               src={project.imgs[0]}
-              height={'100%'}
+              height={'50%'}
               ctaUrl={project.linkDemo}
               objectPosition="right 20%"
               project={project}

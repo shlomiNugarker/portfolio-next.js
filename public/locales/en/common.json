@@ -29,7 +29,9 @@
     "view_project": "View Project",
     "view_code": "View Code",
     "view_video": "Watch Demo",
-    "features": "Features"
+    "features": "Features",
+    "close_details": "Close Details",
+    "show_details": "Show Details"
   },
 
   "nav": {

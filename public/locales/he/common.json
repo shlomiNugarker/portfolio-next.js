@@ -30,7 +30,9 @@
     "view_project": "לצפייה בפרויקט",
     "view_code": "לקוד המקור",
     "view_video": "לסרטון הדגמה",
-    "features": "פיצ'רים"
+    "features": "פיצ'רים",
+    "close_details": "סגירת פרטים",
+    "show_details": "הצגת פרטים"
   },
 
   "nav": {

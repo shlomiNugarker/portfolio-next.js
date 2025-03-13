@@ -1,23 +1,27 @@
+import { useState, memo, useMemo } from 'react'
 import {
   Box,
   Image,
-  ResponsiveValue,
   Divider,
-  Skeleton,
   Text,
   Button,
-  Container,
   Stack,
   useColorModeValue,
   Wrap,
   WrapItem,
   Heading,
   Badge,
+  Collapse,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import { memo, useMemo } from 'react'
 import { useTranslation } from 'next-i18next'
-import styles from './styles.module.css'
+import {
+  FaChevronDown,
+  FaChevronUp,
+  FaExternalLinkAlt,
+  FaGithub,
+  FaVideo,
+} from 'react-icons/fa'
 
 export type Project = {
   id: number
@@ -32,8 +36,7 @@ export type Project = {
 }
 
 export type FeaturedCardProps = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  height: string | ResponsiveValue<any>
+  height: string
   src: string
   idx: number
   title: string
@@ -43,8 +46,8 @@ export type FeaturedCardProps = {
   project: Project
 }
 
-const MotionImage = motion(Image)
 const MotionBox = motion(Box)
+const MotionImage = motion(Image)
 
 const CoverImage = memo(
   ({
@@ -52,27 +55,20 @@ const CoverImage = memo(
     src,
     title,
     objectPosition,
-  }: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    height: string | ResponsiveValue<any>
-    src: string
-    title: string
-    objectPosition?: string
-  }) => (
+  }: Omit<FeaturedCardProps, 'idx' | 'description' | 'ctaUrl' | 'project'>) => (
     <MotionImage
       height={height}
       width="100%"
       src={src}
       alt={title}
       objectFit="cover"
-      objectPosition={objectPosition}
+      objectPosition={objectPosition || 'center'}
       loading="lazy"
-      opacity={0.95}
       whileHover={{
-        scale: 1.02,
-        transition: { duration: 0.25, ease: 'easeOut' },
+        scale: 1.05,
+        transition: { duration: 0.3, ease: 'easeOut' },
       }}
-      fallback={<Skeleton height={height} width="100%" />}
+      borderTopRadius="lg"
     />
   )
 )
@@ -86,13 +82,28 @@ const ProjectDescription = memo(
     project,
   }: Omit<FeaturedCardProps, 'height' | 'src' | 'objectPosition'>) => {
     const { t } = useTranslation('common')
+    const [isExpanded, setIsExpanded] = useState(false)
 
     const buttons = useMemo(
       () => [
-        { label: t('projects.view_project'), url: ctaUrl },
-        { label: t('projects.view_code'), url: project.linkGitHub },
+        {
+          label: t('projects.view_project'),
+          url: ctaUrl,
+          icon: <FaExternalLinkAlt />,
+        },
+        {
+          label: t('projects.view_code'),
+          url: project.linkGitHub,
+          icon: <FaGithub />,
+        },
         ...(project.videoUrl
-          ? [{ label: t('projects.view_video'), url: project.videoUrl }]
+          ? [
+              {
+                label: t('projects.view_video'),
+                url: project.videoUrl,
+                icon: <FaVideo />,
+              },
+            ]
           : []),
       ],
       [ctaUrl, project, t]
@@ -103,43 +114,18 @@ const ProjectDescription = memo(
     const bgBadge = useColorModeValue('gray.100', 'gray.700')
 
     return (
-      <Container
-        p={6}
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        textAlign="center"
-        width="100%"
-      >
-        <Stack spacing={2} w="full">
-          <Text
-            as="span"
-            color="teal.500"
-            fontSize={{ base: 'lg', md: 'xl' }}
-            mr={2}
-          >
-            #{idx < 10 ? `0${idx}` : idx}
-          </Text>
-          <Heading
-            as="h3"
-            fontSize={{ base: 'xl', md: '2xl' }}
-            fontWeight="semibold"
-            letterSpacing="wider"
-            color={titleColor}
-          >
-            {title}
-          </Heading>
-          <Divider borderColor={useColorModeValue('gray.200', 'gray.600')} />
-        </Stack>
-        <Text
-          fontSize={{ base: 'md', md: 'lg' }}
-          mt={4}
-          color={descriptionColor}
-          wordBreak="break-word"
+      <Stack p={4} spacing={3} width="100%" textAlign="center">
+        <Heading
+          as="h3"
+          fontSize={{ base: 'lg', md: 'xl' }}
+          fontWeight="semibold"
+          color={titleColor}
         >
-          {description}
-        </Text>
-        <Wrap justify="center" mt={4} spacing={2}>
+          {title}
+        </Heading>
+        <Divider borderColor={useColorModeValue('gray.200', 'gray.600')} />
+
+        <Wrap justify="center">
           {project.tags.map((tag, i) => (
             <WrapItem key={i}>
               <Badge
@@ -157,52 +143,67 @@ const ProjectDescription = memo(
             </WrapItem>
           ))}
         </Wrap>
-        {project.features && project.features.length > 0 && (
-          <Stack spacing={2} mt={4} w="full" alignItems="center">
-            <Heading
-              as="h4"
-              fontSize={{ base: 'md', md: 'lg' }}
-              color={titleColor}
-            >
-              {t('projects.features')}
-            </Heading>
-            <Wrap justify="center" spacing={2}>
-              {project.features.map((feature, i) => (
-                <WrapItem key={i}>
-                  <Badge
-                    fontSize="sm"
-                    colorScheme="purple"
-                    px={3}
-                    py={1}
-                    borderRadius="full"
+
+        <Button
+          size="sm"
+          variant="ghost"
+          colorScheme="teal"
+          rightIcon={isExpanded ? <FaChevronUp /> : <FaChevronDown />}
+          onClick={() => setIsExpanded(!isExpanded)}
+        >
+          {isExpanded
+            ? t('projects.close_details')
+            : t('projects.show_details')}
+        </Button>
+
+        <Collapse in={isExpanded} animateOpacity>
+          <Stack spacing={3} mt={3}>
+            <Text fontSize="sm" color={descriptionColor}>
+              {description}
+            </Text>
+
+            {project.features && project.features.length > 0 && (
+              <Stack spacing={2} align="center">
+                <Heading as="h4" fontSize="md" color={titleColor}>
+                  {t('projects.features')}
+                </Heading>
+                <Wrap justify="center">
+                  {project.features.map((feature, i) => (
+                    <WrapItem key={i}>
+                      <Badge
+                        fontSize="sm"
+                        colorScheme="purple"
+                        px={3}
+                        py={1}
+                        borderRadius="full"
+                      >
+                        {feature}
+                      </Badge>
+                    </WrapItem>
+                  ))}
+                </Wrap>
+              </Stack>
+            )}
+
+            <Wrap justify="center" mt={2}>
+              {buttons.map(({ label, url, icon }, index) => (
+                <WrapItem key={index}>
+                  <Button
+                    as="a"
+                    href={url}
+                    target="_blank"
+                    size="sm"
+                    colorScheme="blue"
+                    leftIcon={icon}
                   >
-                    {feature}
-                  </Badge>
+                    {label}
+                  </Button>
                 </WrapItem>
               ))}
             </Wrap>
           </Stack>
-        )}
-        <Wrap justify="center" mt={4} spacing={3} width="100%">
-          {buttons.map(({ label, url }, index) => (
-            <WrapItem key={index}>
-              <Button
-                variant="outline"
-                size="sm"
-                as="a"
-                href={url}
-                target="_blank"
-                rel="noreferrer"
-                color="white"
-                bg="teal.500"
-                _hover={{ bg: 'teal.600' }}
-              >
-                {label}
-              </Button>
-            </WrapItem>
-          ))}
-        </Wrap>
-      </Container>
+        </Collapse>
+      </Stack>
     )
   }
 )
@@ -223,13 +224,17 @@ const FeaturedCard = memo(
 
     return (
       <MotionBox
-        className={styles.featureCard}
         bg={bg}
-        borderRadius="md"
+        borderRadius="lg"
         borderWidth="1px"
         borderColor={borderColor}
         overflow="hidden"
-        boxShadow="sm"
+        boxShadow="md"
+        whileHover={{
+          scale: 1.02,
+          transition: { duration: 0.3, ease: 'easeOut' },
+        }}
+        width="100%"
       >
         <CoverImage
           height={height}

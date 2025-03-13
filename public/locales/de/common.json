@@ -27,7 +27,9 @@
     "description": "Ein Einblick in die Projekte, die ich entwickelt habe – intelligente Anwendungen, fortschrittliche Systeme und herausragende Benutzererlebnisse. Jedes Projekt kombiniert Präzision, Kreativität und modernste Technologien.",
     "view_project": "Projekt ansehen",
     "view_code": "Code ansehen",
-    "view_video": "Video ansehen"
+    "view_video": "Video ansehen",
+    "close_details": "Details schließen",
+    "show_details": "Details anzeigen"
   },
 
   "nav": {
