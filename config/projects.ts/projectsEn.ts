@@ -478,7 +478,7 @@ const projects = [
     videoUrl: '',
     description:
       'A dynamic CMS system built with Next.js and Drizzle ORM. The system supports page management, content editing via a flexible Admin interface, and media storage with Cloudinary.',
-    linkDemo: 'https://my-site-data-api.vercel.app/',
+    linkDemo: 'https://my-site-data-api.vercel.app/login',
     linkGitHub: 'https://github.com/shlomiNugarker/nextjs-with-costum-cms',
     features: [
       'Dynamic content management with table-based structure',
