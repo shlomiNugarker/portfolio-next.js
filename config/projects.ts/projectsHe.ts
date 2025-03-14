@@ -452,12 +452,12 @@ const projects = [
       'Cloudinary',
     ],
     imgs: [
-      'https://res.cloudinary.com/duajg3ah1/image/upload/v1741512665/myPortfolio/40f5fc4f-5a40-49d1-b070-9652e9e73d75.png',
+      'https://res.cloudinary.com/duajg3ah1/image/upload/v1741967867/myPortfolio/6de3364e-3506-42b7-a95a-7d128a2196a5.png',
     ],
     videoUrl: '',
     description:
       'מערכת CMS דינמית לניהול תוכן, בנויה עם Next.js ו-Drizzle ORM. המערכת תומכת בניהול דפים, עריכת תוכן באמצעות ממשק Admin גמיש, ואחסון תמונות בענן עם Cloudinary.',
-    linkDemo: 'https://my-site-data-api.vercel.app/',
+    linkDemo: 'https://my-site-data-api.vercel.app/login',
     linkGitHub: 'https://github.com/shlomiNugarker/nextjs-with-costum-cms',
     features: [
       'ניהול תוכן דינמי בטבלאות',
