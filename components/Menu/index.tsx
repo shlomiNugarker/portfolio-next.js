@@ -15,17 +15,17 @@ const menuVariants: Variants = {
   hidden: {
     opacity: 0,
     y: -80,
-    transition: { 
+    transition: {
       ease: [0.1, 0.25, 0.3, 1], // Custom easing curve
-      duration: 0.35 
+      duration: 0.35,
     },
   },
   show: {
     opacity: 1,
     y: 0,
-    transition: { 
-      ease: [0.1, 0.25, 0.3, 1], 
-      duration: 0.28 
+    transition: {
+      ease: [0.1, 0.25, 0.3, 1],
+      duration: 0.28,
     },
   },
 }
@@ -46,7 +46,7 @@ const Menu = () => {
     '0 2px 10px rgba(0,0,0,0.2)'
   )
   const isMobile = useBreakpointValue(mobileBreakpointsMap) || false
-  
+
   // Animation controls
   const controls = useAnimation()
   const scrollDirection = useScrollDirection(true, isMobile)
@@ -66,7 +66,7 @@ const Menu = () => {
         variants={menuVariants}
         animate={controls}
         className={isMobile ? styles.mobileMenuContainer : ''}
-        style={{ 
+        style={{
           backgroundColor: isMobile ? bg : 'transparent',
           boxShadow: isMobile ? boxShadow : 'none',
           zIndex: 1000,

@@ -5,7 +5,7 @@ import {
   Stack,
   Box,
   useBreakpointValue,
-  BoxProps
+  BoxProps,
 } from '@chakra-ui/react'
 import dynamic from 'next/dynamic'
 import { memo, Suspense, ReactNode } from 'react'
@@ -37,7 +37,7 @@ export const SUPPORTED_LOCALES = [
 export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number]
 
 interface PortfolioProps {
-  locale: SupportedLocale;
+  locale: SupportedLocale
 }
 
 // Responsive configuration
@@ -73,7 +73,9 @@ export const getStaticPaths: GetStaticPaths = async () => ({
 /**
  * Get static props for the portfolio page with translations
  */
-export const getStaticProps: GetStaticProps<PortfolioProps> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<PortfolioProps> = async ({
+  params,
+}) => {
   const locale = (params?.locale as SupportedLocale) || 'en'
 
   try {
@@ -86,27 +88,32 @@ export const getStaticProps: GetStaticProps<PortfolioProps> = async ({ params })
       revalidate: 3600, // Revalidate once per hour
     }
   } catch (error) {
-    console.error(`Failed to build page for locale ${locale}:`, error instanceof Error ? error.message : String(error))
+    console.error(
+      `Failed to build page for locale ${locale}:`,
+      error instanceof Error ? error.message : String(error)
+    )
     return { notFound: true }
   }
 }
 
 // Define interface for ContentSection props
 interface ContentSectionProps extends BoxProps {
-  id: string;
-  children: ReactNode;
+  id: string
+  children: ReactNode
 }
 
 /**
  * Memoized ContentSection component
  */
-const ContentSection = memo(({ id, children, ...props }: ContentSectionProps) => (
-  <FadeInLayout>
-    <Box id={id} className="contentRow" {...props}>
-      {children}
-    </Box>
-  </FadeInLayout>
-))
+const ContentSection = memo(
+  ({ id, children, ...props }: ContentSectionProps) => (
+    <FadeInLayout>
+      <Box id={id} className="contentRow" {...props}>
+        {children}
+      </Box>
+    </FadeInLayout>
+  )
+)
 ContentSection.displayName = 'ContentSection'
 
 /**

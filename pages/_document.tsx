@@ -9,12 +9,21 @@ import Document, {
 import { ReactNode } from 'react'
 
 // Constants - moved to their own file for reusability across the app
-export const SUPPORTED_LOCALES = ['en', 'he', 'ar', 'ru', 'fr', 'es', 'de', 'hi'] as const
+export const SUPPORTED_LOCALES = [
+  'en',
+  'he',
+  'ar',
+  'ru',
+  'fr',
+  'es',
+  'de',
+  'hi',
+] as const
 export const RTL_LOCALES = ['he', 'ar'] as const
 export const DEFAULT_LOCALE = 'en'
 
-export type SupportedLocale = typeof SUPPORTED_LOCALES[number]
-export type RTLLocale = typeof RTL_LOCALES[number]
+export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number]
+export type RTLLocale = (typeof RTL_LOCALES)[number]
 
 interface MyDocumentProps extends DocumentInitialProps {
   locale: SupportedLocale
@@ -29,7 +38,7 @@ class MyDocument extends Document<MyDocumentProps> {
   static async getInitialProps(ctx: DocumentContext): Promise<MyDocumentProps> {
     try {
       const initialProps = await Document.getInitialProps(ctx)
-      
+
       // Extract locale from URL
       const locale = this.extractLocaleFromContext(ctx)
 
@@ -38,9 +47,11 @@ class MyDocument extends Document<MyDocumentProps> {
         locale: this.validateLocale(locale),
       }
     } catch (error) {
-      console.error('Error in document getInitialProps:', 
-        error instanceof Error ? error.message : String(error))
-      
+      console.error(
+        'Error in document getInitialProps:',
+        error instanceof Error ? error.message : String(error)
+      )
+
       // Fallback gracefully with default locale
       const initialProps = await Document.getInitialProps(ctx)
       return {
@@ -118,15 +129,21 @@ class MyDocument extends Document<MyDocumentProps> {
             rel="stylesheet"
             crossOrigin="anonymous"
           />
-          
+
           {/* Security headers */}
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-          <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
-          
+          <meta
+            name="format-detection"
+            content="telephone=no, date=no, address=no, email=no"
+          />
+
           {/* PWA related tags */}
           <meta name="application-name" content="Shlomi's Portfolio" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
-          <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+          <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="default"
+          />
           <meta name="mobile-web-app-capable" content="yes" />
         </Head>
         <body>

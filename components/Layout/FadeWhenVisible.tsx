@@ -1,19 +1,24 @@
 import React, { useEffect, memo } from 'react'
 import { useInView } from 'react-intersection-observer'
-import { motion, useAnimation, Variants, AnimationControls } from 'framer-motion'
+import {
+  motion,
+  useAnimation,
+  Variants,
+  AnimationControls,
+} from 'framer-motion'
 import { fadeInUpSlower } from 'config/animations'
 
 interface FadeInWhenVisibleProps {
-  children: React.ReactNode;
-  delay?: number;
-  triggerOnce?: boolean;
-  threshold?: number;
-  rootMargin?: string;
-  variants?: Variants;
-  className?: string;
-  style?: React.CSSProperties;
-  onVisible?: () => void;
-  id?: string;
+  children: React.ReactNode
+  delay?: number
+  triggerOnce?: boolean
+  threshold?: number
+  rootMargin?: string
+  variants?: Variants
+  className?: string
+  style?: React.CSSProperties
+  onVisible?: () => void
+  id?: string
 }
 
 /**
@@ -25,9 +30,9 @@ const FadeInWhenVisible: React.FC<FadeInWhenVisibleProps> = ({
   delay = 0,
   triggerOnce = true,
   threshold = 0.3,
-  rootMargin = "0px",
+  rootMargin = '0px',
   variants = fadeInUpSlower,
-  className = "",
+  className = '',
   style = {},
   onVisible,
   id,
@@ -57,10 +62,10 @@ const FadeInWhenVisible: React.FC<FadeInWhenVisibleProps> = ({
       animate={controls}
       initial="initial"
       variants={variants}
-      transition={{ 
-        delay, 
+      transition={{
+        delay,
         duration: 0.5,
-        ease: [0.6, 0.05, -0.01, 0.9] 
+        ease: [0.6, 0.05, -0.01, 0.9],
       }}
       data-testid="fade-in-container"
     >

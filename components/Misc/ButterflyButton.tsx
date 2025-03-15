@@ -12,8 +12,10 @@ declare global {
 }
 
 // Constants for better maintainability
-const BUTTERFLY_SCRIPT_URL = 'https://butterfly-button.web.app/cdn/butterfly-plugin.js'
-const BUTTERFLY_LOGO_URL = 'https://butterfly-button.web.app/img/butterfly-logo-200.png'
+const BUTTERFLY_SCRIPT_URL =
+  'https://butterfly-button.web.app/cdn/butterfly-plugin.js'
+const BUTTERFLY_LOGO_URL =
+  'https://butterfly-button.web.app/img/butterfly-logo-200.png'
 const BUTTON_SIZE = 30
 
 // Animation for the breathing effect
@@ -34,7 +36,7 @@ const breatheAnimation = keyframes`
 const ButterflyButton = () => {
   const [isScriptLoaded, setIsScriptLoaded] = useState(false)
   const [hasError, setHasError] = useState(false)
-  
+
   // Different shadow colors based on theme
   const boxShadow = useColorModeValue(
     '0 2px 5px rgba(0,0,0,0.2)',
@@ -51,7 +53,7 @@ const ButterflyButton = () => {
       console.error('Failed to load Butterfly Reporter script')
       setHasError(true)
     }
-    
+
     document.body.appendChild(script)
 
     return () => {
@@ -85,8 +87,8 @@ const ButterflyButton = () => {
   if (hasError) return null
 
   return (
-    <Tooltip 
-      label="Send Feedback" 
+    <Tooltip
+      label="Send Feedback"
       aria-label="Send feedback button"
       placement="left"
       hasArrow

@@ -17,7 +17,12 @@ const DEFAULT_URL = 'https://www.shlomi.dev/'
  * OpenGraphHead component sets up meta tags for Open Graph, Twitter Cards, and general SEO.
  * You can override the default title, description, url, and image.
  */
-const OpenGraphHead = ({ title, description, url, image }: OpenGraphHeadProps) => {
+const OpenGraphHead = ({
+  title,
+  description,
+  url,
+  image,
+}: OpenGraphHeadProps) => {
   const { t } = useTranslation('common')
 
   const ogTitle = title || t('opengraph.title')
@@ -34,7 +39,7 @@ const OpenGraphHead = ({ title, description, url, image }: OpenGraphHeadProps) =
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
       />
       <title>{ogTitle}</title>
-      <meta name="description" content={ogDescription ||''} />
+      <meta name="description" content={ogDescription || ''} />
 
       {/* Open Graph / Facebook */}
       <meta property="og:title" content={ogTitle || ''} />

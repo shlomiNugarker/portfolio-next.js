@@ -45,7 +45,7 @@ const Navigation = () => {
   const menuButtonSize = useBreakpointValue({ base: 'xl', md: 'sm' })
   const bg = useColorModeValue(
     'rgba(237, 242, 247, 0.95)', // Light mode with slight transparency
-    'rgba(18, 18, 18, 0.9)'      // Dark mode with slight transparency
+    'rgba(18, 18, 18, 0.9)' // Dark mode with slight transparency
   )
   const borderColor = useColorModeValue('teal.500', 'cyan.200')
   const isDarkMode = colorMode === ThemeMode.Dark
@@ -66,12 +66,12 @@ const Navigation = () => {
   // Compute navigation layout values based on current state
   const navStyles = useMemo(() => {
     const isScrollingDown = scrollDirection === ScrollDirection.Down
-    
+
     return {
       width: !isMobile ? (isScrollingDown ? '12%' : '100%') : '100%',
       right: !isMobile ? (isScrollingDown ? '2%' : '3.5%') : undefined,
       top: isMobile ? (isOpen ? undefined : '-100vh') : undefined,
-      opacity: isMobile ? (isOpen ? 1 : 0) : 1
+      opacity: isMobile ? (isOpen ? 1 : 0) : 1,
     }
   }, [isMobile, isOpen, scrollDirection])
 
@@ -87,7 +87,9 @@ const Navigation = () => {
         top="3%"
       >
         <IconButton
-          aria-label={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+          aria-label={
+            isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'
+          }
           variant="ghost"
           icon={<ThemeIcon />}
           onClick={toggleColorMode}
@@ -173,13 +175,15 @@ const Navigation = () => {
             <Box alignItems="center" display="flex" justifyContent="center">
               <IconButton
                 marginX={1}
-                aria-label={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+                aria-label={
+                  isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'
+                }
                 variant="ghost"
                 icon={<ThemeIcon />}
                 onClick={toggleColorMode}
               />
               <VisuallyHidden>
-                {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+                {isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
               </VisuallyHidden>
             </Box>
           )}

@@ -1,4 +1,10 @@
-import { Box, Icon, Text, useBreakpointValue, useColorModeValue } from '@chakra-ui/react'
+import {
+  Box,
+  Icon,
+  Text,
+  useBreakpointValue,
+  useColorModeValue,
+} from '@chakra-ui/react'
 import { RiMouseLine } from 'react-icons/ri'
 import { motion, Variants, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'next-i18next'
@@ -15,7 +21,12 @@ const scrollMoreVariants: Variants = {
   },
   bounce: {
     y: [0, -18, 0],
-    transition: { duration: 1.6, ease: 'easeInOut', repeat: Infinity, repeatType: 'loop' },
+    transition: {
+      duration: 1.6,
+      ease: 'easeInOut',
+      repeat: Infinity,
+      repeatType: 'loop',
+    },
   },
 }
 
@@ -62,7 +73,9 @@ const ScrollMore = () => {
     >
       {/* Scroll Indicator */}
       <AnimatePresence>
-        {([ScrollDirection.Initial, ScrollDirection.Up].includes(scrollDirection)) && (
+        {[ScrollDirection.Initial, ScrollDirection.Up].includes(
+          scrollDirection
+        ) && (
           <motion.div
             initial="initial"
             animate={['hidden', 'bounce']}

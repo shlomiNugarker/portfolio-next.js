@@ -3,8 +3,8 @@ import { motion, SVGMotionProps, Transition } from 'framer-motion'
 
 // Define proper typings for the Path component
 interface PathProps extends SVGMotionProps<SVGPathElement> {
-  isDarkMode?: boolean;
-  d?: string;
+  isDarkMode?: boolean
+  d?: string
 }
 
 // Constants for better maintainability
@@ -34,8 +34,8 @@ const Path: React.FC<PathProps> = ({ isDarkMode, ...props }) => (
 )
 
 interface MenuToggleProps {
-  toggle: () => void;
-  isDarkMode?: boolean;
+  toggle: () => void
+  isDarkMode?: boolean
 }
 
 /**
@@ -64,9 +64,9 @@ export const MenuToggle: React.FC<MenuToggleProps> = ({
     }}
     type="button"
   >
-    <svg 
-      width={TOGGLE_ICON_SIZE} 
-      height={TOGGLE_ICON_SIZE} 
+    <svg
+      width={TOGGLE_ICON_SIZE}
+      height={TOGGLE_ICON_SIZE}
       viewBox="0 0 23 18"
       aria-hidden="true"
     >
@@ -97,9 +97,9 @@ export const MenuToggle: React.FC<MenuToggleProps> = ({
 )
 
 interface MobileMenuProps {
-  isOpen: boolean;
-  toggle: () => void;
-  isDarkMode: boolean;
+  isOpen: boolean
+  toggle: () => void
+  isDarkMode: boolean
 }
 
 /**
@@ -121,10 +121,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
     }}
     aria-label="Mobile navigation toggle"
   >
-    <MenuToggle 
-      toggle={toggle} 
-      isDarkMode={isDarkMode} 
-    />
+    <MenuToggle toggle={toggle} isDarkMode={isDarkMode} />
   </motion.nav>
 )
 
