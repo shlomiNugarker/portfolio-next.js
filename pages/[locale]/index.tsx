@@ -77,6 +77,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 // Memoized content sections
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ContentSection = memo(({ id, children, ...props }: any) => (
   <FadeInLayout>
     <Box id={id} className="contentRow" {...props}>
