@@ -8,7 +8,7 @@ import {
   BoxProps,
 } from '@chakra-ui/react'
 import dynamic from 'next/dynamic'
-import { memo, Suspense, ReactNode } from 'react'
+import { Suspense, ReactNode } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
 // Components
@@ -79,12 +79,13 @@ export const getStaticProps: GetStaticProps<PortfolioProps> = async ({
   const locale = (params?.locale as SupportedLocale) || 'en'
 
   try {
+    console.log(`Generating page for locale: ${locale}`) // לוג לבדיקה
+
     return {
       props: {
         ...(await serverSideTranslations(locale, ['common'])),
         locale,
       },
-      // Add revalidation for incremental static regeneration (ISR)
       revalidate: 3600, // Revalidate once per hour
     }
   } catch (error) {
@@ -103,18 +104,15 @@ interface ContentSectionProps extends BoxProps {
 }
 
 /**
- * Memoized ContentSection component
+ * ContentSection component
  */
-const ContentSection = memo(
-  ({ id, children, ...props }: ContentSectionProps) => (
-    <FadeInLayout>
-      <Box id={id} className="contentRow" {...props}>
-        {children}
-      </Box>
-    </FadeInLayout>
-  )
+const ContentSection = ({ id, children, ...props }: ContentSectionProps) => (
+  <FadeInLayout>
+    <Box id={id} className="contentRow" {...props}>
+      {children}
+    </Box>
+  </FadeInLayout>
 )
-ContentSection.displayName = 'ContentSection'
 
 /**
  * Main Portfolio component
@@ -124,6 +122,8 @@ const Portfolio = ({ locale }: PortfolioProps): JSX.Element => {
   const sideBarPadding = useBreakpointValue(BREAKPOINT_CONFIG.sideBarPadding)
   const mainContent = useBreakpointValue(BREAKPOINT_CONFIG.mainContent)
   const paddTop = useBreakpointValue(BREAKPOINT_CONFIG.topPadding)
+
+  console.log(`Current locale: ${locale}`) // בדיקה אם ה-locale מגיע כראוי
 
   return (
     <Box overflowX="hidden">
@@ -203,4 +203,4 @@ const Portfolio = ({ locale }: PortfolioProps): JSX.Element => {
   )
 }
 
-export default memo(Portfolio)
+export default Portfolio
