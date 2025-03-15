@@ -4,21 +4,15 @@ import FeaturedCard from './FeaturedCard'
 import { fadeInUpSlower, galleryStagger } from 'config/animations'
 import { useTranslation } from 'next-i18next'
 import { projects } from 'config/projects.ts'
+import { memo } from 'react'
 
 const MotionGrid = motion(Grid)
 const MotionGridItem = motion(GridItem)
 
 const FeaturedWorksSection = () => {
   const { t, i18n } = useTranslation('common')
-  const language = i18n.language as
-    | 'en'
-    | 'he'
-    | 'ar'
-    | 'ru'
-    | 'fr'
-    | 'es'
-    | 'de'
-
+  const language =
+    (i18n.language as 'en' | 'he' | 'ar' | 'ru' | 'fr' | 'es' | 'de') || 'en'
   const projectsLang = projects[language] || projects.en
 
   return (
@@ -31,11 +25,9 @@ const FeaturedWorksSection = () => {
     >
       <Heading
         size="2xl"
-        width={'100%'}
-        style={{
-          fontVariantCaps: 'small-caps',
-        }}
+        width="100%"
         textAlign={{ base: 'center' }}
+        sx={{ fontVariantCaps: 'small-caps' }}
       >
         {t('projects.title')}
       </Heading>
@@ -61,7 +53,7 @@ const FeaturedWorksSection = () => {
               title={project.title}
               description={project.description}
               src={project.imgs[0]}
-              height={'50%'}
+              height="50%"
               ctaUrl={project.linkDemo}
               objectPosition="right 20%"
               project={project}
@@ -73,4 +65,4 @@ const FeaturedWorksSection = () => {
   )
 }
 
-export default FeaturedWorksSection
+export default memo(FeaturedWorksSection)

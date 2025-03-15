@@ -26,70 +26,54 @@ const Detail = () => {
     { icon: SiJavascript, label: t('tech.js') },
     { icon: SiTypescript, label: t('tech.ts') },
     { icon: SiNodedotjs, label: t('tech.node') },
-  ]
-  const technologies2 = [
     { icon: SiReact, label: t('tech.react') },
     { icon: SiNodedotjs, label: t('tech.next') },
   ]
 
   return (
     <Stack
-      textAlign={'center'}
+      as="section"
+      textAlign="center"
       width={{ base: '100%', lg: '70%' }}
       spacing={{ base: 6, xl: 8 }}
-      as="section"
-      className={styles.skillModal}
       padding={4}
       marginY={5}
       borderRadius="md"
-      display={'flex'}
-      flexDirection={'row'}
-      justifyContent={'center'}
-      alignItems={'center'}
-      flexWrap={'wrap'}
+      className={styles.skillModal}
+      alignItems="center"
     >
-      <Text
-        variant="description"
-        marginBottom={6}
-        fontSize="lg"
-        fontWeight="bold"
-      >
+      <Text variant="description" fontSize="lg" fontWeight="bold" mb={6}>
         {t('description')}
       </Text>
 
       <SimpleGrid
-        columns={{ base: 1, md: 2 }}
+        columns={{ base: 1, md: 1 }}
         spacing={4}
-        display={'flex'}
-        flexDirection={'column'}
-        alignItems={'center'}
+        justifyItems="center"
       >
         <List
-          width={'100%'}
-          display={'flex'}
-          flexDirection={'row'}
-          justifyContent={'center'}
-          flexWrap={'wrap'}
+          display="flex"
+          flexWrap="wrap"
+          justifyItems={'center'}
+          justifyContent="center"
+          width="100%"
         >
-          {[...technologies, ...technologies2].map(({ icon, label }) => (
+          {technologies.map(({ icon, label }) => (
             <ListItem
               key={label}
-              display={'flex'}
-              flexDirection={'row'}
-              justifyContent={'center'}
-              alignItems={'center'}
-              flexWrap={'wrap'}
+              display="flex"
+              alignItems="center"
+              m={3}
               borderRadius="md"
-              margin={'3'}
             >
-              <ListIcon as={icon} color={emphasis} fontSize="2em" />
+              <ListIcon as={icon} color={emphasis} fontSize="2em" mr={2} />
               {label}
             </ListItem>
           ))}
         </List>
       </SimpleGrid>
 
-      <Text variant="description" fontWeight="bold" fontSize="lg" marginTop={6}>
+      <Text variant="description" fontWeight="bold" fontSize="lg" mt={6}>
         {t('call_to_action')}
       </Text>
     </Stack>

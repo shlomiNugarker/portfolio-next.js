@@ -46,9 +46,13 @@ export type FeaturedCardProps = {
   project: Project
 }
 
+// Predefined motion components to avoid recreation
 const MotionBox = motion(Box)
 const MotionImage = motion(Image)
 
+/**
+ * CoverImage renders the project cover image with hover effect.
+ */
 const CoverImage = memo(
   ({
     height,
@@ -64,15 +68,19 @@ const CoverImage = memo(
       objectFit="cover"
       objectPosition={objectPosition || 'center'}
       loading="lazy"
+      borderTopRadius="lg"
       whileHover={{
         scale: 1.05,
         transition: { duration: 0.3, ease: 'easeOut' },
       }}
-      borderTopRadius="lg"
     />
   )
 )
 
+/**
+ * ProjectDescription displays project details including title, tags,
+ * description, feature list and CTA buttons.
+ */
 const ProjectDescription = memo(
   ({
     idx,
@@ -84,6 +92,7 @@ const ProjectDescription = memo(
     const { t } = useTranslation('common')
     const [isExpanded, setIsExpanded] = useState(false)
 
+    // Build the action buttons based on available project links.
     const buttons = useMemo(
       () => [
         {
@@ -109,8 +118,10 @@ const ProjectDescription = memo(
       [ctaUrl, project, t]
     )
 
+    // Shared color values.
     const titleColor = useColorModeValue('gray.700', 'whiteAlpha.900')
     const descriptionColor = useColorModeValue('gray.600', 'gray.300')
+    const borderColor = useColorModeValue('gray.200', 'gray.600')
     const bgBadge = useColorModeValue('gray.100', 'gray.700')
 
     return (
@@ -123,8 +134,9 @@ const ProjectDescription = memo(
         >
           {title}
         </Heading>
-        <Divider borderColor={useColorModeValue('gray.200', 'gray.600')} />
+        <Divider borderColor={borderColor} />
 
+        {/* Render project tags */}
         <Wrap justify="center">
           {project.tags.map((tag, i) => (
             <WrapItem key={i}>
@@ -192,6 +204,7 @@ const ProjectDescription = memo(
                     as="a"
                     href={url}
                     target="_blank"
+                    rel="noreferrer"
                     size="sm"
                     colorScheme="blue"
                     leftIcon={icon}
@@ -208,6 +221,9 @@ const ProjectDescription = memo(
   }
 )
 
+/**
+ * FeaturedCard renders a project card with a cover image and project details.
+ */
 const FeaturedCard = memo(
   ({
     idx,
