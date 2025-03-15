@@ -79,7 +79,7 @@ export const getStaticProps: GetStaticProps<PortfolioProps> = async ({
   const locale = (params?.locale as SupportedLocale) || 'en'
 
   try {
-    console.log(`Generating page for locale: ${locale}`) 
+    console.log(`Generating page for locale: ${locale}`)
 
     return {
       props: {
@@ -121,7 +121,6 @@ const Portfolio = ({ locale }: PortfolioProps): JSX.Element => {
   const sideBarPadding = useBreakpointValue(BREAKPOINT_CONFIG.sideBarPadding)
   const mainContent = useBreakpointValue(BREAKPOINT_CONFIG.mainContent)
   const paddTop = useBreakpointValue(BREAKPOINT_CONFIG.topPadding)
-
 
   return (
     <Box overflowX="hidden">
