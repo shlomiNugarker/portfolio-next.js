@@ -13,14 +13,24 @@ interface LoadingFallbackProps {
   lines?: number
 }
 
+/**
+ * LoadingFallback component for displaying skeletons while content loads.
+ *
+ * @param height - The height for the skeleton element.
+ * @param width - The width of the container.
+ * @param lines - Number of lines for the SkeletonText.
+ */
 const LoadingFallback = memo(
   ({
     height = { base: '150px', md: '200px' },
     width = '100%',
     lines = 3,
   }: LoadingFallbackProps) => {
+    // Consolidate repeated color values to optimize hooks usage
     const bgColor = useColorModeValue('white', 'gray.800')
     const borderColor = useColorModeValue('gray.100', 'gray.700')
+    const startColor = useColorModeValue('gray.50', 'gray.700')
+    const endColor = useColorModeValue('gray.200', 'gray.600')
 
     return (
       <Box
@@ -35,15 +45,14 @@ const LoadingFallback = memo(
           <Skeleton
             height={height}
             borderRadius="md"
-            startColor={useColorModeValue('gray.50', 'gray.700')}
-            endColor={useColorModeValue('gray.200', 'gray.600')}
+            startColor={startColor}
+            endColor={endColor}
           />
-
           <SkeletonText
             noOfLines={lines}
             spacing={4}
-            startColor={useColorModeValue('gray.50', 'gray.700')}
-            endColor={useColorModeValue('gray.200', 'gray.600')}
+            startColor={startColor}
+            endColor={endColor}
           />
         </VStack>
       </Box>

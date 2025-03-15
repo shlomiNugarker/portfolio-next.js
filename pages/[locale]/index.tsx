@@ -5,9 +5,13 @@ import {
   Stack,
   Box,
   useBreakpointValue,
+  BoxProps
 } from '@chakra-ui/react'
 import dynamic from 'next/dynamic'
-import { memo, Suspense } from 'react'
+import { memo, Suspense, ReactNode } from 'react'
+import { GetStaticPaths, GetStaticProps } from 'next'
+
+// Components
 import OpenGraphHead from 'components/Misc/OpenGraphHead'
 import FadeInLayout from 'components/Layout/FadeWhenVisible'
 import Menu from 'components/Menu'
@@ -15,14 +19,12 @@ import Sidebar from 'components/Sidebar'
 import About from 'components/Sections/About'
 import FeaturedWorks from 'components/Sections/FeaturedWorks'
 import ScrollMore from 'components/Misc/ScrollMore'
-import ErrorBoundary from 'components/Misc/ErrorBoundary' // You'll need to create this
-import LoadingFallback from 'components/Misc/LoadingFallback' // You'll need to create this
-
-import { GetStaticPaths, GetStaticProps } from 'next'
+import ErrorBoundary from 'components/Misc/ErrorBoundary'
+import LoadingFallback from 'components/Misc/LoadingFallback'
 import ButterflyButton from 'components/Misc/ButterflyButton'
 
 // Constants
-const SUPPORTED_LOCALES = [
+export const SUPPORTED_LOCALES = [
   'en',
   'he',
   'ar',
@@ -32,8 +34,13 @@ const SUPPORTED_LOCALES = [
   'de',
   'hi',
 ] as const
-type SupportedLocale = (typeof SUPPORTED_LOCALES)[number]
+export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number]
 
+interface PortfolioProps {
+  locale: SupportedLocale;
+}
+
+// Responsive configuration
 const BREAKPOINT_CONFIG = {
   sideBarPadding: { base: '5', md: '8', lg: '14' },
   mainContent: { base: '5', md: '14', lg: '14', xl: '0' },
@@ -49,18 +56,24 @@ const BREAKPOINT_CONFIG = {
   },
 } as const
 
-// Dynamically imported components with loading states
+// Dynamically imported components with proper loading states
 const GetInTouch = dynamic(() => import('components/Sections/GetInTouch'), {
   loading: () => <LoadingFallback />,
-  ssr: false,
+  ssr: false, // Disable server-side rendering for contact form
 })
 
+/**
+ * Generate static paths for all supported locales
+ */
 export const getStaticPaths: GetStaticPaths = async () => ({
   paths: SUPPORTED_LOCALES.map((locale) => ({ params: { locale } })),
-  fallback: false,
+  fallback: false, // Return 404 for unsupported locales
 })
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+/**
+ * Get static props for the portfolio page with translations
+ */
+export const getStaticProps: GetStaticProps<PortfolioProps> = async ({ params }) => {
   const locale = (params?.locale as SupportedLocale) || 'en'
 
   try {
@@ -69,16 +82,25 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         ...(await serverSideTranslations(locale, ['common'])),
         locale,
       },
+      // Add revalidation for incremental static regeneration (ISR)
+      revalidate: 3600, // Revalidate once per hour
     }
   } catch (error) {
-    console.error(`Failed to build page for locale ${locale}:`, error)
+    console.error(`Failed to build page for locale ${locale}:`, error instanceof Error ? error.message : String(error))
     return { notFound: true }
   }
 }
 
-// Memoized content sections
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const ContentSection = memo(({ id, children, ...props }: any) => (
+// Define interface for ContentSection props
+interface ContentSectionProps extends BoxProps {
+  id: string;
+  children: ReactNode;
+}
+
+/**
+ * Memoized ContentSection component
+ */
+const ContentSection = memo(({ id, children, ...props }: ContentSectionProps) => (
   <FadeInLayout>
     <Box id={id} className="contentRow" {...props}>
       {children}
@@ -87,7 +109,11 @@ const ContentSection = memo(({ id, children, ...props }: any) => (
 ))
 ContentSection.displayName = 'ContentSection'
 
-const Portfolio = (): JSX.Element => {
+/**
+ * Main Portfolio component
+ */
+const Portfolio = ({ locale }: PortfolioProps): JSX.Element => {
+  // Responsive values using Chakra UI's hooks
   const sideBarPadding = useBreakpointValue(BREAKPOINT_CONFIG.sideBarPadding)
   const mainContent = useBreakpointValue(BREAKPOINT_CONFIG.mainContent)
   const paddTop = useBreakpointValue(BREAKPOINT_CONFIG.topPadding)
@@ -103,6 +129,7 @@ const Portfolio = (): JSX.Element => {
           templateRows={BREAKPOINT_CONFIG.gridRows}
           gap={2}
         >
+          {/* Sidebar section */}
           <GridItem
             padding={sideBarPadding}
             marginTop={paddTop}
@@ -117,6 +144,7 @@ const Portfolio = (): JSX.Element => {
             <Sidebar />
           </GridItem>
 
+          {/* Main content section */}
           <GridItem
             as="main"
             padding={mainContent}
@@ -124,7 +152,8 @@ const Portfolio = (): JSX.Element => {
             colSpan={{ base: 1, sm: 2, md: 2, lg: 3, xl: 3 }}
             overflow="hidden"
           >
-            <Stack w="100" spacing={4}>
+            <Stack w="100%" spacing={4}>
+              {/* About section */}
               <ContentSection
                 id="aboutMe"
                 minH={{ lg: '100vh' }}
@@ -140,6 +169,7 @@ const Portfolio = (): JSX.Element => {
                 <About />
               </ContentSection>
 
+              {/* Works section */}
               <ContentSection
                 id="works"
                 paddingTop={{ base: 0, lg: 20, xl: 20 }}
@@ -150,6 +180,7 @@ const Portfolio = (): JSX.Element => {
                 <FeaturedWorks />
               </ContentSection>
 
+              {/* Contact section */}
               <ContentSection id="contact" paddingX={0} flexDirection="row">
                 <Suspense fallback={<LoadingFallback />}>
                   <GetInTouch />

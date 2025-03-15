@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react'
+import { memo, useCallback, useMemo } from 'react'
 import {
   Container,
   Button,
@@ -8,6 +8,7 @@ import {
   useColorMode,
   useColorModeValue,
   useBreakpointValue,
+  VisuallyHidden,
 } from '@chakra-ui/react'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 import { motion, useCycle } from 'framer-motion'
@@ -18,14 +19,19 @@ import { ThemeMode, mobileBreakpointsMap } from 'config/theme'
 import { easing, menuAnim } from 'config/animations'
 import useScrollDirection, { ScrollDirection } from 'hooks/useScrollDirection'
 
+// Pre-define motion components to prevent re-creation on each render
 const MotionContainer = motion(Container)
 
+// Define navigation links as a constant for better maintainability
 const NAV_LINKS = [
   { key: 'about', baseHref: '#aboutMe', defaultHref: '#' },
   { key: 'works', baseHref: '#works', defaultHref: '#works' },
   { key: 'contact', baseHref: '#contact', defaultHref: '#contact' },
-]
+] as const
 
+/**
+ * Navigation component that handles both mobile and desktop navigation
+ */
 const Navigation = () => {
   const { t, i18n } = useTranslation('common')
   const { toggleColorMode, colorMode } = useColorMode()
@@ -35,18 +41,20 @@ const Navigation = () => {
   const direction = i18n.dir()
   const isRtl = direction === 'rtl'
 
+  // Responsive and theme values
   const menuButtonSize = useBreakpointValue({ base: 'xl', md: 'sm' })
   const bg = useColorModeValue(
-    'rgba(237, 242, 247, 0.95)',
-    'rgba(18, 18, 18, 0.9)'
+    'rgba(237, 242, 247, 0.95)', // Light mode with slight transparency
+    'rgba(18, 18, 18, 0.9)'      // Dark mode with slight transparency
   )
   const borderColor = useColorModeValue('teal.500', 'cyan.200')
   const isDarkMode = colorMode === ThemeMode.Dark
   const btnClassName = `${styles.blogBtn} ${!isDarkMode && styles.dark}`
   const ThemeIcon = isDarkMode ? SunIcon : MoonIcon
 
+  // Handle navigation item clicks
   const onMenuItemClick = useCallback(
-    (e) => {
+    (e: React.MouseEvent) => {
       e.stopPropagation()
       if (isMobile) {
         toggleOpen()
@@ -55,21 +63,21 @@ const Navigation = () => {
     [isMobile, toggleOpen]
   )
 
-  const navWidth = !isMobile
-    ? scrollDirection === ScrollDirection.Down
-      ? '12%'
-      : '100%'
-    : '100%'
-  const navRight = !isMobile
-    ? scrollDirection === ScrollDirection.Down
-      ? '2%'
-      : '3.5%'
-    : undefined
-  const navTop = isMobile ? (isOpen ? undefined : '-100vh') : undefined
-  const navOpacity = isMobile ? (isOpen ? 1 : 0) : 1
+  // Compute navigation layout values based on current state
+  const navStyles = useMemo(() => {
+    const isScrollingDown = scrollDirection === ScrollDirection.Down
+    
+    return {
+      width: !isMobile ? (isScrollingDown ? '12%' : '100%') : '100%',
+      right: !isMobile ? (isScrollingDown ? '2%' : '3.5%') : undefined,
+      top: isMobile ? (isOpen ? undefined : '-100vh') : undefined,
+      opacity: isMobile ? (isOpen ? 1 : 0) : 1
+    }
+  }, [isMobile, isOpen, scrollDirection])
 
   return (
     <>
+      {/* Mobile menu toggle and theme toggle */}
       <Box
         display={{ base: 'flex', xl: 'none' }}
         alignItems="center"
@@ -79,7 +87,7 @@ const Navigation = () => {
         top="3%"
       >
         <IconButton
-          aria-label="Color Mode"
+          aria-label={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
           variant="ghost"
           icon={<ThemeIcon />}
           onClick={toggleColorMode}
@@ -92,18 +100,19 @@ const Navigation = () => {
         />
       </Box>
 
+      {/* Main navigation container */}
       <MotionContainer
-        width={navWidth}
+        width={navStyles.width}
         backgroundColor={bg}
         maxWidth={{ base: '100%', sm: '100%', lg: '50%', xl: '60%' }}
         className={`${styles.menu} ${isRtl ? styles.rtl : ''}`}
-        right={navRight}
+        right={navStyles.right}
         initial="hide"
         animate={!isMobile || isOpen ? 'show' : 'hide'}
         style={{
-          width: navWidth,
-          top: navTop,
-          opacity: navOpacity,
+          width: navStyles.width,
+          top: navStyles.top,
+          opacity: navStyles.opacity,
         }}
         borderColor={isOpen && isMobile ? borderColor : undefined}
         borderBottomWidth={isOpen && isMobile ? '1px' : undefined}
@@ -113,6 +122,9 @@ const Navigation = () => {
         marginTop={0}
         paddingTop={1}
         as="nav"
+        aria-expanded={isOpen}
+        role="navigation"
+        aria-label="Main Navigation"
       >
         <Flex
           justifyContent={{ base: 'center', lg: 'flex-end' }}
@@ -129,6 +141,7 @@ const Navigation = () => {
           paddingBottom={isMobile ? 10 : '0'}
           onClick={() => isMobile && toggleOpen()}
         >
+          {/* Navigation links */}
           {NAV_LINKS.map(({ key, baseHref, defaultHref }) => (
             <Box
               key={key}
@@ -147,21 +160,27 @@ const Navigation = () => {
                 href={isMobile ? baseHref : defaultHref}
                 rel="noreferrer"
                 onClick={onMenuItemClick}
+                role="menuitem"
+                aria-label={t(`nav.${key}`) as string}
               >
                 {t(`nav.${key}`)}
               </Button>
             </Box>
           ))}
 
+          {/* Desktop theme toggle */}
           {!isMobile && (
             <Box alignItems="center" display="flex" justifyContent="center">
               <IconButton
                 marginX={1}
-                aria-label="Color Mode"
+                aria-label={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
                 variant="ghost"
                 icon={<ThemeIcon />}
                 onClick={toggleColorMode}
               />
+              <VisuallyHidden>
+                {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+              </VisuallyHidden>
             </Box>
           )}
         </Flex>

@@ -1,45 +1,73 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, memo } from 'react'
 import { useInView } from 'react-intersection-observer'
-import { motion, useAnimation } from 'framer-motion'
+import { motion, useAnimation, Variants, AnimationControls } from 'framer-motion'
 import { fadeInUpSlower } from 'config/animations'
 
 interface FadeInWhenVisibleProps {
-  children: React.ReactNode
-  delay?: number
-  triggerOnce?: boolean
-  threshold?: number
+  children: React.ReactNode;
+  delay?: number;
+  triggerOnce?: boolean;
+  threshold?: number;
+  rootMargin?: string;
+  variants?: Variants;
+  className?: string;
+  style?: React.CSSProperties;
+  onVisible?: () => void;
+  id?: string;
 }
 
+/**
+ * Component that animates its children when they enter the viewport
+ * Uses Intersection Observer API and Framer Motion for smooth animations
+ */
 const FadeInWhenVisible: React.FC<FadeInWhenVisibleProps> = ({
   children,
   delay = 0,
   triggerOnce = true,
   threshold = 0.3,
+  rootMargin = "0px",
+  variants = fadeInUpSlower,
+  className = "",
+  style = {},
+  onVisible,
+  id,
 }) => {
-  const controls = useAnimation()
+  const controls: AnimationControls = useAnimation()
   const [ref, inView] = useInView({
     threshold,
     triggerOnce,
+    rootMargin,
   })
 
   useEffect(() => {
     if (inView) {
       controls.start('animate')
+      onVisible?.()
+    } else if (!triggerOnce) {
+      controls.start('initial')
     }
-  }, [controls, inView])
+  }, [controls, inView, onVisible, triggerOnce])
 
   return (
     <motion.div
-      style={{ margin: 0 }}
+      id={id}
+      className={className}
+      style={{ margin: 0, ...style }}
       ref={ref}
       animate={controls}
       initial="initial"
-      variants={fadeInUpSlower}
-      transition={{ delay }}
+      variants={variants}
+      transition={{ 
+        delay, 
+        duration: 0.5,
+        ease: [0.6, 0.05, -0.01, 0.9] 
+      }}
+      data-testid="fade-in-container"
     >
       {children}
     </motion.div>
   )
 }
 
-export default FadeInWhenVisible
+// Use memo to prevent unnecessary re-renders
+export default memo(FadeInWhenVisible)
