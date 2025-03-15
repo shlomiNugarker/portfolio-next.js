@@ -152,7 +152,6 @@ const Sidebar = () => {
                 width={14}
                 href={href}
                 target="_blank"
-                _focus={{ boxShadow: 'outline' }}
                 _hover={{ color: 'teal.400', transform: 'scale(1.1)' }}
                 transition="all 0.3s ease"
                 color="teal.500"

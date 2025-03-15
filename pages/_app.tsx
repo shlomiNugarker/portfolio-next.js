@@ -87,5 +87,4 @@ function SNSite({ Component, pageProps }: AppProps): JSX.Element {
   )
 }
 
-// HOC to add translation support
 export default appWithTranslation(SNSite)
