@@ -79,14 +79,13 @@ export const getStaticProps: GetStaticProps<PortfolioProps> = async ({
   const locale = (params?.locale as SupportedLocale) || 'en'
 
   try {
-    console.log(`Generating page for locale: ${locale}`) // לוג לבדיקה
+    console.log(`Generating page for locale: ${locale}`) 
 
     return {
       props: {
         ...(await serverSideTranslations(locale, ['common'])),
         locale,
       },
-      revalidate: 3600, // Revalidate once per hour
     }
   } catch (error) {
     console.error(
@@ -123,7 +122,6 @@ const Portfolio = ({ locale }: PortfolioProps): JSX.Element => {
   const mainContent = useBreakpointValue(BREAKPOINT_CONFIG.mainContent)
   const paddTop = useBreakpointValue(BREAKPOINT_CONFIG.topPadding)
 
-  console.log(`Current locale: ${locale}`) // בדיקה אם ה-locale מגיע כראוי
 
   return (
     <Box overflowX="hidden">
