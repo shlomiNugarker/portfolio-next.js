@@ -1,10 +1,10 @@
-.skillModal::-webkit-scrollbar{
- width: 0.5em;
+.skillModal::-webkit-scrollbar {
+  width: 0.5em;
 }
-.skillModal::-webkit-scrollbar-track-piece{
+.skillModal::-webkit-scrollbar-track-piece {
   width: 10px;
 }
-.skillModal::-webkit-scrollbar-thumb{
+.skillModal::-webkit-scrollbar-thumb {
   /* background: var(--chakra-colors-gray-600); */
   border-radius: 1em;
 }
@@ -60,7 +60,6 @@
   z-index: -2;
 }
 
-
 @keyframes floatCircle {
   0% {
     transform: translate(0, 0) scale(1);
@@ -79,8 +78,7 @@
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 
-    0 8px 32px 0 rgba(31, 38, 135, 0.05),
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05),
     inset 0 0 0 1px rgba(255, 255, 255, 0.07);
   position: relative;
   z-index: 2;
@@ -100,7 +98,7 @@
   z-index: -1;
 }
 
-[data-theme="dark"] .glassCard {
+[data-theme='dark'] .glassCard {
   background: rgba(0, 0, 0, 0.2);
   border-color: rgba(255, 255, 255, 0.05);
 }
@@ -134,9 +132,7 @@
 
 .techItem:hover {
   transform: translateY(-4px) scale(1.02);
-  box-shadow: 
-    0 12px 24px -8px rgba(0, 0, 0, 0.15),
-    0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Improved Floating Animation */
@@ -165,19 +161,21 @@
     top: -25%;
     left: -25%;
   }
-  
+
   .skillModal::after {
     width: 140%;
     height: 140%;
     bottom: -20%;
     right: -20%;
   }
-  
+
   .techItem:hover {
     transform: translateY(-2px) scale(1.01);
   }
 
-  .skillModal, .glassCard, .techItem {
+  .skillModal,
+  .glassCard,
+  .techItem {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -186,7 +184,9 @@
 }
 
 @media (min-width: 769px) {
-  .skillModal, .glassCard, .techItem {
+  .skillModal,
+  .glassCard,
+  .techItem {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -196,7 +196,7 @@
 
 /* Improved Text Effects */
 .gradientText {
-  background: linear-gradient(135deg, #4FD1C5 0%, #63B3ED 100%);
+  background: linear-gradient(135deg, #4fd1c5 0%, #63b3ed 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

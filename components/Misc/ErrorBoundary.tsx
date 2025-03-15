@@ -37,11 +37,7 @@ const ErrorFallback = ({ onReset }: { onReset: () => void }) => {
             Don&apos;t worry! You can try refreshing the page or clicking the
             button below.
           </Text>
-          <Button
-            onClick={onReset}
-            colorScheme="blue"
-            size="sm"
-          >
+          <Button onClick={onReset} colorScheme="blue" size="sm">
             Try Again
           </Button>
         </VStack>

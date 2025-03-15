@@ -27,7 +27,7 @@ declare global {
 const Avatar = () => {
   // Memoize MotionBox to prevent unnecessary re-renders
   const MotionBox = useMemo(() => motion(Box), [])
-  
+
   const imgAvatar = useColorModeValue(
     AvatarImages.LightMode,
     AvatarImages.DarkMode
@@ -70,9 +70,9 @@ const Avatar = () => {
           margin="auto"
           loading="eager"
           fallback={
-            <SkeletonCircle 
-              height="100%" 
-              width="100%" 
+            <SkeletonCircle
+              height="100%"
+              width="100%"
               startColor={useColorModeValue('gray.200', 'gray.700')}
               endColor={useColorModeValue('gray.300', 'gray.600')}
             />

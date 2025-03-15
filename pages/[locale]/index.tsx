@@ -22,8 +22,17 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import ButterflyButton from 'components/Misc/ButterflyButton'
 
 // Constants
-const SUPPORTED_LOCALES = ['en', 'he', 'ar', 'ru', 'fr', 'es', 'de', 'hi'] as const
-type SupportedLocale = typeof SUPPORTED_LOCALES[number]
+const SUPPORTED_LOCALES = [
+  'en',
+  'he',
+  'ar',
+  'ru',
+  'fr',
+  'es',
+  'de',
+  'hi',
+] as const
+type SupportedLocale = (typeof SUPPORTED_LOCALES)[number]
 
 const BREAKPOINT_CONFIG = {
   sideBarPadding: { base: '5', md: '8', lg: '14' },
@@ -53,7 +62,7 @@ export const getStaticPaths: GetStaticPaths = async () => ({
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const locale = (params?.locale as SupportedLocale) || 'en'
-  
+
   try {
     return {
       props: {
@@ -140,11 +149,7 @@ const Portfolio = (): JSX.Element => {
                 <FeaturedWorks />
               </ContentSection>
 
-              <ContentSection
-                id="contact"
-                paddingX={0}
-                flexDirection="row"
-              >
+              <ContentSection id="contact" paddingX={0} flexDirection="row">
                 <Suspense fallback={<LoadingFallback />}>
                   <GetInTouch />
                 </Suspense>

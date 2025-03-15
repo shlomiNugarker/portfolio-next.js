@@ -1,9 +1,11 @@
 # Portfolio Next.js
 
 ## 📌 Overview
+
 This is a **Next.js** portfolio website built using **TypeScript**, **Tailwind CSS**, and **framer-motion** for smooth animations. The project supports multiple languages, dynamic project displays, and modern UI design.
 
 ## 🚀 Features
+
 - **Multi-language Support** (`next-i18next` for i18n)
 - **Smooth Animations** (`framer-motion` for transitions and effects)
 - **Modular Components** (Re-usable and scalable design)
@@ -11,6 +13,7 @@ This is a **Next.js** portfolio website built using **TypeScript**, **Tailwind C
 - **Tailwind CSS** (For modern styling and responsiveness)
 
 ## 📂 Project Structure
+
 ```
 /portfolio-next.js-main
 │── /components        # Reusable UI components
@@ -23,6 +26,7 @@ This is a **Next.js** portfolio website built using **TypeScript**, **Tailwind C
 ```
 
 ## 🛠 Tech Stack
+
 - **Frontend**: Next.js, React, TypeScript
 - **Styling**: Tailwind CSS, CSS Modules
 - **Animations**: framer-motion
@@ -30,6 +34,7 @@ This is a **Next.js** portfolio website built using **TypeScript**, **Tailwind C
 - **State Management**: Configuration-based data loading
 
 ## ⚡ Installation & Setup
+
 1. Clone the repository:
    ```sh
    git clone https://github.com/shlomiNugarker/portfolio-next.js-main.git
@@ -57,24 +62,29 @@ This is a **Next.js** portfolio website built using **TypeScript**, **Tailwind C
 5. Open `http://localhost:3000` in your browser.
 
 ## 🏗 Deployment
+
 To deploy on **Vercel**, run:
+
 ```sh
 vercel
 ```
+
 Alternatively, for static export:
+
 ```sh
 npm run build && npm run export
 ```
 
 ## 🔧 Customization
+
 - Modify **projects** and **skills** in `/config/`.
 - Edit **theme settings** in `/config/theme.ts`.
 - Add new **translations** in `/config/projects.ts/`.
 
 ## 📜 License
+
 This project is licensed under the MIT License.
 
 ---
 
 💡 **Contributions & Feedback** are always welcome!
-

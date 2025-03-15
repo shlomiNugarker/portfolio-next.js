@@ -1,20 +1,20 @@
 .featureCard {
-    position: relative;
-    margin: auto;
-    overflow: hidden;
-    border-radius: 0.80em;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 0.8em;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .featureCard:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .featureCard img {
-    transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .featureCard:hover img {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
