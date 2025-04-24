@@ -539,7 +539,7 @@ const projects = [
       'Lexical',
     ],
     imgs: [
-      'https://res.cloudinary.com/duajg3ah1/image/upload/v1745521714/myPortfolio/ed56c8ee-2f23-441b-84d6-a333e45b2be1.png',
+      'https://res.cloudinary.com/duajg3ah1/image/upload/v1745521786/myPortfolio/a11fd6e9-477a-4e5d-a7da-fdcdf5144517.png',
     ],
     videoUrl: '',
     description:
