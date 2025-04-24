@@ -505,6 +505,39 @@ const projects = [
       'API מבוסס REST לניהול נתונים',
     ],
   },
+  {
+    title: 'אתר תדמית מבוסס Payload CMS',
+    tags: [
+      'Next.js',
+      'TypeScript',
+      'Payload CMS',
+      'Tailwind CSS',
+      'MongoDB',
+      'Docker',
+      'Vercel',
+      'Lexical',
+    ],
+    imgs: [
+      'https://res.cloudinary.com/duajg3ah1/image/upload/v1745521714/myPortfolio/ed56c8ee-2f23-441b-84d6-a333e45b2be1.png',
+    ],
+    videoUrl: '',
+    description:
+      'פלטפורמת תוכן מודרנית עם מערכת ניהול מתקדמת המאפשרת בניית עמודים דינמיים באמצעות בלוקים מותאמים אישית, תמיכה מלאה ב־SEO, בלוג, טפסי יצירת קשר, ניהול גלובלי של Header/Footer, ותמיכה בפריסה מלאה ב־Docker ו־Vercel.',
+    features: [
+      'מערכת CMS מבוססת Payload עם MongoDB',
+      'עורך תוכן מתקדם Lexical Rich Text',
+      'תמיכה בבלוקים דינמיים לעמודים',
+      'מערכת בלוג מלאה עם קטגוריות ופוסטים',
+      'ניהול תוכן גלובלי ל־Header ו־Footer',
+      'API מותאמים אישית ליצירת קשר, ניוזלטר, מדריכים',
+      'שימוש ב־Tailwind CSS לעיצוב רספונסיבי ונקי',
+      'אינטגרציה עם אחסון ענן לתמונות (Vercel Blob)',
+      'מוכנות לפריסה עם Docker ו־Vercel',
+      'מערכת הפניות, Meta ו-OpenGraph אוטומטיים',
+    ],
+    linkDemo: 'https://payload-cms-website-shlomi.vercel.app/',
+    linkGitHub: 'https://github.com/shlomiNugarker/payload-website',
+  },
 ]
 
 const projectsWithDynamicIds = projects.map((project, index) => ({

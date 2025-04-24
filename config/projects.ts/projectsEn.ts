@@ -526,6 +526,39 @@ const projects = [
       'REST API-based data management',
     ],
   },
+  {
+    title: 'Payload CMS-Powered Business Website',
+    tags: [
+      'Next.js',
+      'TypeScript',
+      'Payload CMS',
+      'Tailwind CSS',
+      'MongoDB',
+      'Docker',
+      'Vercel',
+      'Lexical',
+    ],
+    imgs: [
+      'https://res.cloudinary.com/duajg3ah1/image/upload/v1745521714/myPortfolio/ed56c8ee-2f23-441b-84d6-a333e45b2be1.png',
+    ],
+    videoUrl: '',
+    description:
+      'A modern content-driven platform powered by Payload CMS. Includes a dynamic block-based page builder, blog system, contact forms, global header/footer management, full SEO support, and deployment-ready setup using Docker and Vercel.',
+    features: [
+      'Payload CMS integration with MongoDB database',
+      'Advanced Lexical Rich Text editor for content',
+      'Dynamic block-based page building system',
+      'Full blog with categories, posts, and featured content',
+      'Global Header and Footer content managed via CMS',
+      'Custom API routes (Contact, Newsletter, Guides)',
+      'Fully responsive design using Tailwind CSS',
+      'Cloud-native image storage with Vercel Blob',
+      'Dockerized local development setup',
+      'Auto-generated redirects, Meta tags, and OpenGraph support',
+    ],
+    linkDemo: 'https://payload-cms-website-shlomi.vercel.app/',
+    linkGitHub: 'https://github.com/shlomiNugarker/payload-website',
+  },
 ]
 
 const projectsWithDynamicIds = projects.map((project, index) => ({
