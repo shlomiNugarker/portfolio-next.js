@@ -24,8 +24,11 @@
     "view_project": "Посмотреть проекты",
     "view_code": "Посмотреть код",
     "view_video": "Посмотреть видео",
+    "features": "Функции",
     "close_details": "Закрыть детали",
-    "show_details": "Показать детали"
+    "show_details": "Показать детали",
+    "view_details": "Смотреть детали",
+    "description_label": "Описание"
   },
 
   "nav": {

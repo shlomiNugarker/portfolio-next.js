@@ -18,6 +18,8 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  IconButton,
+  HStack,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'next-i18next'
@@ -25,6 +27,9 @@ import {
   FaExternalLinkAlt,
   FaGithub,
   FaVideo,
+  FaChevronLeft,
+  FaChevronRight,
+  FaCircle,
 } from 'react-icons/fa'
 
 export type Project = {
@@ -59,11 +64,31 @@ const MotionImage = motion(Image)
  */
 const ProjectModal = memo(({ project, isOpen, onClose }: { project: Project, isOpen: boolean, onClose: () => void }) => {
   const { t } = useTranslation('common')
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
   
   // Shared color values
   const titleColor = useColorModeValue('gray.700', 'whiteAlpha.900')
   const descriptionColor = useColorModeValue('gray.600', 'gray.300')
   const bgBadge = useColorModeValue('gray.100', 'gray.700')
+  
+  // Handle image navigation
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => 
+      prev === project.imgs.length - 1 ? 0 : prev + 1
+    )
+  }
+  
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => 
+      prev === 0 ? project.imgs.length - 1 : prev - 1
+    )
+  }
+  
+  // Reset current image index when modal closes
+  const handleClose = () => {
+    onClose()
+    setTimeout(() => setCurrentImageIndex(0), 300)
+  }
   
   // Build the action buttons based on available project links
   const buttons = useMemo(
@@ -92,22 +117,102 @@ const ProjectModal = memo(({ project, isOpen, onClose }: { project: Project, isO
   )
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size="xl" isCentered>
+    <Modal isOpen={isOpen} onClose={handleClose} size="xl" isCentered>
       <ModalOverlay backdropFilter="blur(10px)" />
-      <ModalContent>
-        <ModalHeader>{project.title}</ModalHeader>
+      <ModalContent maxH="80vh">
+        <ModalHeader
+          position="sticky"
+          top="0"
+          zIndex="sticky"
+          bg={useColorModeValue('white', 'gray.800')}
+          borderBottomWidth="1px"
+          borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
+          py={4}
+        >
+          {project.title}
+        </ModalHeader>
         <ModalCloseButton />
-        <ModalBody>
+        <ModalBody 
+          overflowY="auto"
+          css={{
+            '&::-webkit-scrollbar': {
+              width: '4px',
+            },
+            '&::-webkit-scrollbar-track': {
+              width: '6px',
+            },
+            '&::-webkit-scrollbar-thumb': {
+              background: useColorModeValue('gray.300', 'gray.600'),
+              borderRadius: '24px',
+            },
+          }}
+        >
           <Stack spacing={5}>
             {/* Image Gallery */}
-            <Box borderRadius="md" overflow="hidden">
+            <Box 
+              borderRadius="md" 
+              overflow="hidden"
+              boxShadow="md"
+              position="relative"
+            >
               <Image 
-                src={project.imgs[0]} 
-                alt={project.title}
+                src={project.imgs[currentImageIndex]} 
+                alt={`${project.title} - image ${currentImageIndex + 1}`}
                 width="100%"
                 height="auto"
+                maxH="300px"
                 objectFit="cover"
               />
+              
+              {/* Image navigation controls - only show if more than 1 image */}
+              {project.imgs.length > 1 && (
+                <>
+                  <IconButton
+                    aria-label="Previous image"
+                    icon={<FaChevronLeft />}
+                    position="absolute"
+                    left="2"
+                    top="50%"
+                    transform="translateY(-50%)"
+                    size="sm"
+                    colorScheme="whiteAlpha"
+                    borderRadius="full"
+                    onClick={prevImage}
+                  />
+                  <IconButton
+                    aria-label="Next image"
+                    icon={<FaChevronRight />}
+                    position="absolute"
+                    right="2"
+                    top="50%"
+                    transform="translateY(-50%)"
+                    size="sm"
+                    colorScheme="whiteAlpha"
+                    borderRadius="full"
+                    onClick={nextImage}
+                  />
+                  
+                  {/* Image indicators */}
+                  <HStack 
+                    spacing={1} 
+                    justify="center" 
+                    position="absolute" 
+                    bottom="2" 
+                    width="100%"
+                  >
+                    {project.imgs.map((_, index) => (
+                      <Box 
+                        key={index}
+                        as={FaCircle} 
+                        size="8px"
+                        color={index === currentImageIndex ? "white" : "whiteAlpha.600"}
+                        cursor="pointer"
+                        onClick={() => setCurrentImageIndex(index)}
+                      />
+                    ))}
+                  </HStack>
+                </>
+              )}
             </Box>
             
             {/* Tags */}
@@ -131,9 +236,14 @@ const ProjectModal = memo(({ project, isOpen, onClose }: { project: Project, isO
             </Wrap>
             
             {/* Description */}
-            <Text fontSize="md" color={descriptionColor}>
-              {project.description}
-            </Text>
+            <Box>
+              <Heading as="h4" fontSize="md" color={titleColor} mb={2}>
+                {t('projects.description_label')}
+              </Heading>
+              <Text fontSize="md" color={descriptionColor}>
+                {project.description}
+              </Text>
+            </Box>
             
             {/* Features */}
             {project.features && project.features.length > 0 && (
@@ -160,8 +270,14 @@ const ProjectModal = memo(({ project, isOpen, onClose }: { project: Project, isO
           </Stack>
         </ModalBody>
         
-        <ModalFooter>
-          <Wrap justify="center" spacing={3}>
+        <ModalFooter
+          position="sticky"
+          bottom="0"
+          bg={useColorModeValue('white', 'gray.800')}
+          borderTopWidth="1px"
+          borderTopColor={useColorModeValue('gray.200', 'gray.700')}
+        >
+          <Wrap justify="center" spacing={3} width="100%">
             {buttons.map(({ label, url, icon }, index) => (
               <WrapItem key={index}>
                 <Button
@@ -202,6 +318,7 @@ const FeaturedCard = memo(
     const bg = useColorModeValue('gray.50', 'gray.800')
     const bgHover = useColorModeValue('rgba(255, 255, 255, 0.9)', 'rgba(26, 32, 44, 0.9)')
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const { t } = useTranslation('common')
 
     return (
       <>
@@ -216,43 +333,89 @@ const FeaturedCard = memo(
             scale: 1.05,
             transition: { duration: 0.3 }
           }}
+          whileTap={{ scale: 0.95 }}
+          transition="all 0.3s"
+          height="250px"
         >
-          {/* Project Image */}
-          <Image
+          {/* Project Image with parallax effect */}
+          <MotionImage
             src={src}
             alt={title}
-            height="250px"
+            height="100%"
             width="100%"
             objectFit="cover"
             objectPosition={objectPosition || 'center'}
             transition="all 0.5s"
-            _groupHover={{ transform: 'scale(1.1)' }}
+            whileHover={{ scale: 1.1 }}
+            borderRadius="xl"
           />
           
-          {/* Overlay on hover with title */}
+          {/* Overlay on hover with title and tags */}
           <Box
             position="absolute"
             top="0"
             left="0"
             right="0"
             bottom="0"
-            bg="blackAlpha.600"
+            bgGradient="linear(to-t, blackAlpha.800, blackAlpha.400)"
             opacity="0"
-            transition="all 0.3s"
+            transition="all 0.3s ease-in-out"
             _hover={{ opacity: 1 }}
             display="flex"
+            flexDirection="column"
             alignItems="center"
             justifyContent="center"
+            padding={4}
           >
             <Heading
               size="md"
               color="white"
               textAlign="center"
-              px={4}
+              mb={3}
               textShadow="0px 2px 5px rgba(0,0,0,0.5)"
             >
               {title}
             </Heading>
+            
+            {/* Show a few tags on hover */}
+            <Wrap justify="center" mb={3}>
+              {project.tags.slice(0, 3).map((tag, i) => (
+                <WrapItem key={i}>
+                  <Badge
+                    colorScheme="teal"
+                    px={2}
+                    py={1}
+                    borderRadius="md"
+                    fontSize="xs"
+                  >
+                    {tag}
+                  </Badge>
+                </WrapItem>
+              ))}
+              {project.tags.length > 3 && (
+                <WrapItem>
+                  <Badge
+                    colorScheme="gray"
+                    px={2}
+                    py={1}
+                    borderRadius="md"
+                    fontSize="xs"
+                  >
+                    +{project.tags.length - 3}
+                  </Badge>
+                </WrapItem>
+              )}
+            </Wrap>
+            
+            <Button
+              size="sm"
+              colorScheme="blue"
+              mt={2}
+              opacity={0.9}
+              _hover={{ opacity: 1 }}
+            >
+              {t('projects.view_details')}
+            </Button>
           </Box>
         </MotionBox>
 

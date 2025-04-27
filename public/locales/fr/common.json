@@ -29,7 +29,12 @@
     "description": "Un aperçu des projets que j'ai développés – applications intelligentes, systèmes avancés et expériences utilisateur exceptionnelles. Chaque projet allie précision, créativité et technologies de pointe.",
     "view_project": "Voir le projet",
     "view_code": "Voir le code",
-    "view_video": "Voir la vidéo"
+    "view_video": "Voir la vidéo",
+    "features": "Fonctionnalités",
+    "close_details": "Fermer les détails",
+    "show_details": "Afficher les détails",
+    "view_details": "Voir les détails",
+    "description_label": "Description"
   },
 
   "nav": {

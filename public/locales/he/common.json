@@ -32,7 +32,9 @@
     "view_video": "לסרטון הדגמה",
     "features": "פיצ'רים",
     "close_details": "סגירת פרטים",
-    "show_details": "הצגת פרטים"
+    "show_details": "הצגת פרטים",
+    "view_details": "הצג פרטים",
+    "description_label": "תיאור"
   },
 
   "nav": {
