@@ -172,13 +172,15 @@ const ProjectModal = memo(
               },
             }}
           >
-            <Stack spacing={5}>
+            <Stack spacing={5} alignItems="center">
               {/* Image Gallery */}
               <Box
                 borderRadius="md"
                 overflow="hidden"
                 boxShadow="md"
                 position="relative"
+                maxW="100%"
+                w="fit-content"
               >
                 <Image
                   src={project.imgs[currentImageIndex]}
@@ -245,7 +247,7 @@ const ProjectModal = memo(
               </Box>
 
               {/* Tags */}
-              <Wrap justify="center" mt={2}>
+              <Wrap justify="center" mt={2} maxW="100%">
                 {project.tags.map((tag, i) => (
                   <WrapItem key={i}>
                     <Badge
@@ -263,7 +265,7 @@ const ProjectModal = memo(
               </Wrap>
 
               {/* Description */}
-              <Box>
+              <Box textAlign="center" maxW="100%">
                 <Heading as="h4" fontSize="md" color={titleColor} mb={2}>
                   {t('projects.description_label')}
                 </Heading>
@@ -274,11 +276,11 @@ const ProjectModal = memo(
 
               {/* Features */}
               {project.features && project.features.length > 0 && (
-                <Stack spacing={2}>
+                <Stack spacing={2} alignItems="center" maxW="100%">
                   <Heading as="h4" fontSize="md" color={titleColor}>
                     {t('projects.features')}
                   </Heading>
-                  <Wrap spacing={2}>
+                  <Wrap spacing={2} justify="center">
                     {project.features.map((feature, i) => (
                       <WrapItem key={i}>
                         <Badge

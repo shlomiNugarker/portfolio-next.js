@@ -124,7 +124,6 @@ const GetInTouch = () => {
       width="100%"
       maxW={{ base: '99%', lg: '60%', xl: '75%' }}
       py={10}
-      bg={bgColor}
       textAlign="center"
       borderTopWidth={2}
       borderColor={navyColor}
