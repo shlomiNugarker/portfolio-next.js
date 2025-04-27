@@ -139,7 +139,7 @@ const GetInTouch = () => {
             size="2xl"
             fontWeight="bold"
             letterSpacing="wide"
-            color={navyColor}
+            color={textColor}
           >
             {t('contact.title')}{' '}
             <Text
