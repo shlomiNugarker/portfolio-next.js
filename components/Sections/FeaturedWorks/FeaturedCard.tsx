@@ -128,7 +128,11 @@ const ProjectModal = memo(
     return (
       <Modal isOpen={isOpen} onClose={handleClose} size="xl" isCentered>
         <ModalOverlay backdropFilter="blur(10px)" />
-        <ModalContent maxH="80vh">
+        <ModalContent
+          maxH="80vh"
+          maxW={{ base: '95%', sm: '85%', md: '600px' }}
+          w="auto"
+        >
           <ModalHeader
             position="sticky"
             top="0"
@@ -143,16 +147,28 @@ const ProjectModal = memo(
           <ModalCloseButton />
           <ModalBody
             overflowY="auto"
-            css={{
+            sx={{
               '&::-webkit-scrollbar': {
-                width: '4px',
+                width: '6px',
+                backgroundColor: 'transparent',
               },
               '&::-webkit-scrollbar-track': {
-                width: '6px',
+                backgroundColor: 'transparent',
               },
               '&::-webkit-scrollbar-thumb': {
-                background: useColorModeValue('gray.300', 'gray.600'),
-                borderRadius: '24px',
+                backgroundColor: useColorModeValue(
+                  'rgba(0,0,0,0.2)',
+                  'rgba(255,255,255,0.2)'
+                ),
+                borderRadius: '20px',
+                border: '2px solid transparent',
+                backgroundClip: 'content-box',
+                '&:hover': {
+                  backgroundColor: useColorModeValue(
+                    'rgba(0,0,0,0.3)',
+                    'rgba(255,255,255,0.3)'
+                  ),
+                },
               },
             }}
           >
@@ -233,13 +249,11 @@ const ProjectModal = memo(
                 {project.tags.map((tag, i) => (
                   <WrapItem key={i}>
                     <Badge
-                      variant="outline"
+                      variant="subtle"
                       fontSize="xs"
-                      color="teal.500"
-                      borderColor="teal.500"
-                      bg={bgBadge}
+                      colorScheme="teal"
                       px={2}
-                      py={1}
+                      py={0.5}
                       borderRadius="md"
                     >
                       {tag}
@@ -264,20 +278,22 @@ const ProjectModal = memo(
                   <Heading as="h4" fontSize="md" color={titleColor}>
                     {t('projects.features')}
                   </Heading>
-                  <Stack spacing={2}>
+                  <Wrap spacing={2}>
                     {project.features.map((feature, i) => (
-                      <Badge
-                        key={i}
-                        fontSize="sm"
-                        colorScheme="purple"
-                        px={3}
-                        py={1}
-                        borderRadius="full"
-                      >
-                        {feature}
-                      </Badge>
+                      <WrapItem key={i}>
+                        <Badge
+                          fontSize="xs"
+                          colorScheme="purple"
+                          px={2}
+                          py={0.5}
+                          borderRadius="md"
+                          variant="subtle"
+                        >
+                          {feature}
+                        </Badge>
+                      </WrapItem>
                     ))}
-                  </Stack>
+                  </Wrap>
                 </Stack>
               )}
             </Stack>
