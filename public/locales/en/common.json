@@ -45,5 +45,14 @@
   "opengraph": {
     "title": "Shlomi | Full-Stack Developer",
     "description": "Full-stack developer with experience in building large and complex systems. Here you can see my work!"
+  },
+  
+  "404": {
+    "title": "Page Not Found | Shlomi",
+    "heading": "404",
+    "subheading": "Page Not Found",
+    "description": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
+    "go_back": "Go Back",
+    "go_home": "Go to Homepage"
   }
 }
