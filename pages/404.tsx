@@ -1,9 +1,9 @@
-import React from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import React from 'react'
+import Head from 'next/head'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import {
   Box,
   Heading,
@@ -12,14 +12,14 @@ import {
   Flex,
   Stack,
   Container,
-  useColorModeValue
-} from '@chakra-ui/react';
+  useColorModeValue,
+} from '@chakra-ui/react'
 
 const NotFound: React.FC = () => {
-  const router = useRouter();
-  const { t } = useTranslation('common');
-  const bgColor = useColorModeValue('white', 'gray.800');
-  const textColor = useColorModeValue('gray.800', 'white');
+  const router = useRouter()
+  const { t } = useTranslation('common')
+  const bgColor = useColorModeValue('white', 'gray.800')
+  const textColor = useColorModeValue('gray.800', 'white')
 
   return (
     <>
@@ -27,11 +27,11 @@ const NotFound: React.FC = () => {
         <title>{t('404.title')}</title>
         <meta name="description" content={t('404.description') as string} />
       </Head>
-      <Box 
-        as="main" 
-        minH="100vh" 
-        display="flex" 
-        alignItems="center" 
+      <Box
+        as="main"
+        minH="100vh"
+        display="flex"
+        alignItems="center"
         justifyContent="center"
         bg={bgColor}
         color={textColor}
@@ -44,24 +44,13 @@ const NotFound: React.FC = () => {
             <Heading as="h2" size="xl">
               {t('404.subheading')}
             </Heading>
-            <Text fontSize="lg">
-              {t('404.description')}
-            </Text>
+            <Text fontSize="lg">{t('404.description')}</Text>
             <Flex justifyContent="center" gap={4} mt={4}>
-              <Button 
-                onClick={() => router.back()}
-                variant="outline"
-                size="md"
-              >
+              <Button onClick={() => router.back()} variant="outline" size="md">
                 {t('404.go_back')}
               </Button>
-           
-              <Button 
-                as={Link} 
-                href="/" 
-                colorScheme="blue" 
-                size="md"
-              >
+
+              <Button as={Link} href="/" colorScheme="blue" size="md">
                 {t('404.go_home')}
               </Button>
             </Flex>
@@ -69,18 +58,18 @@ const NotFound: React.FC = () => {
         </Container>
       </Box>
     </>
-  );
-};
+  )
+}
 
 export const getStaticProps = async ({ locale }: { locale?: string }) => {
   // קבע ברירת מחדל 'en' אם locale הוא undefined
-  const safeLocale = locale || 'en';
-  
+  const safeLocale = locale || 'en'
+
   return {
     props: {
       ...(await serverSideTranslations(safeLocale, ['common'])),
     },
-  };
-};
+  }
+}
 
-export default NotFound; 
+export default NotFound

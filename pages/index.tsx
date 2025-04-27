@@ -19,17 +19,23 @@ const DEFAULT_LOCALE: SupportedLocale = 'en'
  * Root page that redirects to the appropriate locale-based route
  * Uses the user's browser language preference if available and supported
  */
-export const getServerSideProps: GetServerSideProps = async ({ req, resolvedUrl }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  resolvedUrl,
+}) => {
   try {
     // בדוק אם ה-URL כבר מכיל locale
-    const path = req.url || '';
-    const pathSegments = path.split('/').filter(Boolean);
-    
+    const path = req.url || ''
+    const pathSegments = path.split('/').filter(Boolean)
+
     // אם הנתיב כבר מכיל locale, לא נבצע הפניה
-    if (pathSegments.length > 0 && SUPPORTED_LOCALES.includes(pathSegments[0] as SupportedLocale)) {
-      return { props: {} };
+    if (
+      pathSegments.length > 0 &&
+      SUPPORTED_LOCALES.includes(pathSegments[0] as SupportedLocale)
+    ) {
+      return { props: {} }
     }
-    
+
     // Extract accept-language header and parse preferred language
     const acceptLanguage = req.headers['accept-language'] || ''
 

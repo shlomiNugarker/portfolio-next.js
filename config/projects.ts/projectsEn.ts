@@ -152,8 +152,8 @@ const projects = [
       'Multi-language interface with i18n support',
       'Interactive JSON visualization tools',
     ],
-    linkDemo: 'https://share-jason-production.up.railway.app/', 
-    linkGitHub: 'https://github.com/shlomiNugarker/share-jason', 
+    linkDemo: 'https://share-jason-production.up.railway.app/',
+    linkGitHub: 'https://github.com/shlomiNugarker/share-jason',
   },
   {
     title: 'Tetris - Classic Game in TypeScript',

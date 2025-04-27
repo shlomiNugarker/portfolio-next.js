@@ -17,8 +17,8 @@ const FeaturedWorksSection = () => {
 
   return (
     <Stack
-    width={{ base: '99%', lg: '60%', xl: '75%' }}
-    height="100%"
+      width={{ base: '99%', lg: '60%', xl: '75%' }}
+      height="100%"
       spacing={{ base: 6, xl: 8 }}
       alignItems={{ base: 'center', md: 'flex-start' }}
       textAlign="center"
@@ -47,7 +47,6 @@ const FeaturedWorksSection = () => {
             variants={fadeInUpSlower}
             whileHover={{ y: -5 }}
             transition={{ duration: 0.3 }}
-
             width="100%"
           >
             <FeaturedCard
