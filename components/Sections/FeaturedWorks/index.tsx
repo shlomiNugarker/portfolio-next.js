@@ -34,7 +34,7 @@ const FeaturedWorksSection = () => {
       </Heading>
 
       <MotionSimpleGrid
-        columns={{ base: 1, sm: 2, md: 2, xl: 2 }}
+        columns={{ base: 1, sm: 2, md: 2, xl: 3 }}
         spacing={{ base: 4, md: 6 }}
         width="100%"
         variants={galleryStagger}
