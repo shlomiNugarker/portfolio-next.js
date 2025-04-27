@@ -1,4 +1,4 @@
-import { Heading, Stack, Grid, GridItem } from '@chakra-ui/react'
+import { Heading, Stack, SimpleGrid, Box } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import FeaturedCard from './FeaturedCard'
 import { fadeInUpSlower, galleryStagger } from 'config/animations'
@@ -6,8 +6,8 @@ import { useTranslation } from 'next-i18next'
 import { projects } from 'config/projects.ts'
 import { memo } from 'react'
 
-const MotionGrid = motion(Grid)
-const MotionGridItem = motion(GridItem)
+const MotionBox = motion(Box)
+const MotionSimpleGrid = motion(SimpleGrid)
 
 const FeaturedWorksSection = () => {
   const { t, i18n } = useTranslation('common')
@@ -17,35 +17,37 @@ const FeaturedWorksSection = () => {
 
   return (
     <Stack
-      width={{ base: '99%', lg: '60%', xl: '75%' }}
-      height="100%"
+    width={{ base: '99%', lg: '60%', xl: '75%' }}
+    height="100%"
       spacing={{ base: 6, xl: 8 }}
       alignItems={{ base: 'center', md: 'flex-start' }}
-      textAlign={{ base: 'center' }}
+      textAlign="center"
     >
       <Heading
         size="2xl"
         width="100%"
-        textAlign={{ base: 'center' }}
+        textAlign="center"
         sx={{ fontVariantCaps: 'small-caps' }}
+        mb={{ base: 4, md: 6 }}
       >
         {t('projects.title')}
       </Heading>
 
-      <MotionGrid
-        templateRows="repeat(1, 1fr)"
-        templateColumns="repeat(6, 1fr)"
-        gap={{ base: 5, md: 6 }}
+      <MotionSimpleGrid
+        columns={{ base: 1, sm: 2, md: 3, xl: 4 }}
+        spacing={{ base: 4, md: 6 }}
+        width="100%"
         variants={galleryStagger}
         initial="initial"
         animate="animate"
-        width="100%"
       >
         {projectsLang.map((project, idx) => (
-          <MotionGridItem
+          <MotionBox
             key={project.id}
-            colSpan={6}
             variants={fadeInUpSlower}
+            whileHover={{ y: -5 }}
+            transition={{ duration: 0.3 }}
+
             width="100%"
           >
             <FeaturedCard
@@ -53,14 +55,14 @@ const FeaturedWorksSection = () => {
               title={project.title}
               description={project.description}
               src={project.imgs[0]}
-              height="50%"
+              height="250px"
               ctaUrl={project.linkDemo}
-              objectPosition="right 20%"
+              objectPosition="center"
               project={project}
             />
-          </MotionGridItem>
+          </MotionBox>
         ))}
-      </MotionGrid>
+      </MotionSimpleGrid>
     </Stack>
   )
 }

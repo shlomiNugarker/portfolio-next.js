@@ -2,7 +2,6 @@ import { useState, memo, useMemo } from 'react'
 import {
   Box,
   Image,
-  Divider,
   Text,
   Button,
   Stack,
@@ -11,13 +10,18 @@ import {
   WrapItem,
   Heading,
   Badge,
-  Collapse,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'next-i18next'
 import {
-  FaChevronDown,
-  FaChevronUp,
   FaExternalLinkAlt,
   FaGithub,
   FaVideo,
@@ -51,178 +55,138 @@ const MotionBox = motion(Box)
 const MotionImage = motion(Image)
 
 /**
- * CoverImage renders the project cover image with hover effect.
+ * ProjectModal displays full project details in a modal dialog
  */
-const CoverImage = memo(
-  ({
-    height,
-    src,
-    title,
-    objectPosition,
-  }: Omit<FeaturedCardProps, 'idx' | 'description' | 'ctaUrl' | 'project'>) => (
-    <MotionImage
-      height={height}
-      width="100%"
-      src={src}
-      alt={title}
-      objectFit="cover"
-      objectPosition={objectPosition || 'center'}
-      loading="lazy"
-      borderTopRadius="lg"
-      whileHover={{
-        scale: 1.05,
-        transition: { duration: 0.3, ease: 'easeOut' },
-      }}
-    />
+const ProjectModal = memo(({ project, isOpen, onClose }: { project: Project, isOpen: boolean, onClose: () => void }) => {
+  const { t } = useTranslation('common')
+  
+  // Shared color values
+  const titleColor = useColorModeValue('gray.700', 'whiteAlpha.900')
+  const descriptionColor = useColorModeValue('gray.600', 'gray.300')
+  const bgBadge = useColorModeValue('gray.100', 'gray.700')
+  
+  // Build the action buttons based on available project links
+  const buttons = useMemo(
+    () => [
+      {
+        label: t('projects.view_project'),
+        url: project.linkDemo,
+        icon: <FaExternalLinkAlt />,
+      },
+      {
+        label: t('projects.view_code'),
+        url: project.linkGitHub,
+        icon: <FaGithub />,
+      },
+      ...(project.videoUrl
+        ? [
+            {
+              label: t('projects.view_video'),
+              url: project.videoUrl,
+              icon: <FaVideo />,
+            },
+          ]
+        : []),
+    ],
+    [project, t]
   )
-)
 
-/**
- * ProjectDescription displays project details including title, tags,
- * description, feature list and CTA buttons.
- */
-const ProjectDescription = memo(
-  ({
-    idx,
-    title,
-    description,
-    ctaUrl,
-    project,
-  }: Omit<FeaturedCardProps, 'height' | 'src' | 'objectPosition'>) => {
-    const { t } = useTranslation('common')
-    const [isExpanded, setIsExpanded] = useState(false)
-
-    // Build the action buttons based on available project links.
-    const buttons = useMemo(
-      () => [
-        {
-          label: t('projects.view_project'),
-          url: ctaUrl,
-          icon: <FaExternalLinkAlt />,
-        },
-        {
-          label: t('projects.view_code'),
-          url: project.linkGitHub,
-          icon: <FaGithub />,
-        },
-        ...(project.videoUrl
-          ? [
-              {
-                label: t('projects.view_video'),
-                url: project.videoUrl,
-                icon: <FaVideo />,
-              },
-            ]
-          : []),
-      ],
-      [ctaUrl, project, t]
-    )
-
-    // Shared color values.
-    const titleColor = useColorModeValue('gray.700', 'whiteAlpha.900')
-    const descriptionColor = useColorModeValue('gray.600', 'gray.300')
-    const borderColor = useColorModeValue('gray.200', 'gray.600')
-    const bgBadge = useColorModeValue('gray.100', 'gray.700')
-
-    return (
-      <Stack p={4} spacing={3} width="100%" textAlign="center">
-        <Heading
-          as="h3"
-          fontSize={{ base: 'lg', md: 'xl' }}
-          fontWeight="semibold"
-          color={titleColor}
-        >
-          {title}
-        </Heading>
-        <Divider borderColor={borderColor} />
-
-        {/* Render project tags */}
-        <Wrap justify="center">
-          {project.tags.map((tag, i) => (
-            <WrapItem key={i}>
-              <Badge
-                variant="outline"
-                fontSize="xs"
-                color="teal.500"
-                borderColor="teal.500"
-                bg={bgBadge}
-                px={2}
-                py={1}
-                borderRadius="md"
-              >
-                {tag}
-              </Badge>
-            </WrapItem>
-          ))}
-        </Wrap>
-
-        <Button
-          size="sm"
-          variant="ghost"
-          colorScheme="teal"
-          rightIcon={isExpanded ? <FaChevronUp /> : <FaChevronDown />}
-          onClick={() => setIsExpanded(!isExpanded)}
-        >
-          {isExpanded
-            ? t('projects.close_details')
-            : t('projects.show_details')}
-        </Button>
-
-        <Collapse in={isExpanded} animateOpacity>
-          <Stack spacing={3} mt={3}>
-            <Text fontSize="sm" color={descriptionColor}>
-              {description}
-            </Text>
-
-            {project.features && project.features.length > 0 && (
-              <Stack spacing={2} align="center">
-                <Heading as="h4" fontSize="md" color={titleColor}>
-                  {t('projects.features')}
-                </Heading>
-                <Wrap justify="center">
-                  {project.features.map((feature, i) => (
-                    <WrapItem key={i}>
-                      <Badge
-                        fontSize="sm"
-                        colorScheme="purple"
-                        px={3}
-                        py={1}
-                        borderRadius="full"
-                      >
-                        {feature}
-                      </Badge>
-                    </WrapItem>
-                  ))}
-                </Wrap>
-              </Stack>
-            )}
-
+  return (
+    <Modal isOpen={isOpen} onClose={onClose} size="xl" isCentered>
+      <ModalOverlay backdropFilter="blur(10px)" />
+      <ModalContent>
+        <ModalHeader>{project.title}</ModalHeader>
+        <ModalCloseButton />
+        <ModalBody>
+          <Stack spacing={5}>
+            {/* Image Gallery */}
+            <Box borderRadius="md" overflow="hidden">
+              <Image 
+                src={project.imgs[0]} 
+                alt={project.title}
+                width="100%"
+                height="auto"
+                objectFit="cover"
+              />
+            </Box>
+            
+            {/* Tags */}
             <Wrap justify="center" mt={2}>
-              {buttons.map(({ label, url, icon }, index) => (
-                <WrapItem key={index}>
-                  <Button
-                    as="a"
-                    href={url}
-                    target="_blank"
-                    rel="noreferrer"
-                    size="sm"
-                    colorScheme="blue"
-                    leftIcon={icon}
+              {project.tags.map((tag, i) => (
+                <WrapItem key={i}>
+                  <Badge
+                    variant="outline"
+                    fontSize="xs"
+                    color="teal.500"
+                    borderColor="teal.500"
+                    bg={bgBadge}
+                    px={2}
+                    py={1}
+                    borderRadius="md"
                   >
-                    {label}
-                  </Button>
+                    {tag}
+                  </Badge>
                 </WrapItem>
               ))}
             </Wrap>
+            
+            {/* Description */}
+            <Text fontSize="md" color={descriptionColor}>
+              {project.description}
+            </Text>
+            
+            {/* Features */}
+            {project.features && project.features.length > 0 && (
+              <Stack spacing={2}>
+                <Heading as="h4" fontSize="md" color={titleColor}>
+                  {t('projects.features')}
+                </Heading>
+                <Stack spacing={2}>
+                  {project.features.map((feature, i) => (
+                    <Badge 
+                      key={i}
+                      fontSize="sm" 
+                      colorScheme="purple" 
+                      px={3} 
+                      py={1} 
+                      borderRadius="full"
+                    >
+                      {feature}
+                    </Badge>
+                  ))}
+                </Stack>
+              </Stack>
+            )}
           </Stack>
-        </Collapse>
-      </Stack>
-    )
-  }
-)
+        </ModalBody>
+        
+        <ModalFooter>
+          <Wrap justify="center" spacing={3}>
+            {buttons.map(({ label, url, icon }, index) => (
+              <WrapItem key={index}>
+                <Button
+                  as="a"
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer"
+                  size="sm"
+                  colorScheme="blue"
+                  leftIcon={icon}
+                >
+                  {label}
+                </Button>
+              </WrapItem>
+            ))}
+          </Wrap>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
+  )
+})
 
 /**
- * FeaturedCard renders a project card with a cover image and project details.
+ * FeaturedCard renders a project card with just an image and hover effect.
+ * When clicked, it opens a modal with full project details.
  */
 const FeaturedCard = memo(
   ({
@@ -236,36 +200,69 @@ const FeaturedCard = memo(
     project,
   }: FeaturedCardProps) => {
     const bg = useColorModeValue('gray.50', 'gray.800')
-    const borderColor = useColorModeValue('gray.200', 'gray.700')
+    const bgHover = useColorModeValue('rgba(255, 255, 255, 0.9)', 'rgba(26, 32, 44, 0.9)')
+    const { isOpen, onOpen, onClose } = useDisclosure()
 
     return (
-      <MotionBox
-        bg={bg}
-        borderRadius="lg"
-        borderWidth="1px"
-        borderColor={borderColor}
-        overflow="hidden"
-        boxShadow="md"
-        whileHover={{
-          scale: 1.02,
-          transition: { duration: 0.3, ease: 'easeOut' },
-        }}
-        width="100%"
-      >
-        <CoverImage
-          height={height}
-          src={src}
-          title={title}
-          objectPosition={objectPosition}
+      <>
+        <MotionBox
+          position="relative"
+          borderRadius="xl"
+          overflow="hidden"
+          cursor="pointer"
+          boxShadow="lg"
+          onClick={onOpen}
+          whileHover={{ 
+            scale: 1.05,
+            transition: { duration: 0.3 }
+          }}
+        >
+          {/* Project Image */}
+          <Image
+            src={src}
+            alt={title}
+            height="250px"
+            width="100%"
+            objectFit="cover"
+            objectPosition={objectPosition || 'center'}
+            transition="all 0.5s"
+            _groupHover={{ transform: 'scale(1.1)' }}
+          />
+          
+          {/* Overlay on hover with title */}
+          <Box
+            position="absolute"
+            top="0"
+            left="0"
+            right="0"
+            bottom="0"
+            bg="blackAlpha.600"
+            opacity="0"
+            transition="all 0.3s"
+            _hover={{ opacity: 1 }}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Heading
+              size="md"
+              color="white"
+              textAlign="center"
+              px={4}
+              textShadow="0px 2px 5px rgba(0,0,0,0.5)"
+            >
+              {title}
+            </Heading>
+          </Box>
+        </MotionBox>
+
+        {/* Project Modal */}
+        <ProjectModal 
+          project={project} 
+          isOpen={isOpen} 
+          onClose={onClose} 
         />
-        <ProjectDescription
-          idx={idx}
-          title={title}
-          description={description}
-          ctaUrl={ctaUrl}
-          project={project}
-        />
-      </MotionBox>
+      </>
     )
   }
 )

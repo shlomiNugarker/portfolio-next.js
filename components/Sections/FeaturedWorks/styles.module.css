@@ -1,20 +1,100 @@
 .featureCard {
   position: relative;
-  margin: auto;
   overflow: hidden;
-  border-radius: 0.8em;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 0.8rem;
+  transition: all 0.3s ease;
+  height: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .featureCard:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .featureCard img {
-  transition: all 0.3s ease-in-out;
+  transition: all 0.5s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .featureCard:hover img {
   transform: scale(1.1);
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 70%);
+  opacity: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+  transition: opacity 0.3s ease;
+}
+
+.featureCard:hover .imageOverlay {
+  opacity: 1;
+}
+
+.projectTitle {
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 0;
+}
+
+/* Modal styles */
+.modalContent {
+  max-width: 800px;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.modalImage {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.tagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.projectTag {
+  background-color: rgba(80, 200, 120, 0.1);
+  color: #50c878;
+  border: 1px solid #50c878;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+}
+
+.featureList {
+  margin-top: 1rem;
+}
+
+.featureItem {
+  background-color: rgba(126, 87, 194, 0.1);
+  color: #7e57c2;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  margin-right: 0.5rem;
 }
