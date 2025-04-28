@@ -1,14 +1,10 @@
-import { useEffect, memo } from 'react'
-import {
-  Container,
-  useColorModeValue,
-  useBreakpointValue,
-} from '@chakra-ui/react'
+import { memo, useEffect } from 'react'
+import { Container } from '@chakra-ui/react'
 import { motion, Variants, useAnimation, AnimatePresence } from 'framer-motion'
 import styles from './styles.module.css'
 import Navigation from './Navigation'
-import { mobileBreakpointsMap } from 'config/theme'
-import useScrollDirection, { ScrollDirection } from 'hooks/useScrollDirection'
+import { useMenuState } from './hooks/useMenuState'
+import { ScrollDirection } from 'hooks/useScrollDirection'
 
 // Animation variants for menu appearance/disappearance
 const menuVariants: Variants = {
@@ -39,27 +35,25 @@ const menuVariants: Variants = {
  * - Theme-aware styling
  */
 const Menu = () => {
-  // Theme and responsive values
-  const bg = useColorModeValue('gray.100', 'black')
-  const boxShadow = useColorModeValue(
-    '0 2px 10px rgba(0,0,0,0.05)',
-    '0 2px 10px rgba(0,0,0,0.2)'
-  )
-  const isMobile = useBreakpointValue(mobileBreakpointsMap) || false
+  // Use our custom menu state hook
+  const menuState = useMenuState(true)
+  const { isMobile, scrollDirection, isOpen } = menuState
 
   // Animation controls
   const controls = useAnimation()
-  const scrollDirection = useScrollDirection(true, isMobile)
 
   // Update animation state based on scroll direction
   useEffect(() => {
-    const shouldHide = scrollDirection === ScrollDirection.Down && isMobile
+    // Only hide when scrolling down AND menu is not open
+    const shouldHide =
+      scrollDirection === ScrollDirection.Down && isMobile && !isOpen
     controls.start(shouldHide ? 'hidden' : 'show')
-  }, [isMobile, controls, scrollDirection])
+  }, [isMobile, controls, scrollDirection, isOpen])
 
   return (
     <AnimatePresence>
       <motion.nav
+        width="100%"
         role="navigation"
         aria-label="Main Navigation"
         initial={isMobile ? 'hidden' : false}
@@ -67,9 +61,7 @@ const Menu = () => {
         animate={controls}
         className={isMobile ? styles.mobileMenuContainer : ''}
         style={{
-          backgroundColor: isMobile ? bg : 'transparent',
-          boxShadow: isMobile ? boxShadow : 'none',
-          zIndex: 1000,
+          zIndex: 9998, // Ensure proper stacking
         }}
       >
         <Container
@@ -78,7 +70,6 @@ const Menu = () => {
           justifyContent="space-between"
           padding={{ base: 5, lg: 0 }}
           py={{ base: 5, lg: 0 }}
-          backgroundColor={isMobile ? bg : 'transparent'}
           width="100%"
           maxWidth="100vw"
           margin={0}

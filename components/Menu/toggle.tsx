@@ -26,7 +26,7 @@ const Path: React.FC<PathProps> = ({ isDarkMode, ...props }) => (
   <motion.path
     fill="transparent"
     strokeWidth={STROKE_WIDTH}
-    stroke={isDarkMode ? 'hsl(240, 100%, 94%)' : 'hsl(0, 0%, 7%)'}
+    stroke={isDarkMode ? 'hsl(0, 0.70%, 27.60%)' : 'hsl(0, 2.00%, 70.80%)'}
     strokeLinecap="round"
     transition={toggleTransition}
     {...props}

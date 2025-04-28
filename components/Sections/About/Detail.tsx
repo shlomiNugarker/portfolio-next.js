@@ -1,11 +1,5 @@
 import { memo } from 'react'
-import {
-  Stack,
-  Flex,
-  Box,
-  useColorModeValue,
-  Divider,
-} from '@chakra-ui/react'
+import { Stack, Flex, Box, useColorModeValue, Divider } from '@chakra-ui/react'
 import {
   SiJavascript,
   SiTypescript,
@@ -44,7 +38,7 @@ const Detail = () => {
     'linear(to-br, rgba(255,255,255,0.01), rgba(230,240,255,0.05))',
     'linear(to-br, rgba(0,10,20,0.3), rgba(10,20,30,0.1))'
   )
-  
+
   const borderColor = useColorModeValue('gray.200', 'gray.700')
   const techBg = useColorModeValue('whiteAlpha.700', 'blackAlpha.400')
 
@@ -79,7 +73,7 @@ const Detail = () => {
         opacity="0.15"
         zIndex="0"
       />
-      
+
       <Box
         position="absolute"
         bottom="-30px"
@@ -98,10 +92,10 @@ const Detail = () => {
         delay={0.2}
         zIndex="1"
       >
-        <StyledText 
-          variant="gradient" 
-          fontSize={{ base: 'xl', md: '2xl' }} 
-          fontWeight="bold" 
+        <StyledText
+          variant="gradient"
+          fontSize={{ base: 'xl', md: '2xl' }}
+          fontWeight="bold"
           mb={2}
           letterSpacing="wide"
           textShadow="0 0 20px rgba(0,100,255,0.1)"
@@ -164,8 +158,8 @@ const Detail = () => {
         mt={2}
       >
         <StyledText
-          variant="gradient" 
-          fontWeight="bold" 
+          variant="gradient"
+          fontWeight="bold"
           fontSize={{ base: 'lg', md: 'xl' }}
           letterSpacing="wide"
         >
