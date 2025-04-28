@@ -2,15 +2,42 @@
   position: relative;
   overflow: hidden;
   border-radius: 1rem;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   height: 100%;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  background-color: #fcfcfc;
+  background-color: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.featureCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    125deg,
+    rgba(151, 223, 252, 0.05) 0%,
+    rgba(151, 223, 252, 0.02) 40%,
+    transparent 100%
+  );
+  z-index: 1;
+  pointer-events: none;
 }
 
 .featureCard:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 15px rgba(151, 223, 252, 0.2);
+}
+
+[data-theme='dark'] .featureCard {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .featureCard:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 15px rgba(99, 179, 237, 0.2);
 }
 
 .featureCard img {
@@ -39,7 +66,7 @@
   }
 
   .featureCard:hover {
-    transform: translateY(-8px);
+    transform: translateY(-5px);
   }
 }
 
@@ -57,12 +84,17 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100%);
-  opacity: 1;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0.1) 100%);
+  opacity: 0;
   display: flex;
   align-items: flex-end;
   padding: 1.5rem;
   transition: opacity 0.4s ease;
+  z-index: 2;
+}
+
+.featureCard:hover .imageOverlay {
+  opacity: 1;
 }
 
 /* Add responsive padding for mobile */
@@ -118,6 +150,8 @@
   transition: all 0.3s ease;
   opacity: 0.9;
   z-index: 2;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 /* Adjust number badge size on mobile */
@@ -134,6 +168,8 @@
 .featureCard:hover .projectNumber {
   transform: scale(1.15);
   opacity: 1;
+  background-color: rgba(99, 179, 237, 1);
+  box-shadow: 0 0 15px rgba(99, 179, 237, 0.5);
 }
 
 /* Modal styles */
@@ -142,6 +178,25 @@
   border-radius: 1.2rem;
   overflow: hidden;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Add glow and animation to modal */
+.modalContent::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    125deg,
+    rgba(151, 223, 252, 0.05) 0%,
+    rgba(151, 223, 252, 0.02) 40%,
+    transparent 100%
+  );
+  z-index: -1;
+  border-radius: 1.2rem;
 }
 
 /* Adjust modal for mobile */
@@ -178,6 +233,11 @@
   transform: scale(1.02);
 }
 
+.modalOverlay {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
 .tagContainer {
   display: flex;
   flex-wrap: wrap;
@@ -202,7 +262,13 @@
   border-radius: 2rem;
   font-size: 0.85rem;
   font-weight: 500;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme='dark'] .projectTag {
+  background-color: rgba(80, 200, 120, 0.05);
+  color: rgb(130, 255, 174);
+  border-color: rgba(80, 200, 120, 0.3);
 }
 
 /* Smaller tags on mobile */
@@ -223,6 +289,7 @@
 .projectTag:hover {
   background-color: rgba(80, 200, 120, 0.2);
   transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .featureList {
@@ -245,51 +312,126 @@
   display: inline-block;
   margin-right: 0.6rem;
   font-weight: 500;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Smaller features on mobile */
 @media (max-width: 768px) {
   .featureItem {
     padding: 0.3rem 0.8rem;
     font-size: 0.75rem;
-    margin-right: 0.5rem;
-    margin-bottom: 0.4rem;
   }
 }
 
 .featureItem:hover {
   background-color: rgba(126, 87, 194, 0.2);
   transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Modal buttons */
 .actionButton {
-  padding: 0.6rem 1.5rem;
+  padding: 0.5rem 1.2rem;
   border-radius: 2rem;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Smaller buttons on mobile */
 @media (max-width: 768px) {
   .actionButton {
-    padding: 0.5rem 1.2rem;
-    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
   .actionButton {
-    padding: 0.4rem 1rem;
+    padding: 0.35rem 0.9rem;
     font-size: 0.8rem;
-    width: 100%;
-    margin-bottom: 0.5rem;
   }
 }
 
 .actionButton:hover {
   transform: translateY(-3px);
-  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Animated background for cards */
+@keyframes floatGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradientBg {
+  background: linear-gradient(-45deg, rgba(18, 148, 108, 0.1), rgba(49, 55, 96, 0.1), rgba(99, 179, 237, 0.1), rgba(151, 223, 252, 0.1));
+  background-size: 400% 400%;
+  animation: floatGradient 15s ease infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.featureCard:hover .gradientBg {
+  opacity: 1;
+}
+
+/* Image gallery navigation */
+.galleryNav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+  z-index: 5;
+}
+
+.galleryNav:hover {
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+}
+
+.galleryNavPrev {
+  left: 1rem;
+}
+
+.galleryNavNext {
+  right: 1rem;
+}
+
+/* Loading and reveal animations */
+@keyframes revealFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.revealAnimation {
+  animation: revealFromBottom 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }

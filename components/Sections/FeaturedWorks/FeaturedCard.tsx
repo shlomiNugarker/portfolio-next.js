@@ -32,6 +32,7 @@ import {
   FaChevronRight,
   FaCircle,
 } from 'react-icons/fa'
+import styles from './styles.module.css'
 
 export type Project = {
   id: number
@@ -138,15 +139,16 @@ const ProjectModal = memo(
         isCentered
         motionPreset="slideInBottom"
       >
-        <ModalOverlay backdropFilter="blur(10px)" bg="blackAlpha.600" />
+        <ModalOverlay className={styles.modalOverlay} />
         <ModalContent
           maxH={{ base: '100vh', sm: '90vh', md: '85vh' }}
-          maxW={{ base: '70%', md: '700px' }}
+          maxW={{ base: '100%', md: '700px' }}
           w="auto"
           borderRadius={{ base: '0', sm: 'xl' }}
           overflow="hidden"
           boxShadow="2xl"
           my={{ base: 0, sm: 4 }}
+          className={styles.modalContent}
         >
           <ModalHeader
             position="sticky"
@@ -159,6 +161,7 @@ const ProjectModal = memo(
             fontSize={{ base: 'lg', sm: 'xl' }}
             fontWeight="bold"
             textAlign="center"
+            backdropFilter="blur(10px)"
           >
             {project.title}
           </ModalHeader>
@@ -200,6 +203,8 @@ const ProjectModal = memo(
                 position="relative"
                 maxW="100%"
                 w="100%"
+                className={styles.revealAnimation}
+                style={{ animationDelay: '0.1s' }}
               >
                 <Image
                   src={project.imgs[currentImageIndex]}
@@ -209,7 +214,7 @@ const ProjectModal = memo(
                   maxH={{ base: '250px', sm: '300px', md: '400px' }}
                   objectFit="cover"
                   transition="transform 0.3s ease"
-                  _hover={{ transform: 'scale(1.02)' }}
+                  className={styles.modalImage}
                 />
 
                 {/* Image navigation controls - only show if more than 1 image */}
@@ -226,6 +231,7 @@ const ProjectModal = memo(
                       colorScheme="blackAlpha"
                       borderRadius="full"
                       onClick={prevImage}
+                      className={styles.galleryNavPrev}
                       opacity={0.7}
                       _hover={{ opacity: 1 }}
                     />
@@ -240,6 +246,7 @@ const ProjectModal = memo(
                       colorScheme="blackAlpha"
                       borderRadius="full"
                       onClick={nextImage}
+                      className={styles.galleryNavNext}
                       opacity={0.7}
                       _hover={{ opacity: 1 }}
                     />
@@ -274,17 +281,23 @@ const ProjectModal = memo(
               </Box>
 
               {/* Tags */}
-              <Wrap justify="center" spacing={{ base: 2, sm: 3 }} maxW="100%">
+              <Wrap
+                justify="center"
+                spacing={{ base: 2, sm: 3 }}
+                maxW="100%"
+                className={styles.tagContainer}
+              >
                 {project.tags.map((tag, i) => (
                   <WrapItem key={i}>
                     <Badge
                       fontSize={{ base: 'xs', sm: 'sm' }}
-                      colorScheme="teal"
                       px={{ base: 2, sm: 3 }}
                       py={1}
                       borderRadius="full"
                       textTransform="lowercase"
                       fontWeight="medium"
+                      className={styles.projectTag}
+                      style={{ animationDelay: `${0.1 + i * 0.05}s` }}
                     >
                       {tag}
                     </Badge>
@@ -293,7 +306,12 @@ const ProjectModal = memo(
               </Wrap>
 
               {/* Description */}
-              <Box maxW="100%" w="100%">
+              <Box
+                maxW="100%"
+                w="100%"
+                className={styles.revealAnimation}
+                style={{ animationDelay: '0.3s' }}
+              >
                 <Heading
                   as="h4"
                   fontSize={{ base: 'md', sm: 'lg' }}
@@ -317,6 +335,8 @@ const ProjectModal = memo(
                   spacing={{ base: 3, sm: 4 }}
                   alignItems="flex-start"
                   w="100%"
+                  className={`${styles.featureList} ${styles.revealAnimation}`}
+                  style={{ animationDelay: '0.4s' }}
                 >
                   <Heading
                     as="h4"
@@ -330,12 +350,13 @@ const ProjectModal = memo(
                       <WrapItem key={i}>
                         <Badge
                           fontSize={{ base: 'xs', sm: 'sm' }}
-                          colorScheme="purple"
                           px={{ base: 2, sm: 3 }}
                           py={1}
                           borderRadius="full"
                           textTransform="lowercase"
                           fontWeight="medium"
+                          className={styles.featureItem}
+                          style={{ animationDelay: `${0.4 + i * 0.05}s` }}
                         >
                           {feature}
                         </Badge>
@@ -354,6 +375,7 @@ const ProjectModal = memo(
             borderTopWidth="1px"
             borderTopColor={borderColor}
             py={{ base: 3, sm: 4 }}
+            backdropFilter="blur(10px)"
           >
             <Flex
               justify="center"
@@ -371,6 +393,7 @@ const ProjectModal = memo(
                 boxShadow="md"
                 _hover={{ transform: 'translateY(-2px)', boxShadow: 'lg' }}
                 transition="all 0.2s"
+                className={styles.actionButton}
               >
                 {t('common:close')}
               </Button>
@@ -389,6 +412,7 @@ const ProjectModal = memo(
                   boxShadow="md"
                   _hover={{ transform: 'translateY(-2px)', boxShadow: 'lg' }}
                   transition="all 0.2s"
+                  className={styles.actionButton}
                 >
                   {label}
                 </Button>
@@ -438,7 +462,11 @@ const FeaturedCard = memo(
           height={height}
           width="100%"
           role="group"
+          className={styles.featureCard}
         >
+          {/* Animated gradient background */}
+          <Box className={styles.gradientBg} />
+
           {/* Project Image */}
           <MotionImage
             src={src}
@@ -452,26 +480,14 @@ const FeaturedCard = memo(
           />
 
           {/* Overlay for title display */}
-          <Box
-            position="absolute"
-            top="0"
-            left="0"
-            right="0"
-            bottom="0"
-            bgGradient={`linear(to-t, ${overlayBg} 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.2) 100%)`}
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            transition="opacity 0.3s ease"
-            opacity="0"
-            _groupHover={{ opacity: 1 }}
-          >
+          <Box className={styles.imageOverlay}>
             <Stack
               spacing={2}
               align="center"
               justify="center"
               p={{ base: 2, sm: 4 }}
               textAlign="center"
+              width="100%"
             >
               <Heading
                 as="h3"
@@ -480,12 +496,51 @@ const FeaturedCard = memo(
                 fontWeight="bold"
                 textShadow="0 2px 10px rgba(0,0,0,0.8)"
                 transition="transform 0.3s ease"
-                _groupHover={{ transform: 'translateY(-5px)' }}
+                className={styles.projectTitle}
               >
                 {title}
               </Heading>
+
+              {/* Preview Tags */}
+              <Wrap justify="center" spacing={2} mt={2} opacity={0.9}>
+                {project.tags.slice(0, 3).map((tag, i) => (
+                  <WrapItem key={i}>
+                    <Badge
+                      fontSize="xs"
+                      colorScheme="teal"
+                      px={2}
+                      py={0.5}
+                      borderRadius="full"
+                      textTransform="lowercase"
+                      fontWeight="medium"
+                      opacity={0.9}
+                    >
+                      {tag}
+                    </Badge>
+                  </WrapItem>
+                ))}
+                {project.tags.length > 3 && (
+                  <WrapItem>
+                    <Badge
+                      fontSize="xs"
+                      colorScheme="gray"
+                      px={2}
+                      py={0.5}
+                      borderRadius="full"
+                      textTransform="lowercase"
+                      fontWeight="medium"
+                      opacity={0.9}
+                    >
+                      +{project.tags.length - 3}
+                    </Badge>
+                  </WrapItem>
+                )}
+              </Wrap>
             </Stack>
           </Box>
+
+          {/* Project number badge */}
+          <Box className={styles.projectNumber}>{idx}</Box>
         </MotionBox>
 
         {/* Project Modal */}
