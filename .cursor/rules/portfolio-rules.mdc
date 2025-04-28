@@ -1,0 +1,59 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+---
+name: Portfolio Project Coding Rules
+description: >
+  Rules for contributing to a multilingual, responsive Next.js portfolio.
+  Ensure consistency, type-safety, and a polished user experience.
+patterns:
+  - "**/*.tsx"
+  - "**/*.ts"
+  - "**/*.css"
+  - "**/*.json"
+references:
+  - @file config/theme.ts
+  - @file config/animations.ts
+  - @file hooks/theme/useThemeStyles.ts
+  - @file components/Core/Typography.tsx
+  - @file components/Core/Grid.tsx
+  - @file components/Misc/ErrorBoundary.tsx
+  - @file components/Misc/OpenGraphHead.tsx
+---
+
+# Portfolio Project Rules
+
+## 1. TypeScript and Component Design
+- Always use **TypeScript** with strong typing.
+- Write **functional components** only. Avoid class components.
+- Keep components small, focused, and composable.
+
+## 2. Styling
+- Use **CSS Modules** (`*.module.css`) scoped to each component.
+- Prefer using `useResponsive` and `useThemeStyles` hooks for responsive styling.
+- Reuse `Typography`, `Grid`, and `Card` components when possible.
+
+## 3. Content and Internationalization
+- **Never hardcode** UI text. Always use **i18n** (`t` function) for text.
+- Update translation files (`public/locales/`) when adding new text.
+
+## 4. Pages and Layout
+- Wrap pages in the `Container` component when needed.
+- Ensure SEO best practices using `OpenGraphHead`.
+
+## 5. Accessibility
+- Add **ARIA attributes** and **alt text** to all interactive and media elements.
+- Ensure components are **keyboard accessible**.
+
+## 6. Error Handling
+- Use `ErrorBoundary` to wrap critical sections that might throw runtime errors.
+
+## 7. Code Quality
+- Respect ESLint and Prettier rules.
+- Organize exports using `index.ts` in component folders.
+- Follow existing animation patterns defined in `config/animations.ts`.
+
+---
+
