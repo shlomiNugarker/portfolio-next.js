@@ -293,7 +293,7 @@ const ProjectModal = memo(
               </Wrap>
 
               {/* Description */}
-              <Box textAlign="left" maxW="100%" w="100%">
+              <Box maxW="100%" w="100%">
                 <Heading
                   as="h4"
                   fontSize={{ base: 'md', sm: 'lg' }}
@@ -361,6 +361,19 @@ const ProjectModal = memo(
               gap={{ base: 2, sm: 4 }}
               flexWrap="wrap"
             >
+              <Button
+                onClick={handleClose}
+                size={{ base: 'sm', sm: 'md' }}
+                colorScheme="gray"
+                variant="outline"
+                borderRadius="full"
+                px={{ base: 4, sm: 6 }}
+                boxShadow="md"
+                _hover={{ transform: 'translateY(-2px)', boxShadow: 'lg' }}
+                transition="all 0.2s"
+              >
+                {t('common:close')}
+              </Button>
               {buttons.map(({ label, url, icon, colorScheme }, index) => (
                 <Button
                   key={index}

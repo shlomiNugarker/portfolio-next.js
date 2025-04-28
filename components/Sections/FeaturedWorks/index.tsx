@@ -19,12 +19,10 @@ const FeaturedWorksSection = () => {
 
   return (
     <Stack
-      width={{ base: '100%', sm: '95%', md: '90%', lg: '85%', xl: '90%' }}
+      maxW={{ base: '99%', lg: '60%', xl: '75%' }}
       height="100%"
       spacing={{ base: 6, sm: 8, md: 10, lg: 12 }}
       alignItems="center"
-      justifyContent="center"
-      mx="auto"
       px={{ base: 3, sm: 4, md: 6, lg: 8 }}
       py={{ base: 6, sm: 8, md: 10, lg: 12 }}
     >
