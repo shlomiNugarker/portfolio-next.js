@@ -43,10 +43,7 @@ const Navigation = () => {
 
   // Responsive and theme values
   const menuButtonSize = useBreakpointValue({ base: 'xl', md: 'sm' })
-  const bg = useColorModeValue(
-    'rgba(237, 242, 247, 0.95)', // Light mode with slight transparency
-    'rgba(18, 18, 18, 0.9)' // Dark mode with slight transparency
-  )
+
   const borderColor = useColorModeValue('teal.500', 'cyan.200')
   const isDarkMode = colorMode === ThemeMode.Dark
   const btnClassName = `${styles.blogBtn} ${!isDarkMode && styles.dark}`
@@ -105,7 +102,6 @@ const Navigation = () => {
       {/* Main navigation container */}
       <MotionContainer
         width={navStyles.width}
-        backgroundColor={bg}
         maxWidth={{ base: '100%', sm: '100%', lg: '50%', xl: '60%' }}
         className={`${styles.menu} ${isRtl ? styles.rtl : ''}`}
         right={navStyles.right}

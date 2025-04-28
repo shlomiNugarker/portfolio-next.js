@@ -9,7 +9,6 @@ import {
 import { useTranslation } from 'next-i18next'
 import styles from './styles.module.css'
 import { StyledText } from 'components/Core/Typography'
-import { ResponsiveGrid } from 'components/Core/Grid'
 import { AnimatedBox } from 'components/Core/Animated'
 import useThemeStyles from 'hooks/theme/useThemeStyles'
 
@@ -44,33 +43,30 @@ const Detail = () => {
         {t('description')}
       </StyledText>
 
-      <ResponsiveGrid columns={{ base: 1, md: 1 }} spacing={4} centerItems>
-        <List
-          display="flex"
-          flexWrap="wrap"
-          justifyItems="center"
-          justifyContent="center"
-          width="100%"
-        >
-          {technologies.map(({ icon, label }) => (
-            <ListItem
-              key={label}
-              display="flex"
-              alignItems="center"
-              m={3}
-              borderRadius="md"
-            >
-              <ListIcon
-                as={icon}
-                color={getPrimaryColor()}
-                fontSize="2em"
-                mr={2}
-              />
-              {label}
-            </ListItem>
-          ))}
-        </List>
-      </ResponsiveGrid>
+      <List
+        display="flex"
+        justifyItems="center"
+        justifyContent="center"
+        width="100%"
+      >
+        {technologies.map(({ icon, label }) => (
+          <ListItem
+            key={label}
+            display="flex"
+            alignItems="center"
+            m={3}
+            borderRadius="md"
+          >
+            <ListIcon
+              as={icon}
+              color={getPrimaryColor()}
+              fontSize="2em"
+              mr={2}
+            />
+            {label}
+          </ListItem>
+        ))}
+      </List>
 
       <StyledText variant="description" fontWeight="bold" fontSize="lg" mt={6}>
         {t('call_to_action')}
