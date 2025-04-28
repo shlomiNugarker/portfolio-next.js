@@ -3,7 +3,6 @@ import {
   Icon,
   Text,
   useBreakpointValue,
-  useColorModeValue,
 } from '@chakra-ui/react'
 import { RiMouseLine } from 'react-icons/ri'
 import { motion, Variants, AnimatePresence } from 'framer-motion'
@@ -11,6 +10,7 @@ import { useTranslation } from 'next-i18next'
 import useScrollDirection, { ScrollDirection } from 'hooks/useScrollDirection'
 import { mobileBreakpointsMap } from 'config/theme'
 import { memo } from 'react'
+import useThemeStyles from 'hooks/theme/useThemeStyles'
 
 // Motion variants for the scroll indicator
 const scrollMoreVariants: Variants = {
@@ -51,8 +51,7 @@ const ScrollMore = () => {
   const isRtl = direction === 'rtl'
   const isMobile = useBreakpointValue(mobileBreakpointsMap)
   const scrollDirection = useScrollDirection(false, isMobile)
-  const emailColor = useColorModeValue('gray.800', 'gray.400')
-  const emailLine = useColorModeValue('teal.500', 'cyan.200')
+  const { getTextColor, getPrimaryColor, constants } = useThemeStyles()
 
   // Consolidated style for the email container
   const emailContainerStyle = {
@@ -107,19 +106,19 @@ const ScrollMore = () => {
               as="a"
               paddingY={3}
               fontFamily="monospace"
-              href="mailto:shlomin1231@gmail.com"
+              href={`mailto:${constants.contactEmail}`}
               target="_blank"
               rel="noreferrer"
-              color={emailColor}
+              color={getTextColor()}
               position="relative"
               letterSpacing={3}
               display="flex"
               alignItems="center"
               justifyContent="center"
               _hover={{
-                color: emailLine,
+                color: getPrimaryColor(),
                 _after: {
-                  backgroundColor: emailLine,
+                  backgroundColor: getPrimaryColor(),
                   opacity: 1,
                 },
               }}
@@ -128,13 +127,13 @@ const ScrollMore = () => {
                 flex: 1,
                 width: '2px',
                 height: { base: '5em', xl: '8em' },
-                backgroundColor: emailLine,
+                backgroundColor: getPrimaryColor(),
                 opacity: 0.5,
                 margin: 'auto',
                 marginTop: '10px',
               }}
             >
-              shlomin1231@gmail.com
+              {constants.contactEmail}
             </Text>
           </motion.div>
         )}

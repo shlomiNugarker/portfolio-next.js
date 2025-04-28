@@ -1,14 +1,16 @@
-import { Heading, Stack, SimpleGrid, Box } from '@chakra-ui/react'
-import { motion } from 'framer-motion'
+import { Stack } from '@chakra-ui/react'
 import FeaturedCard from './FeaturedCard'
-import { fadeInUpSlower, galleryStagger } from 'config/animations'
 import { useTranslation } from 'next-i18next'
 import { projects } from 'config/projects.ts'
 import { memo } from 'react'
+import { StyledHeading } from 'components/Core/Typography'
+import { AnimatedContainer, AnimatedBox } from 'components/Core/Animated'
+import { ResponsiveGrid } from 'components/Core/Grid'
 
-const MotionBox = motion(Box)
-const MotionSimpleGrid = motion(SimpleGrid)
-
+/**
+ * FeaturedWorksSection displays a grid of project cards
+ * Features responsive layout and animations
+ */
 const FeaturedWorksSection = () => {
   const { t, i18n } = useTranslation('common')
   const language =
@@ -23,7 +25,7 @@ const FeaturedWorksSection = () => {
       alignItems={{ base: 'center', md: 'flex-start' }}
       textAlign="center"
     >
-      <Heading
+      <StyledHeading
         size="2xl"
         width="100%"
         textAlign="center"
@@ -31,37 +33,35 @@ const FeaturedWorksSection = () => {
         mb={{ base: 4, md: 6 }}
       >
         {t('projects.title')}
-      </Heading>
+      </StyledHeading>
 
-      <MotionSimpleGrid
-        columns={{ base: 1, sm: 2, md: 2, xl: 3 }}
-        spacing={{ base: 4, md: 6 }}
-        width="100%"
-        variants={galleryStagger}
-        initial="initial"
-        animate="animate"
-      >
-        {projectsLang.map((project, idx) => (
-          <MotionBox
-            key={project.id}
-            variants={fadeInUpSlower}
-            whileHover={{ y: -5 }}
-            transition={{ duration: 0.3 }}
-            width="100%"
-          >
-            <FeaturedCard
-              idx={idx + 1}
-              title={project.title}
-              description={project.description}
-              src={project.imgs[0]}
-              height="250px"
-              ctaUrl={project.linkDemo}
-              objectPosition="center"
-              project={project}
-            />
-          </MotionBox>
-        ))}
-      </MotionSimpleGrid>
+      <AnimatedContainer width="100%" delay={0.2}>
+        <ResponsiveGrid
+          columns={{ base: 1, sm: 2, md: 2, xl: 3 }}
+          spacing={{ base: 4, md: 6 }}
+        >
+          {projectsLang.map((project, idx) => (
+            <AnimatedBox
+              key={project.id}
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.3 }}
+              width="100%"
+              delay={idx * 0.1}
+            >
+              <FeaturedCard
+                idx={idx + 1}
+                title={project.title}
+                description={project.description}
+                src={project.imgs[0]}
+                height="250px"
+                ctaUrl={project.linkDemo}
+                objectPosition="center"
+                project={project}
+              />
+            </AnimatedBox>
+          ))}
+        </ResponsiveGrid>
+      </AnimatedContainer>
     </Stack>
   )
 }

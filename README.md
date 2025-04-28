@@ -1,90 +1,115 @@
-# Portfolio Next.js
+# Next.js Portfolio
 
-## 📌 Overview
+A modern, responsive portfolio website built with Next.js, Chakra UI, and TypeScript.
 
-This is a **Next.js** portfolio website built using **TypeScript**, **Tailwind CSS**, and **framer-motion** for smooth animations. The project supports multiple languages, dynamic project displays, and modern UI design.
+## 🌟 Features
 
-## 🚀 Features
+- **Responsive Design**: Adapts to all screen sizes
+- **Internationalization**: Multi-language support
+- **Modern Animation**: Smooth page transitions and scroll effects
+- **Theming**: Light and dark mode support
+- **Reusable Components**: Modular component architecture
+- **High Performance**: Optimized for speed and SEO
 
-- **Multi-language Support** (`next-i18next` for i18n)
-- **Smooth Animations** (`framer-motion` for transitions and effects)
-- **Modular Components** (Re-usable and scalable design)
-- **Optimized Performance** (Fast loading and lightweight structure)
-- **Tailwind CSS** (For modern styling and responsiveness)
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v16+)
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/portfolio-next.js.git
+
+# Navigate to the project directory
+cd portfolio-next.js
+
+# Install dependencies
+npm install
+# or
+yarn install
+
+# Start the development server
+npm run dev
+# or
+yarn dev
+```
+
+Visit `http://localhost:3000` to see the live site.
 
 ## 📂 Project Structure
 
 ```
-/portfolio-next.js-main
-│── /components        # Reusable UI components
-│── /config            # Configuration files (projects, skills, sidebar, theme)
-│── /pages             # Main pages (index.tsx, projects.tsx, contact.tsx)
-│── /types             # TypeScript interfaces
-│── next.config.js     # Next.js configuration
-│── package.json       # Dependencies and scripts
-│── tsconfig.json      # TypeScript settings
+portfolio-next.js/
+├── components/            # Reusable components
+│   ├── Core/              # Core UI components
+│   ├── Layout/            # Layout-related components
+│   ├── Sections/          # Page sections
+│   └── ...
+├── config/                # Configuration files
+├── hooks/                 # Custom React hooks
+├── pages/                 # Next.js pages
+├── public/                # Static assets
+├── styles/                # Styling system
+│   ├── theme/             # Theme configuration
+│   ├── shared/            # Shared styles
+│   └── globals.css        # Global styles
+├── utils/                 # Utility functions
+└── types/                 # TypeScript type definitions
 ```
 
-## 🛠 Tech Stack
+## 🎨 Styling System
 
-- **Frontend**: Next.js, React, TypeScript
-- **Styling**: Tailwind CSS, CSS Modules
-- **Animations**: framer-motion
-- **Internationalization**: next-i18next
-- **State Management**: Configuration-based data loading
+The project uses a modular styling system built on Chakra UI. See [styles/README.md](styles/README.md) for detailed documentation.
 
-## ⚡ Installation & Setup
-
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/shlomiNugarker/portfolio-next.js-main.git
-   ```
-2. Navigate into the project directory:
-   ```sh
-   cd portfolio-next.js-main
-   ```
-3. Install dependencies:
-   ```sh
-   npm install
-   ```
-   or using yarn:
-   ```sh
-   yarn install
-   ```
-4. Start the development server:
-   ```sh
-   npm run dev
-   ```
-   or using yarn:
-   ```sh
-   yarn dev
-   ```
-5. Open `http://localhost:3000` in your browser.
-
-## 🏗 Deployment
-
-To deploy on **Vercel**, run:
-
-```sh
-vercel
-```
-
-Alternatively, for static export:
-
-```sh
-npm run build && npm run export
-```
+Key features:
+- Design tokens system
+- Reusable style patterns
+- Core components library
+- Responsive utilities
 
 ## 🔧 Customization
 
-- Modify **projects** and **skills** in `/config/`.
-- Edit **theme settings** in `/config/theme.ts`.
-- Add new **translations** in `/config/projects.ts/`.
+### Theme
 
-## 📜 License
+Modify the theme in `styles/theme/tokens.ts` to change colors, typography, spacing, etc.
 
-This project is licensed under the MIT License.
+### Content
 
----
+Update the content in the appropriate components in `components/Sections/`.
 
-💡 **Contributions & Feedback** are always welcome!
+### Localization
+
+Add or modify translations in `public/locales/` directory.
+
+## 📚 Documentation
+
+- [Component Documentation](docs/components.md)
+- [Styling System](styles/README.md)
+- [Hooks Documentation](docs/hooks.md)
+
+## 📱 Responsive Design
+
+The portfolio is fully responsive with custom breakpoints:
+- Mobile: Up to 479px
+- Tablet: 480px - 767px
+- Desktop: 768px+
+
+The responsive behavior is managed through the `useResponsive` hook for consistent handling across components.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 📞 Contact
+
+Your Name - your.email@example.com
+
+Project Link: [https://github.com/yourusername/portfolio-next.js](https://github.com/yourusername/portfolio-next.js)

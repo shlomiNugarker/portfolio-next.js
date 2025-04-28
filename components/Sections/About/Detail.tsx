@@ -1,14 +1,5 @@
 import { memo } from 'react'
-import {
-  Heading,
-  Text,
-  List,
-  ListItem,
-  ListIcon,
-  SimpleGrid,
-  Stack,
-  useColorModeValue,
-} from '@chakra-ui/react'
+import { List, ListItem, ListIcon, Stack } from '@chakra-ui/react'
 import {
   SiJavascript,
   SiTypescript,
@@ -17,10 +8,17 @@ import {
 } from 'react-icons/si'
 import { useTranslation } from 'next-i18next'
 import styles from './styles.module.css'
+import { StyledText } from 'components/Core/Typography'
+import { ResponsiveGrid } from 'components/Core/Grid'
+import { AnimatedBox } from 'components/Core/Animated'
+import useThemeStyles from 'hooks/theme/useThemeStyles'
 
+/**
+ * About Detail component displays information about skills and technologies
+ */
 const Detail = () => {
   const { t } = useTranslation('common')
-  const emphasis = useColorModeValue('teal.500', 'cyan.200')
+  const { getPrimaryColor } = useThemeStyles()
 
   const technologies = [
     { icon: SiJavascript, label: t('tech.js') },
@@ -31,30 +29,26 @@ const Detail = () => {
   ]
 
   return (
-    <Stack
-      as="section"
+    <AnimatedBox
+      as={Stack}
       textAlign="center"
       width={{ base: '100%', lg: '70%' }}
-      spacing={{ base: 6, xl: 8 }}
       padding={4}
       marginY={5}
       borderRadius="md"
       className={styles.skillModal}
       alignItems="center"
+      delay={0.2}
     >
-      <Text variant="description" fontSize="lg" fontWeight="bold" mb={6}>
+      <StyledText variant="description" fontSize="lg" fontWeight="bold" mb={6}>
         {t('description')}
-      </Text>
+      </StyledText>
 
-      <SimpleGrid
-        columns={{ base: 1, md: 1 }}
-        spacing={4}
-        justifyItems="center"
-      >
+      <ResponsiveGrid columns={{ base: 1, md: 1 }} spacing={4} centerItems>
         <List
           display="flex"
           flexWrap="wrap"
-          justifyItems={'center'}
+          justifyItems="center"
           justifyContent="center"
           width="100%"
         >
@@ -66,17 +60,22 @@ const Detail = () => {
               m={3}
               borderRadius="md"
             >
-              <ListIcon as={icon} color={emphasis} fontSize="2em" mr={2} />
+              <ListIcon
+                as={icon}
+                color={getPrimaryColor()}
+                fontSize="2em"
+                mr={2}
+              />
               {label}
             </ListItem>
           ))}
         </List>
-      </SimpleGrid>
+      </ResponsiveGrid>
 
-      <Text variant="description" fontWeight="bold" fontSize="lg" mt={6}>
+      <StyledText variant="description" fontWeight="bold" fontSize="lg" mt={6}>
         {t('call_to_action')}
-      </Text>
-    </Stack>
+      </StyledText>
+    </AnimatedBox>
   )
 }
 

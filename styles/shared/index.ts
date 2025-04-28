@@ -117,4 +117,108 @@ export const glassMorphism: SystemStyleObject = {
   backgroundColor: 'rgba(255, 255, 255, 0.1)', 
   boxShadow: 'md',
   borderRadius: 'lg',
+}
+
+// Responsive spacing presets
+export const spacing = {
+  section: { base: 8, md: 12, lg: 16, xl: 20 },
+  container: { base: 4, md: 6, lg: 8 },
+  element: { base: 4, md: 6, lg: 8 },
+  tight: { base: 2, md: 3, lg: 4 },
+  loose: { base: 6, md: 8, lg: 12 },
+}
+
+// Fixed position elements with directional awareness
+export const fixedPosition = {
+  topRight: {
+    position: 'fixed',
+    top: 4,
+    right: 4,
+    zIndex: 'docked',
+  },
+  topLeft: {
+    position: 'fixed',
+    top: 4,
+    left: 4,
+    zIndex: 'docked',
+  },
+  bottomRight: {
+    position: 'fixed',
+    bottom: 4,
+    right: 4,
+    zIndex: 'docked',
+  },
+  bottomLeft: {
+    position: 'fixed',
+    bottom: 4,
+    left: 4,
+    zIndex: 'docked',
+  },
+  bottomCenter: {
+    position: 'fixed',
+    bottom: 4,
+    left: '50%',
+    transform: 'translateX(-50%)',
+    zIndex: 'docked',
+  },
+}
+
+// Text emphasis styles
+export const textEmphasis = {
+  primary: {
+    color: 'green.500',
+    fontWeight: 'bold',
+    _dark: {
+      color: 'cyan.200',
+    },
+  },
+  secondary: {
+    color: 'navy.500',
+    fontWeight: 'bold',
+    _dark: {
+      color: 'cyan.300',
+    },
+  },
+  accent: {
+    color: 'peach.500',
+    fontWeight: 'bold',
+    _dark: {
+      color: 'orange.300',
+    },
+  },
+  muted: {
+    color: 'gray.500',
+    fontStyle: 'italic',
+    _dark: {
+      color: 'gray.400',
+    },
+  },
+}
+
+// Layout utilities
+export const layoutUtils = {
+  fullWidth: {
+    width: '100%',
+    maxWidth: '100%',
+  },
+  fullHeight: {
+    height: '100%',
+    minHeight: '100%',
+  },
+  fullScreen: {
+    width: '100%',
+    height: '100vh',
+    maxWidth: '100%',
+    maxHeight: '100vh',
+  },
+  centerContent: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  spaceBetween: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
 } 

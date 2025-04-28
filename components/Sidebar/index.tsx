@@ -3,7 +3,6 @@ import {
   Stack,
   Heading,
   Text,
-  useColorMode,
   Container,
   Link,
   Box,
@@ -16,6 +15,7 @@ import styles from './styles.module.css'
 import { fadeInUp, simpleOpacity, stagger, scaleUp } from 'config/animations'
 import { SocialMedias } from 'config/sidebar'
 import { useTranslation } from 'next-i18next'
+import useThemeStyles from 'hooks/theme/useThemeStyles'
 
 // Pre-define motion components outside the component to prevent recreation on each render
 const MotionBox = motion(Box)
@@ -29,7 +29,7 @@ const MotionText = motion(Text)
  */
 const Sidebar = () => {
   const { t, i18n } = useTranslation('common')
-  const { colorMode } = useColorMode()
+  const { isDarkMode, getPrimaryColor, getSecondaryColor, getAccentColor } = useThemeStyles()
   const display = useBreakpointValue({ base: 'none', lg: 'block' })
   const direction = i18n.dir()
   const isRtl = direction === 'rtl'
@@ -73,12 +73,12 @@ const Sidebar = () => {
         id="sidebarCircle"
         className={`
           ${styles.sidebar} 
-          ${colorMode === 'light' ? styles.dark : styles.light} 
+          ${!isDarkMode ? styles.dark : styles.light} 
           ${isRtl ? styles.rtl : ''}
         `}
         variants={scaleUp}
         style={{ display }}
-        animate={colorMode === 'dark' ? 'animate' : 'lightMode'}
+        animate={isDarkMode ? 'animate' : 'lightMode'}
         aria-hidden="true" // This is decorative, so hide from screen readers
       />
 
@@ -96,6 +96,7 @@ const Sidebar = () => {
             variant="accent"
             fontWeight="light"
             width="100%"
+            color={getAccentColor()}
           >
             {t('sidebar.welcome')}
           </MotionText>
@@ -118,7 +119,7 @@ const Sidebar = () => {
             variant="emphasis"
             className={styles.marginTopSmall}
             variants={fadeInUp}
-            color="teal.500"
+            color={getPrimaryColor()}
           >
             {t('sidebar.role')}
           </MotionHeading>
@@ -152,9 +153,9 @@ const Sidebar = () => {
                 width={14}
                 href={href}
                 target="_blank"
-                _hover={{ color: 'teal.400', transform: 'scale(1.1)' }}
+                _hover={{ color: getSecondaryColor(), transform: 'scale(1.1)' }}
                 transition="all 0.3s ease"
-                color="teal.500"
+                color={getPrimaryColor()}
               >
                 <Icon
                   w={9}

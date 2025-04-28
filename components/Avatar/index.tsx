@@ -6,7 +6,8 @@ import {
 } from '@chakra-ui/react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useMemo } from 'react'
-import { avatarAnimation } from 'config/animations'
+import { scaleIn } from 'components/Core/Animated'
+import useThemeStyles from 'hooks/theme/useThemeStyles'
 
 const AVATAR_SIZE = '300px'
 const AVATAR_BORDER_RADIUS = 'full'
@@ -24,14 +25,22 @@ declare global {
   }
 }
 
+/**
+ * Avatar component displays a profile image with animations
+ * Features responsive sizing and preloading for better performance
+ */
 const Avatar = () => {
   // Memoize MotionBox to prevent unnecessary re-renders
   const MotionBox = useMemo(() => motion(Box), [])
+  const { isDarkMode } = useThemeStyles()
 
-  const imgAvatar = useColorModeValue(
-    AvatarImages.LightMode,
-    AvatarImages.DarkMode
-  )
+  // Use theme-aware color mode
+  const imgAvatar = isDarkMode ? AvatarImages.DarkMode : AvatarImages.LightMode
+  
+  // Loading states for skeleton
+  const startColor = useColorModeValue('gray.200', 'gray.700')
+  const endColor = useColorModeValue('gray.300', 'gray.600')
+  const bgColor = useColorModeValue('gray.200', 'gray.700')
 
   useEffect(() => {
     const preloadImages = () => {
@@ -56,9 +65,9 @@ const Avatar = () => {
         boxSize={{ base: AVATAR_SIZE, md: AVATAR_SIZE }}
         padding={{ base: 8 }}
         marginBottom={{ base: 10, md: 0, lg: 0 }}
-        initial="initial"
-        animate="animate"
-        variants={avatarAnimation}
+        initial="hidden"
+        animate="visible"
+        variants={scaleIn}
         exit={{ opacity: 0 }}
       >
         <ChkImage
@@ -73,11 +82,11 @@ const Avatar = () => {
             <SkeletonCircle
               height="100%"
               width="100%"
-              startColor={useColorModeValue('gray.200', 'gray.700')}
-              endColor={useColorModeValue('gray.300', 'gray.600')}
+              startColor={startColor}
+              endColor={endColor}
             />
           }
-          backgroundColor={useColorModeValue('gray.200', 'gray.700')}
+          backgroundColor={bgColor}
         />
       </MotionBox>
     </AnimatePresence>

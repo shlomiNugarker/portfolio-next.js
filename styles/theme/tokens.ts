@@ -59,6 +59,58 @@ export const semanticColors = {
   primary: colorTokens.green[500],
   secondary: colorTokens.navy[500],
   accent: colorTokens.peach[500],
+  text: {
+    light: colorTokens.gray[800],
+    dark: colorTokens.white,
+  },
+  mutedText: {
+    light: colorTokens.gray[500],
+    dark: colorTokens.gray[400],
+  },
+  background: {
+    light: colorTokens.white,
+    dark: colorTokens.gray[800],
+  },
+  card: {
+    light: colorTokens.white,
+    dark: colorTokens.gray[700],
+  },
+  divider: {
+    light: colorTokens.gray[200],
+    dark: colorTokens.gray[600],
+  },
+  button: {
+    primary: {
+      bg: {
+        light: colorTokens.green[500],
+        dark: 'cyan.400',
+      },
+      hover: {
+        light: colorTokens.green[600],
+        dark: 'cyan.500',
+      },
+    },
+    secondary: {
+      bg: {
+        light: colorTokens.navy[500],
+        dark: 'blue.500',
+      },
+      hover: {
+        light: colorTokens.navy[600],
+        dark: 'blue.600',
+      },
+    },
+    accent: {
+      bg: {
+        light: colorTokens.peach[400],
+        dark: 'orange.300',
+      },
+      hover: {
+        light: colorTokens.peach[500],
+        dark: 'orange.400',
+      },
+    },
+  },
 }
 
 // Spacing tokens (using Chakra's default spacing scale)
@@ -66,6 +118,8 @@ export const spaceTokens = {
   // Chakra's defaults are used, adding only custom ones if needed
   sidebar: { base: '1.25rem', md: '2rem', lg: '3.5rem' },
   section: { base: '1.25rem', md: '3.5rem', lg: '3.5rem', xl: '0' },
+  container: { base: '1rem', md: '1.5rem', lg: '2rem' },
+  stack: { base: '1rem', md: '1.5rem', lg: '2rem' },
 }
 
 // Typography scale
@@ -82,6 +136,30 @@ export const fontSizeTokens = {
   '6xl': '3.75rem',
   '7xl': '4.5rem',
   '8xl': '6rem',
+}
+
+// Font weights
+export const fontWeightTokens = {
+  hairline: 100,
+  thin: 200,
+  light: 300,
+  normal: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+  extrabold: 800,
+  black: 900,
+}
+
+// Line heights
+export const lineHeightTokens = {
+  normal: 'normal',
+  none: 1,
+  shorter: 1.25,
+  short: 1.375,
+  base: 1.5,
+  tall: 1.625,
+  taller: 2,
 }
 
 // Border radius
@@ -136,6 +214,20 @@ export const transitionTokens = {
   },
 }
 
+// Animation tokens
+export const animationTokens = {
+  delay: {
+    short: 0.3,
+    medium: 0.6,
+    long: 1.2,
+  },
+  stagger: {
+    fast: 0.1,
+    normal: 0.2,
+    slow: 0.3,
+  },
+}
+
 // Responsive breakpoints
 export const breakpoints = {
   sm: '30em', // 480px
@@ -176,4 +268,21 @@ export const zIndices = {
   skipLink: 1600,
   toast: 1700,
   tooltip: 1800,
+}
+
+// Application constants
+export const appConstants = {
+  contactEmail: 'shlomin1231@gmail.com',
+  contactPhone: '+972 52-952-6762',
+  socialLinks: {
+    github: 'https://github.com/yourusername',
+    linkedin: 'https://linkedin.com/in/yourusername',
+    twitter: 'https://twitter.com/yourusername',
+  },
+  animation: {
+    delay: {
+      shake: 1.2,
+      jump: 1.8,
+    },
+  },
 }

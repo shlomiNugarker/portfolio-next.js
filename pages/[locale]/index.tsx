@@ -23,6 +23,11 @@ import ErrorBoundary from 'components/Misc/ErrorBoundary'
 import LoadingFallback from 'components/Misc/LoadingFallback'
 import ButterflyButton from 'components/Misc/ButterflyButton'
 
+// Import the Core components instead of using direct imports
+import { AnimatedBox, Container, Section } from 'components/Core'
+import { layoutConfig } from 'styles/theme/tokens'
+import useResponsive from 'hooks/theme/useResponsive'
+
 // Constants
 export const SUPPORTED_LOCALES = [
   'en',
@@ -40,21 +45,8 @@ interface PortfolioProps {
   locale: SupportedLocale
 }
 
-// Responsive configuration
-const BREAKPOINT_CONFIG = {
-  sideBarPadding: { base: '5', md: '8', lg: '14' },
-  mainContent: { base: '5', md: '14', lg: '14', xl: '0' },
-  topPadding: { base: '20', sm: '20', md: '20' },
-  gridColumns: {
-    base: 'repeat(1, 1fr)',
-    lg: 'repeat(3, 1fr)',
-    xl: 'repeat(5, 1fr)',
-  },
-  gridRows: {
-    sm: 'repeat(1, 0)',
-    lg: 'repeat(2, 1fr)',
-  },
-} as const
+// Use layoutConfig from theme tokens instead of local definition
+const BREAKPOINT_CONFIG = layoutConfig
 
 // Dynamically imported components with proper loading states
 const GetInTouch = dynamic(() => import('components/Sections/GetInTouch'), {
@@ -106,21 +98,19 @@ interface ContentSectionProps extends BoxProps {
  * ContentSection component
  */
 const ContentSection = ({ id, children, ...props }: ContentSectionProps) => (
-  <FadeInLayout>
+  <AnimatedBox>
     <Box id={id} className="contentRow" {...props}>
       {children}
     </Box>
-  </FadeInLayout>
+  </AnimatedBox>
 )
 
 /**
  * Main Portfolio component
  */
 const Portfolio = ({ locale }: PortfolioProps): JSX.Element => {
-  // Responsive values using Chakra UI's hooks
-  const sideBarPadding = useBreakpointValue(BREAKPOINT_CONFIG.sideBarPadding)
-  const mainContent = useBreakpointValue(BREAKPOINT_CONFIG.mainContent)
-  const paddTop = useBreakpointValue(BREAKPOINT_CONFIG.topPadding)
+  // Use our responsive hook instead of individual breakpoint values
+  const responsive = useResponsive()
 
   return (
     <Box overflowX="hidden">
@@ -135,8 +125,8 @@ const Portfolio = ({ locale }: PortfolioProps): JSX.Element => {
         >
           {/* Sidebar section */}
           <GridItem
-            padding={sideBarPadding}
-            marginTop={paddTop}
+            padding={responsive.sideBarPadding}
+            marginTop={responsive.topPadding}
             rowSpan={2}
             colSpan={{ base: 1, sm: 1, md: 1, lg: 1, xl: 2 }}
             display="flex"
@@ -151,12 +141,12 @@ const Portfolio = ({ locale }: PortfolioProps): JSX.Element => {
           {/* Main content section */}
           <GridItem
             as="main"
-            padding={mainContent}
+            padding={responsive.mainContent}
             rowSpan={2}
             colSpan={{ base: 1, sm: 2, md: 2, lg: 3, xl: 3 }}
             overflow="hidden"
           >
-            <Stack w="100%" spacing={4}>
+            <Stack w="100%" spacing={responsive.spacing.md}>
               {/* About section */}
               <ContentSection
                 id="aboutMe"
