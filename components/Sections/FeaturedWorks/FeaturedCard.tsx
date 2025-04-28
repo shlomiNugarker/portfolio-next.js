@@ -20,6 +20,7 @@ import {
   useDisclosure,
   IconButton,
   HStack,
+  Flex,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'next-i18next'
@@ -78,7 +79,8 @@ const ProjectModal = memo(
     // Shared color values
     const titleColor = useColorModeValue('gray.700', 'whiteAlpha.900')
     const descriptionColor = useColorModeValue('gray.600', 'gray.300')
-    const bgBadge = useColorModeValue('gray.100', 'gray.700')
+    const modalBg = useColorModeValue('white', 'gray.800')
+    const borderColor = useColorModeValue('gray.200', 'gray.700')
 
     // Handle image navigation
     const nextImage = () => {
@@ -106,11 +108,13 @@ const ProjectModal = memo(
           label: t('projects.view_project'),
           url: project.linkDemo,
           icon: <FaExternalLinkAlt />,
+          colorScheme: 'blue',
         },
         {
           label: t('projects.view_code'),
           url: project.linkGitHub,
           icon: <FaGithub />,
+          colorScheme: 'gray',
         },
         ...(project.videoUrl
           ? [
@@ -118,6 +122,7 @@ const ProjectModal = memo(
                 label: t('projects.view_video'),
                 url: project.videoUrl,
                 icon: <FaVideo />,
+                colorScheme: 'red',
               },
             ]
           : []),
@@ -126,27 +131,40 @@ const ProjectModal = memo(
     )
 
     return (
-      <Modal isOpen={isOpen} onClose={handleClose} size="xl" isCentered>
-        <ModalOverlay backdropFilter="blur(10px)" />
+      <Modal
+        isOpen={isOpen}
+        onClose={handleClose}
+        size="xl"
+        isCentered
+        motionPreset="slideInBottom"
+      >
+        <ModalOverlay backdropFilter="blur(10px)" bg="blackAlpha.600" />
         <ModalContent
-          maxH="80vh"
-          maxW={{ base: '95%', sm: '85%', md: '600px' }}
+          maxH="90vh"
+          maxW={{ base: '95%', sm: '85%', md: '700px' }}
           w="auto"
+          borderRadius="xl"
+          overflow="hidden"
+          boxShadow="2xl"
         >
           <ModalHeader
             position="sticky"
             top="0"
             zIndex="sticky"
-            bg={useColorModeValue('white', 'gray.800')}
+            bg={modalBg}
             borderBottomWidth="1px"
-            borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
+            borderBottomColor={borderColor}
             py={4}
+            fontSize="xl"
+            fontWeight="bold"
+            textAlign="center"
           >
             {project.title}
           </ModalHeader>
-          <ModalCloseButton />
+          <ModalCloseButton size="lg" />
           <ModalBody
             overflowY="auto"
+            p={6}
             sx={{
               '&::-webkit-scrollbar': {
                 width: '6px',
@@ -172,23 +190,25 @@ const ProjectModal = memo(
               },
             }}
           >
-            <Stack spacing={5} alignItems="center">
+            <Stack spacing={8} alignItems="center">
               {/* Image Gallery */}
               <Box
-                borderRadius="md"
+                borderRadius="lg"
                 overflow="hidden"
-                boxShadow="md"
+                boxShadow="lg"
                 position="relative"
                 maxW="100%"
-                w="fit-content"
+                w="100%"
               >
                 <Image
                   src={project.imgs[currentImageIndex]}
                   alt={`${project.title} - image ${currentImageIndex + 1}`}
                   width="100%"
                   height="auto"
-                  maxH="300px"
+                  maxH="400px"
                   objectFit="cover"
+                  transition="transform 0.3s ease"
+                  _hover={{ transform: 'scale(1.02)' }}
                 />
 
                 {/* Image navigation controls - only show if more than 1 image */}
@@ -201,10 +221,12 @@ const ProjectModal = memo(
                       left="2"
                       top="50%"
                       transform="translateY(-50%)"
-                      size="sm"
-                      colorScheme="whiteAlpha"
+                      size="md"
+                      colorScheme="blackAlpha"
                       borderRadius="full"
                       onClick={prevImage}
+                      opacity={0.7}
+                      _hover={{ opacity: 1 }}
                     />
                     <IconButton
                       aria-label="Next image"
@@ -213,25 +235,27 @@ const ProjectModal = memo(
                       right="2"
                       top="50%"
                       transform="translateY(-50%)"
-                      size="sm"
-                      colorScheme="whiteAlpha"
+                      size="md"
+                      colorScheme="blackAlpha"
                       borderRadius="full"
                       onClick={nextImage}
+                      opacity={0.7}
+                      _hover={{ opacity: 1 }}
                     />
 
                     {/* Image indicators */}
                     <HStack
-                      spacing={1}
+                      spacing={2}
                       justify="center"
                       position="absolute"
-                      bottom="2"
+                      bottom="3"
                       width="100%"
                     >
                       {project.imgs.map((_, index) => (
                         <Box
                           key={index}
                           as={FaCircle}
-                          size="8px"
+                          size="10px"
                           color={
                             index === currentImageIndex
                               ? 'white'
@@ -239,6 +263,8 @@ const ProjectModal = memo(
                           }
                           cursor="pointer"
                           onClick={() => setCurrentImageIndex(index)}
+                          transition="all 0.2s"
+                          _hover={{ color: 'white', transform: 'scale(1.2)' }}
                         />
                       ))}
                     </HStack>
@@ -247,16 +273,17 @@ const ProjectModal = memo(
               </Box>
 
               {/* Tags */}
-              <Wrap justify="center" mt={2} maxW="100%">
+              <Wrap justify="center" spacing={3} maxW="100%">
                 {project.tags.map((tag, i) => (
                   <WrapItem key={i}>
                     <Badge
-                      variant="subtle"
-                      fontSize="xs"
+                      fontSize="sm"
                       colorScheme="teal"
-                      px={2}
-                      py={0.5}
-                      borderRadius="md"
+                      px={3}
+                      py={1}
+                      borderRadius="full"
+                      textTransform="lowercase"
+                      fontWeight="medium"
                     >
                       {tag}
                     </Badge>
@@ -265,31 +292,32 @@ const ProjectModal = memo(
               </Wrap>
 
               {/* Description */}
-              <Box textAlign="center" maxW="100%">
-                <Heading as="h4" fontSize="md" color={titleColor} mb={2}>
+              <Box textAlign="left" maxW="100%" w="100%">
+                <Heading as="h4" fontSize="lg" color={titleColor} mb={3}>
                   {t('projects.description_label')}
                 </Heading>
-                <Text fontSize="md" color={descriptionColor}>
+                <Text fontSize="md" color={descriptionColor} lineHeight="1.8">
                   {project.description}
                 </Text>
               </Box>
 
               {/* Features */}
               {project.features && project.features.length > 0 && (
-                <Stack spacing={2} alignItems="center" maxW="100%">
-                  <Heading as="h4" fontSize="md" color={titleColor}>
+                <Stack spacing={4} alignItems="flex-start" w="100%">
+                  <Heading as="h4" fontSize="lg" color={titleColor}>
                     {t('projects.features')}
                   </Heading>
-                  <Wrap spacing={2} justify="center">
+                  <Wrap spacing={3} w="100%">
                     {project.features.map((feature, i) => (
                       <WrapItem key={i}>
                         <Badge
-                          fontSize="xs"
+                          fontSize="sm"
                           colorScheme="purple"
-                          px={2}
-                          py={0.5}
-                          borderRadius="md"
-                          variant="subtle"
+                          px={3}
+                          py={1}
+                          borderRadius="full"
+                          textTransform="lowercase"
+                          fontWeight="medium"
                         >
                           {feature}
                         </Badge>
@@ -304,27 +332,32 @@ const ProjectModal = memo(
           <ModalFooter
             position="sticky"
             bottom="0"
-            bg={useColorModeValue('white', 'gray.800')}
+            bg={modalBg}
             borderTopWidth="1px"
-            borderTopColor={useColorModeValue('gray.200', 'gray.700')}
+            borderTopColor={borderColor}
+            py={4}
           >
-            <Wrap justify="center" spacing={3} width="100%">
-              {buttons.map(({ label, url, icon }, index) => (
-                <WrapItem key={index}>
-                  <Button
-                    as="a"
-                    href={url}
-                    target="_blank"
-                    rel="noreferrer"
-                    size="sm"
-                    colorScheme="blue"
-                    leftIcon={icon}
-                  >
-                    {label}
-                  </Button>
-                </WrapItem>
+            <Flex justify="center" width="100%" gap={4} flexWrap="wrap">
+              {buttons.map(({ label, url, icon, colorScheme }, index) => (
+                <Button
+                  key={index}
+                  as="a"
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer"
+                  size="md"
+                  colorScheme={colorScheme}
+                  leftIcon={icon}
+                  borderRadius="full"
+                  px={6}
+                  boxShadow="md"
+                  _hover={{ transform: 'translateY(-2px)', boxShadow: 'lg' }}
+                  transition="all 0.2s"
+                >
+                  {label}
+                </Button>
               ))}
-            </Wrap>
+            </Flex>
           </ModalFooter>
         </ModalContent>
       </Modal>
@@ -333,27 +366,19 @@ const ProjectModal = memo(
 )
 
 /**
- * FeaturedCard renders a project card with just an image and hover effect.
- * When clicked, it opens a modal with full project details.
+ * FeaturedCard renders a simplified project card showing only the title
+ * When clicked, it opens a modal with full project details
  */
 const FeaturedCard = memo(
-  ({
-    idx,
-    height,
-    src,
-    title,
-    description,
-    objectPosition,
-    ctaUrl,
-    project,
-  }: FeaturedCardProps) => {
-    const bg = useColorModeValue('gray.50', 'gray.800')
-    const bgHover = useColorModeValue(
-      'rgba(255, 255, 255, 0.9)',
-      'rgba(26, 32, 44, 0.9)'
-    )
+  ({ idx, height, src, title, objectPosition, project }: FeaturedCardProps) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const { t } = useTranslation('common')
+    const cardBg = useColorModeValue('gray.50', 'gray.800')
+    const cardHoverBg = useColorModeValue('white', 'gray.700')
+    const overlayBg = useColorModeValue(
+      'rgba(255, 255, 255, 0.85)',
+      'rgba(23, 25, 35, 0.85)'
+    )
 
     return (
       <>
@@ -362,17 +387,19 @@ const FeaturedCard = memo(
           borderRadius="xl"
           overflow="hidden"
           cursor="pointer"
-          boxShadow="lg"
+          boxShadow="md"
+          bg={cardBg}
           onClick={onOpen}
           whileHover={{
-            scale: 1.05,
-            transition: { duration: 0.3 },
+            y: -8,
+            boxShadow:
+              '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
           }}
-          whileTap={{ scale: 0.95 }}
-          transition="all 0.3s"
-          height="250px"
+          whileTap={{ scale: 0.98 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+          height={height}
         >
-          {/* Project Image with parallax effect */}
+          {/* Project Image */}
           <MotionImage
             src={src}
             alt={title}
@@ -380,77 +407,55 @@ const FeaturedCard = memo(
             width="100%"
             objectFit="cover"
             objectPosition={objectPosition || 'center'}
-            transition="all 0.5s"
             whileHover={{ scale: 1.1 }}
-            borderRadius="xl"
+            transition={{ duration: 0.5 }}
           />
 
-          {/* Overlay on hover with title and tags */}
+          {/* Modern overlay with just the title */}
           <Box
             position="absolute"
-            top="0"
+            bottom="0"
             left="0"
             right="0"
-            bottom="0"
-            bgGradient="linear(to-t, blackAlpha.800, blackAlpha.400)"
-            opacity="0"
+            height="40%"
+            bgGradient="linear(to-t, blackAlpha.900, transparent)"
             transition="all 0.3s ease-in-out"
-            _hover={{ opacity: 1 }}
             display="flex"
-            flexDirection="column"
-            alignItems="center"
-            justifyContent="center"
-            padding={4}
+            alignItems="flex-end"
+            padding={5}
           >
             <Heading
               size="md"
               color="white"
-              textAlign="center"
-              mb={3}
+              textAlign="left"
               textShadow="0px 2px 5px rgba(0,0,0,0.5)"
+              fontWeight="bold"
             >
               {title}
             </Heading>
+          </Box>
 
-            {/* Show a few tags on hover */}
-            <Wrap justify="center" mb={3}>
-              {project.tags.slice(0, 3).map((tag, i) => (
-                <WrapItem key={i}>
-                  <Badge
-                    colorScheme="teal"
-                    px={2}
-                    py={1}
-                    borderRadius="md"
-                    fontSize="xs"
-                  >
-                    {tag}
-                  </Badge>
-                </WrapItem>
-              ))}
-              {project.tags.length > 3 && (
-                <WrapItem>
-                  <Badge
-                    colorScheme="gray"
-                    px={2}
-                    py={1}
-                    borderRadius="md"
-                    fontSize="xs"
-                  >
-                    +{project.tags.length - 3}
-                  </Badge>
-                </WrapItem>
-              )}
-            </Wrap>
-
-            <Button
-              size="sm"
-              colorScheme="blue"
-              mt={2}
-              opacity={0.9}
-              _hover={{ opacity: 1 }}
-            >
-              {t('projects.view_details')}
-            </Button>
+          {/* Clickable indicator */}
+          <Box
+            position="absolute"
+            top="4"
+            right="4"
+            bg="blue.500"
+            color="white"
+            borderRadius="full"
+            width="40px"
+            height="40px"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            fontSize="sm"
+            fontWeight="bold"
+            boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)"
+            opacity="0.9"
+            transition="all 0.2s"
+            _hover={{ transform: 'scale(1.1)', opacity: 1 }}
+          >
+            {idx}
           </Box>
         </MotionBox>
 

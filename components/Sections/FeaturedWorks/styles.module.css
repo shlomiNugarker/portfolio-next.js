@@ -1,32 +1,33 @@
 .featureCard {
   position: relative;
   overflow: hidden;
-  border-radius: 0.8rem;
-  transition: all 0.3s ease;
+  border-radius: 1rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   height: 100%;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  background-color: #fcfcfc;
 }
 
 .featureCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .featureCard img {
-  transition: all 0.5s ease;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
 .featureCard:hover img {
-  transform: scale(1.1);
+  transform: scale(1.12);
 }
 
 .projectGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
   width: 100%;
 }
 
@@ -36,65 +37,130 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 70%);
-  opacity: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100%);
+  opacity: 1;
   display: flex;
   align-items: flex-end;
-  padding: 1rem;
-  transition: opacity 0.3s ease;
-}
-
-.featureCard:hover .imageOverlay {
-  opacity: 1;
+  padding: 1.5rem;
+  transition: opacity 0.4s ease;
 }
 
 .projectTitle {
   color: white;
-  font-weight: bold;
-  font-size: 1.1rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
   margin: 0;
+  line-height: 1.4;
+  transition: transform 0.3s ease;
+}
+
+.featureCard:hover .projectTitle {
+  transform: translateY(-5px);
+}
+
+/* Project number badge */
+.projectNumber {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: rgba(59, 130, 246, 0.9);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  opacity: 0.9;
+  z-index: 2;
+}
+
+.featureCard:hover .projectNumber {
+  transform: scale(1.15);
+  opacity: 1;
 }
 
 /* Modal styles */
 .modalContent {
   max-width: 800px;
-  border-radius: 1rem;
+  border-radius: 1.2rem;
   overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
 .modalImage {
   width: 100%;
   height: auto;
-  border-radius: 0.5rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.modalImage:hover {
+  transform: scale(1.02);
 }
 
 .tagContainer {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+  justify-content: center;
 }
 
 .projectTag {
   background-color: rgba(80, 200, 120, 0.1);
   color: #50c878;
   border: 1px solid #50c878;
-  padding: 0.25rem 0.75rem;
+  padding: 0.4rem 1rem;
   border-radius: 2rem;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.projectTag:hover {
+  background-color: rgba(80, 200, 120, 0.2);
+  transform: translateY(-2px);
 }
 
 .featureList {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  width: 100%;
 }
 
 .featureItem {
   background-color: rgba(126, 87, 194, 0.1);
   color: #7e57c2;
-  padding: 0.25rem 0.75rem;
+  padding: 0.4rem 1rem;
   border-radius: 2rem;
   margin-bottom: 0.5rem;
   display: inline-block;
-  margin-right: 0.5rem;
+  margin-right: 0.6rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.featureItem:hover {
+  background-color: rgba(126, 87, 194, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Modal buttons */
+.actionButton {
+  padding: 0.6rem 1.5rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.actionButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
 }

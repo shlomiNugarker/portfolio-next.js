@@ -9,7 +9,7 @@ import { ResponsiveGrid } from 'components/Core/Grid'
 
 /**
  * FeaturedWorksSection displays a grid of project cards
- * Features responsive layout and animations
+ * Features responsive layout, elegant design and detailed popups
  */
 const FeaturedWorksSection = () => {
   const { t, i18n } = useTranslation('common')
@@ -38,7 +38,7 @@ const FeaturedWorksSection = () => {
       <AnimatedContainer width="100%" delay={0.2}>
         <ResponsiveGrid
           columns={{ base: 1, sm: 2, md: 2, xl: 3 }}
-          spacing={{ base: 4, md: 6 }}
+          spacing={{ base: 6, md: 8 }}
         >
           {projectsLang.map((project, idx) => (
             <AnimatedBox
@@ -46,6 +46,7 @@ const FeaturedWorksSection = () => {
               whileHover={{ y: -5 }}
               transition={{ duration: 0.3 }}
               width="100%"
+              height="100%"
               delay={idx * 0.1}
             >
               <FeaturedCard
