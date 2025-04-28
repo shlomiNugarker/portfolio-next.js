@@ -31,6 +31,26 @@
   width: 100%;
 }
 
+/* Media query for small screens */
+@media (max-width: 768px) {
+  .projectGrid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .featureCard:hover {
+    transform: translateY(-8px);
+  }
+}
+
+/* Media query for extra small screens */
+@media (max-width: 480px) {
+  .projectGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
 .imageOverlay {
   position: absolute;
   top: 0;
@@ -45,6 +65,13 @@
   transition: opacity 0.4s ease;
 }
 
+/* Add responsive padding for mobile */
+@media (max-width: 768px) {
+  .imageOverlay {
+    padding: 1rem;
+  }
+}
+
 .projectTitle {
   color: white;
   font-weight: 700;
@@ -53,6 +80,19 @@
   margin: 0;
   line-height: 1.4;
   transition: transform 0.3s ease;
+}
+
+/* Adjust title size for mobile */
+@media (max-width: 768px) {
+  .projectTitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projectTitle {
+    font-size: 1rem;
+  }
 }
 
 .featureCard:hover .projectTitle {
@@ -80,6 +120,17 @@
   z-index: 2;
 }
 
+/* Adjust number badge size on mobile */
+@media (max-width: 768px) {
+  .projectNumber {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.8rem;
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+}
+
 .featureCard:hover .projectNumber {
   transform: scale(1.15);
   opacity: 1;
@@ -93,12 +144,34 @@
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
+/* Adjust modal for mobile */
+@media (max-width: 768px) {
+  .modalContent {
+    max-width: 100%;
+    border-radius: 0.8rem;
+    margin: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modalContent {
+    border-radius: 0;
+    margin: 0;
+  }
+}
+
 .modalImage {
   width: 100%;
   height: auto;
   border-radius: 0.8rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .modalImage {
+    border-radius: 0.5rem;
+  }
 }
 
 .modalImage:hover {
@@ -113,6 +186,14 @@
   justify-content: center;
 }
 
+/* Adjust spacing for mobile */
+@media (max-width: 768px) {
+  .tagContainer {
+    gap: 0.4rem;
+    margin-top: 1rem;
+  }
+}
+
 .projectTag {
   background-color: rgba(80, 200, 120, 0.1);
   color: #50c878;
@@ -124,6 +205,21 @@
   transition: all 0.2s ease;
 }
 
+/* Smaller tags on mobile */
+@media (max-width: 768px) {
+  .projectTag {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projectTag {
+    padding: 0.25rem 0.7rem;
+    font-size: 0.7rem;
+  }
+}
+
 .projectTag:hover {
   background-color: rgba(80, 200, 120, 0.2);
   transform: translateY(-2px);
@@ -132,6 +228,12 @@
 .featureList {
   margin-top: 1.5rem;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  .featureList {
+    margin-top: 1rem;
+  }
 }
 
 .featureItem {
@@ -146,6 +248,16 @@
   transition: all 0.2s ease;
 }
 
+/* Smaller features on mobile */
+@media (max-width: 768px) {
+  .featureItem {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.75rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.4rem;
+  }
+}
+
 .featureItem:hover {
   background-color: rgba(126, 87, 194, 0.2);
   transform: translateY(-2px);
@@ -158,6 +270,23 @@
   font-weight: 600;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Smaller buttons on mobile */
+@media (max-width: 768px) {
+  .actionButton {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .actionButton {
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
 }
 
 .actionButton:hover {

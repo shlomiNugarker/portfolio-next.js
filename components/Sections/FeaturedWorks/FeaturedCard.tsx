@@ -46,7 +46,7 @@ export type Project = {
 }
 
 export type FeaturedCardProps = {
-  height: string
+  height: string | Record<string, string>
   src: string
   idx: number
   title: string
@@ -134,18 +134,19 @@ const ProjectModal = memo(
       <Modal
         isOpen={isOpen}
         onClose={handleClose}
-        size="xl"
+        size={{ base: 'full', sm: 'lg', md: 'xl' }}
         isCentered
         motionPreset="slideInBottom"
       >
         <ModalOverlay backdropFilter="blur(10px)" bg="blackAlpha.600" />
         <ModalContent
-          maxH="90vh"
-          maxW={{ base: '95%', sm: '85%', md: '700px' }}
+          maxH={{ base: '100vh', sm: '90vh', md: '85vh' }}
+          maxW={{ base: '70%', md: '700px' }}
           w="auto"
-          borderRadius="xl"
+          borderRadius={{ base: '0', sm: 'xl' }}
           overflow="hidden"
           boxShadow="2xl"
+          my={{ base: 0, sm: 4 }}
         >
           <ModalHeader
             position="sticky"
@@ -154,17 +155,17 @@ const ProjectModal = memo(
             bg={modalBg}
             borderBottomWidth="1px"
             borderBottomColor={borderColor}
-            py={4}
-            fontSize="xl"
+            py={{ base: 3, sm: 4 }}
+            fontSize={{ base: 'lg', sm: 'xl' }}
             fontWeight="bold"
             textAlign="center"
           >
             {project.title}
           </ModalHeader>
-          <ModalCloseButton size="lg" />
+          <ModalCloseButton size={{ base: 'md', sm: 'lg' }} />
           <ModalBody
             overflowY="auto"
-            p={6}
+            p={{ base: 4, sm: 6 }}
             sx={{
               '&::-webkit-scrollbar': {
                 width: '6px',
@@ -190,7 +191,7 @@ const ProjectModal = memo(
               },
             }}
           >
-            <Stack spacing={8} alignItems="center">
+            <Stack spacing={{ base: 6, sm: 8 }} alignItems="center">
               {/* Image Gallery */}
               <Box
                 borderRadius="lg"
@@ -205,7 +206,7 @@ const ProjectModal = memo(
                   alt={`${project.title} - image ${currentImageIndex + 1}`}
                   width="100%"
                   height="auto"
-                  maxH="400px"
+                  maxH={{ base: '250px', sm: '300px', md: '400px' }}
                   objectFit="cover"
                   transition="transform 0.3s ease"
                   _hover={{ transform: 'scale(1.02)' }}
@@ -221,7 +222,7 @@ const ProjectModal = memo(
                       left="2"
                       top="50%"
                       transform="translateY(-50%)"
-                      size="md"
+                      size={{ base: 'sm', sm: 'md' }}
                       colorScheme="blackAlpha"
                       borderRadius="full"
                       onClick={prevImage}
@@ -235,7 +236,7 @@ const ProjectModal = memo(
                       right="2"
                       top="50%"
                       transform="translateY(-50%)"
-                      size="md"
+                      size={{ base: 'sm', sm: 'md' }}
                       colorScheme="blackAlpha"
                       borderRadius="full"
                       onClick={nextImage}
@@ -273,13 +274,13 @@ const ProjectModal = memo(
               </Box>
 
               {/* Tags */}
-              <Wrap justify="center" spacing={3} maxW="100%">
+              <Wrap justify="center" spacing={{ base: 2, sm: 3 }} maxW="100%">
                 {project.tags.map((tag, i) => (
                   <WrapItem key={i}>
                     <Badge
-                      fontSize="sm"
+                      fontSize={{ base: 'xs', sm: 'sm' }}
                       colorScheme="teal"
-                      px={3}
+                      px={{ base: 2, sm: 3 }}
                       py={1}
                       borderRadius="full"
                       textTransform="lowercase"
@@ -293,27 +294,44 @@ const ProjectModal = memo(
 
               {/* Description */}
               <Box textAlign="left" maxW="100%" w="100%">
-                <Heading as="h4" fontSize="lg" color={titleColor} mb={3}>
+                <Heading
+                  as="h4"
+                  fontSize={{ base: 'md', sm: 'lg' }}
+                  color={titleColor}
+                  mb={{ base: 2, sm: 3 }}
+                >
                   {t('projects.description_label')}
                 </Heading>
-                <Text fontSize="md" color={descriptionColor} lineHeight="1.8">
+                <Text
+                  fontSize={{ base: 'sm', sm: 'md' }}
+                  color={descriptionColor}
+                  lineHeight="1.8"
+                >
                   {project.description}
                 </Text>
               </Box>
 
               {/* Features */}
               {project.features && project.features.length > 0 && (
-                <Stack spacing={4} alignItems="flex-start" w="100%">
-                  <Heading as="h4" fontSize="lg" color={titleColor}>
+                <Stack
+                  spacing={{ base: 3, sm: 4 }}
+                  alignItems="flex-start"
+                  w="100%"
+                >
+                  <Heading
+                    as="h4"
+                    fontSize={{ base: 'md', sm: 'lg' }}
+                    color={titleColor}
+                  >
                     {t('projects.features')}
                   </Heading>
-                  <Wrap spacing={3} w="100%">
+                  <Wrap spacing={{ base: 2, sm: 3 }} w="100%">
                     {project.features.map((feature, i) => (
                       <WrapItem key={i}>
                         <Badge
-                          fontSize="sm"
+                          fontSize={{ base: 'xs', sm: 'sm' }}
                           colorScheme="purple"
-                          px={3}
+                          px={{ base: 2, sm: 3 }}
                           py={1}
                           borderRadius="full"
                           textTransform="lowercase"
@@ -335,9 +353,14 @@ const ProjectModal = memo(
             bg={modalBg}
             borderTopWidth="1px"
             borderTopColor={borderColor}
-            py={4}
+            py={{ base: 3, sm: 4 }}
           >
-            <Flex justify="center" width="100%" gap={4} flexWrap="wrap">
+            <Flex
+              justify="center"
+              width="100%"
+              gap={{ base: 2, sm: 4 }}
+              flexWrap="wrap"
+            >
               {buttons.map(({ label, url, icon, colorScheme }, index) => (
                 <Button
                   key={index}
@@ -345,11 +368,11 @@ const ProjectModal = memo(
                   href={url}
                   target="_blank"
                   rel="noreferrer"
-                  size="md"
+                  size={{ base: 'sm', sm: 'md' }}
                   colorScheme={colorScheme}
                   leftIcon={icon}
                   borderRadius="full"
-                  px={6}
+                  px={{ base: 4, sm: 6 }}
                   boxShadow="md"
                   _hover={{ transform: 'translateY(-2px)', boxShadow: 'lg' }}
                   transition="all 0.2s"
@@ -376,9 +399,11 @@ const FeaturedCard = memo(
     const cardBg = useColorModeValue('gray.50', 'gray.800')
     const cardHoverBg = useColorModeValue('white', 'gray.700')
     const overlayBg = useColorModeValue(
-      'rgba(255, 255, 255, 0.85)',
-      'rgba(23, 25, 35, 0.85)'
+      'rgba(0, 0, 0, 0.75)',
+      'rgba(0, 0, 0, 0.85)'
     )
+    const titleColor = useColorModeValue('white', 'white')
+    const numberBg = useColorModeValue('blue.500', 'blue.400')
 
     return (
       <>
@@ -398,6 +423,8 @@ const FeaturedCard = memo(
           whileTap={{ scale: 0.98 }}
           transition={{ type: 'spring', stiffness: 400, damping: 17 }}
           height={height}
+          width="100%"
+          role="group"
         >
           {/* Project Image */}
           <MotionImage
@@ -411,51 +438,40 @@ const FeaturedCard = memo(
             transition={{ duration: 0.5 }}
           />
 
-          {/* Modern overlay with just the title */}
+          {/* Overlay for title display */}
           <Box
             position="absolute"
-            bottom="0"
+            top="0"
             left="0"
             right="0"
-            height="40%"
-            bgGradient="linear(to-t, blackAlpha.900, transparent)"
-            transition="all 0.3s ease-in-out"
-            display="flex"
-            alignItems="flex-end"
-            padding={5}
-          >
-            <Heading
-              size="md"
-              color="white"
-              textAlign="left"
-              textShadow="0px 2px 5px rgba(0,0,0,0.5)"
-              fontWeight="bold"
-            >
-              {title}
-            </Heading>
-          </Box>
-
-          {/* Clickable indicator */}
-          <Box
-            position="absolute"
-            top="4"
-            right="4"
-            bg="blue.500"
-            color="white"
-            borderRadius="full"
-            width="40px"
-            height="40px"
+            bottom="0"
+            bgGradient={`linear(to-t, ${overlayBg} 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.2) 100%)`}
             display="flex"
             alignItems="center"
             justifyContent="center"
-            fontSize="sm"
-            fontWeight="bold"
-            boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)"
-            opacity="0.9"
-            transition="all 0.2s"
-            _hover={{ transform: 'scale(1.1)', opacity: 1 }}
+            transition="opacity 0.3s ease"
+            opacity="0"
+            _groupHover={{ opacity: 1 }}
           >
-            {idx}
+            <Stack
+              spacing={2}
+              align="center"
+              justify="center"
+              p={{ base: 2, sm: 4 }}
+              textAlign="center"
+            >
+              <Heading
+                as="h3"
+                size={{ base: 'sm', sm: 'md' }}
+                color={titleColor}
+                fontWeight="bold"
+                textShadow="0 2px 10px rgba(0,0,0,0.8)"
+                transition="transform 0.3s ease"
+                _groupHover={{ transform: 'translateY(-5px)' }}
+              >
+                {title}
+              </Heading>
+            </Stack>
           </Box>
         </MotionBox>
 

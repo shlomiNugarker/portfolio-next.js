@@ -19,26 +19,31 @@ const FeaturedWorksSection = () => {
 
   return (
     <Stack
-      width={{ base: '99%', lg: '60%', xl: '75%' }}
+      width={{ base: '100%', sm: '95%', md: '90%', lg: '85%', xl: '90%' }}
       height="100%"
-      spacing={{ base: 6, xl: 8 }}
-      alignItems={{ base: 'center', md: 'flex-start' }}
-      textAlign="center"
+      spacing={{ base: 6, sm: 8, md: 10, lg: 12 }}
+      alignItems="center"
+      justifyContent="center"
+      mx="auto"
+      px={{ base: 3, sm: 4, md: 6, lg: 8 }}
+      py={{ base: 6, sm: 8, md: 10, lg: 12 }}
     >
       <StyledHeading
-        size="2xl"
+        size={{ base: 'xl', sm: '2xl', md: '2xl', lg: '3xl' }}
         width="100%"
         textAlign="center"
         sx={{ fontVariantCaps: 'small-caps' }}
-        mb={{ base: 4, md: 6 }}
+        mb={{ base: 4, sm: 6, md: 8 }}
       >
         {t('projects.title')}
       </StyledHeading>
 
       <AnimatedContainer width="100%" delay={0.2}>
         <ResponsiveGrid
-          columns={{ base: 1, sm: 2, md: 2, xl: 3 }}
-          spacing={{ base: 6, md: 8 }}
+          columns={{ base: 1, sm: 1, md: 2, lg: 2, xl: 3 }}
+          spacing={{ base: 6, sm: 8, md: 10 }}
+          width="100%"
+          justifyContent="center"
         >
           {projectsLang.map((project, idx) => (
             <AnimatedBox
@@ -48,13 +53,20 @@ const FeaturedWorksSection = () => {
               width="100%"
               height="100%"
               delay={idx * 0.1}
+              role="group"
             >
               <FeaturedCard
                 idx={idx + 1}
                 title={project.title}
                 description={project.description}
                 src={project.imgs[0]}
-                height="250px"
+                height={{
+                  base: '200px',
+                  sm: '220px',
+                  md: '250px',
+                  lg: '280px',
+                  xl: '300px',
+                }}
                 ctaUrl={project.linkDemo}
                 objectPosition="center"
                 project={project}

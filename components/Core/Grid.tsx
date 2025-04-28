@@ -41,12 +41,12 @@ export const ResponsiveGrid = ({
   return (
     <SimpleGrid
       display="grid"
-      gridTemplateColumns={{
-        base: 'repeat(1, 1fr)',
-        sm: 'repeat(2, 1fr)',
-        md: 'repeat(3, 1fr)',
-        lg: 'repeat(4, 1fr)',
-      }}
+      // gridTemplateColumns={{
+      //   base: 'repeat(1, 1fr)',
+      //   sm: 'repeat(2, 1fr)',
+      //   md: 'repeat(3, 1fr)',
+      //   lg: 'repeat(4, 1fr)',
+      // }}
       gap={{ base: 4, md: 6 }}
       spacing={spacing}
       width="100%"
