@@ -174,7 +174,7 @@ const Sidebar = () => {
                 variant="accent"
                 fontWeight="light"
                 width="100%"
-                color={getAccentColor()}
+                color={getPrimaryColor()}
                 className={styles.glowText}
               >
                 {t('sidebar.welcome')}
@@ -298,7 +298,7 @@ const Sidebar = () => {
                   </MotionBox>
                 ))}
               </MotionBox>
-              
+
               {/* Decorative element at the bottom */}
               <Box
                 position="absolute"
