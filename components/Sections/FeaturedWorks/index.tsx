@@ -38,7 +38,7 @@ const FeaturedWorksSection = () => {
 
       <AnimatedContainer width="100%" delay={0.2}>
         <ResponsiveGrid
-          columns={{ base: 1, sm: 1, md: 2, lg: 2, xl: 3 }}
+          columns={{ base: 1, sm: 1, md: 2, lg: 2, xl: 2 }}
           spacing={{ base: 6, sm: 8, md: 10 }}
           width="100%"
           justifyContent="center"
