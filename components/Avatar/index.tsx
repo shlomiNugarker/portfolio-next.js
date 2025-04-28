@@ -36,7 +36,7 @@ const Avatar = () => {
 
   // Use theme-aware color mode
   const imgAvatar = isDarkMode ? AvatarImages.DarkMode : AvatarImages.LightMode
-  
+
   // Loading states for skeleton
   const startColor = useColorModeValue('gray.200', 'gray.700')
   const endColor = useColorModeValue('gray.300', 'gray.600')

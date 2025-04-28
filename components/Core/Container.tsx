@@ -9,11 +9,7 @@ interface ContainerProps extends BoxProps {
  * A styled container component with responsive sizing
  * Provides consistent container sizing across the app
  */
-const Container = ({
-  children,
-  fluid = false,
-  ...props
-}: ContainerProps) => {
+const Container = ({ children, fluid = false, ...props }: ContainerProps) => {
   return (
     <Box
       {...containerStyles}
@@ -25,4 +21,4 @@ const Container = ({
   )
 }
 
-export default Container 
+export default Container

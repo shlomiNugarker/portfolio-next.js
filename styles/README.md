@@ -141,11 +141,11 @@ import useThemeStyles from 'hooks/theme/useThemeStyles'
 
 function MyComponent() {
   const { getPrimaryColor, isDarkMode } = useThemeStyles()
-  
+
   return (
     <Box color={getPrimaryColor()}>
       {isDarkMode ? 'Dark mode content' : 'Light mode content'}
     </Box>
   )
 }
-``` 
+```

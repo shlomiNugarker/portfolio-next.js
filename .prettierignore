@@ -1,0 +1,16 @@
+# Build output
+.next/
+out/
+
+# Node modules
+node_modules/
+
+# Log files
+*.log
+
+# Package files
+package-lock.json
+yarn.lock
+
+# Coverage directory
+coverage/ 

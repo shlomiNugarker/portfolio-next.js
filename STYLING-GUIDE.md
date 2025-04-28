@@ -54,21 +54,13 @@ Use the `useThemeStyles` hook to access theme values:
 import useThemeStyles from 'hooks/theme/useThemeStyles'
 
 const Component = () => {
-  const { 
-    getPrimaryColor, 
-    getTextColor,
-    getPrimaryButtonStyles,
-    constants 
-  } = useThemeStyles()
-  
+  const { getPrimaryColor, getTextColor, getPrimaryButtonStyles, constants } =
+    useThemeStyles()
+
   return (
     <Box color={getTextColor()}>
-      <Text color={getPrimaryColor()}>
-        Themed text
-      </Text>
-      <Button {...getPrimaryButtonStyles()}>
-        Click me
-      </Button>
+      <Text color={getPrimaryColor()}>Themed text</Text>
+      <Button {...getPrimaryButtonStyles()}>Click me</Button>
       <Link href={`mailto:${constants.contactEmail}`}>
         {constants.contactEmail}
       </Link>
@@ -86,12 +78,8 @@ import useThemeStyles from 'hooks/theme/useThemeStyles'
 
 const Component = () => {
   const { styles } = useThemeStyles()
-  
-  return (
-    <Box {...styles.cardStyles}>
-      Card content
-    </Box>
-  )
+
+  return <Box {...styles.cardStyles}>Card content</Box>
 }
 ```
 
@@ -100,7 +88,7 @@ const Component = () => {
 Use Chakra UI's responsive syntax and our spacing tokens:
 
 ```tsx
-<Container 
+<Container
   maxW={{ base: '100%', md: '90%', lg: '1200px' }}
   px={{ base: 4, md: 6, lg: 8 }}
 >
@@ -117,7 +105,7 @@ import useThemeStyles from 'hooks/theme/useThemeStyles'
 
 const Component = () => {
   const { constants } = useThemeStyles()
-  
+
   return (
     <Link href={`mailto:${constants.contactEmail}`}>
       {constants.contactEmail}
@@ -160,4 +148,4 @@ const textColor = getTextColor() // Returns appropriate color for the current mo
 
 ---
 
-By following these guidelines, we maintain a consistent, maintainable, and theme-based approach to styling across the project. 
+By following these guidelines, we maintain a consistent, maintainable, and theme-based approach to styling across the project.

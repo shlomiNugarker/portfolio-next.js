@@ -95,9 +95,9 @@ export const responsiveFlexContainer: SystemStyleObject = {
 // Responsive grid container
 export const responsiveGridContainer: SystemStyleObject = {
   display: 'grid',
-  gridTemplateColumns: { 
-    base: 'repeat(1, 1fr)', 
-    sm: 'repeat(2, 1fr)', 
+  gridTemplateColumns: {
+    base: 'repeat(1, 1fr)',
+    sm: 'repeat(2, 1fr)',
     md: 'repeat(3, 1fr)',
     lg: 'repeat(4, 1fr)',
   },
@@ -114,7 +114,7 @@ export const sectionDivider: SystemStyleObject = {
 // Glass morphism effect
 export const glassMorphism: SystemStyleObject = {
   backdropFilter: 'blur(10px)',
-  backgroundColor: 'rgba(255, 255, 255, 0.1)', 
+  backgroundColor: 'rgba(255, 255, 255, 0.1)',
   boxShadow: 'md',
   borderRadius: 'lg',
 }
@@ -221,4 +221,4 @@ export const layoutUtils = {
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-} 
+}

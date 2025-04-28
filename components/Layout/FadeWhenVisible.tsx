@@ -27,7 +27,7 @@ interface FadeInWhenVisibleProps {
 /**
  * Component that animates its children when they enter the viewport
  * Uses Intersection Observer API and Framer Motion for smooth animations
- * 
+ *
  * @deprecated Consider using the newer AnimatedBox from components/Core/Animated
  * which provides a more consistent API and better theme integration
  */

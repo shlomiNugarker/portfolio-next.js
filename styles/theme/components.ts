@@ -140,7 +140,7 @@ export const Badge = {
 export const Container = {
   baseStyle: {
     px: { base: 4, md: 6, lg: 8 },
-    maxW: { 
+    maxW: {
       base: 'container.sm',
       md: 'container.md',
       lg: 'container.lg',
@@ -219,4 +219,4 @@ export const components = {
   Box,
   Input,
   Stack,
-} 
+}

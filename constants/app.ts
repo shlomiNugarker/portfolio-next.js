@@ -8,7 +8,7 @@ export const CONTACT = {
   PHONE: '+972 52-952-6762',
 }
 
-// Social media links 
+// Social media links
 export const SOCIAL_MEDIA = {
   GITHUB: 'https://github.com/yourusername',
   LINKEDIN: 'https://linkedin.com/in/yourusername',
@@ -22,7 +22,7 @@ export const ANIMATION = {
     MEDIUM: 0.6,
     LONG: 1.2,
     SHAKE: 1.2, // For emoji animations
-    JUMP: 1.8,  // For emoji animations
+    JUMP: 1.8, // For emoji animations
   },
   DURATION: {
     SHORT: 0.3,
@@ -47,10 +47,10 @@ export const SECTION_IDS = {
 
 // Responsive breakpoints (matching theme)
 export const BREAKPOINTS = {
-  SM: '30em',  // 480px
-  MD: '48em',  // 768px
-  LG: '62em',  // 992px
-  XL: '80em',  // 1280px
+  SM: '30em', // 480px
+  MD: '48em', // 768px
+  LG: '62em', // 992px
+  XL: '80em', // 1280px
   XXL: '96em', // 1536px
 }
 
@@ -60,4 +60,4 @@ export const LAYOUT = {
   CONTENT_WIDTH: { BASE: '100%', LG: '70%', XL: '66%' },
   CONTAINER_PADDING: { BASE: 4, MD: 6, LG: 8 },
   SECTION_MARGIN: { BASE: 8, MD: 12, LG: 16 },
-} 
+}

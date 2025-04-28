@@ -9,11 +9,7 @@ interface SectionProps extends BoxProps {
  * A styled section component for page content sections
  * Supports different color variants and inherits theme styles
  */
-const Section = ({
-  children,
-  variant = 'default',
-  ...props
-}: SectionProps) => {
+const Section = ({ children, variant = 'default', ...props }: SectionProps) => {
   // Get contextual colors
   const defaultBg = useColorModeValue('white', 'gray.800')
   const primaryBg = useColorModeValue('green.50', 'green.900')
@@ -37,15 +33,10 @@ const Section = ({
   }
 
   return (
-    <Box
-      as="section"
-      {...sectionStyles}
-      {...variants[variant]}
-      {...props}
-    >
+    <Box as="section" {...sectionStyles} {...variants[variant]} {...props}>
       {children}
     </Box>
   )
 }
 
-export default Section 
+export default Section

@@ -66,6 +66,7 @@ portfolio-next.js/
 The project uses a modular styling system built on Chakra UI. See [styles/README.md](styles/README.md) for detailed documentation.
 
 Key features:
+
 - Design tokens system
 - Reusable style patterns
 - Core components library
@@ -94,6 +95,7 @@ Add or modify translations in `public/locales/` directory.
 ## 📱 Responsive Design
 
 The portfolio is fully responsive with custom breakpoints:
+
 - Mobile: Up to 479px
 - Tablet: 480px - 767px
 - Desktop: 768px+

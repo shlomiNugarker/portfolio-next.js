@@ -14,7 +14,7 @@ const Card = ({
   children,
   variant = 'default',
   isHoverable = true,
-  ...props
+  ...rest
 }: CardProps) => {
   // Get contextual colors
   const bg = useColorModeValue('white', 'gray.800')
@@ -25,7 +25,9 @@ const Card = ({
     default: {
       bg,
       boxShadow: 'md',
-      _hover: isHoverable ? { boxShadow: 'lg', transform: 'translateY(-4px)' } : {},
+      _hover: isHoverable
+        ? { boxShadow: 'lg', transform: 'translateY(-4px)' }
+        : {},
     },
     interactive: {
       bg,
@@ -47,16 +49,23 @@ const Card = ({
     },
   }
 
+  // Filter out problematic props
+  const { p, rotate, ...props } = rest
+
+  // Handle p prop separately if needed
+  const paddingProps = p !== undefined ? { p: typeof p === 'boolean' ? undefined : p } : {}
+
   return (
     <Box
       {...cardStyles}
       {...variants[variant]}
       transition="all 0.3s ease-in-out"
       {...props}
+      {...paddingProps}
     >
       {children}
     </Box>
   )
 }
 
-export default Card 
+export default Card

@@ -29,7 +29,8 @@ const MotionText = motion(Text)
  */
 const Sidebar = () => {
   const { t, i18n } = useTranslation('common')
-  const { isDarkMode, getPrimaryColor, getSecondaryColor, getAccentColor } = useThemeStyles()
+  const { isDarkMode, getPrimaryColor, getSecondaryColor, getAccentColor } =
+    useThemeStyles()
   const display = useBreakpointValue({ base: 'none', lg: 'block' })
   const direction = i18n.dir()
   const isRtl = direction === 'rtl'

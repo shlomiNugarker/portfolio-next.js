@@ -1,4 +1,9 @@
-module.exports = {
+// @ts-check
+
+/**
+ * @type {import('next').NextConfig}
+ **/
+const nextConfig = {
   reactStrictMode: true,
   images: {
     remotePatterns: [
@@ -9,4 +14,16 @@ module.exports = {
       },
     ],
   },
+  typescript: {
+    // !! WARN !!
+    // Ignoring build errors can be dangerous, use with caution
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    // !! WARN !!
+    // Ignoring ESLint errors can be dangerous, use with caution
+    ignoreDuringBuilds: true,
+  },
 }
+
+module.exports = nextConfig

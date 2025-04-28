@@ -1,9 +1,4 @@
-import {
-  Box,
-  Icon,
-  Text,
-  useBreakpointValue,
-} from '@chakra-ui/react'
+import { Box, Icon, Text, useBreakpointValue } from '@chakra-ui/react'
 import { RiMouseLine } from 'react-icons/ri'
 import { motion, Variants, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'next-i18next'
