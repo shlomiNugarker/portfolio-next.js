@@ -19,20 +19,22 @@ import useThemeStyles from 'hooks/theme/useThemeStyles'
 
 // Custom animations
 const scaleUpWithGlow = {
-  initial: { scale: 0.8, opacity: 0 },
+  initial: { scale: 0.95, opacity: 0, filter: 'blur(10px)' },
   animate: {
     scale: 1,
     opacity: 1,
+    filter: 'blur(0px)',
     transition: {
-      duration: 0.8,
+      duration: 0.9,
       ease: [0.25, 0.46, 0.45, 0.94],
     },
   },
   lightMode: {
     scale: 1.02,
     opacity: 1,
+    filter: 'blur(0px)',
     transition: {
-      duration: 0.8,
+      duration: 0.9,
       ease: [0.25, 0.46, 0.45, 0.94],
     },
   },
@@ -46,10 +48,11 @@ const scaleUpWithGlow = {
 
 // Enhanced fade-in animation
 const enhancedFadeInUp = {
-  initial: { y: 30, opacity: 0 },
+  initial: { y: 30, opacity: 0, filter: 'blur(5px)' },
   animate: (i: number) => ({
     y: 0,
     opacity: 1,
+    filter: 'blur(0px)',
     transition: {
       delay: i * 0.1,
       duration: 0.6,
@@ -148,7 +151,22 @@ const Sidebar = () => {
               {...stackProps}
               initial="initial"
               animate="animate"
+              position="relative"
+              zIndex={1}
             >
+              {/* Decorative accent element */}
+              <Box
+                position="absolute"
+                top="-35px"
+                left={isRtl ? 'auto' : { base: '50%', lg: '-15px' }}
+                right={isRtl ? { base: '50%', lg: '-15px' } : 'auto'}
+                transform={{ base: 'translateX(-50%)', lg: 'none' }}
+                width="30px"
+                height="4px"
+                bgGradient={`linear(to-r, ${getPrimaryColor()}, transparent)`}
+                borderRadius="full"
+              />
+
               {/* Welcome text */}
               <MotionText
                 custom={0}
@@ -157,7 +175,7 @@ const Sidebar = () => {
                 fontWeight="light"
                 width="100%"
                 color={getAccentColor()}
-                textShadow="0 0 15px rgba(151, 223, 252, 0.5)"
+                className={styles.glowText}
               >
                 {t('sidebar.welcome')}
               </MotionText>
@@ -172,6 +190,22 @@ const Sidebar = () => {
                 variants={enhancedFadeInUp}
                 letterSpacing="wider"
                 fontWeight="extrabold"
+                position="relative"
+                _after={{
+                  content: '""',
+                  position: 'absolute',
+                  bottom: '-8px',
+                  left: isRtl ? 'auto' : { base: '50%', lg: '0' },
+                  right: isRtl ? { base: '50%', lg: '0' } : 'auto',
+                  transform: {
+                    base: 'translateX(-50%)',
+                    lg: isRtl ? 'translateX(0)' : 'translateX(0)',
+                  },
+                  height: '2px',
+                  width: { base: '60%', lg: '100px' },
+                  background: `linear-gradient(90deg, ${getPrimaryColor()} 0%, transparent 100%)`,
+                  borderRadius: 'full',
+                }}
               >
                 {t('sidebar.name')}
               </MotionHeading>
@@ -214,6 +248,9 @@ const Sidebar = () => {
                 variants={enhancedFadeInUp}
                 maxWidth={{ base: '100%', lg: '80%' }}
                 lineHeight="taller"
+                className={`${styles.glassCard}`}
+                p={4}
+                borderRadius="md"
               >
                 {t('sidebar.description')}
               </MotionText>
@@ -248,24 +285,33 @@ const Sidebar = () => {
                       target="_blank"
                       _hover={{
                         color: getSecondaryColor(),
-                        transform: 'scale(1.1)',
                       }}
-                      transition="all 0.3s ease"
-                      color={getPrimaryColor()}
-                      className={styles.socialIcon}
                     >
                       <Icon
-                        w={9}
-                        h={9}
                         as={icon}
-                        color="currentColor"
-                        margin={{ base: '5px', lg: '10px' }}
-                        aria-hidden="true"
+                        display="block"
+                        mx={2}
+                        fontSize="xl"
+                        className={styles.socialIcon}
                       />
                     </Link>
                   </MotionBox>
                 ))}
               </MotionBox>
+              
+              {/* Decorative element at the bottom */}
+              <Box
+                position="absolute"
+                bottom="-35px"
+                left={isRtl ? 'auto' : { base: '50%', lg: '0' }}
+                right={isRtl ? { base: '50%', lg: '0' } : 'auto'}
+                transform={{ base: 'translateX(-50%)', lg: 'none' }}
+                width={{ base: '50%', lg: '70%' }}
+                height="2px"
+                bgGradient={`linear(to-r, ${getSecondaryColor()}, transparent)`}
+                borderRadius="full"
+                opacity={0.7}
+              />
             </MotionStack>
           )}
         </AnimatePresence>
