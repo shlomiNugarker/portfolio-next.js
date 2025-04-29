@@ -62,6 +62,7 @@ const Menu = () => {
         className={isMobile ? styles.mobileMenuContainer : ''}
         style={{
           zIndex: 9998, // Ensure proper stacking
+          pointerEvents: isMobile && !isOpen ? 'none' : 'auto', // Disable pointer events when menu is closed
         }}
       >
         <Container

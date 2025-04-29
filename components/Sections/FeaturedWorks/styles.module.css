@@ -9,6 +9,8 @@
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 
 .featureCard::before {
@@ -67,6 +69,11 @@
 
   .featureCard:hover {
     transform: translateY(-5px);
+  }
+  
+  /* Make overlay visible by default on mobile */
+  .imageOverlay {
+    opacity: 0.8;
   }
 }
 
@@ -182,6 +189,7 @@
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1400;
 }
 
 /* Add glow and animation to modal */
@@ -208,13 +216,6 @@
   }
 }
 
-@media (max-width: 480px) {
-  .modalContent {
-    border-radius: 0;
-    margin: 0;
-  }
-}
-
 .modalImage {
   width: 100%;
   height: auto;
@@ -236,6 +237,7 @@
 .modalOverlay {
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1300;
 }
 
 .tagContainer {

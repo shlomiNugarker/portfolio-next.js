@@ -570,41 +570,44 @@ const FeaturedCard = memo(
     const titleColor = useColorModeValue('white', 'white')
     const numberBg = useColorModeValue('blue.500', 'blue.400')
 
+    const handleCardClick = () => {
+      onOpen()
+    }
+
     return (
       <>
-        <MotionBox
+        <Box
+          as="div"
           position="relative"
           borderRadius="xl"
           overflow="hidden"
           cursor="pointer"
           boxShadow="md"
           bg={cardBg}
-          onClick={onOpen}
-          whileHover={{
-            y: -8,
-            boxShadow:
-              '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-          }}
-          whileTap={{ scale: 0.98 }}
-          transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+          onClick={handleCardClick}
           height={height}
           width="100%"
-          role="group"
+          role="button"
+          aria-label={`Open ${title} details`}
+          tabIndex={0}
           className={styles.featureCard}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              handleCardClick()
+            }
+          }}
         >
           {/* Animated gradient background */}
           <Box className={styles.gradientBg} />
 
           {/* Project Image */}
-          <MotionImage
+          <Image
             src={src}
             alt={title}
             height="100%"
             width="100%"
             objectFit="cover"
             objectPosition={objectPosition || 'center'}
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.5 }}
           />
 
           {/* Overlay for title display */}
@@ -666,7 +669,7 @@ const FeaturedCard = memo(
               </Wrap>
             </Stack>
           </Box>
-        </MotionBox>
+        </Box>
 
         {/* Project Modal */}
         <ProjectModal project={project} isOpen={isOpen} onClose={onClose} />

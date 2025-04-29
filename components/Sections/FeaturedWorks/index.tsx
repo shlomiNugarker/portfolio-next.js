@@ -42,7 +42,7 @@ const FeaturedWorksSection = () => {
         zIndex="-1"
         className={styles.skillModal}
       />
-      
+
       <AnimatedContainer
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -64,7 +64,8 @@ const FeaturedWorksSection = () => {
             transform: 'translateX(-50%)',
             height: '3px',
             width: '100px',
-            background: 'linear-gradient(90deg, transparent, cyan.400, transparent)',
+            background:
+              'linear-gradient(90deg, transparent, cyan.400, transparent)',
             borderRadius: 'full',
           }}
         >
@@ -73,7 +74,7 @@ const FeaturedWorksSection = () => {
       </AnimatedContainer>
 
       <AnimatedContainer width="100%" delay={0.2}>
-        <Box 
+        <Box
           className={styles.glassCard}
           p={{ base: 4, sm: 6, md: 8 }}
           borderRadius="xl"
