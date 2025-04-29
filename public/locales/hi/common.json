@@ -36,7 +36,8 @@
     "close_details": "विवरण बंद करें",
     "show_details": "विवरण दिखाएं",
     "view_details": "विवरण देखें",
-    "description_label": "विवरण"
+    "description_label": "विवरण",
+    "open_in_new_tab": "नए टैब में खोलें"
   },
 
   "nav": {

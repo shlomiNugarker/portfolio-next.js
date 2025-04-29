@@ -179,7 +179,7 @@ const ProjectModal = memo(
         <ModalOverlay className={styles.modalOverlay} />
         <ModalContent
           maxH={{ base: '100vh', sm: '90vh', md: '85vh' }}
-          maxW={{ base: '100%', md: '700px' }}
+          maxW={{ base: '100%', md: '1000px' }}
           w="auto"
           borderRadius={{ base: '0', sm: 'xl' }}
           overflow="hidden"
@@ -246,7 +246,7 @@ const ProjectModal = memo(
                 {showIframe ? (
                   <Box
                     position="relative"
-                    height={{ base: '250px', sm: '300px', md: '400px' }}
+                    height={{ base: '550px', sm: '80vh', md: '60vh' }}
                   >
                     {iframeLoading && (
                       <Flex
@@ -276,6 +276,30 @@ const ProjectModal = memo(
                         transition: 'opacity 0.3s ease',
                       }}
                     ></iframe>
+
+                    {/* External link button */}
+                    <Tooltip
+                      label={t('projects.open_in_new_tab')}
+                      placement="top"
+                    >
+                      <IconButton
+                        as="a"
+                        href={project.linkDemo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Open in new tab"
+                        icon={<FaExternalLinkAlt />}
+                        position="absolute"
+                        top="2"
+                        left="2"
+                        size={{ base: 'sm', sm: 'md' }}
+                        colorScheme="blue"
+                        borderRadius="full"
+                        opacity={0.7}
+                        _hover={{ opacity: 1 }}
+                        zIndex="2"
+                      />
+                    </Tooltip>
                   </Box>
                 ) : (
                   <Image

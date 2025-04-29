@@ -36,7 +36,8 @@
     "close_details": "إغلاق التفاصيل",
     "show_details": "عرض التفاصيل",
     "view_details": "عرض التفاصيل",
-    "description_label": "الوصف"
+    "description_label": "الوصف",
+    "open_in_new_tab": "فتح في علامة تبويب جديدة"
   },
 
   "nav": {

@@ -30,7 +30,8 @@
     "close_details": "Закрыть детали",
     "show_details": "Показать детали",
     "view_details": "Просмотр деталей",
-    "description_label": "Описание"
+    "description_label": "Описание",
+    "open_in_new_tab": "Открыть в новой вкладке"
   },
 
   "nav": {

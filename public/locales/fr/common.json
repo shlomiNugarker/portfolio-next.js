@@ -36,7 +36,8 @@
     "close_details": "Fermer les détails",
     "show_details": "Afficher les détails",
     "view_details": "Voir les détails",
-    "description_label": "Description"
+    "description_label": "Description",
+    "open_in_new_tab": "Ouvrir dans un nouvel onglet"
   },
 
   "nav": {
