@@ -42,6 +42,7 @@
   opacity: 1 !important;
   visibility: visible !important;
   pointer-events: auto !important;
+  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .menuBar.rtl {
@@ -49,6 +50,13 @@
   left: 0;
 }
 
+/* Hidden state for the menu bar when scrolling down */
+.menuBarHidden {
+  transform: translateY(-100%) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
 
 .mobileMenuContainer {
   position: fixed;

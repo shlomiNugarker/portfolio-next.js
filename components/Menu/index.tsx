@@ -44,7 +44,7 @@ const Menu = () => {
 
   // Update animation state based on scroll direction
   useEffect(() => {
-    // Only hide when scrolling down AND menu is not open
+    // Hide the header when scrolling down AND menu is not open
     const shouldHide =
       scrollDirection === ScrollDirection.Down && isMobile && !isOpen
     controls.start(shouldHide ? 'hidden' : 'show')
@@ -58,7 +58,7 @@ const Menu = () => {
         aria-label="Main Navigation Menu Bar"
         initial={false}
         variants={menuVariants}
-        animate="show" // Always show the menu bar
+        animate={controls} // Use controls to show/hide based on scroll direction
         className={styles.menuBar}
         style={{
           zIndex: 10000, // Higher z-index to stay on top

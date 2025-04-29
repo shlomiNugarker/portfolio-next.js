@@ -20,8 +20,12 @@ const MobileMenuBar: React.FC<MobileMenuBarProps> = ({
   menuStyles,
   isRtl,
 }) => {
-  const { isOpen, toggleOpen } = menuState
+  const { isOpen, toggleOpen, isScrollingDown } = menuState
   const { menuBar, menuItems } = menuStyles
+
+  // Determine if the menu bar should be visible
+  // It should always be visible when menu is open or when scrolling up
+  const shouldBeVisible = isOpen || !isScrollingDown
 
   return (
     <Box
@@ -31,7 +35,9 @@ const MobileMenuBar: React.FC<MobileMenuBarProps> = ({
       width="100%"
       paddingX={4}
       paddingY={2}
-      className={`${styles.menuBar} ${isRtl ? styles.rtl : ''}`}
+      className={`${styles.menuBar} ${isRtl ? styles.rtl : ''} ${
+        !shouldBeVisible ? styles.menuBarHidden : ''
+      }`}
       zIndex={10000}
       top={0}
       left={0}
@@ -39,9 +45,11 @@ const MobileMenuBar: React.FC<MobileMenuBarProps> = ({
       backdropFilter="blur(5px)"
       backgroundColor={menuBar.backgroundColor}
       boxShadow={menuBar.boxShadow}
-      opacity={1}
-      visibility="visible"
-      pointerEvents="auto"
+      opacity={shouldBeVisible ? 1 : 0}
+      visibility={shouldBeVisible ? 'visible' : 'hidden'}
+      pointerEvents={shouldBeVisible ? 'auto' : 'none'}
+      transition="all 0.3s ease"
+      transform={shouldBeVisible ? 'translateY(0)' : 'translateY(-100%)'}
     >
       <Box>
         <ThemeToggle isMobile={true} />
