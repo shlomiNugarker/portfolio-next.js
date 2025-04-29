@@ -45,9 +45,10 @@ const NavigationContainer: React.FC<NavigationContainerProps> = ({
         left: navStyles.left,
         opacity: navStyles.opacity,
         position: 'fixed',
-        zIndex: navStyles.zIndex,
+        zIndex: isMobile && !isOpen ? -1 : navStyles.zIndex,
         pointerEvents: isMobile && !isOpen ? 'none' : 'auto',
         visibility: isMobile && !isOpen ? 'hidden' : 'visible',
+        display: isMobile && !isOpen ? 'none' : 'flex',
       }}
       borderColor={navStyles.borderColor}
       borderBottomWidth={navStyles.borderBottomWidth}

@@ -42,26 +42,6 @@ export const useMenuState = (preventScrollWhenOpen = true): MenuState => {
     }
   }, [isMobile, isOpen])
 
-  // Special handling for mobile menu - ensure it doesn't block interactions when closed
-  useEffect(() => {
-    if (isMobile) {
-      const navElement = document.querySelector('nav[role="navigation"]')
-      if (navElement) {
-        if (isOpen) {
-          navElement.setAttribute(
-            'style',
-            'pointer-events: auto; visibility: visible;'
-          )
-        } else {
-          navElement.setAttribute(
-            'style',
-            'pointer-events: none; visibility: hidden;'
-          )
-        }
-      }
-    }
-  }, [isMobile, isOpen])
-
   const handleToggle = useCallback(() => {
     toggleOpen()
   }, [toggleOpen])

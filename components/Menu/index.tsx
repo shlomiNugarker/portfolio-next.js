@@ -55,14 +55,13 @@ const Menu = () => {
       <motion.nav
         width="100%"
         role="navigation"
-        aria-label="Main Navigation"
-        initial={isMobile ? 'hidden' : false}
+        aria-label="Main Navigation Menu Bar"
+        initial={false}
         variants={menuVariants}
-        animate={controls}
-        className={isMobile ? styles.mobileMenuContainer : ''}
+        animate="show" // Always show the menu bar
+        className={styles.menuBar}
         style={{
-          zIndex: 9998, // Ensure proper stacking
-          pointerEvents: isMobile && !isOpen ? 'none' : 'auto', // Disable pointer events when menu is closed
+          zIndex: 10000, // Higher z-index to stay on top
         }}
       >
         <Container
@@ -74,7 +73,7 @@ const Menu = () => {
           width="100%"
           maxWidth="100vw"
           margin={0}
-          position={isMobile ? 'fixed' : 'relative'}
+          position="fixed"
           top={0}
           left={0}
           right={0}

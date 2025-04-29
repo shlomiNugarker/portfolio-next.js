@@ -39,6 +39,9 @@ const MobileMenuBar: React.FC<MobileMenuBarProps> = ({
       backdropFilter="blur(5px)"
       backgroundColor={menuBar.backgroundColor}
       boxShadow={menuBar.boxShadow}
+      opacity={1}
+      visibility="visible"
+      pointerEvents="auto"
     >
       <Box>
         <ThemeToggle isMobile={true} />
