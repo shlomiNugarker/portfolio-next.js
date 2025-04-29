@@ -154,6 +154,7 @@ const projects = [
     ],
     linkDemo: 'https://share-jason-production.up.railway.app/',
     linkGitHub: 'https://github.com/shlomiNugarker/share-jason',
+    allowIframe: true,
   },
   {
     title: 'Tetris - Classic Game in TypeScript',
@@ -192,6 +193,7 @@ const projects = [
       'A modern and efficient Todo List application built with React and TypeScript. The app features task creation, editing, filtering by assignee and priority, and local storage persistence.',
     linkDemo: 'https://shlominugarker.github.io/todo-list-react-application/',
     linkGitHub: 'https://github.com/shlomiNugarker/todo-list-react-application',
+    allowIframe: true,
   },
   {
     title: 'Jpeg-to-PDF - Convert Images to PDF with OCR',

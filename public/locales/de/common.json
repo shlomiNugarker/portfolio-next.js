@@ -23,13 +23,18 @@
   },
 
   "projects": {
-    "title": "Meine Projekte",
-    "description": "Ein Einblick in die Projekte, die ich entwickelt habe – intelligente Anwendungen, fortschrittliche Systeme und herausragende Benutzererlebnisse. Jedes Projekt kombiniert Präzision, Kreativität und modernste Technologien.",
+    "title": "Projekte",
+    "description": "Hier sind einige Projekte, an denen ich gearbeitet habe",
     "view_project": "Projekt ansehen",
     "view_code": "Code ansehen",
-    "view_video": "Video ansehen",
+    "view_video": "Demo ansehen",
+    "preview_live": "Live-Vorschau",
+    "show_images": "Bilder anzeigen",
+    "features": "Funktionen",
     "close_details": "Details schließen",
-    "show_details": "Details anzeigen"
+    "show_details": "Details anzeigen",
+    "view_details": "Details ansehen",
+    "description_label": "Beschreibung"
   },
 
   "nav": {

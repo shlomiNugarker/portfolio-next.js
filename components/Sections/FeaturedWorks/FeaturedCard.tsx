@@ -21,6 +21,8 @@ import {
   IconButton,
   HStack,
   Flex,
+  Tooltip,
+  Spinner,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'next-i18next'
@@ -31,6 +33,8 @@ import {
   FaChevronLeft,
   FaChevronRight,
   FaCircle,
+  FaWindowMaximize,
+  FaImages,
 } from 'react-icons/fa'
 import styles from './styles.module.css'
 
@@ -76,6 +80,23 @@ const ProjectModal = memo(
   }) => {
     const { t } = useTranslation('common')
     const [currentImageIndex, setCurrentImageIndex] = useState(0)
+    const [showIframe, setShowIframe] = useState(false)
+    const [iframeLoading, setIframeLoading] = useState(false)
+
+    // Function to toggle between iframe and image view
+    const toggleView = () => {
+      if (!showIframe) {
+        setIframeLoading(true)
+        setShowIframe(true)
+      } else {
+        setShowIframe(false)
+      }
+    }
+
+    // Handle iframe load event
+    const handleIframeLoad = () => {
+      setIframeLoading(false)
+    }
 
     // Shared color values
     const titleColor = useColorModeValue('gray.700', 'whiteAlpha.900')
@@ -99,23 +120,38 @@ const ProjectModal = memo(
     // Reset current image index when modal closes
     const handleClose = () => {
       onClose()
-      setTimeout(() => setCurrentImageIndex(0), 300)
+      setTimeout(() => {
+        setCurrentImageIndex(0)
+        setShowIframe(false)
+      }, 300)
+    }
+
+    // Function to view project in iframe instead of navigating away
+    const viewInIframe = () => {
+      if (!showIframe) {
+        setIframeLoading(true)
+        setShowIframe(true)
+      }
     }
 
     // Build the action buttons based on available project links
     const buttons = useMemo(
       () => [
         {
-          label: t('projects.view_project'),
-          url: project.linkDemo,
-          icon: <FaExternalLinkAlt />,
-          colorScheme: 'blue',
+          label: showIframe
+            ? t('projects.show_images')
+            : t('projects.preview_live'),
+          icon: showIframe ? <FaImages /> : <FaWindowMaximize />,
+          onClick: toggleView,
+          colorScheme: showIframe ? 'teal' : 'blue',
+          isExternal: false,
         },
         {
           label: t('projects.view_code'),
           url: project.linkGitHub,
           icon: <FaGithub />,
           colorScheme: 'gray',
+          isExternal: true,
         },
         ...(project.videoUrl
           ? [
@@ -124,11 +160,12 @@ const ProjectModal = memo(
                 url: project.videoUrl,
                 icon: <FaVideo />,
                 colorScheme: 'red',
+                isExternal: true,
               },
             ]
           : []),
       ],
-      [project, t]
+      [project, t, showIframe, toggleView]
     )
 
     return (
@@ -206,19 +243,80 @@ const ProjectModal = memo(
                 className={styles.revealAnimation}
                 style={{ animationDelay: '0.1s' }}
               >
-                <Image
-                  src={project.imgs[currentImageIndex]}
-                  alt={`${project.title} - image ${currentImageIndex + 1}`}
-                  width="100%"
-                  height="auto"
-                  maxH={{ base: '250px', sm: '300px', md: '400px' }}
-                  objectFit="cover"
-                  transition="transform 0.3s ease"
-                  className={styles.modalImage}
-                />
+                {showIframe ? (
+                  <Box
+                    position="relative"
+                    height={{ base: '250px', sm: '300px', md: '400px' }}
+                  >
+                    {iframeLoading && (
+                      <Flex
+                        position="absolute"
+                        top="0"
+                        left="0"
+                        right="0"
+                        bottom="0"
+                        alignItems="center"
+                        justifyContent="center"
+                        zIndex="1"
+                        bg="rgba(0,0,0,0.1)"
+                      >
+                        <Spinner size="xl" color="blue.500" thickness="4px" />
+                      </Flex>
+                    )}
+                    <iframe
+                      src={project.linkDemo}
+                      title={`${project.title} - live preview`}
+                      width="100%"
+                      height="100%"
+                      frameBorder="0"
+                      allowFullScreen
+                      onLoad={handleIframeLoad}
+                      style={{
+                        opacity: iframeLoading ? 0.3 : 1,
+                        transition: 'opacity 0.3s ease',
+                      }}
+                    ></iframe>
+                  </Box>
+                ) : (
+                  <Image
+                    src={project.imgs[currentImageIndex]}
+                    alt={`${project.title} - image ${currentImageIndex + 1}`}
+                    width="100%"
+                    height="auto"
+                    maxH={{ base: '250px', sm: '300px', md: '400px' }}
+                    objectFit="cover"
+                    transition="transform 0.3s ease"
+                    className={styles.modalImage}
+                  />
+                )}
 
-                {/* Image navigation controls - only show if more than 1 image */}
-                {project.imgs.length > 1 && (
+                {/* Toggle view button */}
+                <Tooltip
+                  label={
+                    showIframe
+                      ? t('projects.show_images') || 'Show Images'
+                      : t('projects.preview_live') || 'Live Preview'
+                  }
+                  placement="top"
+                >
+                  <IconButton
+                    aria-label="Toggle view"
+                    icon={showIframe ? <FaImages /> : <FaWindowMaximize />}
+                    position="absolute"
+                    top="2"
+                    right="2"
+                    size={{ base: 'sm', sm: 'md' }}
+                    colorScheme={showIframe ? 'teal' : 'blue'}
+                    borderRadius="full"
+                    onClick={toggleView}
+                    opacity={0.7}
+                    _hover={{ opacity: 1 }}
+                    zIndex="2"
+                  />
+                </Tooltip>
+
+                {/* Image navigation controls - only show if more than 1 image and not in iframe mode */}
+                {project.imgs.length > 1 && !showIframe && (
                   <>
                     <IconButton
                       aria-label="Previous image"
@@ -395,28 +493,34 @@ const ProjectModal = memo(
                 transition="all 0.2s"
                 className={styles.actionButton}
               >
-                {t('common:close')}
+                {t('close')}
               </Button>
-              {buttons.map(({ label, url, icon, colorScheme }, index) => (
-                <Button
-                  key={index}
-                  as="a"
-                  href={url}
-                  target="_blank"
-                  rel="noreferrer"
-                  size={{ base: 'sm', sm: 'md' }}
-                  colorScheme={colorScheme}
-                  leftIcon={icon}
-                  borderRadius="full"
-                  px={{ base: 4, sm: 6 }}
-                  boxShadow="md"
-                  _hover={{ transform: 'translateY(-2px)', boxShadow: 'lg' }}
-                  transition="all 0.2s"
-                  className={styles.actionButton}
-                >
-                  {label}
-                </Button>
-              ))}
+              {buttons.map(
+                (
+                  { label, url, icon, colorScheme, isExternal, onClick },
+                  index
+                ) => (
+                  <Button
+                    key={index}
+                    as={onClick ? undefined : 'a'}
+                    href={onClick ? undefined : url}
+                    target={isExternal ? '_blank' : undefined}
+                    rel={isExternal ? 'noreferrer' : undefined}
+                    onClick={onClick}
+                    size={{ base: 'sm', sm: 'md' }}
+                    colorScheme={colorScheme}
+                    leftIcon={icon}
+                    borderRadius="full"
+                    px={{ base: 4, sm: 6 }}
+                    boxShadow="md"
+                    _hover={{ transform: 'translateY(-2px)', boxShadow: 'lg' }}
+                    transition="all 0.2s"
+                    className={styles.actionButton}
+                  >
+                    {label}
+                  </Button>
+                )
+              )}
             </Flex>
           </ModalFooter>
         </ModalContent>
@@ -538,9 +642,6 @@ const FeaturedCard = memo(
               </Wrap>
             </Stack>
           </Box>
-
-          {/* Project number badge */}
-          <Box className={styles.projectNumber}>{idx}</Box>
         </MotionBox>
 
         {/* Project Modal */}

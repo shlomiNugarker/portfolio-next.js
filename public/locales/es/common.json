@@ -25,11 +25,13 @@
   },
 
   "projects": {
-    "title": "Mis proyectos",
-    "description": "Un vistazo a algunos de los proyectos que he desarrollado: aplicaciones inteligentes, sistemas avanzados y experiencias de usuario excepcionales. Cada proyecto combina precisión, creatividad y tecnologías de vanguardia.",
+    "title": "Proyectos",
+    "description": "Aquí hay algunos proyectos en los que he trabajado",
     "view_project": "Ver proyecto",
     "view_code": "Ver código",
-    "view_video": "Ver video",
+    "view_video": "Ver demo",
+    "preview_live": "Vista previa en vivo",
+    "show_images": "Mostrar imágenes",
     "features": "Características",
     "close_details": "Cerrar detalles",
     "show_details": "Mostrar detalles",

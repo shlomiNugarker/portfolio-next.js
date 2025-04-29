@@ -26,14 +26,16 @@
 
   "projects": {
     "title": "פרויקטים",
-    "description": "חלק מהפרויקטים שבניתי.",
-    "view_project": "לצפייה בפרויקט",
-    "view_code": "לקוד המקור",
-    "view_video": "לסרטון הדגמה",
-    "features": "פיצ'רים",
-    "close_details": "סגירת פרטים",
-    "show_details": "הצגת פרטים",
-    "view_details": "הצג פרטים",
+    "description": "הנה כמה מהפרויקטים שעבדתי עליהם",
+    "view_project": "צפה בפרויקט",
+    "view_code": "צפה בקוד",
+    "view_video": "צפה בהדגמה",
+    "preview_live": "תצוגה חיה",
+    "show_images": "הצג תמונות",
+    "features": "תכונות",
+    "close_details": "סגור פרטים",
+    "show_details": "הצג פרטים",
+    "view_details": "צפה בפרטים",
     "description_label": "תיאור"
   },
 
