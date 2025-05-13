@@ -87,6 +87,39 @@ const projects = [
     linkGitHub: 'https://github.com/shlomiNugarker/Chess-V2-React',
   },
   {
+    title: 'Dynamic CMS Website Template with Next.js & Tailwind',
+    tags: [
+      'JavaScript (ES6)',
+      'Next.js',
+      'React.js',
+      'Tailwind CSS',
+      'Responsive Design',
+      'CMS Functionality',
+      'Form Validation',
+      'Framer Motion',
+    ],
+    imgs: [
+      'https://res.cloudinary.com/duajg3ah1/image/upload/v1747122912/myPortfolio/297d5b31-0902-4921-a3ca-4f6dabc28bd0.png',
+    ],
+    videoUrl: '', // עדכן לפי הצורך
+    description:
+      'This project is a dynamic, customizable CMS front-end built with Next.js and Tailwind CSS. Designed for small businesses, agencies, or personal portfolios, it allows easy content management through modular sections, reusable components, and structured layout.',
+    features: [
+      'Built with Next.js and React for fast performance and SSR',
+      'Styled with Tailwind CSS for flexible and clean UI',
+      'Modular page components like Hero, About, Contact, and Packages',
+      'Form system with validation and success feedback',
+      'Admin content section manager (add, edit, rearrange blocks)',
+      'Animation support using Framer Motion for interactive UX',
+      'Clear project structure with reusable components',
+      'Supports responsive design across devices',
+      'Easily extendable to work with headless CMS backends',
+      'Includes setup guides and theming documentation',
+    ],
+    linkDemo: 'https://demo-app-ochre-six.vercel.app/', // עדכן לפי הדומיין שלך
+    linkGitHub: 'https://github.com/shlomiNugarker/demo-cms-main',
+  },
+  {
     title: 'AstroMind-AI - Smart AI-Powered Assistant',
     tags: [
       'AI',
@@ -469,65 +502,65 @@ const projects = [
     linkDemo: 'https://github.com/shlomiNugarker/monoploly-vue.js',
     linkGitHub: 'https://shlominugarker.github.io/monopoly-demo/#/',
   },
-  {
-    title: 'Ultimate Meme Generator - JavaScript Web App',
-    tags: [
-      'Web Application',
-      'JavaScript',
-      'HTML',
-      'CSS',
-      'Canvas',
-      'Image Processing',
-      'UI/UX',
-      'Local Storage',
-    ],
-    imgs: [
-      'https://res.cloudinary.com/duajg3ah1/image/upload/v1741339981/myPortfolio/b5ot6xjlgir4baq0fz62.jpg',
-    ],
-    videoUrl: '',
-    description:
-      'The Ultimate Meme Generator is a web-based application that allows users to effortlessly create and customize memes. Users can choose an image from a rich gallery, add multiple text layers, adjust text styles, and download their creations as images. The app also supports saving projects in Local Storage for later editing.',
-    features: [
-      '🖼️ Rich meme image gallery',
-      '✏️ Multiple customizable text layers',
-      '📏 Adjustable text size, position, and alignment',
-      '💾 Save meme projects in Local Storage',
-      '📥 Download memes as image files',
-      '🎨 Intuitive and responsive user interface',
-      '⚡ Optimized rendering with the HTML Canvas API',
-    ],
-    linkDemo:
-      'https://shlominugarker.github.io/ultimate-meme-generator-sprint-2/',
-    linkGitHub:
-      'https://github.com/shlomiNugarker/ultimate-meme-generator-sprint-2',
-  },
-  {
-    title: 'Custom CMS System with Next.js',
-    tags: [
-      'Next.js',
-      'TypeScript',
-      'PostgreSQL',
-      'Drizzle ORM',
-      'Tailwind CSS',
-      'NextAuth.js',
-      'Cloudinary',
-    ],
-    imgs: [
-      'https://res.cloudinary.com/duajg3ah1/image/upload/v1741967867/myPortfolio/6de3364e-3506-42b7-a95a-7d128a2196a5.png',
-    ],
-    videoUrl: '',
-    description:
-      'A dynamic CMS system built with Next.js and Drizzle ORM. The system supports page management, content editing via a flexible Admin interface, and media storage with Cloudinary.',
-    linkDemo: 'https://my-site-data-api.vercel.app/login',
-    linkGitHub: 'https://github.com/shlomiNugarker/nextjs-with-costum-cms',
-    features: [
-      'Dynamic content management with table-based structure',
-      'User authentication support with NextAuth',
-      'Interactive Admin panel using Tailwind CSS',
-      'Media file management with Cloudinary',
-      'REST API-based data management',
-    ],
-  },
+  // {
+  //   title: 'Ultimate Meme Generator - JavaScript Web App',
+  //   tags: [
+  //     'Web Application',
+  //     'JavaScript',
+  //     'HTML',
+  //     'CSS',
+  //     'Canvas',
+  //     'Image Processing',
+  //     'UI/UX',
+  //     'Local Storage',
+  //   ],
+  //   imgs: [
+  //     'https://res.cloudinary.com/duajg3ah1/image/upload/v1741339981/myPortfolio/b5ot6xjlgir4baq0fz62.jpg',
+  //   ],
+  //   videoUrl: '',
+  //   description:
+  //     'The Ultimate Meme Generator is a web-based application that allows users to effortlessly create and customize memes. Users can choose an image from a rich gallery, add multiple text layers, adjust text styles, and download their creations as images. The app also supports saving projects in Local Storage for later editing.',
+  //   features: [
+  //     '🖼️ Rich meme image gallery',
+  //     '✏️ Multiple customizable text layers',
+  //     '📏 Adjustable text size, position, and alignment',
+  //     '💾 Save meme projects in Local Storage',
+  //     '📥 Download memes as image files',
+  //     '🎨 Intuitive and responsive user interface',
+  //     '⚡ Optimized rendering with the HTML Canvas API',
+  //   ],
+  //   linkDemo:
+  //     'https://shlominugarker.github.io/ultimate-meme-generator-sprint-2/',
+  //   linkGitHub:
+  //     'https://github.com/shlomiNugarker/ultimate-meme-generator-sprint-2',
+  // },
+  // {
+  //   title: 'Custom CMS System with Next.js',
+  //   tags: [
+  //     'Next.js',
+  //     'TypeScript',
+  //     'PostgreSQL',
+  //     'Drizzle ORM',
+  //     'Tailwind CSS',
+  //     'NextAuth.js',
+  //     'Cloudinary',
+  //   ],
+  //   imgs: [
+  //     'https://res.cloudinary.com/duajg3ah1/image/upload/v1741967867/myPortfolio/6de3364e-3506-42b7-a95a-7d128a2196a5.png',
+  //   ],
+  //   videoUrl: '',
+  //   description:
+  //     'A dynamic CMS system built with Next.js and Drizzle ORM. The system supports page management, content editing via a flexible Admin interface, and media storage with Cloudinary.',
+  //   linkDemo: 'https://my-site-data-api.vercel.app/login',
+  //   linkGitHub: 'https://github.com/shlomiNugarker/nextjs-with-costum-cms',
+  //   features: [
+  //     'Dynamic content management with table-based structure',
+  //     'User authentication support with NextAuth',
+  //     'Interactive Admin panel using Tailwind CSS',
+  //     'Media file management with Cloudinary',
+  //     'REST API-based data management',
+  //   ],
+  // },
   {
     title: 'Payload CMS-Powered Business Website',
     tags: [
