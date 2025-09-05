@@ -101,7 +101,7 @@ const projects = [
     imgs: [
       'https://res.cloudinary.com/duajg3ah1/image/upload/v1747122912/myPortfolio/297d5b31-0902-4921-a3ca-4f6dabc28bd0.png',
     ],
-    videoUrl: '', // עדכן לפי הצורך
+    videoUrl: '',
     description:
       'This project is a dynamic, customizable CMS front-end built with Next.js and Tailwind CSS. Designed for small businesses, agencies, or personal portfolios, it allows easy content management through modular sections, reusable components, and structured layout.',
     features: [
