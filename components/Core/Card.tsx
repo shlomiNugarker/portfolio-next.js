@@ -53,7 +53,8 @@ const Card = ({
   const { p, rotate, ...props } = rest
 
   // Handle p prop separately if needed
-  const paddingProps = p !== undefined ? { p: typeof p === 'boolean' ? undefined : p } : {}
+  const paddingProps =
+    p !== undefined ? { p: typeof p === 'boolean' ? undefined : p } : {}
 
   return (
     <Box

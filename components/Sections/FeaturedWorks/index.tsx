@@ -1,11 +1,25 @@
-import { Stack, Box, useColorModeValue } from '@chakra-ui/react'
+import {
+  Stack,
+  Box,
+  useColorModeValue,
+  Text,
+  Button,
+  Flex,
+} from '@chakra-ui/react'
+import { useState, useMemo, useCallback } from 'react'
 import FeaturedCard from './FeaturedCard'
 import { useTranslation } from 'next-i18next'
 import { projects } from 'config/projects.ts'
 import { memo } from 'react'
-import { StyledHeading } from 'components/Core/Typography'
-import { AnimatedContainer, AnimatedBox } from 'components/Core/Animated'
-import { ResponsiveGrid } from 'components/Core/Grid'
+import {
+  StyledHeading,
+  AnimatedElement,
+  StaggeredContainer,
+} from 'components/Core'
+import { ResponsiveGrid } from 'components/Core'
+import { Project, ProjectCategory } from './types'
+import ProjectFilters from './ProjectFilters'
+import { FaLongArrowAltDown } from 'react-icons/fa'
 import styles from './styles.module.css'
 
 /**
@@ -17,7 +31,105 @@ const FeaturedWorksSection = () => {
   const language =
     (i18n.language as 'en' | 'he' | 'ar' | 'ru' | 'fr' | 'es' | 'de') || 'en'
   const projectsLang = projects[language] || projects.en
-  const bgColor = useColorModeValue('white', 'gray.800')
+
+  // State for filtering and pagination
+  const [selectedCategories, setSelectedCategories] = useState<
+    ProjectCategory[]
+  >([])
+  const [selectedTags, setSelectedTags] = useState<string[]>([])
+  const [searchQuery, setSearchQuery] = useState('')
+  const [visibleProjects, setVisibleProjects] = useState(6)
+
+  // Extract all unique categories and tags from projects
+  const allCategories = useMemo(() => {
+    const categories = new Set<ProjectCategory>()
+    projectsLang.forEach((project) => {
+      if (project.category) {
+        if (Array.isArray(project.category)) {
+          project.category.forEach((cat) => categories.add(cat))
+        } else {
+          categories.add(project.category)
+        }
+      }
+    })
+    return Array.from(categories)
+  }, [projectsLang])
+
+  // If no categories are defined in projects, use these defaults
+  const defaultCategories: ProjectCategory[] = [
+    'web',
+    'mobile',
+    'ai',
+    'backend',
+    'fullstack',
+  ]
+
+  // Extract all unique tags from projects
+  const allTags = useMemo(() => {
+    const tags = new Set<string>()
+    projectsLang.forEach((project) => {
+      project.tags.forEach((tag) => tags.add(tag))
+    })
+    return Array.from(tags)
+  }, [projectsLang])
+
+  // Filter projects based on selected filters
+  const filteredProjects = useMemo(() => {
+    return projectsLang.filter((project) => {
+      // Filter by categories if any are selected
+      if (selectedCategories.length > 0) {
+        const projectCategories = Array.isArray(project.category)
+          ? project.category
+          : project.category
+          ? [project.category]
+          : []
+
+        if (
+          !projectCategories.some((cat) => selectedCategories.includes(cat))
+        ) {
+          return false
+        }
+      }
+
+      // Filter by tags if any are selected
+      if (selectedTags.length > 0) {
+        if (!selectedTags.some((tag) => project.tags.includes(tag))) {
+          return false
+        }
+      }
+
+      // Filter by search query
+      if (searchQuery) {
+        const query = searchQuery.toLowerCase()
+        const matchesTitle = project.title.toLowerCase().includes(query)
+        const matchesDescription = project.description
+          .toLowerCase()
+          .includes(query)
+        const matchesTags = project.tags.some((tag) =>
+          tag.toLowerCase().includes(query)
+        )
+
+        if (!matchesTitle && !matchesDescription && !matchesTags) {
+          return false
+        }
+      }
+
+      return true
+    })
+  }, [projectsLang, selectedCategories, selectedTags, searchQuery])
+
+  // Handle loading more projects
+  const handleLoadMore = useCallback(() => {
+    setVisibleProjects((prev) => prev + 3)
+  }, [])
+
+  // Current projects to display
+  const currentProjects = useMemo(() => {
+    return filteredProjects.slice(0, visibleProjects)
+  }, [filteredProjects, visibleProjects])
+
+  // Check if there are more projects to load
+  const hasMoreProjects = filteredProjects.length > visibleProjects
 
   return (
     <Stack
@@ -43,12 +155,7 @@ const FeaturedWorksSection = () => {
         className={styles.skillModal}
       />
 
-      <AnimatedContainer
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        width="100%"
-      >
+      <AnimatedElement animation="fadeIn" width="100%">
         <StyledHeading
           size={{ base: 'xl', sm: '2xl', md: '2xl', lg: '3xl' }}
           width="100%"
@@ -71,53 +178,108 @@ const FeaturedWorksSection = () => {
         >
           {t('projects.title')}
         </StyledHeading>
-      </AnimatedContainer>
+      </AnimatedElement>
 
-      <AnimatedContainer width="100%" delay={0.2}>
+      {/* Project filters */}
+      <ProjectFilters
+        categories={selectedCategories}
+        allCategories={
+          allCategories.length > 0 ? allCategories : defaultCategories
+        }
+        allTags={allTags}
+        onCategoryChange={setSelectedCategories}
+        onSearchChange={setSearchQuery}
+        onTagsChange={setSelectedTags}
+      />
+
+      <AnimatedElement animation="fadeInUp" width="100%" delay={0.2}>
         <Box
           className={styles.glassCard}
           p={{ base: 4, sm: 6, md: 8 }}
           borderRadius="xl"
           width="100%"
         >
-          <ResponsiveGrid
-            columns={{ base: 1, sm: 1, md: 2, lg: 2, xl: 3 }}
-            spacing={{ base: 8, sm: 10, md: 12 }}
-            width="100%"
-            justifyContent="center"
-          >
-            {projectsLang.map((project, idx) => (
-              <AnimatedBox
-                key={project.id}
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3 }}
+          {currentProjects.length > 0 ? (
+            <StaggeredContainer staggerAmount={0.1} animation="fadeInUp">
+              <ResponsiveGrid
+                columns={{ base: 1, sm: 1, md: 2, lg: 2, xl: 3 }}
+                spacing={{ base: 8, sm: 10, md: 12 }}
                 width="100%"
-                height="100%"
-                delay={idx * 0.1}
-                role="group"
-                className={styles.techItem}
+                justifyContent="center"
               >
-                <FeaturedCard
-                  idx={idx + 1}
-                  title={project.title}
-                  description={project.description}
-                  src={project.imgs[0]}
-                  height={{
-                    base: '220px',
-                    sm: '240px',
-                    md: '270px',
-                    lg: '300px',
-                    xl: '320px',
-                  }}
-                  ctaUrl={project.linkDemo}
-                  objectPosition="center"
-                  project={project}
-                />
-              </AnimatedBox>
-            ))}
-          </ResponsiveGrid>
+                {currentProjects.map((project, idx) => (
+                  <AnimatedElement
+                    key={project.id}
+                    animation="fadeInUp"
+                    delay={idx * 0.1}
+                    width="100%"
+                    height="100%"
+                  >
+                    <FeaturedCard
+                      idx={idx + 1}
+                      title={project.title}
+                      description={project.description}
+                      src={project.imgs[0]}
+                      height={{
+                        base: '220px',
+                        sm: '240px',
+                        md: '270px',
+                        lg: '300px',
+                        xl: '320px',
+                      }}
+                      ctaUrl={project.linkDemo}
+                      objectPosition="center"
+                      project={project}
+                    />
+                  </AnimatedElement>
+                ))}
+              </ResponsiveGrid>
+            </StaggeredContainer>
+          ) : (
+            <Flex
+              direction="column"
+              align="center"
+              justify="center"
+              py={16}
+              bg={useColorModeValue('gray.50', 'gray.700')}
+              borderRadius="lg"
+            >
+              <Text fontSize="lg" mb={4}>
+                {t('projects.no_results') || 'No projects match your filters'}
+              </Text>
+              <Button
+                onClick={() => {
+                  setSelectedCategories([])
+                  setSelectedTags([])
+                  setSearchQuery('')
+                }}
+                colorScheme="blue"
+                variant="outline"
+              >
+                {t('projects.clear_filters') || 'Clear filters'}
+              </Button>
+            </Flex>
+          )}
+
+          {/* Load more button */}
+          {hasMoreProjects && (
+            <Flex justify="center" mt={10}>
+              <Button
+                onClick={handleLoadMore}
+                variant="outline"
+                colorScheme="blue"
+                size="lg"
+                rightIcon={<FaLongArrowAltDown />}
+                _hover={{
+                  transform: 'translateY(2px)',
+                }}
+              >
+                {t('projects.load_more') || 'Load more'}
+              </Button>
+            </Flex>
+          )}
         </Box>
-      </AnimatedContainer>
+      </AnimatedElement>
     </Stack>
   )
 }

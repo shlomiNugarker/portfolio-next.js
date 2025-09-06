@@ -18,7 +18,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({
   const { toggleColorMode, colorMode } = useColorMode()
   const isDarkMode = colorMode === ThemeMode.Dark
   const ThemeIcon = isDarkMode ? SunIcon : MoonIcon
-  
+
   return (
     <>
       <IconButton
@@ -36,4 +36,4 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({
   )
 }
 
-export default ThemeToggle 
+export default ThemeToggle

@@ -6,27 +6,70 @@ import {
   Box,
   useBreakpointValue,
   BoxProps,
+  Spinner,
+  Flex,
 } from '@chakra-ui/react'
 import dynamic from 'next/dynamic'
-import { Suspense, ReactNode } from 'react'
+import { Suspense, ReactNode, lazy } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
-// Components
-import OpenGraphHead from 'components/Misc/OpenGraphHead'
-import FadeInLayout from 'components/Layout/FadeWhenVisible'
-import Menu from 'components/Menu'
-import Sidebar from 'components/Sidebar'
-import About from 'components/Sections/About'
-import FeaturedWorks from 'components/Sections/FeaturedWorks'
-import ScrollMore from 'components/Misc/ScrollMore'
-import ErrorBoundary from 'components/Misc/ErrorBoundary'
-import LoadingFallback from 'components/Misc/LoadingFallback'
-import ButterflyButton from 'components/Misc/ButterflyButton'
+// Components with static imports
+import { OpenGraphHead, ErrorBoundary, LoadingFallback } from 'components/Misc'
 
 // Import the Core components instead of using direct imports
 import { AnimatedBox, Container, Section } from 'components/Core'
 import { layoutConfig } from 'styles/theme/tokens'
-import useResponsive from 'hooks/theme/useResponsive'
+import { useResponsiveLayout } from 'hooks'
+
+// Dynamic imports for better code splitting
+const Menu = dynamic(() => import('components/Menu'), {
+  loading: () => (
+    <Flex justify="center" align="center" h="60px">
+      <Spinner size="sm" color="blue.500" />
+    </Flex>
+  ),
+  ssr: true,
+})
+
+const Sidebar = dynamic(() => import('components/Sidebar'), {
+  loading: () => <LoadingFallback />,
+  ssr: true,
+})
+
+const FadeInLayout = dynamic(
+  () => import('components/Layout/FadeWhenVisible'),
+  {
+    ssr: true,
+  }
+)
+
+const LazySection = dynamic(() => import('components/Layout/LazySection'), {
+  ssr: false,
+})
+
+const About = dynamic(() => import('components/Sections/About'), {
+  loading: () => <LoadingFallback />,
+  ssr: true,
+})
+
+const FeaturedWorks = dynamic(
+  () => import('components/Sections/FeaturedWorks'),
+  {
+    loading: () => <LoadingFallback />,
+    ssr: true,
+  }
+)
+
+const ScrollMore = dynamic(() => import('components/Misc/ScrollMore'), {
+  ssr: false,
+})
+
+const ButterflyButton = dynamic(
+  () => import('components/Misc/ButterflyButton'),
+  {
+    ssr: false,
+  }
+)
 
 // Constants
 export const SUPPORTED_LOCALES = [
@@ -109,8 +152,8 @@ const ContentSection = ({ id, children, ...props }: ContentSectionProps) => (
  * Main Portfolio component
  */
 const Portfolio = ({ locale }: PortfolioProps): JSX.Element => {
-  // Use our responsive hook instead of individual breakpoint values
-  const responsive = useResponsive()
+  // Use our enhanced responsive layout hook
+  const responsive = useResponsiveLayout()
 
   return (
     <Box overflowX="hidden">
@@ -125,8 +168,8 @@ const Portfolio = ({ locale }: PortfolioProps): JSX.Element => {
         >
           {/* Sidebar section */}
           <GridItem
-            padding={responsive.sideBarPadding}
-            marginTop={responsive.topPadding}
+            padding={responsive.sidebar.padding}
+            marginTop={{ base: 4, md: 8, lg: 10 }}
             rowSpan={2}
             colSpan={{ base: 1, sm: 1, md: 1, lg: 1, xl: 2 }}
             display="flex"
@@ -141,12 +184,12 @@ const Portfolio = ({ locale }: PortfolioProps): JSX.Element => {
           {/* Main content section */}
           <GridItem
             as="main"
-            padding={responsive.mainContent}
+            padding={responsive.mainContent.padding}
             rowSpan={2}
             colSpan={{ base: 1, sm: 2, md: 2, lg: 3, xl: 3 }}
             overflow="hidden"
           >
-            <Stack w="100%" spacing={responsive.spacing.md}>
+            <Stack w="100%" spacing={responsive.section.gap}>
               {/* About section */}
               <ContentSection
                 id="aboutMe"
@@ -163,23 +206,31 @@ const Portfolio = ({ locale }: PortfolioProps): JSX.Element => {
                 <About />
               </ContentSection>
 
-              {/* Works section */}
-              <ContentSection
-                id="works"
-                paddingTop={{ base: 0, lg: 20, xl: 20 }}
-                paddingBottom={{ base: 12, lg: 10 }}
-                paddingX={0}
-                flexDirection="row"
-              >
-                <FeaturedWorks />
-              </ContentSection>
+              {/* Works section - lazy loaded */}
+              <LazySection id="works" animation="fadeUp" threshold={0.05}>
+                <ContentSection
+                  paddingTop={{ base: 0, lg: 20, xl: 20 }}
+                  paddingBottom={{ base: 12, lg: 10 }}
+                  paddingX={0}
+                  flexDirection="row"
+                >
+                  <FeaturedWorks />
+                </ContentSection>
+              </LazySection>
 
-              {/* Contact section */}
-              <ContentSection id="contact" paddingX={0} flexDirection="row">
-                <Suspense fallback={<LoadingFallback />}>
-                  <GetInTouch />
-                </Suspense>
-              </ContentSection>
+              {/* Contact section - lazy loaded */}
+              <LazySection
+                id="contact"
+                animation="fadeUp"
+                threshold={0.05}
+                delay={200}
+              >
+                <ContentSection paddingX={0} flexDirection="row">
+                  <Suspense fallback={<LoadingFallback />}>
+                    <GetInTouch />
+                  </Suspense>
+                </ContentSection>
+              </LazySection>
             </Stack>
           </GridItem>
         </Grid>

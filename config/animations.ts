@@ -130,17 +130,118 @@ const galleryStagger: MotionVariant = {
   animate: { transition: { staggerChildren: 0.2 } },
 }
 
+/**
+ * Simple fade in animation.
+ */
+const fadeIn: MotionVariant = {
+  initial: { opacity: 0 },
+  animate: {
+    opacity: 1,
+    transition: { duration: DURATIONS.Fast, ease: easing },
+  },
+  exit: { opacity: 0 },
+}
+
+/**
+ * Fade in from left animation.
+ */
+const fadeInLeft: MotionVariant = {
+  initial: { x: -60, opacity: 0 },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: { duration: DURATIONS.Fast, ease: easing },
+  },
+  exit: { x: -60, opacity: 0 },
+}
+
+/**
+ * Fade in from right animation.
+ */
+const fadeInRight: MotionVariant = {
+  initial: { x: 60, opacity: 0 },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: { duration: DURATIONS.Fast, ease: easing },
+  },
+  exit: { x: 60, opacity: 0 },
+}
+
+/**
+ * Container for staggered children animations.
+ */
+const staggerContainer: MotionVariant = {
+  initial: {},
+  animate: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3,
+    },
+  },
+}
+
+/**
+ * Zoom in animation.
+ */
+const zoomIn: MotionVariant = {
+  initial: { scale: 0.9, opacity: 0 },
+  animate: {
+    scale: 1,
+    opacity: 1,
+    transition: { duration: DURATIONS.Fast, ease: easing },
+  },
+  exit: { scale: 0.9, opacity: 0 },
+}
+
+/**
+ * Bounce animation.
+ */
+const bounce: MotionVariant = {
+  initial: { y: 0 },
+  animate: {
+    y: [0, -15, 0],
+    transition: {
+      duration: 0.6,
+      repeat: Infinity,
+      repeatType: 'reverse',
+    },
+  },
+}
+
+/**
+ * Pulse animation.
+ */
+const pulse: MotionVariant = {
+  initial: { scale: 1 },
+  animate: {
+    scale: [1, 1.05, 1],
+    transition: {
+      duration: 1.5,
+      repeat: Infinity,
+      repeatType: 'reverse',
+    },
+  },
+}
+
 // Exporting all defined animations
 export {
   DURATIONS,
   easing,
   fadeInUp,
   fadeInUpSlower,
+  fadeIn,
+  fadeInLeft,
+  fadeInRight,
   letterSpace,
   stagger,
+  staggerContainer,
   galleryStagger,
   simpleOpacity,
   menuAnim,
   scaleUp,
+  zoomIn,
+  bounce,
+  pulse,
   avatarAnimation,
 }
